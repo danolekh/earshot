@@ -1,6 +1,6 @@
 {
   "name": "@danolekh/earshot",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Headless React parts for voice-agent UIs: a live orb drawn by a WebGL shader, audio visualizers, a streaming transcript with word timing and interruptions, and a call-review timeline with a keyboard scrubber, tool calls, latency and judge verdicts. One conversation model, vendor formats in, no styles shipped.",
   "keywords": [
     "ai-agent",

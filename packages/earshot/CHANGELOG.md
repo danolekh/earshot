@@ -1,5 +1,13 @@
 # Changelog
 
+## 0.1.1
+
+**Fixed**
+
+- A sideways trackpad swipe at the start of the call no longer goes back a page. The scrubber takes
+  every wheel with a real sideways part as a pan (a third of it is enough), including at the edge
+  where the view can't move, and contains its overscroll.
+
 ## 0.1.0
 
 First release: headless React parts for the screens around a voice agent, and the model and

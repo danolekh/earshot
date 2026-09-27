@@ -205,7 +205,9 @@ export function TimelineScrubber(props: TimelineScrubberProps): React.ReactEleme
     return v.from + frac((clientX - box.left) / box.width, 1) * (v.to - v.from);
   };
 
-  // Wheel zoom and pan: a non-passive listener, so the page doesn't scroll under a pinch.
+  // Wheel zoom and pan: a non-passive listener, so the page doesn't scroll under a pinch. Any wheel
+  // with a real sideways part is a pan and is consumed, even at the edge where the view can't
+  // move: left to the browser, a sideways overscroll is a trackpad's back gesture.
   useEffect(() => {
     const el = ref.current;
     if (!el || !zoom) return;
@@ -217,7 +219,7 @@ export function TimelineScrubber(props: TimelineScrubberProps): React.ReactEleme
         e.preventDefault();
         const anchor = v.from + frac((e.clientX - box.left) / box.width, 1) * (v.to - v.from);
         viewport.zoom(Math.exp(e.deltaY * 0.01), anchor);
-      } else if (e.shiftKey || Math.abs(e.deltaX) > Math.abs(e.deltaY)) {
+      } else if (e.shiftKey || (e.deltaX !== 0 && Math.abs(e.deltaX) * 2 >= Math.abs(e.deltaY))) {
         e.preventDefault();
         const px = e.shiftKey && !e.deltaX ? e.deltaY : e.deltaX;
         viewport.pan((px / box.width) * (v.to - v.from));
@@ -245,7 +247,7 @@ export function TimelineScrubber(props: TimelineScrubberProps): React.ReactEleme
       "aria-valuemax": Math.floor(duration),
       "aria-valuenow": second,
       "aria-valuetext": valueText ? valueText(second, text) : text,
-      style: { position: "relative", touchAction: "none", userSelect: "none" },
+      style: { position: "relative", touchAction: "none", userSelect: "none", overscrollBehavior: "contain" },
       onPointerDown: (e: React.PointerEvent<HTMLElement>) => {
         if (e.button !== 0) return;
         e.currentTarget.setPointerCapture(e.pointerId);

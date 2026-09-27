@@ -70,3 +70,53 @@ describe("a transcript following playback", () => {
     expect(root.hasAttribute("data-following")).toBe(false);
   });
 });
+
+describe("the scrubber's wheel", () => {
+  function setup() {
+    const viewport = createViewport(call.duration, { initial: { from: 0, to: 2 } });
+    render(
+      <Player.Root conversation={call} clock={manualClock()}>
+        <Timeline.Root viewport={viewport}>
+          <Timeline.Scrubber zoom />
+        </Timeline.Root>
+      </Player.Root>,
+    );
+    const slider = screen.getByRole("slider");
+    // happy-dom lays nothing out; the wheel needs the scrubber's width.
+    slider.getBoundingClientRect = () => ({
+      left: 0,
+      top: 0,
+      width: 1000,
+      height: 100,
+      right: 1000,
+      bottom: 100,
+      x: 0,
+      y: 0,
+      toJSON: () => ({}),
+    });
+    const wheel = ({ ctrlKey = false, clientX = 0, ...init }: WheelEventInit) => {
+      const e = new WheelEvent("wheel", { bubbles: true, cancelable: true, ...init });
+      // happy-dom's WheelEvent drops the modifier keys and the pointer position.
+      Object.defineProperties(e, { ctrlKey: { value: ctrlKey }, clientX: { value: clientX } });
+      slider.dispatchEvent(e);
+      return e;
+    };
+    return { viewport, wheel };
+  }
+
+  it("keeps a sideways swipe at the start of the call from reaching the browser", () => {
+    const { viewport, wheel } = setup();
+    // Past the start, and mostly downward: a trackpad swipe that begins at an angle.
+    expect(wheel({ deltaX: -40, deltaY: -30 }).defaultPrevented).toBe(true);
+    expect(wheel({ deltaX: -20, deltaY: -40 }).defaultPrevented).toBe(true);
+    expect(viewport.get().from).toBe(0);
+  });
+
+  it("leaves a plain vertical scroll to the page, and zooms with Ctrl", () => {
+    const { viewport, wheel } = setup();
+    expect(wheel({ deltaY: 40 }).defaultPrevented).toBe(false);
+    expect(wheel({ deltaX: 5, deltaY: 40 }).defaultPrevented).toBe(false);
+    expect(wheel({ deltaY: -100, ctrlKey: true, clientX: 500 }).defaultPrevented).toBe(true);
+    expect(viewport.get().to - viewport.get().from).toBeLessThan(2);
+  });
+});

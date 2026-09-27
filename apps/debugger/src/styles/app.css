@@ -135,6 +135,12 @@
   * {
     @apply border-border outline-ring/50;
   }
+  /* A sideways overscroll is a trackpad's back gesture. Nothing here scrolls the page sideways (the
+   * timeline pans itself), so it never goes back a page, in a tab or in an embed. */
+  html,
+  body {
+    overscroll-behavior-x: none;
+  }
   body {
     @apply bg-background text-foreground font-sans antialiased;
   }
