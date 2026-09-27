@@ -26,6 +26,7 @@ import {
 import type * as React from "react";
 import { useEffect, useSyncExternalStore } from "react";
 
+// oxlint-disable-next-line import/no-unassigned-import -- the block brings its own layout
 import "./call-inspector.css";
 
 /* Why a call went wrong, from earshot's headless parts: what the detectors found, to pick from, and
