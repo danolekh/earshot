@@ -42,35 +42,38 @@ export function segments(filmed: Filmed): Segment[] {
   return out.map((s) => ({ ...s, at: Math.max(0, (s.at - filmed.start - filmed.interval) / 1000) }));
 }
 
-/** Writes the video with its sound in place of the silent one. */
+/** Writes the video with its sound in place of the silent one. Each stretch reads the recording
+ * through its own input, seeked to where it starts: one input shared by stretches that overlap in
+ * the call makes ffmpeg's mix run on without end. */
 export function mux(filmed: Filmed, out: string): Segment[] {
   const segs = segments(filmed);
-  const calls = [...new Set(segs.map((s) => s.callId))];
-  const inputs = calls.flatMap((id) => {
-    const file = `${CALLS}${id}/call.mp3`;
-    if (!existsSync(file)) throw new Error(`no recording for ${id}: ${file}`);
-    return ["-i", file];
+  const inputs = segs.flatMap((s) => {
+    const file = `${CALLS}${s.callId}/call.mp3`;
+    if (!existsSync(file)) throw new Error(`no recording for ${s.callId}: ${file}`);
+    return ["-ss", s.from.toFixed(4), "-t", (s.to - s.from).toFixed(4), "-i", file];
   });
   const fade = 0.008;
   const parts = segs.map((s, k) => {
     const len = s.to - s.from;
     return (
-      `[${calls.indexOf(s.callId) + 1}:a]atrim=start=${s.from.toFixed(4)}:end=${s.to.toFixed(4)},asetpts=PTS-STARTPTS,` +
-      "aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo," +
+      `[${k + 1}:a]asetpts=PTS-STARTPTS,aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,` +
       // Caller left and agent right in the file; brought a little closer for headphones.
       "pan=stereo|c0=0.75*c0+0.25*c1|c1=0.25*c0+0.75*c1," +
       `afade=t=in:d=${fade},afade=t=out:st=${Math.max(0, len - fade).toFixed(4)}:d=${fade},` +
       `adelay=${Math.round(s.at * 1000)}:all=1[a${k}]`
     );
   });
+  const end = filmed.duration.toFixed(3);
   const graph = segs.length
-    ? `${parts.join(";")};${segs.map((_, k) => `[a${k}]`).join("")}amix=inputs=${segs.length}:normalize=0,apad,atrim=end=${filmed.duration.toFixed(3)}[out]`
-    : `anullsrc=r=48000:cl=stereo,atrim=end=${filmed.duration.toFixed(3)}[out]`;
+    ? `${parts.join(";")};${segs.map((_, k) => `[a${k}]`).join("")}amix=inputs=${segs.length}:normalize=0:duration=longest,apad=whole_dur=${end}[out]`
+    : `anullsrc=r=48000:cl=stereo,atrim=end=${end}[out]`;
   const tmp = `${out}.tmp.mp4`;
   execFileSync("ffmpeg", [
     ...["-y", "-loglevel", "error", "-i", filmed.video, ...inputs],
     ...["-filter_complex", graph, "-map", "0:v", "-map", "[out]"],
-    ...["-c:v", "copy", "-c:a", "aac", "-b:a", "192k", "-movflags", "+faststart", tmp],
+    ...["-c:v", "copy", "-c:a", "aac", "-b:a", "192k"],
+    // Bounded by the video's length whatever the audio graph does.
+    ...["-t", end, "-movflags", "+faststart", tmp],
   ]);
   renameSync(tmp, out);
   return segs;

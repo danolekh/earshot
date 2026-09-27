@@ -65,7 +65,8 @@ export const COMPANIES: readonly Company[] = [
     slug: "synthflow",
     company: "Synthflow",
     team: "engineering team",
-    call: "tarif-wechsel",
+    // The dead air here comes from a slow tool (the tariff call's comes from the model).
+    call: "stadtwerke-zaehlerstand",
     lead: "dead_air",
     then: "slow_turn",
   },

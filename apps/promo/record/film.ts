@@ -263,6 +263,7 @@ export class Film {
   /** Takes the cursor off the frame (before a closing card, say). */
   async away(ms = 500): Promise<void> {
     await this.move([this.view.width + 80, this.view.height - 40], ms);
+    await this.page.evaluate(() => (window as any).__cursor?.hide());
   }
 
   async click(hold = 110): Promise<void> {

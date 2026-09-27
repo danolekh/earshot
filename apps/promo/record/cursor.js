@@ -51,6 +51,9 @@
     },
     true,
   );
+  // Off the frame for good (before a closing card): a pointer moved past the edge still reports
+  // its last position inside the window.
+  window.__cursor = { hide: () => (root.style.opacity = "0") };
   addEventListener("pointerdown", () => press(true), true);
   addEventListener("pointerup", () => press(false), true);
 })();
