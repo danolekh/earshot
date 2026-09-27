@@ -1,0 +1,181 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://earshot.danolekh.com/schema/call-test.v1.json",
+  "title": "TestCase",
+  "description": "What an agent should have done at a bad moment of a call, as checks that run on any call of the same flow (earshot/trace runTestCase). A check looks at one turn (by id on its own call, by its anchor on others) or at the whole call.",
+  "type": "object",
+  "required": ["version", "name", "source", "context", "checks"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "name": {
+      "type": "string"
+    },
+    "source": {
+      "type": "object",
+      "required": ["callId", "turns", "at"],
+      "additionalProperties": false,
+      "properties": {
+        "callId": {
+          "type": "string"
+        },
+        "turns": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "at": {
+          "type": "number",
+          "minimum": 0,
+          "description": "Seconds from the recording start."
+        }
+      }
+    },
+    "context": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "promptVersion": {
+          "type": "string"
+        },
+        "model": {
+          "type": "string"
+        },
+        "messages": {
+          "type": "integer",
+          "minimum": 0
+        }
+      }
+    },
+    "checks": {
+      "type": "array",
+      "items": {
+        "oneOf": [
+          {
+            "type": "object",
+            "description": "The detector for `finding` flags nothing there.",
+            "required": ["kind", "finding"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "no_finding"
+              },
+              "finding": {
+                "enum": [
+                  "slow_turn",
+                  "dead_air",
+                  "talk_over",
+                  "agent_did_not_stop",
+                  "false_interruption",
+                  "early_endpoint",
+                  "low_asr_confidence",
+                  "heard_vs_said",
+                  "tool_error",
+                  "slow_tool",
+                  "repeat",
+                  "disclosure_missing",
+                  "human_feedback"
+                ]
+              },
+              "turn": {
+                "type": "string",
+                "description": "The turn on the call the check was drafted from."
+              },
+              "at": {
+                "$ref": "#/$defs/anchor"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "The agent’s reply there (or every reply) starts within ’seconds` of the caller’s last word.",
+            "required": ["kind", "seconds"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "reply_within"
+              },
+              "seconds": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "turn": {
+                "type": "string",
+                "description": "The turn on the call the check was drafted from."
+              },
+              "at": {
+                "$ref": "#/$defs/anchor"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "Every word of `text` is among what the recogniser heard there, in order.",
+            "required": ["kind", "text"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "hears"
+              },
+              "text": {
+                "type": "string"
+              },
+              "turn": {
+                "type": "string",
+                "description": "The turn on the call the check was drafted from."
+              },
+              "at": {
+                "$ref": "#/$defs/anchor"
+              }
+            }
+          },
+          {
+            "type": "object",
+            "description": "Every call of `tool` there succeeds, and there’s at least one.",
+            "required": ["kind", "tool"],
+            "additionalProperties": false,
+            "properties": {
+              "kind": {
+                "const": "tool_succeeds"
+              },
+              "tool": {
+                "type": "string"
+              },
+              "turn": {
+                "type": "string",
+                "description": "The turn on the call the check was drafted from."
+              },
+              "at": {
+                "$ref": "#/$defs/anchor"
+              }
+            }
+          }
+        ]
+      }
+    }
+  },
+  "$defs": {
+    "anchor": {
+      "type": "object",
+      "description": "How a check finds its turn on another call: among the caller turns with most of these words in order, the nth (first by default), or (with reply) the agent’s reply to it.",
+      "required": ["said"],
+      "additionalProperties": false,
+      "properties": {
+        "said": {
+          "type": "string"
+        },
+        "reply": {
+          "type": "boolean"
+        },
+        "nth": {
+          "type": "integer",
+          "minimum": 0,
+          "description": "Which of the turns like it, in order: the moment is the same one even where the words were heard differently."
+        }
+      }
+    }
+  }
+}

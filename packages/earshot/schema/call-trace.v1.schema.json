@@ -1,0 +1,696 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://earshot.danolekh.com/schema/call-trace.v1.json",
+  "title": "CallTrace",
+  "description": "One call on one clock: turns, the pipeline's spans, turn-taking signals, word tiers and findings. Every time is seconds from the recording's first sample; clock.t0UnixMs anchors them to wall-clock time. (The research draft's ms fields, `events` and `markers` are seconds, `signals` and `findings` here.)",
+  "type": "object",
+  "required": ["version", "call", "clock", "turns", "spans", "signals", "words", "findings"],
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": 1
+    },
+    "call": {
+      "type": "object",
+      "required": ["id", "duration"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "duration": {
+          "$ref": "#/$defs/seconds"
+        },
+        "title": {
+          "type": "string"
+        },
+        "direction": {
+          "enum": ["inbound", "outbound"]
+        },
+        "language": {
+          "type": "string"
+        },
+        "startedAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "outcome": {
+          "type": "object"
+        },
+        "consent": {
+          "enum": ["pending", "granted", "declined", "withdrawn", "not_required"]
+        },
+        "versions": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "synthetic": {
+          "type": "boolean"
+        },
+        "provider": {
+          "type": "string",
+          "description": "The stack that recorded it: livekit, pipecat, elevenlabs..."
+        }
+      }
+    },
+    "clock": {
+      "type": "object",
+      "required": ["t0UnixMs", "channels"],
+      "additionalProperties": false,
+      "properties": {
+        "t0UnixMs": {
+          "type": "number",
+          "description": "Unix ms of the recording's first sample."
+        },
+        "sampleRate": {
+          "type": "integer"
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/audioChannel"
+          }
+        },
+        "tolerance": {
+          "$ref": "#/$defs/seconds",
+          "description": "How far audio and span times may disagree."
+        },
+        "pstnOffset": {
+          "type": "number",
+          "description": "Measured offset between server audio and the caller's phone, seconds."
+        }
+      }
+    },
+    "audio": {
+      "type": "object",
+      "required": ["sources"],
+      "additionalProperties": false,
+      "properties": {
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["src", "type"],
+            "additionalProperties": false,
+            "properties": {
+              "src": {
+                "type": "string"
+              },
+              "type": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "peaks": {
+          "type": "object",
+          "description": "The finest min/max level per channel, signed 8-bit, base64.",
+          "propertyNames": {
+            "$ref": "#/$defs/audioChannel"
+          },
+          "additionalProperties": {
+            "type": "object",
+            "required": ["rate", "min", "max"],
+            "additionalProperties": false,
+            "properties": {
+              "rate": {
+                "type": "number",
+                "exclusiveMinimum": 0
+              },
+              "min": {
+                "type": "string",
+                "contentEncoding": "base64"
+              },
+              "max": {
+                "type": "string",
+                "contentEncoding": "base64"
+              }
+            }
+          }
+        }
+      }
+    },
+    "turns": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/turn"
+      }
+    },
+    "spans": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/span"
+      }
+    },
+    "signals": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/signal"
+      }
+    },
+    "words": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/word"
+      }
+    },
+    "speech": {
+      "type": "object",
+      "description": "Where each channel has speech, from the recording. A mono recording has it on mixed.",
+      "propertyNames": {
+        "$ref": "#/$defs/audioChannel"
+      },
+      "additionalProperties": {
+        "type": "array",
+        "items": {
+          "$ref": "#/$defs/interval"
+        }
+      }
+    },
+    "findings": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/finding"
+      }
+    }
+  },
+  "$defs": {
+    "seconds": {
+      "type": "number",
+      "minimum": 0
+    },
+    "time": {
+      "type": "number",
+      "description": "Seconds from the recording's start; may be negative for work before it."
+    },
+    "channel": {
+      "enum": ["caller", "agent"]
+    },
+    "audioChannel": {
+      "description": "What an audio channel carries: one side, or both mixed (a mono recording).",
+      "enum": ["caller", "agent", "mixed"]
+    },
+    "interval": {
+      "type": "object",
+      "required": ["start", "end"],
+      "additionalProperties": false,
+      "properties": {
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "description": "OpenTelemetry attributes as plain JSON (lk.*, gen_ai.*).",
+      "additionalProperties": true
+    },
+    "chatMessage": {
+      "type": "object",
+      "required": ["role", "content"],
+      "additionalProperties": false,
+      "properties": {
+        "role": {
+          "type": "string"
+        },
+        "content": {
+          "type": "string"
+        },
+        "toolCalls": {
+          "type": "array",
+          "items": {
+            "$ref": "#/$defs/toolCallRequest"
+          }
+        },
+        "toolCallId": {
+          "type": "string"
+        }
+      }
+    },
+    "toolCallRequest": {
+      "type": "object",
+      "required": ["name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "arguments": {}
+      }
+    },
+    "turn": {
+      "type": "object",
+      "required": ["id", "channel", "start", "end", "text"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "channel": {
+          "$ref": "#/$defs/channel"
+        },
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "text": {
+          "type": "string"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "speechId": {
+          "type": "string",
+          "description": "LiveKit lk.speech_id."
+        },
+        "replyTo": {
+          "type": "string",
+          "description": "For an agent turn: the caller turn it answers."
+        },
+        "interrupted": {
+          "type": "object",
+          "required": ["at"],
+          "additionalProperties": false,
+          "properties": {
+            "at": {
+              "$ref": "#/$defs/time"
+            },
+            "heardUntil": {
+              "$ref": "#/$defs/time"
+            },
+            "heardText": {
+              "type": "string"
+            }
+          }
+        },
+        "latency": {
+          "type": "object",
+          "description": "Seconds: waveformGap measured on the recording, the rest as the pipeline reported them.",
+          "additionalProperties": false,
+          "properties": {
+            "waveformGap": {
+              "type": "number"
+            },
+            "e2e": {
+              "type": "number"
+            },
+            "endOfTurn": {
+              "type": "number"
+            },
+            "transcription": {
+              "type": "number"
+            },
+            "llmTtft": {
+              "type": "number"
+            },
+            "tool": {
+              "type": "number"
+            },
+            "ttsTtfb": {
+              "type": "number"
+            }
+          }
+        },
+        "context": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "string"
+          }
+        },
+        "estimated": {
+          "type": "boolean",
+          "description": "Its edges are guessed (the source gave no measured start or end), not measured."
+        }
+      }
+    },
+    "span": {
+      "type": "object",
+      "required": ["id", "name", "kind", "start", "end", "attributes"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "traceId": {
+          "type": "string"
+        },
+        "parentId": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "kind": {
+          "enum": [
+            "session",
+            "user_turn",
+            "eou",
+            "stt",
+            "agent_turn",
+            "llm",
+            "tool",
+            "tts",
+            "playout",
+            "other"
+          ]
+        },
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "turnId": {
+          "type": "string"
+        },
+        "process": {
+          "type": "string"
+        },
+        "status": {
+          "type": "object",
+          "required": ["code"],
+          "additionalProperties": false,
+          "properties": {
+            "code": {
+              "enum": ["unset", "ok", "error"]
+            },
+            "message": {
+              "type": "string"
+            }
+          }
+        },
+        "tool": {
+          "type": "object",
+          "required": ["name"],
+          "additionalProperties": false,
+          "properties": {
+            "name": {
+              "type": "string"
+            },
+            "callId": {
+              "type": "string"
+            },
+            "arguments": {},
+            "result": {},
+            "isError": {
+              "type": "boolean"
+            }
+          }
+        },
+        "attributes": {
+          "$ref": "#/$defs/attributes"
+        },
+        "events": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "at"],
+            "additionalProperties": false,
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "at": {
+                "$ref": "#/$defs/time"
+              },
+              "attributes": {
+                "$ref": "#/$defs/attributes"
+              }
+            }
+          }
+        },
+        "firstChunk": {
+          "$ref": "#/$defs/time",
+          "description": "When its first token or byte arrived."
+        },
+        "llm": {
+          "type": "object",
+          "description": "A model request: the model, its input messages, its output.",
+          "additionalProperties": false,
+          "properties": {
+            "model": {
+              "type": "string"
+            },
+            "messages": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/chatMessage"
+              }
+            },
+            "output": {
+              "type": "string"
+            },
+            "toolCalls": {
+              "type": "array",
+              "items": {
+                "$ref": "#/$defs/toolCallRequest"
+              }
+            }
+          }
+        },
+        "estimated": {
+          "type": "boolean",
+          "description": "Worked out rather than traced (a tool call found only in the next request's input)."
+        }
+      }
+    },
+    "signal": {
+      "type": "object",
+      "required": ["id", "type", "at"],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "vad_speech",
+            "eou_decision",
+            "interruption",
+            "false_interruption",
+            "backchannel",
+            "agent_state",
+            "user_state",
+            "playback_started",
+            "playback_stopped",
+            "consent",
+            "disclosure",
+            "dtmf",
+            "transfer",
+            "amd_verdict",
+            "error"
+          ]
+        },
+        "at": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "channel": {
+          "$ref": "#/$defs/channel"
+        },
+        "turnId": {
+          "type": "string"
+        },
+        "data": {
+          "type": "object"
+        }
+      },
+      "additionalProperties": false,
+      "allOf": [
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "eou_decision"
+              }
+            }
+          },
+          "then": {
+            "required": ["data"],
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": ["wait", "outcome"],
+                "properties": {
+                  "probability": {
+                    "type": "number",
+                    "minimum": 0,
+                    "maximum": 1
+                  },
+                  "wait": {
+                    "type": "number"
+                  },
+                  "outcome": {
+                    "enum": ["committed", "user_resumed", "dropped"]
+                  },
+                  "threshold": {
+                    "type": "number"
+                  }
+                }
+              }
+            }
+          }
+        },
+        {
+          "if": {
+            "properties": {
+              "type": {
+                "const": "interruption"
+              }
+            }
+          },
+          "then": {
+            "required": ["data"],
+            "properties": {
+              "data": {
+                "type": "object",
+                "required": ["decision"],
+                "properties": {
+                  "decision": {
+                    "enum": ["stop", "continue", "resume"]
+                  },
+                  "reason": {
+                    "type": "string"
+                  },
+                  "stopAfter": {
+                    "type": "number"
+                  },
+                  "heardText": {
+                    "type": "string"
+                  }
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "word": {
+      "type": "object",
+      "required": ["id", "channel", "source", "text", "start", "end"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "channel": {
+          "$ref": "#/$defs/channel"
+        },
+        "source": {
+          "enum": ["streaming_asr", "aligned", "tts"],
+          "description": "streaming_asr: what the agent heard; aligned: what was said; tts: what the agent generated."
+        },
+        "text": {
+          "type": "string"
+        },
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "confidence": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "turnId": {
+          "type": "string"
+        },
+        "heard": {
+          "type": "boolean"
+        },
+        "entity": {
+          "type": "string"
+        },
+        "redacted": {
+          "type": "boolean"
+        },
+        "estimated": {
+          "type": "boolean"
+        }
+      }
+    },
+    "finding": {
+      "type": "object",
+      "required": ["id", "type", "start", "end", "severity", "detector", "message", "evidence"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "type": {
+          "enum": [
+            "slow_turn",
+            "dead_air",
+            "talk_over",
+            "agent_did_not_stop",
+            "false_interruption",
+            "early_endpoint",
+            "low_asr_confidence",
+            "heard_vs_said",
+            "tool_error",
+            "slow_tool",
+            "repeat",
+            "disclosure_missing",
+            "human_feedback"
+          ]
+        },
+        "start": {
+          "$ref": "#/$defs/time"
+        },
+        "end": {
+          "$ref": "#/$defs/time"
+        },
+        "severity": {
+          "enum": ["info", "warning", "error"]
+        },
+        "turnId": {
+          "type": "string"
+        },
+        "detector": {
+          "type": "object",
+          "required": ["id", "version"],
+          "additionalProperties": false,
+          "properties": {
+            "id": {
+              "type": "string"
+            },
+            "version": {
+              "type": "integer",
+              "minimum": 1
+            }
+          }
+        },
+        "message": {
+          "type": "string"
+        },
+        "evidence": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "measured": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "number"
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,80 @@
+{
+  "name": "@danolekh/earshot",
+  "version": "0.1.0",
+  "description": "Headless React parts for voice-agent UIs: a live orb drawn by a WebGL shader, audio visualizers, a streaming transcript with word timing and interruptions, and a call-review timeline with a keyboard scrubber, tool calls, latency and judge verdicts. One conversation model, vendor formats in, no styles shipped.",
+  "keywords": [
+    "ai-agent",
+    "base-ui",
+    "call-review",
+    "headless",
+    "react",
+    "transcript",
+    "voice",
+    "voice-agent",
+    "waveform"
+  ],
+  "homepage": "https://earshot.danolekh.com",
+  "license": "MIT",
+  "author": "Dan Olekh <danyaolekhq@gmail.com> (https://danolekh.com)",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danolekh/earshot.git",
+    "directory": "packages/earshot"
+  },
+  "files": [
+    "dist",
+    "schema",
+    "CHANGELOG.md"
+  ],
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./dist/index.js",
+    "./core": "./dist/core/index.js",
+    "./formats": "./dist/formats/index.js",
+    "./audio": "./dist/audio/index.js",
+    "./player": "./dist/player/index.js",
+    "./transcript": "./dist/transcript/index.js",
+    "./timeline": "./dist/timeline/index.js",
+    "./orb": "./dist/orb/index.js",
+    "./visualizer": "./dist/visualizer/index.js",
+    "./trace": "./dist/trace/index.js",
+    "./review": "./dist/review/index.js",
+    "./inspector": "./dist/inspector/index.js",
+    "./schema/call-trace.v1.json": "./schema/call-trace.v1.schema.json",
+    "./schema/call-test.v1.json": "./schema/call-test.v1.schema.json",
+    "./package.json": "./package.json"
+  },
+  "scripts": {
+    "build": "tsdown && node scripts/check-directives.mjs",
+    "dev": "tsdown --watch",
+    "check-types": "tsc --noEmit",
+    "test": "vitest run",
+    "lint:pkg": "publint"
+  },
+  "dependencies": {
+    "@danolekh/gl": "^0.1.0",
+    "math": "0.1.0"
+  },
+  "devDependencies": {
+    "@base-ui/react": "1.8.0",
+    "@testing-library/dom": "^10.4.2",
+    "@testing-library/react": "16.3.3",
+    "@testing-library/user-event": "^14.6.7",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "ajv": "^8.20.0",
+    "happy-dom": "20.14.5",
+    "publint": "0.3.24",
+    "react": "^19.3.0",
+    "react-dom": "^19.3.0",
+    "tsdown": "0.23.0",
+    "typescript": "7.0.2",
+    "vitest": "5.0.1"
+  },
+  "peerDependencies": {
+    "@base-ui/react": "^1.8.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
