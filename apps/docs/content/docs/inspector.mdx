@@ -19,6 +19,13 @@ npx shadcn@latest add https://earshot.danolekh.com/r/call-inspector.json
 ```
 
 ```tsx
+<CallInspector trace={trace} src="/call.ogg" finding={trace.findings[0]?.id} skin="console" />
+```
+
+`finding` opens it at that finding, with its turn picked and playback just before it. The block
+imports its own CSS.
+
+```tsx
 import { Decisions, FindingList, HeardVsSaid, Latency, Prompt, ToolCall } from "@danolekh/earshot/inspector";
 
 <Player.Root conversation={toConversation(trace)} src="/call.ogg">

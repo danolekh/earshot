@@ -2,6 +2,7 @@
 import { formatTime } from "@danolekh/earshot/core";
 import { Decisions, FindingList, HeardVsSaid, Latency, Prompt, ToolCall } from "@danolekh/earshot/inspector";
 import { Player, usePlayer } from "@danolekh/earshot/player";
+import { applyMoment, momentFor } from "@danolekh/earshot/review";
 import { Timeline } from "@danolekh/earshot/timeline";
 import {
   type CallTrace,
@@ -23,7 +24,9 @@ import {
   turnEvidence,
 } from "@danolekh/earshot/trace";
 import type * as React from "react";
-import { useSyncExternalStore } from "react";
+import { useEffect, useSyncExternalStore } from "react";
+
+import "./call-inspector.css";
 
 /* Why a call went wrong, from earshot's headless parts: what the detectors found, to pick from, and
  * for the picked turn what explains it (where the wait went, what was heard against what was said,
@@ -39,10 +42,12 @@ export interface CallInspectorProps {
   title?: string;
   /** Chooses the CSS skin: `[data-skin="…"]`. */
   skin?: string;
+  /** A finding's id to open at: it and its turn are picked, and playback starts just before it. */
+  finding?: string;
   className?: string;
 }
 
-export function CallInspector({ trace, src, title, skin, className }: CallInspectorProps) {
+export function CallInspector({ trace, src, title, skin, finding, className }: CallInspectorProps) {
   const { findings } = trace;
   return (
     <Player.Root
@@ -52,6 +57,7 @@ export function CallInspector({ trace, src, title, skin, className }: CallInspec
       data-skin={skin}
       className={className}
     >
+      {finding && <OpenAt trace={trace} finding={finding} />}
       <header data-inspector="head">
         <div data-inspector="title">
           <strong>{title ?? trace.call.title ?? "Call"}</strong>
@@ -108,6 +114,16 @@ export function CallInspector({ trace, src, title, skin, className }: CallInspec
       </div>
     </Player.Root>
   );
+}
+
+/** Picks a finding once, on mount, and puts the call just before it. */
+function OpenAt({ trace, finding }: { trace: CallTrace; finding: string }) {
+  const { clock, selection } = usePlayer("CallInspector");
+  useEffect(() => {
+    const f = trace.findings.find((x) => x.id === finding);
+    if (f) applyMoment({ clock, selection }, momentFor({ start: f.start, finding: f.id, turn: f.turnId }));
+  }, [trace, finding, clock, selection]);
+  return null;
 }
 
 const TITLES: Readonly<Record<EvidenceKind, string>> = {
