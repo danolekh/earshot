@@ -1,0 +1,70 @@
+name: Release
+
+# After CI passes on main: publish @danolekh/earshot if its version isn't on npm yet. Bumping the
+# version in packages/earshot/package.json is what makes a release; it's tagged `v…`.
+#
+# Publishing uses npm trusted publishing (OIDC), so there's no npm token: the package's settings
+# on npmjs.com name this repo and this file as its trusted publisher. The docs deploy from a
+# machine with wrangler (apps/docs: pnpm build, then wrangler deploy).
+
+on:
+  workflow_run:
+    workflows: [CI]
+    types: [completed]
+    branches: [main]
+
+# One release at a time, in push order; never cancel one half-way through a publish.
+concurrency:
+  group: release
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: github.event.workflow_run.conclusion == 'success' && github.event.workflow_run.event == 'push'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write # the version tag
+      id-token: write # trusted publishing and provenance
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          # The commit CI tested, not whatever main is now.
+          ref: ${{ github.event.workflow_run.head_sha }}
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 24
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+
+      - name: Is this version new?
+        id: version
+        run: |
+          NAME=$(node -p "require('./packages/earshot/package.json').name")
+          VERSION=$(node -p "require('./packages/earshot/package.json').version")
+          echo "version=$VERSION" >> "$GITHUB_OUTPUT"
+          if npm view "$NAME@$VERSION" version > /dev/null 2>&1; then
+            echo "$NAME@$VERSION is already on npm; nothing to publish."
+            echo "new=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "new=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - if: steps.version.outputs.new == 'true'
+        run: pnpm install --frozen-lockfile
+      - if: steps.version.outputs.new == 'true'
+        run: pnpm --filter @danolekh/earshot build
+      # Trusted publishing needs npm 11.5.1 or later.
+      - if: steps.version.outputs.new == 'true'
+        run: npm install --global npm@latest
+      - if: steps.version.outputs.new == 'true'
+        name: Publish
+        working-directory: packages/earshot
+        run: |
+          pnpm pack --pack-destination "$RUNNER_TEMP"
+          npm publish "$RUNNER_TEMP"/*.tgz --access public
+      - if: steps.version.outputs.new == 'true'
+        name: Tag
+        run: |
+          git tag "v${{ steps.version.outputs.version }}"
+          git push origin "v${{ steps.version.outputs.version }}"
