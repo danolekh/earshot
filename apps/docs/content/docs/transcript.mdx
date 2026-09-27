@@ -1,0 +1,112 @@
+---
+title: Transcript
+description: Follows the voice word by word, marks interruptions, shows what the agent did.
+---
+
+```tsx
+<Transcript.Root className="h-96 overflow-auto">
+  <Transcript.Turns gaps={0.7} budget={1.2}>
+    {(turn) => (
+      <Transcript.Turn key={turn.id} turn={turn}>
+        <Transcript.Speaker /> <Transcript.Time /> <Transcript.Seek />
+        <Transcript.Events />
+        <Transcript.Words />
+      </Transcript.Turn>
+    )}
+  </Transcript.Turns>
+  <Transcript.Resume>Jump to now</Transcript.Resume>
+</Transcript.Root>
+```
+
+## State to style
+
+| Part               | Attributes and variables                                                                                         |
+| ------------------ | ---------------------------------------------------------------------------------------------------------------- |
+| `Transcript.Turn`  | `data-role`, `data-active` while it plays, `data-past`, `data-interrupted`, `data-streaming`                     |
+| `Transcript.Word`  | `data-status`: `upcoming`, `active`, `spoken` or `unspoken`; `--word-progress` 0 to 1 over the active word       |
+| `Transcript.Event` | `data-type`, a tool call's `data-status`, a verdict's `data-pass`                                                |
+| `Transcript.Gap`   | `data-kind`: `wait` (the caller waiting for the agent) or `silence`; `data-slow` over `budget`; `--gap-duration` |
+| `Transcript.Root`  | `data-following`, `data-live`, `data-busy`                                                                       |
+
+A word that fills as it's said, in colour only, so nothing reflows:
+
+```css
+[data-slot="transcript-word"][data-status="active"] {
+  color: transparent;
+  background: linear-gradient(90deg, currentColor calc(var(--word-progress) * 100%), #999 0);
+  background-clip: text;
+}
+[data-slot="transcript-word"][data-status="unspoken"] {
+  opacity: 0.35;
+  text-decoration: underline dotted;
+}
+```
+
+## Motion
+
+The parts ship no animation, but they tell CSS (or Motion) what's new:
+
+- A word or turn that arrives after the transcript first rendered gets `data-new`, and a word
+  gets `--word-stagger`, its place in the batch that arrived together. A review transcript's words
+  are never new, so a page doesn't animate its whole call on load.
+- A live turn's tentative tail (speech recognition's interim results, `setInterim`) renders as
+  `Transcript.Interim` after the settled words.
+- Each turn gets `--distance`: how many turns away the one being played is, for depth of field.
+
+```css
+[data-slot="transcript-word"][data-new] {
+  display: inline-block;
+  animation: word-in 180ms cubic-bezier(0.23, 1, 0.32, 1) both;
+  animation-delay: calc(var(--word-stagger) * 30ms);
+}
+@keyframes word-in {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(4px);
+  }
+}
+[data-slot="transcript-interim"] {
+  opacity: 0.55;
+}
+[data-slot="transcript-turn"] {
+  opacity: calc(1 - min(var(--distance), 3) * 0.16);
+}
+```
+
+For turns sliding into place, give `Transcript.Turn` a Motion element through `render`:
+
+```tsx
+<AnimatePresence initial={false}>
+  {turns.map((turn) => (
+    <Transcript.Turn
+      key={turn.id}
+      turn={turn}
+      render={<motion.div layout="position" initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} />}
+    />
+  ))}
+</AnimatePresence>
+```
+
+## Picking a turn
+
+`Transcript.Pick` is a button inside a turn that selects it, for a view that shows what's picked
+(the [inspector](/docs/inspector)): `aria-current` while it's the pick, `data-selected` to style.
+Without children it's named "Pick the caller's turn at 0:12"; with them, by what they say.
+`Transcript.Seek` plays from a turn; `Pick` selects it, without seeking.
+
+## Following
+
+Inside a scrolling root the turn being played stays in view, at a third of the height, the
+scroll easing there on a spring. The
+reader's own scrolling (wheel, touch, keys) stops that until `Transcript.Resume`, a button hidden
+while following, so the text is never pulled from under them.
+
+## Live
+
+<ComponentPreview name="live-transcript" />
+
+Give it a live conversation and `live`: the root becomes a `role="log"` with `aria-busy` while a
+turn streams, and the newest turn stays in view. `announce` reads each finished turn to screen
+readers, never word by word; it's off by default, since during a call the reader would talk over
+the agent the user is listening to.

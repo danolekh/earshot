@@ -1,0 +1,29 @@
+---
+title: Introduction
+description: Headless React parts for voice-agent UIs.
+---
+
+earshot is a set of headless React parts for the screens around a voice agent. Some are for while
+the call happens: an orb, a visualizer, a live transcript. Some are for after it: a call review
+with a transcript that follows the recording word by word, a timeline of who spoke when, the tool
+calls, the waits and the judges' verdicts.
+
+<ComponentPreview name="call-review" />
+
+## What's in it
+
+- **One conversation model.** Turns of timed words plus events (tool calls, intents, latency,
+  verdicts, handoffs). The live transcript, the review timeline and the orb all read it. Vendor
+  transcripts come in through [normalisers](/docs/conversation#formats).
+- **Parts, not components.** `Transcript.Word`, `Timeline.Segment`, `Orb.Shader`: plain elements
+  with their state as data attributes (`data-status="active"`, `data-interrupted`) and their motion
+  as CSS variables (`--word-progress`, `--timeline-progress`, `--orb-level`) set every frame
+  without re-rendering React. No styles shipped.
+- **Review first.** Interruptions are data, so the words the agent never got to say stay in the
+  transcript, marked. The scrubber steps by word, turn, marker or failed judge from the keyboard.
+- **An orb on one WebGL2 context**, shared with every other earshot or
+  [cardstock](https://cardstock.danolekh.com) shader on the page, no three.js.
+
+The call above is the [call review block](/docs/installation#the-call-review-block): about 150
+lines of markup over the parts, and one CSS file. Its [four skins](/docs/installation#the-call-review-block)
+are CSS only. The [call debugger](https://debugger.danolekh.com) is built from the same parts.

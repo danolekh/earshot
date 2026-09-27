@@ -1,0 +1,24 @@
+---
+title: Audio sources
+description: Where the orb and visualizers get their loudness.
+---
+
+An `AudioSource` is anything that can say how loud it is now: `level()` 0 to 1, and optionally
+`bands(out)`. The orb and visualizers read it every frame.
+
+```ts
+import { fromMediaStream, fromMediaElement, manualSource, scriptedSource } from "@danolekh/earshot/audio";
+
+fromMediaStream(await navigator.mediaDevices.getUserMedia({ audio: true })); // the caller's mic
+fromMediaStream(remoteTrackStream); // the agent's WebRTC track (LiveKit, Daily, …)
+fromMediaElement(audioElement); // a recording as it plays
+manualSource().set(volume); // from a vendor SDK's volume events
+scriptedSource(conversation, clock, "agent"); // from word timings: no audio, no CORS
+```
+
+Levels are perceptual: RMS converted to dBFS, mapped from -60 to -12 to 0 to 1, gated below -55 and
+raised to 0.6, then eased with a 50 ms attack and 250 ms release. `perceivedLevel(rms)` is the
+mapping on its own.
+
+`scriptedSource` makes each word swell and fade on its timings, deterministically, so a review
+page (or a frame-by-frame recording) moves the orb with the speech and needs no Web Audio at all.

@@ -1,0 +1,26 @@
+---
+title: Visualizer
+description: Bars that move with a voice.
+---
+
+<ComponentPreview name="visualizer" />
+
+Four variants run on one engine: bars rise fast and fall slowly like a meter, the top of each
+holds a moment before it drops, silence rests on a small floor so the bars read as dots, and with
+no voice to show each `state` has its own motion (thinking sweeps, listening breathes).
+
+- **`Visualizer.Bars`**: DOM bars; style each from `--vx-level` and a cap from `--vx-peak`.
+- **`Visualizer.History`**: a scrolling waveform of the last few seconds (Voice Memos), mirrored
+  rounded bars gliding right to left. Fade its edges with a CSS mask.
+- **`Visualizer.Radial`**: bars round a circle, mirrored, brighter the longer they are. Put an
+  `Orb` in the middle.
+- **`Visualizer.Matrix`**: a dot grid lighting from the middle out, with held peaks.
+
+```tsx
+<Visualizer.Root source={agentVoice} state={state} className="text-lime-400">
+  <Visualizer.Radial count={56} className="w-52" />
+</Visualizer.Root>
+```
+
+Canvas variants take their colour from CSS `color` (and unlit dots from `--vx-dim`), so a theme
+change restyles them. Under reduced motion they rest.

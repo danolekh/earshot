@@ -1,0 +1,157 @@
+---
+title: Inspector
+description: What explains a moment of a call, as headless parts.
+---
+
+Picking a bad moment should answer why it went wrong. `@danolekh/earshot/inspector` has the parts for
+that: where a reply's wait went, what the agent heard against what was said, the turn detector's
+decisions, the tool calls, what the model was given, and the list of findings to pick from. Each
+takes what [`@danolekh/earshot/trace`](/docs/call-trace) works out for a turn, and like every other part
+renders plain elements with its state as data attributes.
+
+<ComponentPreview name="call-inspector" />
+
+The block above is in the registry: markup over these parts, and one CSS file that reads the
+[call review](/docs/installation#the-call-review-block) skins' variables.
+
+```bash
+npx shadcn@latest add https://earshot.danolekh.com/r/call-inspector.json
+```
+
+```tsx
+import { Decisions, FindingList, HeardVsSaid, Latency, Prompt, ToolCall } from "@danolekh/earshot/inspector";
+
+<Player.Root conversation={toConversation(trace)} src="/call.ogg">
+  <FindingList.Root findings={trace.findings} />
+
+  <Latency.Root breakdown={latencyBreakdown(trace, turnId)}>
+    <Latency.Bar />
+    <Latency.Stages />
+    <Latency.Caption />
+  </Latency.Root>
+
+  <HeardVsSaid.Root diff={heardDiff(trace, callerTurnId)}>
+    <HeardVsSaid.Words source="said" />
+    <HeardVsSaid.Words source="heard" />
+  </HeardVsSaid.Root>
+
+  <Decisions.Root decisions={decisionsOf(trace, callerTurnId)} />
+  {toolsOf(trace, turnId).map((span) => (
+    <ToolCall.Root key={span.id} span={span}>
+      <ToolCall.Fields value={span.tool?.arguments} />
+      <ToolCall.Fields value={span.tool?.result} />
+    </ToolCall.Root>
+  ))}
+  <Prompt.Root input={modelInput(trace, turnId)} />
+</Player.Root>;
+```
+
+Only `FindingList` needs a player around it. The rest take their data as props, so they work in
+any view of a call, a ticket or a report included. Each list takes a function as its children to
+render its items your way, and each item says it in words unless you give it children.
+
+## Findings
+
+`FindingList.Root` is a `<ul>` of the findings, a `FindingList.Item` button each. Picking one
+selects it and its turn and plays from 0.3 s before it (`leadIn`), and a `Timeline.Root` pages
+its view there. The list is one tab stop: ↑ ↓ move between findings, Home and End to the first
+and last, Enter or Space picks. It takes the finding picked elsewhere (the timeline, a link) as its
+tab stop.
+
+| Part               | Element    | State                                                                      |
+| ------------------ | ---------- | -------------------------------------------------------------------------- |
+| `FindingList.Root` | `<ul>`     |                                                                            |
+| `FindingList.Item` | `<button>` | `data-type`, `data-severity`, `data-selected`; `aria-current` while picked |
+
+<TypeTable
+  type={{
+    findings: { type: "readonly Finding[]", required: true },
+    leadIn: { type: "number", default: "0.3", description: "Seconds of playback before a finding." },
+    children: { type: "(finding) => ReactNode", description: "Each finding, in its <li>." },
+  }}
+/>
+
+## Latency
+
+A reply's wait, from the caller's last word to the agent's first sound, measured on the recording.
+The stages come from the spans; what they don't cover is its own row, unexplained (transport,
+buffering, a stage nobody traced), rather than spread over the others.
+
+| Part              | Element        | State and variables                                                          |
+| ----------------- | -------------- | ---------------------------------------------------------------------------- |
+| `Latency.Root`    | `<figure>`     | `data-reported` when any stage was placed from a reported figure             |
+| `Latency.Bar`     | `<div>`        | `aria-hidden`: the stages say the same in words                              |
+| `Latency.Segment` | `<span>`       | `data-kind`, `data-reported`; `--stage-start`, `--stage-size` (0..1), placed |
+| `Latency.Stages`  | `<ol>`         |                                                                              |
+| `Latency.Stage`   | `<li>`         | The same; "gpt-4.1: 250 ms"                                                  |
+| `Latency.Caption` | `<figcaption>` | What the pipeline reported for the same wait; hidden when there's nothing    |
+
+`data-kind` is `endpointing`, `stt`, `llm`, `tool`, `tts` or `unexplained`. Some stacks report
+how long a stage took but not when (ElevenLabs Agents): those stages are laid end to end from the
+caller's last word and marked `data-reported`, so draw them as the estimate they are.
+
+## Heard vs said
+
+The caller's words as said (a reference transcription, or forced alignment) above the words the
+recogniser heard, from `heardDiff`. Every word is `data-op`: `same`, `changed`, `extra` or
+`missing`. A word heard with confidence under 0.6 (`below`) is `data-low`, with
+`--word-confidence`. A word said but not heard leaves a gap in the heard line that screen readers
+read as "not heard".
+
+| Part                | Element  | State and variables                               |
+| ------------------- | -------- | ------------------------------------------------- |
+| `HeardVsSaid.Root`  | `<div>`  | `data-missed`, `data-unsure`                      |
+| `HeardVsSaid.Words` | `<span>` | `data-source`: `said` or `heard`                  |
+| `HeardVsSaid.Word`  | `<span>` | `data-op`, `data-low`; `--word-confidence` (0..1) |
+
+## The turn detector, tools and the model's input
+
+| Part              | Element           | State and variables                                                                           |
+| ----------------- | ----------------- | --------------------------------------------------------------------------------------------- |
+| `Decisions.Root`  | `<ol>`            |                                                                                               |
+| `Decisions.Item`  | `<li>`            | `data-outcome`: `committed`, `user_resumed`, `dropped`; `--eou-probability`                   |
+| `ToolCall.Root`   | `<div>`           | `data-status`: `ok`, `error`, `unset`; `data-estimated` when worked out, not traced           |
+| `ToolCall.Fields` | `<dl>` or `<pre>` | An object's top level as `<dt>`/`<dd>` pairs; anything else, or `json`, as JSON (`data-json`) |
+| `Prompt.Root`     | `<ol>`            |                                                                                               |
+| `Prompt.Message`  | `<li>`            | `data-role`; `data-fresh` when new since the model's request before                           |
+
+A decision reads as the timeline's signal does: "0:16 · End of turn committed after 350 ms, p =
+0.91" (`describeSignal`).
+
+## What to show for a turn
+
+`turnEvidence(trace, turnId, findingId?)` says which of these explain a turn, in order: latency,
+tools, model input and what it ran on for a reply; heard vs said and the turn detector for the
+caller. It names the ones the stack didn't record, with why, so the view can say so rather than
+leave them out. And it says which one explains the picked finding, to open first. Each has a line
+for a collapsed heading: `latencyGist`, `heardGist`, `decisionsGist`, `toolsGist`, `modelGist`,
+`contextGist`.
+
+```tsx
+const { parts, open } = turnEvidence(trace, turnId, picked.findingId);
+parts.map((p) => (
+  <details key={p.kind} open={p.kind === open}>
+    <summary>{p.missing ? `Not recorded: ${p.missing}` : p.kind}</summary>…
+  </details>
+));
+```
+
+## Linking to a moment
+
+A link to a moment of a call is a `Moment`: the time, the view, and the picked turn, span or
+finding. `@danolekh/earshot/review` keeps a player and the URL in step:
+
+```ts
+import { applyMoment, momentFor, parseMoment, watchMoment } from "@danolekh/earshot/review";
+
+// Once, on load: pick what the link names and seek there.
+applyMoment({ clock, selection, viewport }, parseMoment(search), { findings: trace.findings });
+
+// Then write each change back, once it settles.
+const watch = watchMoment({ clock, selection, viewport }, (moment) => navigate({ search: moment }));
+
+// A link to a finding, starting a little before it.
+momentFor({ start: finding.start, finding: finding.id, turn: finding.turnId });
+```
+
+A link to a finding brings its turn with it, so the details open on the right turn.

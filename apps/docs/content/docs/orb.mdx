@@ -1,0 +1,78 @@
+---
+title: Orb
+description: A voice agent's presence, on one shared WebGL2 context.
+---
+
+<ComponentPreview name="orb" />
+
+```tsx
+<Orb.Root state={state} input={mic} output={agentVoice} className="size-40">
+  <Orb.Shader />
+</Orb.Root>
+```
+
+One orb: a sphere of drifting sky behind glass. Its outline is an exact circle that only ever
+scales; everything it has to say happens inside it and in its light.
+
+- **Clouds** are noise sampled on the sphere's own surface and turned slowly, so they wrap round
+  it like weather on a globe, over a sky that runs from the palette's top colour to its deep one.
+- **Glass**: the inside is seen through a dome-shaped lens (the displacement field from Aave's
+  [Building Glass for the Web](https://aave.com/design/building-glass-for-the-web)), so it
+  magnifies toward the rim, with a little colour fringing there, a fresnel edge and a soft
+  highlight.
+- **A halo** hugs the sphere and fades to nothing within a sixth of its radius: round by
+  construction, so it never shows the canvas's square.
+
+## States
+
+`state` is `idle`, `listening`, `thinking` or `speaking`, and the orb eases between them over
+about half a second, once a new state has held for a quarter second.
+
+|           | Size                               | Flow                     | Light                                               | Moved by                     |
+| --------- | ---------------------------------- | ------------------------ | --------------------------------------------------- | ---------------------------- |
+| idle      | breathes, ±1.5 % over 4 s          | a slow drift             | even                                                | nothing                      |
+| listening | swells with you, up to 3.5 %       | livelier                 | a little brighter                                   | the caller's voice (`input`) |
+| thinking  | breathes quicker                   | a steady churn           | a soft light orbits the globe; the sky leans violet | a clock, never audio         |
+| speaking  | swells with the voice, up to 5.5 % | churns on loud syllables | lit softly from within                              | the agent's voice (`output`) |
+
+A voice goes through an envelope follower, quick to rise (25 ms) and slower to fall (180 ms), so
+syllables read as rhythm rather than jitter; that drives a spring on the scale that's under
+critically damped, which gives the soft bounce. Each syllable's onset kicks the spring and flashes
+the light inside the sphere; loud stretches make the clouds boil (two layers, at different depths,
+sliding past each other); the voice's brightness warms the light a touch and its hiss twinkles in
+the glass. The flow and the sphere's turn are integrated as phases, so they speed up without ever
+jumping.
+
+`liveliness` on `Orb.Root` scales all of it: 0.5 is calm, 1 the default, 2 vivid.
+
+## Colours
+
+```tsx
+<Orb.Shader
+  params={{ colors: ["#fff3e6", "#ffa25c", "#c2410c"], thinkingColor: "#8a7cff", glass: 0.6, halo: 0.5 }}
+/>
+```
+
+`colors` is the sky's top, middle and deep colour; `thinkingColor` the tint thinking leans
+toward; `glass` how strongly the lens bends and fringes (0 to 1); `halo` the soft light around it
+(0 to 1, 0 for none).
+
+## Without WebGL
+
+`Orb.Root` sets `data-state` and, every frame, `--orb-level` and `--orb-idle`, `--orb-listening`,
+`--orb-thinking`, `--orb-speaking` (each 0 to 1, easing). A CSS-only orb, or the fallback before
+the shader's first frame, reads those:
+
+```css
+[data-slot="orb"] {
+  background: radial-gradient(circle at 40% 30%, #eef6ff, #1553c9 75%);
+  border-radius: 50%;
+  transform: scale(calc(1 + var(--orb-level) * 0.05));
+}
+```
+
+`--orb-bleed` on the root gives the canvas room for the halo past the orb's edge. For your own
+shader, pass `definition`: it reads the driver's `uScale`, `uPhase`, `uBright`, `uAura`, `uThink`,
+`uHue`, `uLevel` and the state weights as uniforms. Under reduced motion the orb holds still and
+shows its state by brightness and tint; the canvas is `aria-hidden` and the state is
+announced in words.

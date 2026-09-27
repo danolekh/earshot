@@ -1,0 +1,452 @@
+/* call-inspector: the layout, drawn from the custom properties call-review's skins set (with
+ * defaults of its own, so it needs none). The parts carry no styles: everything here keys off
+ * `data-slot` (which part), `data-*` state (what it's doing) and the CSS variables the parts set
+ * (`--stage-start`, `--word-confidence`, `--eou-probability`). Rules sit under the root's two
+ * attributes, so they win over call-review's where both blocks are on a page. */
+
+:where([data-slot="player"][data-inspector=""]) {
+  --bg: #fff;
+  --surface: #f7f8fa;
+  --ink: #16181d;
+  --muted: #6b7280;
+  --line: rgb(0 0 0 / 0.08);
+  --accent: #2563eb;
+  --on-accent: #fff;
+  --agent: #2563eb;
+  --user: #0d9488;
+  --tool: #d97706;
+  --danger: #dc2626;
+  --chip: rgb(0 0 0 / 0.05);
+  --font: ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, monospace;
+}
+
+[data-slot="player"][data-inspector=""] {
+  --lane: 18px;
+  --llm: #a78bfa;
+  container-type: inline-size;
+  display: grid;
+  gap: 16px;
+  padding: 20px;
+  border-radius: 18px;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+
+  & h3 {
+    margin: 0 0 6px;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+  }
+  & button:focus-visible,
+  & summary:focus-visible,
+  & [data-slot="timeline-scrubber"]:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 2px;
+  }
+  & [data-inspector="hidden"] {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+  & [data-inspector="empty"] {
+    margin: 0;
+    color: var(--muted);
+    font-size: 13px;
+  }
+
+  /* Head: title, play, time. */
+  & [data-inspector="head"] {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+  }
+  & [data-inspector="title"] {
+    display: grid;
+    flex: 1;
+    min-width: 0;
+  }
+  & [data-inspector="title"] strong {
+    overflow: hidden;
+    font-weight: 600;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  & [data-inspector="title"] span {
+    color: var(--muted);
+    font-size: 12px;
+  }
+  & [data-inspector="play"] {
+    display: grid;
+    place-items: center;
+    width: 32px;
+    height: 32px;
+    border: 0;
+    border-radius: 99px;
+    background: var(--accent);
+    color: var(--on-accent);
+    cursor: pointer;
+  }
+  & [data-inspector="play"]:not([data-playing]) [data-icon="pause"],
+  & [data-inspector="play"][data-playing] [data-icon="play"] {
+    display: none;
+  }
+  & [data-inspector="clock"] {
+    color: var(--muted);
+    font: 500 12px var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  /* Timeline: the findings on top, a lane per speaker, the playhead over them. */
+  & [data-slot="timeline-scrubber"] {
+    display: grid;
+    gap: 4px;
+    padding-top: 0;
+    border-radius: 6px;
+    cursor: pointer;
+  }
+  & [data-slot="timeline-lane"] {
+    height: var(--lane);
+  }
+  & [data-inspector="findings-lane"] {
+    height: 12px;
+  }
+  & [data-slot="timeline-segment"] {
+    border-radius: 4px;
+    background: color-mix(in oklab, var(--agent) 22%, transparent);
+  }
+  & [data-slot="timeline-segment"][data-role="user"] {
+    background: color-mix(in oklab, var(--user) 24%, transparent);
+  }
+  & [data-slot="timeline-segment"][data-active] {
+    background: color-mix(in oklab, var(--agent) 42%, transparent);
+  }
+  & [data-slot="timeline-segment"][data-role="user"][data-active] {
+    background: color-mix(in oklab, var(--user) 44%, transparent);
+  }
+  /* A finding: a shape per severity, not only a colour. */
+  & [data-slot="timeline-finding"],
+  & [data-slot="timeline-finding-cluster"] {
+    top: 1px;
+    height: 10px;
+    min-width: 10px;
+    border-radius: 2px;
+    background: var(--muted);
+  }
+  & [data-slot="timeline-finding"][data-severity="error"] {
+    border-radius: 99px;
+    background: var(--danger);
+  }
+  & [data-slot="timeline-finding"][data-severity="warning"] {
+    background: transparent;
+    box-shadow: inset 0 0 0 2px var(--tool);
+  }
+  & [data-slot="timeline-finding"][data-selected] {
+    outline: 2px solid var(--ink);
+    outline-offset: 1px;
+  }
+  & [data-slot="timeline-finding-cluster"] {
+    display: grid;
+    place-items: center;
+    background: var(--ink);
+    color: var(--bg);
+    font: 600 8px var(--font-mono);
+  }
+  & [data-slot="timeline-playhead"] {
+    width: 2px;
+    margin-left: -1px;
+    background: var(--accent);
+  }
+
+  /* Body: the findings beside what explains the picked one. */
+  & [data-inspector="body"] {
+    display: grid;
+    grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+    gap: 20px;
+    align-items: start;
+  }
+
+  & [data-slot="finding-list"] {
+    display: grid;
+    gap: 2px;
+    max-height: 36rem;
+    margin: 0;
+    padding: 0;
+    overflow: auto;
+    list-style: none;
+  }
+  & [data-slot="finding-list-item"] {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 8px;
+    width: 100%;
+    padding: 6px 8px 6px 24px;
+    border: 0;
+    border-radius: 8px;
+    background: none;
+    color: inherit;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+  }
+  & [data-slot="finding-list-item"]::before {
+    content: "";
+    position: absolute;
+    top: 13px;
+    left: 9px;
+    width: 8px;
+    height: 8px;
+    border-radius: 2px;
+    background: var(--muted);
+  }
+  & [data-slot="finding-list-item"][data-severity="error"]::before {
+    border-radius: 99px;
+    background: var(--danger);
+  }
+  & [data-slot="finding-list-item"][data-severity="warning"]::before {
+    background: transparent;
+    box-shadow: inset 0 0 0 2px var(--tool);
+  }
+  & [data-slot="finding-list-item"]:hover,
+  & [data-slot="finding-list-item"][aria-current] {
+    background: var(--chip);
+  }
+  & [data-inspector="finding-label"] {
+    font-weight: 500;
+  }
+  & [data-slot="finding-list-item"] time {
+    color: var(--muted);
+    font: 12px/1.5rem var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+  & [data-inspector="finding-message"] {
+    display: -webkit-box;
+    grid-column: 1 / -1;
+    overflow: hidden;
+    color: var(--muted);
+    font-size: 12px;
+    line-height: 1.35;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+  }
+
+  /* The picked turn, and a part per piece of evidence. */
+  & [data-inspector="details"] {
+    display: grid;
+    gap: 8px;
+    min-width: 0;
+  }
+  & blockquote {
+    margin: 0 0 4px;
+  }
+  & [data-inspector="part"] {
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    background: var(--surface, var(--chip));
+  }
+  & summary {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    padding: 8px 10px;
+    font-size: 12px;
+    font-weight: 500;
+    list-style: none;
+    cursor: pointer;
+  }
+  & summary::-webkit-details-marker {
+    display: none;
+  }
+  & summary::before {
+    content: "▸";
+    color: var(--muted);
+  }
+  & [open] > summary::before {
+    content: "▾";
+  }
+  & [data-inspector="gist"] {
+    flex: 1;
+    min-width: 0;
+    overflow: hidden;
+    color: var(--muted);
+    font-weight: 400;
+    text-align: right;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  & [data-inspector="part"] > :not(summary) {
+    margin: 0 10px 10px;
+  }
+
+  /* Latency: the bar, then its rows; a colour per kind of stage. */
+  & [data-slot="latency-segment"],
+  & [data-slot="latency-stage"] {
+    --c: var(--muted);
+  }
+  & [data-kind="endpointing"],
+  & [data-kind="stt"] {
+    --c: var(--user);
+  }
+  & [data-kind="llm"] {
+    --c: var(--llm);
+  }
+  & [data-kind="tool"] {
+    --c: var(--tool);
+  }
+  & [data-kind="tts"] {
+    --c: var(--agent);
+  }
+  & [data-slot="latency-bar"] {
+    height: 10px;
+    overflow: hidden;
+    border-radius: 4px;
+    background: var(--chip);
+  }
+  & [data-slot="latency-segment"] {
+    background: var(--c);
+  }
+  /* Placed from a figure the stack reported, not a span: only its length is known. */
+  & [data-slot="latency-segment"][data-reported] {
+    background: repeating-linear-gradient(
+      135deg,
+      var(--c) 0 3px,
+      color-mix(in oklab, var(--c) 40%, transparent) 3px 6px
+    );
+  }
+  & [data-slot="latency-segment"][data-kind="unexplained"] {
+    background: repeating-linear-gradient(45deg, var(--muted) 0 2px, transparent 2px 6px);
+  }
+  & [data-slot="latency-stages"] {
+    display: grid;
+    gap: 2px;
+    margin: 8px 0 0;
+    padding: 0;
+    font-size: 12px;
+    list-style: none;
+  }
+  & [data-slot="latency-stage"] {
+    padding-left: 8px;
+    border-left: 4px solid var(--c);
+  }
+  & [data-slot="latency-stage"][data-reported] {
+    border-left-style: dashed;
+  }
+  & [data-slot="latency-stage"][data-kind="unexplained"] {
+    border-left-style: dotted;
+    color: var(--muted);
+  }
+  & [data-slot="latency-caption"] {
+    margin-top: 8px;
+    color: var(--muted);
+    font-size: 12px;
+  }
+
+  /* Heard vs said: a word that differs is boxed; an unsure one is underlined. */
+  & [data-slot="heard-vs-said"] p {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    gap: 4px;
+    margin: 4px 0;
+  }
+  & [data-inspector="line"] {
+    width: 44px;
+    color: var(--muted);
+    font-size: 11px;
+  }
+  & [data-slot="heard-vs-said-words"] {
+    display: contents;
+  }
+  & [data-slot="heard-vs-said-word"] {
+    padding: 0 2px;
+    border-radius: 3px;
+  }
+  & [data-slot="heard-vs-said-word"]:not([data-op="same"]) {
+    outline: 1px dashed var(--danger);
+    background: color-mix(in oklab, var(--danger) 15%, transparent);
+  }
+  & [data-slot="heard-vs-said-word"][data-low] {
+    color: var(--tool);
+    text-decoration: underline wavy;
+  }
+
+  /* The turn detector, the model's input, the tools. */
+  & [data-slot="decisions"],
+  & [data-slot="prompt"] {
+    display: grid;
+    gap: 2px;
+    padding-left: 30px;
+    font-size: 12px;
+  }
+  & [data-slot="decisions-item"]:not([data-outcome="committed"]),
+  & [data-slot="prompt-message"]:not([data-fresh]) {
+    color: var(--muted);
+  }
+  & [data-slot="prompt"] {
+    max-height: 320px;
+    overflow: auto;
+    overflow-wrap: anywhere;
+  }
+  & [data-slot="prompt-message"]::before {
+    content: attr(data-role) " ";
+    color: var(--muted);
+    font: 10px var(--font-mono);
+  }
+  & [data-slot="tool-call"] {
+    display: grid;
+    gap: 4px;
+    font-size: 12px;
+  }
+  & [data-slot="tool-call"] p {
+    margin: 0;
+  }
+  & [data-slot="tool-call"][data-status="error"] > p {
+    color: var(--danger);
+  }
+  & [data-slot="tool-call"] h4 {
+    margin: 4px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 500;
+  }
+  & [data-slot="tool-call-fields"],
+  & [data-part="context"] dl {
+    margin: 0;
+    font: 12px var(--font-mono);
+    overflow-wrap: anywhere;
+    white-space: pre-wrap;
+  }
+  & dl[data-slot="tool-call-fields"],
+  & [data-part="context"] dl {
+    display: grid;
+    grid-template-columns: minmax(0, auto) minmax(0, 1fr);
+    gap: 2px 12px;
+    white-space: normal;
+  }
+  & dl > div {
+    display: contents;
+  }
+  & dt {
+    color: var(--muted);
+  }
+  & dd {
+    margin: 0;
+  }
+}
+
+@container (width < 640px) {
+  [data-slot="player"][data-inspector=""] [data-inspector="body"] {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}

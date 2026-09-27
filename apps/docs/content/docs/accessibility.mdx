@@ -1,0 +1,26 @@
+---
+title: Accessibility
+description: What the parts do for keyboards, screen readers and reduced motion.
+---
+
+- **The scrubber** is one `role="slider"` with a spoken value ("0:12 of 1:11, Agent: …") and the
+  keys on the [timeline page](/docs/timeline#the-scrubber). Waveforms, lanes, markers, the
+  skimmer and the playhead are `aria-hidden`; the transcript carries the same events in words.
+- **The transcript** is text. `Transcript.Seek` gives each turn one button ("Play from 0:12,
+  Agent"), rather than a tab stop per word; clicking a word is the mouse's shortcut.
+- **Live**, the root is a `role="log"` with `aria-busy` while a turn streams. Announcing finished
+  turns is opt-in (`announce`), since a screen reader reading the transcript during a call talks
+  over the agent.
+- **Picking a moment:** the [finding list](/docs/inspector#findings) is one tab stop, the arrows
+  moving between findings and `aria-current` on the pick. `Transcript.Pick` picks a turn from the
+  keyboard. A bar that's a picture (`Latency.Bar`) is `aria-hidden` next to the same in words, and a
+  word the recogniser missed reads as "not heard".
+- **Keys:** every part that acts on a key calls `preventDefault()`, so your page's shortcuts can
+  skip `event.defaultPrevented`. Single-letter shortcuts of your own need a way to turn them off
+  (WCAG 2.1.4); the scrubber's only work while it has focus, which the rule allows.
+- **The orb** is `aria-hidden` and says its state in a polite live region ("Listening").
+- **Reduced motion:** the orb's phase stops and its state shows by brightness; visualizer bars hold
+  still; the playhead jumps instead of gliding; following scrolls without smoothing. Nothing flashes
+  more than three times a second.
+- Every string is in `labels`: `EN_LABELS` and `DE_LABELS` ship, and `PlayerLabels` is the shape
+  for more.

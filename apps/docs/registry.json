@@ -1,0 +1,43 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry.json",
+  "name": "earshot",
+  "homepage": "https://earshot.danolekh.com",
+  "items": [
+    {
+      "name": "call-review",
+      "type": "registry:block",
+      "title": "Call review",
+      "description": "A call review screen on earshot's parts: orb and transport, a timeline with a lane per speaker, markers, overlaps and a skimmer, the transcript with tool calls inline, and the judges. Unstyled markup plus one CSS file of layout; skins are CSS variables.",
+      "dependencies": ["@danolekh/earshot", "@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/earshot/call-review.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/earshot/call-review.css",
+          "type": "registry:file",
+          "target": "components/call-review.css"
+        }
+      ]
+    },
+    {
+      "name": "call-inspector",
+      "type": "registry:block",
+      "title": "Call inspector",
+      "description": "Why a call went wrong, on earshot's parts: a timeline of the findings, the findings to pick from, and for the picked turn what explains it (where the wait went, heard vs said, the turn detector, tools, the model's input), the part that explains the finding open. Takes a CallTrace. Unstyled markup plus one CSS file of layout, reading call-review's skin variables.",
+      "dependencies": ["@danolekh/earshot", "@base-ui/react"],
+      "files": [
+        {
+          "path": "registry/earshot/call-inspector.tsx",
+          "type": "registry:component"
+        },
+        {
+          "path": "registry/earshot/call-inspector.css",
+          "type": "registry:file",
+          "target": "components/call-inspector.css"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,165 @@
+/* The home page's "talk to it": the orb and its ring, a state chip, and a live transcript whose
+ * words blur in as they arrive. Built on earshot's data attributes and variables only. */
+
+.playground {
+  /* The ring takes the orb's pale sky, so the two read as one thing. */
+  --pg-ring: rgb(180 215 255 / 0.55);
+  --pg-ease: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Until the shader's first frame, or where there's no WebGL2: the same sky in CSS, breathing
+ * with the same signal. */
+.pg-orb {
+  background: radial-gradient(circle at 42% 30%, #eef6ff, #8cc8ff 45%, #1553c9 85%);
+  box-shadow: 0 0 60px 6px rgb(140 200 255 / calc(0.15 + var(--orb-level) * 0.3));
+  transform: scale(calc(1 + var(--orb-level) * 0.05));
+}
+.pg-orb:has([data-slot="orb-shader"][data-ready]) {
+  background: none;
+  box-shadow: none;
+  transform: none;
+}
+
+.pg-orb:focus-visible {
+  outline: 2px solid var(--color-fd-ring);
+  outline-offset: 6px;
+}
+
+.pg-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  padding: 0 12px;
+  border: 1px solid var(--color-fd-border);
+  border-radius: 99px;
+  color: var(--color-fd-muted-foreground);
+  font: 500 12px var(--font-mono);
+  letter-spacing: 0.02em;
+}
+.pg-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: currentColor;
+  opacity: 0.6;
+}
+.pg-chip[data-state="listening"] .pg-dot {
+  background: #7cc7ff;
+  opacity: 1;
+  animation: pg-pulse 1.6s var(--pg-ease) infinite;
+}
+.pg-chip[data-state="thinking"] .pg-dot {
+  background: #b69cff;
+  opacity: 1;
+  animation: pg-spin-dot 0.9s linear infinite;
+}
+.pg-chip[data-state="speaking"] .pg-dot {
+  background: var(--color-fd-primary);
+  opacity: 1;
+}
+@keyframes pg-pulse {
+  50% {
+    transform: scale(1.6);
+    opacity: 0.5;
+  }
+}
+@keyframes pg-spin-dot {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.pg-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--color-fd-primary);
+  color: var(--color-fd-primary-foreground);
+  font: 600 14px var(--font-sans);
+  cursor: pointer;
+  transition: transform 160ms var(--pg-ease);
+}
+.pg-button:active {
+  transform: scale(0.97);
+}
+.pg-button:disabled {
+  opacity: 0.6;
+  cursor: progress;
+}
+.pg-button-quiet {
+  border: 1px solid var(--color-fd-border);
+  background: transparent;
+  color: var(--color-fd-foreground);
+}
+.pg-button:focus-visible {
+  outline: 2px solid var(--color-fd-ring);
+  outline-offset: 2px;
+}
+
+.pg-transcript {
+  font-size: 16px;
+  line-height: 1.5;
+}
+.pg-turn {
+  display: grid;
+  gap: 2px;
+  transform-origin: left center;
+}
+.pg-speaker {
+  color: var(--color-fd-muted-foreground);
+  font: 500 11px var(--font-mono);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+.pg-turn[data-role="agent"] .pg-speaker {
+  color: var(--color-fd-primary);
+}
+.pg-words {
+  margin: 0;
+  text-wrap: pretty;
+}
+.pg-turn[data-role="user"] .pg-words {
+  color: var(--color-fd-muted-foreground);
+}
+
+/* New words blur in, one after another within the batch that arrived together; the tentative
+ * tail sits lighter and settles when final. */
+[data-slot="transcript-word"][data-new] {
+  display: inline-block;
+  animation: earshot-word-in 180ms var(--pg-ease, cubic-bezier(0.23, 1, 0.32, 1)) both;
+  animation-delay: calc(var(--word-stagger, 0) * 30ms);
+}
+[data-slot="transcript-interim"] {
+  opacity: 0.55;
+  transition: opacity 200ms ease;
+}
+@keyframes earshot-word-in {
+  from {
+    opacity: 0;
+    filter: blur(4px);
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    filter: none;
+    transform: none;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  [data-slot="transcript-word"][data-new] {
+    animation-name: earshot-word-fade;
+  }
+  .pg-chip .pg-dot {
+    animation: none;
+  }
+}
+@keyframes earshot-word-fade {
+  from {
+    opacity: 0;
+  }
+}

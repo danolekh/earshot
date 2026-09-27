@@ -1,0 +1,110 @@
+---
+title: Timeline
+description: Who spoke when, what happened, and a scrubber for all of it.
+---
+
+```tsx
+<Timeline.Root>
+  <Timeline.Scrubber>
+    <Timeline.Markers budget={1.2} />
+    <Timeline.Lane speaker="agent">
+      <Timeline.Segments />
+      <Timeline.Waveform speaker="agent" />
+    </Timeline.Lane>
+    <Timeline.Lane speaker="user">
+      <Timeline.Segments />
+      <Timeline.Waveform speaker="user" />
+    </Timeline.Lane>
+    <Timeline.Overlaps />
+    <Timeline.Skimmer />
+    <Timeline.Playhead />
+  </Timeline.Scrubber>
+</Timeline.Root>
+```
+
+Everything is placed by fractions of the call: `--segment-start` and `--segment-end` on a turn,
+`--marker-at` and `--marker-end` on an event, `--overlap-start` and `--overlap-end` on talk-over,
+and `--timeline-progress` on the root, every frame. Segments, markers and overlaps come
+absolutely positioned; their height and look are yours.
+
+## The scrubber
+
+One `role="slider"` over the call. Dragging shows the moment live, never on release. It names
+where it is ("0:12 of 1:11, Agent: Let me check…"), so the lanes and markers inside it stay
+presentational; the transcript lists the same events for screen readers.
+
+| Keys                         | Moves                             |
+| ---------------------------- | --------------------------------- |
+| ← →                          | a word                            |
+| Shift ← →                    | 5 seconds                         |
+| Alt ← →, Page Up / Page Down | a turn                            |
+| `[` `]`                      | the previous or next marker       |
+| Shift `[` `]`                | the previous or next failed judge |
+| J L                          | 10 seconds                        |
+| Home End                     | the start, the end                |
+| Space, K                     | play, pause                       |
+| `,` `.`                      | slower, faster                    |
+
+`scrubberKey(conversation, t, event)` is the same map as a function, for your own controls. With
+a `viewport`, W and S (or + and −) zoom around the playhead, A and D pan, and 0 fits the whole
+call.
+
+### Handling keys yourself
+
+`marks` and `failures` set where `[` `]` and Shift `[` `]` hop: times, or `{ at, id }` marks, in
+which case the seek carries the mark's `id`. `onKeyAction` gets every action the scrubber
+recognised instead of it acting; `applyKeyAction(action, { clock, viewport, duration })` does what
+it would have. Here `]` hops to 0.3 s before each finding and picks it:
+
+```tsx
+<Timeline.Scrubber
+  marks={findings.map((f) => ({ at: Math.max(0, f.start - 0.3), id: f.id }))}
+  onKeyAction={(action) => {
+    if (action.type === "seek" && action.mark) selection.set({ findingId: action.mark });
+    applyKeyAction(action, { clock, viewport, duration });
+  }}
+/>
+```
+
+The scrubber calls `preventDefault()` on each key it recognises, handled by you or not, so a
+page's own shortcuts can skip `event.defaultPrevented` and never act on a key twice.
+
+## The view
+
+`Timeline.Root` takes a `viewport` (`createViewport(duration)`) to zoom and pan from outside: a
+minimap, keys, a URL. It pages the view to the playhead after a seek (while paused, or a jump of
+over a second while playing), so a click in a transcript or a list lands in view; `reveal={false}`
+turns that off. `follow` keeps the playhead in view while playing. `viewAround(interval)` is a
+view with room around a turn or a finding, for "zoom to this".
+
+## Lanes
+
+A lane's height is `size`: `{ height, grow, max }`, at least `height`, growing into the room the
+timeline has beyond every lane's height. `laneStyle(size)` is the same style, for labels in a
+gutter beside the lanes, so the two can't drift apart. A lane of a side the player has muted is
+`data-muted`.
+
+Hiding lanes is plain functions over the list of hidden ids, for whichever store you keep it in:
+`showLanes`, `toggleLanes` (which refuses to hide the last lane), `onlyLanes`, `lanesShown` (true,
+false or `"mixed"` for a set) and `laneRows(all, hidden)`, the rows to draw, with a strip for each
+run of hidden lanes that can show them again.
+
+## A call's trace
+
+For a [call trace](/docs/call-trace) there are lanes of its own: `Timeline.Spans` (the pipeline's
+work, a `Timeline.Span` each, `data-kind` and `data-status`), `Timeline.Signals` (the turn
+detector's decisions, interruptions, backchannels), `Timeline.Words` (a word tier, each word
+`data-source` and `--word-confidence`) and `Timeline.Findings`. Findings too close to tell apart at
+the current zoom merge into a `Timeline.FindingCluster` that zooms in when pressed.
+
+## The skimmer
+
+`Timeline.Skimmer` follows a mouse over the scrubber without seeking, showing what was said there:
+a render prop gets the time, the turn and the events near it. The playhead glides to a seek on a
+spring, and jumps under reduced motion.
+
+## Waveform
+
+`Timeline.Waveform` draws bars on a canvas in its CSS `color`; bars already played take
+`--waveform-played`. It reads the call's peaks (per speaker for a stereo call) or, without them,
+draws an overview from the word timings.

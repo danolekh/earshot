@@ -1,0 +1,515 @@
+/* call-review: the layout every skin shares, drawn from custom properties a skin sets. The parts
+ * carry no styles of their own; everything here keys off `data-slot` (which part), `data-*`
+ * state (what it's doing) and a few CSS variables earshot updates every frame
+ * (`--word-progress`, `--timeline-progress`, `--orb-level`). */
+
+[data-slot="player"][data-skin] {
+  --radius: 12px;
+  --gap: 16px;
+  --lane: 34px;
+  --markers: 16px;
+  display: grid;
+  gap: var(--gap);
+  padding: var(--pad, 20px);
+  border-radius: calc(var(--radius) + 6px);
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--font);
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Head: orb, title, transport. */
+[data-skin] [data-call="head"] {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  min-width: 0;
+}
+[data-skin] [data-call="orb"] {
+  flex: none;
+  width: var(--orb, 64px);
+  height: var(--orb, 64px);
+  border-radius: 999px;
+  /* Until the shader's first frame (or where there's no WebGL2), CSS draws it from the same
+   * signal: a soft disc that swells with --orb-level. */
+  background: radial-gradient(circle at 40% 35%, var(--orb-a), var(--orb-b) 70%);
+  transform: scale(calc(0.94 + var(--orb-level) * 0.08));
+  transition: none;
+  /* Room for the shader's halo past the edge. */
+  --orb-bleed: 45%;
+}
+[data-skin] [data-call="orb"]:has([data-slot="orb-shader"][data-ready]) {
+  background: none;
+  transform: none;
+}
+[data-skin] [data-call="title"] {
+  display: grid;
+  min-width: 0;
+  flex: 1;
+}
+[data-skin] [data-call="title"] strong {
+  font-family: var(--font-display, var(--font));
+  font-weight: var(--title-weight, 600);
+  font-size: var(--title-size, 17px);
+  letter-spacing: var(--title-tracking, -0.01em);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+[data-skin] [data-call="title"] span {
+  color: var(--muted);
+  font-size: 13px;
+}
+[data-skin] [data-call="controls"] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-variant-numeric: tabular-nums;
+}
+[data-skin] [data-call="clock"] {
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  white-space: nowrap;
+}
+[data-skin] [data-call="play"] {
+  display: grid;
+  place-items: center;
+  width: 38px;
+  height: 38px;
+  border: 0;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--on-accent);
+  cursor: pointer;
+}
+[data-skin] [data-call="rate"] {
+  min-width: 42px;
+  height: 28px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  font: 500 12px var(--font-mono);
+  cursor: pointer;
+}
+[data-skin] [data-call="play"]:not([data-playing]) [data-icon="pause"],
+[data-skin] [data-call="play"][data-playing] [data-icon="play"],
+[data-skin] [data-call="seek"] [data-icon="pause"] {
+  display: none;
+}
+[data-skin] button:focus-visible,
+[data-skin] [data-slot="timeline-scrubber"]:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Timeline: markers on top, a lane per speaker, the playhead and skimmer over both. */
+[data-skin] [data-call="timeline"] {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 12px;
+  align-items: end;
+}
+[data-skin] [data-call="lane-labels"] {
+  display: grid;
+  gap: 6px;
+  padding-bottom: 2px;
+  color: var(--muted);
+  font-size: 11px;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+[data-skin] [data-call="lane-labels"] span {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  height: var(--lane);
+}
+[data-skin] [data-call="lane-labels"] span::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 99px;
+  background: var(--agent);
+}
+[data-skin] [data-call="lane-labels"] [data-speaker="user"]::before {
+  background: var(--user);
+}
+[data-skin] [data-slot="timeline-scrubber"] {
+  display: grid;
+  gap: 6px;
+  padding-top: var(--markers);
+  cursor: pointer;
+  border-radius: 6px;
+}
+[data-skin] [data-slot="timeline-lane"] {
+  height: var(--lane);
+}
+[data-skin] [data-slot="timeline-waveform"] {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  color: var(--agent);
+  --waveform-played: var(--agent);
+}
+[data-skin] [data-slot="timeline-waveform"][data-speaker="user"] {
+  color: var(--user);
+  --waveform-played: var(--user);
+}
+[data-skin] [data-slot="timeline-segment"] {
+  border-radius: 6px;
+  background: color-mix(in oklab, var(--agent) 9%, transparent);
+}
+[data-skin] [data-slot="timeline-segment"][data-role="user"] {
+  background: color-mix(in oklab, var(--user) 10%, transparent);
+}
+[data-skin] [data-slot="timeline-segment"][data-active] {
+  background: color-mix(in oklab, var(--agent) 18%, transparent);
+}
+[data-skin] [data-slot="timeline-segment"][data-role="user"][data-active] {
+  background: color-mix(in oklab, var(--user) 20%, transparent);
+}
+/* Talk-over: hatched across both lanes. */
+[data-skin] [data-slot="timeline-overlap"] {
+  top: var(--markers) !important;
+  background: repeating-linear-gradient(
+    -45deg,
+    color-mix(in oklab, var(--danger) 45%, transparent) 0 2px,
+    transparent 2px 6px
+  );
+  border-left: 2px solid var(--danger);
+  pointer-events: none;
+}
+/* Markers: a shape per kind, not only a colour. */
+[data-skin] [data-slot="timeline-marker"] {
+  top: 1px;
+  height: 10px;
+  pointer-events: none;
+}
+[data-skin] [data-slot="timeline-marker"][data-type="tool_call"] {
+  min-width: 8px;
+  border-radius: 2px;
+  background: var(--tool);
+}
+[data-skin] [data-slot="timeline-marker"][data-type="intent"] {
+  width: 9px;
+  translate: -4.5px 0;
+  rotate: 45deg;
+  scale: 0.8;
+  background: var(--muted);
+}
+[data-skin] [data-slot="timeline-marker"][data-type="verdict"] {
+  width: 10px;
+  translate: -5px 0;
+  border-radius: 99px;
+  background: var(--ok);
+}
+[data-skin] [data-slot="timeline-marker"][data-type="verdict"]:not([data-pass]) {
+  background: transparent;
+  box-shadow: inset 0 0 0 2px var(--danger);
+}
+/* A wait for the agent: a bracket under the markers, red past 1.2 s. */
+[data-skin] [data-slot="timeline-marker"][data-type="latency"] {
+  top: 5px;
+  height: 5px;
+  border: 1px solid var(--muted);
+  border-top: 0;
+  opacity: 0.7;
+}
+[data-skin] [data-slot="timeline-marker"][data-type="latency"][data-slow] {
+  border-color: var(--danger);
+  opacity: 1;
+}
+[data-skin] [data-slot="timeline-playhead"] {
+  width: 2px;
+  margin-left: -1px;
+  background: var(--accent);
+  box-shadow: 0 0 0 1px color-mix(in oklab, var(--bg) 60%, transparent);
+}
+[data-skin] [data-slot="timeline-playhead"]::before {
+  content: "";
+  position: absolute;
+  top: -3px;
+  left: -3px;
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: var(--accent);
+}
+[data-skin] [data-slot="timeline-skimmer"] {
+  width: 1px;
+  background: color-mix(in oklab, var(--ink) 35%, transparent);
+}
+[data-skin] [data-call="skim"] {
+  position: absolute;
+  bottom: calc(100% + 6px);
+  left: 0;
+  translate: -50% 0;
+  width: max-content;
+  max-width: 280px;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: var(--tooltip, var(--ink));
+  color: var(--tooltip-ink, var(--bg));
+  font-size: 12px;
+  line-height: 1.35;
+  white-space: normal;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.18);
+}
+[data-skin] [data-call="skim"] b {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  margin-right: 4px;
+}
+
+/* Body: the transcript, the judges beside it. */
+[data-skin] [data-call="body"] {
+  display: grid;
+  gap: var(--gap);
+}
+@media (min-width: 900px) {
+  [data-skin] [data-call="body"]:has([data-call="verdicts"]) {
+    grid-template-columns: minmax(0, 1fr) 260px;
+  }
+}
+[data-skin] [data-slot="transcript"] {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  max-height: var(--transcript-height, 420px);
+  overflow: auto;
+  overscroll-behavior: contain;
+  scrollbar-width: thin;
+  padding-right: 4px;
+}
+[data-skin] [data-slot="transcript-turn"] {
+  display: grid;
+  gap: 2px;
+  padding: 10px 12px;
+  border-radius: var(--radius);
+  transition: background-color 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+[data-skin] [data-slot="transcript-turn"][data-active] {
+  background: var(--active-turn);
+}
+/* Depth of field while a call plays: turns fade with their distance from the one being spoken
+ * (--distance is 0 for every turn when nothing plays). */
+[data-skin] [data-slot="transcript-turn"] {
+  opacity: calc(1 - min(var(--distance, 0), 3) * 0.16);
+  transition:
+    opacity 400ms cubic-bezier(0.23, 1, 0.32, 1),
+    background-color 200ms cubic-bezier(0.23, 1, 0.32, 1);
+}
+[data-skin] [data-call="turn-head"] {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+[data-skin] [data-slot="transcript-speaker"] {
+  color: var(--agent);
+  font-size: 12px;
+  font-weight: 600;
+}
+[data-skin] [data-slot="transcript-speaker"][data-role="user"] {
+  color: var(--user);
+}
+[data-skin] [data-slot="transcript-time"] {
+  color: var(--muted);
+  font: 11px var(--font-mono);
+}
+[data-skin] [data-call="seek"] {
+  display: grid;
+  place-items: center;
+  width: 22px;
+  height: 22px;
+  margin-left: auto;
+  border: 0;
+  border-radius: 99px;
+  background: transparent;
+  color: var(--muted);
+  opacity: 0;
+  cursor: pointer;
+}
+[data-skin] [data-slot="transcript-turn"]:hover [data-call="seek"],
+[data-skin] [data-call="seek"]:focus-visible {
+  opacity: 1;
+}
+[data-skin] [data-call="words"] {
+  margin: 0;
+  font-size: var(--words-size, 15px);
+  text-wrap: pretty;
+}
+/* Words: played at full ink, to come dimmed, the one being said filling left to right over its
+ * own duration, and what the agent never got to say ghosted with a dotted line. Colour only:
+ * nothing reflows. */
+[data-skin] [data-slot="transcript-word"] {
+  color: var(--ink);
+  cursor: pointer;
+  border-radius: 3px;
+}
+[data-skin] [data-slot="transcript-word"][data-status="upcoming"] {
+  color: var(--dim);
+}
+[data-skin] [data-slot="transcript-word"][data-status="active"] {
+  color: transparent;
+  background-image: linear-gradient(
+    90deg,
+    var(--ink) calc(var(--word-progress, 0) * 100%),
+    var(--dim) calc(var(--word-progress, 0) * 100%)
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+}
+/* The pill behind the word being said shows only while the call plays; paused, the fill alone
+ * marks the place. */
+[data-skin][data-playing] [data-slot="transcript-word"][data-status="active"] {
+  box-shadow: 0 0 0 3px color-mix(in oklab, var(--accent) 14%, transparent);
+  background-color: color-mix(in oklab, var(--accent) 14%, transparent);
+}
+[data-skin] [data-slot="transcript-word"][data-status="unspoken"] {
+  color: color-mix(in oklab, var(--ink) 32%, transparent);
+  text-decoration: underline dotted color-mix(in oklab, var(--danger) 60%, transparent);
+  text-underline-offset: 3px;
+  cursor: default;
+}
+[data-skin] [data-slot="transcript-turn"][data-interrupted] [data-call="words"]::after {
+  content: " — cut off";
+  color: var(--danger);
+  font-size: 12px;
+}
+[data-skin] [data-slot="transcript-event"] {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  width: fit-content;
+  margin: 2px 0;
+  padding: 2px 8px;
+  border-radius: 99px;
+  background: var(--chip);
+  color: var(--muted);
+  font-size: 12px;
+}
+[data-skin] [data-slot="transcript-event"] code {
+  font-family: var(--font-mono);
+  color: var(--ink);
+}
+[data-skin] [data-call="chip-mark"] {
+  color: var(--tool);
+}
+[data-skin] [data-slot="transcript-event"][data-type="intent"] [data-call="chip-mark"] {
+  color: var(--muted);
+}
+[data-skin] [data-call="chip-ms"] {
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+[data-skin] [data-slot="transcript-gap"] {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 0 12px;
+  color: var(--muted);
+  font: 11px var(--font-mono);
+}
+[data-skin] [data-slot="transcript-gap"]::before,
+[data-skin] [data-slot="transcript-gap"]::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: var(--line);
+}
+[data-skin] [data-slot="transcript-gap"][data-kind="wait"] {
+  color: var(--muted);
+}
+[data-skin] [data-slot="transcript-gap"][data-slow] {
+  color: var(--danger);
+}
+[data-skin] [data-call="resume"] {
+  position: sticky;
+  bottom: 8px;
+  justify-self: center;
+  padding: 6px 12px;
+  border: 0;
+  border-radius: 99px;
+  background: var(--ink);
+  color: var(--bg);
+  font: 500 12px var(--font);
+  cursor: pointer;
+  box-shadow: 0 6px 20px rgb(0 0 0 / 0.2);
+}
+[data-skin] [data-call="resume"][hidden] {
+  display: none;
+}
+
+/* Judges. */
+[data-skin] [data-call="verdicts"] {
+  align-self: start;
+  padding: 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--surface);
+}
+[data-skin] [data-call="verdicts"] h3 {
+  margin: 0 0 10px;
+  color: var(--muted);
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+[data-skin] [data-call="verdicts"] ul {
+  display: grid;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+[data-skin] [data-call="verdicts"] li {
+  display: grid;
+  grid-template-columns: auto 1fr auto;
+  column-gap: 8px;
+  align-items: baseline;
+}
+[data-skin] [data-call="verdict-mark"] {
+  color: var(--danger);
+  font-weight: 700;
+}
+[data-skin] [data-call="verdicts"] li[data-pass] [data-call="verdict-mark"] {
+  color: var(--ok);
+}
+[data-skin] [data-call="score"] {
+  color: var(--muted);
+  font: 12px var(--font-mono);
+}
+[data-skin] [data-call="verdicts"] p {
+  grid-column: 2 / -1;
+  margin: 2px 0 0;
+  color: var(--muted);
+  font-size: 12.5px;
+  line-height: 1.4;
+}
+
+@media (max-width: 560px) {
+  [data-slot="player"][data-skin] {
+    --pad: 14px;
+    --orb: 48px;
+  }
+  [data-skin] [data-call="rate"],
+  [data-skin] [data-call="lane-labels"] {
+    display: none;
+  }
+  [data-skin] [data-call="timeline"] {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-skin] [data-slot="transcript-word"][data-status="active"] {
+    color: var(--ink);
+    background-image: none;
+  }
+}

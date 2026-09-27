@@ -1,0 +1,68 @@
+---
+title: Player
+description: A conversation and where playback is in it.
+---
+
+`Player.Root` holds the conversation and a clock. Everything inside follows it: the transcript
+highlights along, the playhead moves, the orb can follow the recording.
+
+```tsx
+<Player.Root conversation={call} src="/calls/1042.mp3">
+  <Player.Toggle />
+  <Player.Time /> / <Player.Time show="duration" />
+  <Player.Rate />
+  {/* Transcript, Timeline, Orb … */}
+</Player.Root>
+```
+
+Without `src` time runs on a virtual clock over the conversation's length, for a call you have
+as text only. Pass `clock` to drive the parts from something else (a video element, a recorder).
+The clock is read every frame by the parts that move, and nothing re-renders for it: coarse
+state (the turn being played, the second shown) re-renders once when it changes.
+
+<TypeTable
+  type={{
+    conversation: { type: "Conversation | LiveConversation", required: true },
+    src: { type: "string", description: "The recording. Renders a hidden <audio>." },
+    clock: { type: "Clock", description: "Your own clock instead." },
+    loop: { type: "boolean", default: "false" },
+    selection: { type: "SelectionStore", description: "What's picked; one of its own by default." },
+    channels: {
+      type: "(Role | null)[]",
+      description: "Whose voice each recording channel carries, for Mute and Solo.",
+    },
+    labels: {
+      type: "PlayerLabels",
+      default: "EN_LABELS",
+      description: "Every string the parts say. DE_LABELS ships too.",
+    },
+  }}
+/>
+
+`Player.Toggle` (a button named Play or Pause, `data-playing`), `Player.Time` (`show`: current,
+duration or remaining) and `Player.Rate` (cycles 1, 1.5, 2) are the controls. `usePlayer()` and
+`useClockValue(clock, select)` are there for your own.
+
+## What's picked
+
+The player also holds a selection: the turn, span and finding picked (`{ turnId, spanId,
+findingId }`). The timeline's findings and spans, `Transcript.Pick` and the
+[finding list](/docs/inspector#findings) set it; pass your own `selection` (from
+`createSelection()`) to read or set it from outside, a URL say. `useSelected(selection, "turnId",
+id)` re-renders a part only when its own pick changes.
+
+## Listening to one side
+
+For a stereo recording, `channels` says whose voice each channel carries (`["user", "agent"]`).
+Then `Player.Mute` and `Player.Solo` (`speaker`: `user` or `agent`) mute or solo a side, as
+`<button aria-pressed>` with `data-pressed`. With one side audible it plays in both ears. A
+`Timeline.Lane` of a side you can't hear is `data-muted`, to dim it. The mix is built with Web
+Audio on the first press, inside the click, as browsers require.
+
+```tsx
+<Player.Root conversation={call} src="/call.ogg" channels={["user", "agent"]}>
+  <Player.Mute speaker="user" /> <Player.Solo speaker="user" />
+</Player.Root>
+```
+
+`useListening(speaker)` gives `{ muted, soloed, heard }` for your own controls.

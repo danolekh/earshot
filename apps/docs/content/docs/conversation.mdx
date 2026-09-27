@@ -1,0 +1,101 @@
+---
+title: Conversation
+description: The model every part reads, and the vendor formats that fill it.
+---
+
+A conversation is turns of timed words, plus events. Times are seconds from the start of the
+recording. It's plain JSON: store it with the call and it renders as it was.
+
+```ts
+import { createConversation } from "@danolekh/earshot/core";
+
+const call = createConversation({
+  turns: [
+    {
+      role: "agent",
+      words: [
+        { text: "Hello,", start: 0, end: 0.4 },
+        { text: "how", start: 0.5, end: 0.7 },
+      ],
+    },
+    { role: "user", speaker: "Anna", words: [{ text: "Where's", start: 3.2, end: 3.5 } /* … */] },
+    { role: "agent", interruptedAt: 6.1, words: [/* words after 6.1 s were generated, never heard */] },
+  ],
+  events: [
+    { type: "tool_call", name: "lookup_order", at: 4.4, end: 4.9, status: "ok" },
+    { type: "verdict", judge: "Task success", pass: true, score: 0.96, at: 7 },
+  ],
+});
+```
+
+`createConversation` sorts turns, gives ids, builds each turn's text from its words and works out
+the duration.
+
+<TypeTable
+  type={{
+    "turns[].role": { type: '"agent" | "user" | "system"' },
+    "turns[].words": {
+      type: "{ text, start, end, confidence? }[]",
+      description: "May be empty while a live turn streams text.",
+    },
+    "turns[].interruptedAt": {
+      type: "number",
+      description: "Where the caller cut the agent off. Words from here on stay as unspoken.",
+    },
+    "turns[].speaker": { type: "string", description: "A label when a role has several speakers." },
+    events: {
+      type: "ConversationEvent[]",
+      description:
+        "tool_call (name, end, args, result, status), intent, latency (kind e2e | stt | llm | tts, end), verdict (judge, pass, score, reason), handoff, note. Each may name its turnId.",
+    },
+    peaks: {
+      type: "Peaks | { agent?: Peaks; user?: Peaks }",
+      description: "Waveform overviews, one mixed or one per speaker (a stereo call).",
+    },
+  }}
+/>
+
+## Asking it things
+
+`turnAt(call, t)` and `wordAt(call, t)` say what's being said at a moment. `nextTurn`, `prevTurn`
+and `stepWord` move through it. `eventsIn(call, from, to)`, `overlaps(call)` (talk-over),
+`gaps(call, min)` (silences) and `measureLatency(call)` (each wait from the caller's last word to
+the agent's reply) give the rest.
+
+## Formats
+
+Each normaliser is its own module, so an app pays for the ones it imports.
+
+```ts
+import { fromDeepgram, fromAssemblyAI, fromRetell, fromCaptions, toWebVTT } from "@danolekh/earshot/formats";
+
+fromDeepgram(await res.json(), { roles: { "0": "agent", "1": "user" } }); // seconds; utterances or diarized words
+fromAssemblyAI(transcript); // milliseconds, speaker labels
+fromRetell(call); // transcript_object
+fromCaptions(vtt); // WebVTT or SRT, voices as speakers
+```
+
+`fromOpenAITranscription` turns Whisper's word timestamps into a turn, `realtimeTruncation` turns a
+Realtime `conversation.item.truncate` into `interruptedAt`, and `wordsFromAlignment` groups
+ElevenLabs' character timings into words. Without a role map, the first speaker is the agent.
+
+## Live
+
+```ts
+import { createLiveConversation } from "@danolekh/earshot/core";
+
+const live = createLiveConversation();
+const id = live.begin("agent", now());
+live.appendText(id, delta); // or appendWords(id, words) with timings
+live.truncate(id, now()); // the caller barged in
+live.finalize(id, now());
+live.addEvent({ type: "tool_call", name: "lookup_order", at: now() });
+```
+
+Pass it anywhere a conversation goes; the parts re-render as it changes.
+
+## Peaks
+
+`computePeaks(samples, sampleRate)` makes a waveform overview once, on a server or at build time;
+`fromAudiowaveform(json)` reads BBC audiowaveform's output. A call without peaks gets an overview
+drawn from its word timings.

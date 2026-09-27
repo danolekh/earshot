@@ -1,0 +1,249 @@
+/* Four skins over the one call-review markup. Each sets the variables call-review.css draws
+ * from, and a few reshape it; none touch the JSX. */
+
+/* Console: earshot's own. A dark instrument panel, one meter-lime accent. */
+[data-skin="console"] {
+  --bg: #0b0c0e;
+  --surface: #131519;
+  --ink: #e9ecef;
+  --muted: #8b929c;
+  --dim: #5b616b;
+  --line: rgb(255 255 255 / 0.08);
+  --accent: #c6ff3d;
+  --on-accent: #0b0c0e;
+  --agent: #c6ff3d;
+  --user: #7cc7ff;
+  --tool: #ffb547;
+  --ok: #3ddc97;
+  --danger: #ff5a4e;
+  --chip: rgb(255 255 255 / 0.06);
+  --active-turn: rgb(255 255 255 / 0.035);
+  --orb-a: #d8ff8a;
+  --orb-b: #2a4a10;
+  --tooltip: #e9ecef;
+  --tooltip-ink: #0b0c0e;
+  --font: "Inter Variable", "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  border: 1px solid rgb(255 255 255 / 0.07);
+  background-image: radial-gradient(rgb(255 255 255 / 0.05) 1px, transparent 1px);
+  background-size: 4px 4px;
+}
+
+/* Contact centre: warm off-white, white cards stacked as the conversation, a serif for outcomes,
+ * an orange asterisk for what the agent did. */
+[data-skin="warm"] {
+  --bg: #f5f4f0;
+  --surface: #ffffff;
+  --ink: #1f1c1b;
+  --muted: #80736b;
+  --dim: #b3aaa1;
+  --line: #e3dfd6;
+  --accent: #ff7714;
+  --on-accent: #ffffff;
+  --agent: #ff7714;
+  --user: #80736b;
+  --tool: #ff7714;
+  --ok: #5f8a3a;
+  --danger: #d8452c;
+  --chip: #f5f4f0;
+  --active-turn: #ffffff;
+  --orb-a: #ffe2c6;
+  --orb-b: #ff7714;
+  --radius: 12px;
+  --font: "Geist Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Instrument Serif", ui-serif, Georgia, serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --title-weight: 400;
+  --title-size: 26px;
+  --title-tracking: 0;
+  --words-size: 15px;
+  background:
+    radial-gradient(120% 70% at 100% 0%, rgb(163 200 217 / 0.35), transparent 60%),
+    radial-gradient(90% 60% at 0% 100%, rgb(255 144 64 / 0.12), transparent 60%), #f5f4f0;
+}
+[data-skin="warm"] [data-slot="transcript"] {
+  gap: 10px;
+}
+[data-skin="warm"] [data-slot="transcript-turn"] {
+  padding: 14px 16px;
+  background: #ffffff;
+  box-shadow:
+    0 1px 2px rgb(31 28 27 / 0.04),
+    0 8px 24px rgb(31 28 27 / 0.05);
+  opacity: 0.72;
+  transition: opacity 260ms cubic-bezier(0.14, 0.875, 0.33, 0.915);
+}
+[data-skin="warm"] [data-slot="transcript-turn"][data-active],
+[data-skin="warm"] [data-slot="transcript-turn"][data-past] {
+  opacity: 1;
+}
+[data-skin="warm"] [data-slot="transcript-speaker"] {
+  color: var(--muted);
+  font-weight: 500;
+}
+[data-skin="warm"] [data-slot="transcript-event"] {
+  background: transparent;
+  padding: 0;
+  font-family: var(--font-display);
+  font-size: 19px;
+  color: var(--ink);
+}
+[data-skin="warm"] [data-slot="transcript-event"] code {
+  font-family: var(--font-display);
+}
+[data-skin="warm"] [data-call="chip-ms"] {
+  font-family: var(--font);
+  color: var(--muted);
+  padding: 1px 8px;
+  border-radius: 99px;
+  background: var(--chip);
+}
+[data-skin="warm"] [data-call="verdicts"] {
+  border: 0;
+  box-shadow: 0 8px 24px rgb(31 28 27 / 0.05);
+}
+[data-skin="warm"] [data-call="verdicts"] strong {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-size: 18px;
+}
+
+/* Front desk: a light inbox. Rows of time, a bar and a bold speaker; indigo only where it counts;
+ * a pastel sphere. */
+[data-skin="indigo"] {
+  --bg: #ffffff;
+  --surface: #f7f8fc;
+  --ink: #0f0f16;
+  --muted: #555b6e;
+  --dim: #a3a8b8;
+  --line: #e4e6ee;
+  --accent: #585dfe;
+  --on-accent: #ffffff;
+  --agent: #585dfe;
+  --user: #0f0f16;
+  --tool: #585dfe;
+  --ok: #18a957;
+  --danger: #e5484d;
+  --chip: #f2f2fd;
+  --active-turn: #f2f2fd;
+  --orb-a: #e9eafd;
+  --orb-b: #8d91fe;
+  --radius: 12px;
+  --font: "Roboto Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --title-weight: 500;
+  --title-size: 18px;
+  --words-size: 14.5px;
+  border: 1px solid #e4e6ee;
+  box-shadow: 0 12px 40px rgb(88 93 254 / 0.08);
+}
+[data-skin="indigo"] [data-slot="transcript-turn"] {
+  grid-template-columns: 44px 2px minmax(0, 1fr);
+  column-gap: 12px;
+  padding: 8px 10px;
+}
+[data-skin="indigo"] [data-call="turn-head"] {
+  display: contents;
+}
+[data-skin="indigo"] [data-slot="transcript-time"] {
+  grid-column: 1;
+  grid-row: 1 / span 3;
+  padding-top: 2px;
+}
+[data-skin="indigo"] [data-slot="transcript-turn"]::before {
+  content: "";
+  grid-column: 2;
+  grid-row: 1 / span 3;
+  border-radius: 2px;
+  background: var(--ink);
+}
+[data-skin="indigo"] [data-slot="transcript-turn"][data-role="agent"]::before {
+  background: var(--accent);
+}
+[data-skin="indigo"] [data-slot="transcript-speaker"] {
+  grid-column: 3;
+  grid-row: 1;
+  color: var(--ink);
+  font-weight: 700;
+  font-size: 13px;
+}
+[data-skin="indigo"] [data-call="seek"] {
+  grid-column: 3;
+  grid-row: 1;
+  justify-self: end;
+}
+[data-skin="indigo"] [data-slot="transcript-event"],
+[data-skin="indigo"] [data-call="words"] {
+  grid-column: 3;
+}
+[data-skin="indigo"] [data-slot="transcript-turn"][data-interrupted] [data-call="words"]::after {
+  content: " — unterbrochen";
+}
+[data-skin="indigo"] [data-call="play"] {
+  border-radius: 12px;
+}
+
+/* X-ray: no look at all. Every part outlined and named by its data-slot, its state shown, so
+ * you can see what there is to style. */
+[data-skin="xray"] {
+  --bg: #fafafa;
+  --surface: #ffffff;
+  --ink: #111111;
+  --muted: #666666;
+  --dim: #aaaaaa;
+  --line: #dddddd;
+  --accent: #111111;
+  --on-accent: #ffffff;
+  --agent: #111111;
+  --user: #777777;
+  --tool: #111111;
+  --ok: #111111;
+  --danger: #111111;
+  --chip: transparent;
+  --active-turn: transparent;
+  --orb-a: #ffffff;
+  --orb-b: #cccccc;
+  --font: "Geist Mono Variable", ui-monospace, monospace;
+  --font-mono: "Geist Mono Variable", ui-monospace, monospace;
+  --radius: 0px;
+  font-size: 12px;
+}
+[data-skin="xray"]
+  [data-slot]:not(
+    [data-slot="transcript-word"],
+    [data-slot="timeline-marker"],
+    [data-slot="timeline-playhead"],
+    [data-slot="timeline-skimmer"],
+    [data-slot="orb-shader"]
+  ) {
+  outline: 1px dashed rgb(0 0 0 / 0.25);
+  outline-offset: -1px;
+}
+[data-skin="xray"] [data-slot="transcript-turn"]::before,
+[data-skin="xray"] [data-slot="timeline-lane"]::before,
+[data-skin="xray"] [data-slot="orb"]::after {
+  content: attr(data-slot);
+  font-size: 10px;
+  color: #999999;
+}
+[data-skin="xray"] [data-slot="transcript-turn"][data-active]::before {
+  content: attr(data-slot) " · data-active";
+  color: #111111;
+}
+[data-skin="xray"] [data-slot="orb"]::after {
+  content: "orb · data-state=" attr(data-state);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  white-space: nowrap;
+}
+[data-skin="xray"] [data-slot="transcript-word"][data-status="active"] {
+  background-color: #111111;
+  background-image: none;
+  color: #ffffff;
+  box-shadow: none;
+}
+[data-skin="xray"] [data-slot="timeline-marker"] {
+  background: #111111;
+  box-shadow: none;
+}

@@ -1,0 +1,124 @@
+---
+title: Call traces
+description: One call on one clock, read from any stack, with what went wrong found in it.
+---
+
+A conversation is enough to play a call back. To say why a call went wrong you need the rest of
+it: the pipeline's spans, the turn detector's decisions, what the recogniser heard next to what
+was said. `@danolekh/earshot/trace` holds all of that as one `CallTrace`, and `@danolekh/earshot/formats` reads it
+from the stack that recorded the call. Neither has React in it; both run on a server.
+
+```ts
+import { livekit, readCall, recording } from "@danolekh/earshot/formats";
+import { detect, toConversation } from "@danolekh/earshot/trace";
+
+const trace = detect(
+  readCall(
+    livekit({ otlp, report }), // OpenTelemetry spans and the session report
+    recording({ startedAtUnixMs, sources: [{ src: "/call.ogg", type: "audio/ogg" }], peaks }),
+  ),
+);
+
+<Player.Root conversation={toConversation(trace)} src="/call.ogg">…</Player.Root>;
+```
+
+## The model
+
+Everything is in seconds since the recording's first sample.
+
+| Field      | Holds                                                                                                              |
+| ---------- | ------------------------------------------------------------------------------------------------------------------ |
+| `call`     | Title, direction, language, outcome, versions (SDK, agent, prompt) and `provider`: the stack it came from          |
+| `clock`    | Where time 0 is (`t0UnixMs`) and which recording channel is whose                                                  |
+| `turns`    | Who spoke when and what they said; an agent turn's `replyTo`, where it was cut off, and what it ran on (`context`) |
+| `spans`    | The pipeline's work (`eou`, `stt`, `llm`, `tool`, `tts`…), with tool calls and the model's input normalised        |
+| `signals`  | Turn-taking: the turn detector's decisions, interruptions, backchannels, voice activity                            |
+| `words`    | Word tiers by source: what the streaming recogniser heard, what was said (aligned), what the agent's TTS spoke     |
+| `speech`   | Where each side's voice is, found in the recording                                                                 |
+| `findings` | What the detectors found, each with its evidence and the turn it's about                                           |
+
+`toConversation(trace)` turns it into the [conversation](/docs/conversation) the player and
+transcript read, so every other part works on a trace as it is.
+
+## Reading a call
+
+Each source gives what it knows of a call, and `readCall(...sources)` puts them on one clock.
+Time 0 comes from the surest source there is: the recording, then a report, then a session, then
+the first span. Then it merges them and works out the rest: which caller turn each reply answers,
+interruptions, words spread over untimed turns, and turn edges a source had to guess, moved onto
+timed words or the recording's speech.
+
+| Source                           | Reads                                                                                                                 | Can't see                                                                             |
+| -------------------------------- | --------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `livekit({ otlp, report })`      | LiveKit Agents' OpenTelemetry spans (`agent_session`, `user_turn`, `agent_turn`…) and its session report              | Word timings (estimated)                                                              |
+| `pipecat({ otlp, events })`      | Pipecat's `conversation` > `turn` > `stt`/`llm`/`tts` spans, and `SpeakingObserver` and `FunctionCallObserver` events | Word confidence; without events, when anyone spoke and how tools went (worked out)    |
+| `elevenLabsAgents(conversation)` | The ElevenLabs Agents conversation API's JSON, or its webhook: messages, tool calls with latency, feedback            | Turn-detector decisions, word confidence; on its mono recording, who talked over whom |
+| `recording({...})`               | The recording's start, files, channels and waveform; speech is found in the waveform                                  |                                                                                       |
+| `timedWords(words)`              | A second transcription, timed: what was really said                                                                   |                                                                                       |
+| `callMeta(meta)`                 | Details known elsewhere (a title, the outcome)                                                                        |                                                                                       |
+
+A source is an object with a `name`, the clock `anchors` it knows, and `read(ctx)` returning the
+part of the call it has, so another stack is one more source rather than a new pipeline.
+
+For files a person drops in, `readExports(files, { recording })` works out which stack exported
+them (`detectFormat`), reads them into one call and runs the detectors. It returns the `trace`,
+the `provider`, and `warnings` in plain words for whatever it had to assume.
+
+## Finding what went wrong
+
+`detect(trace)` runs twelve detectors and returns the trace with its `findings`. `runDetectors`
+returns only the findings. Each detector's thresholds can change (`detect(trace, { config: {
+slowTurn: { gap: 2 } } })`), and `only` runs a few.
+
+| Finding                  | Means                                                          |
+| ------------------------ | -------------------------------------------------------------- |
+| `slow_turn`, `slow_tool` | The caller waited over 1.5 s for a reply; a tool took over 1 s |
+| `dead_air`               | 2 s of silence on the line                                     |
+| `talk_over`              | Both sides spoke at once for over 0.3 s                        |
+| `agent_did_not_stop`     | The agent kept talking over an interruption                    |
+| `early_endpoint`         | The turn was ended, but the caller went on within 1 s          |
+| `false_interruption`     | The agent stopped for a backchannel ("mhm")                    |
+| `heard_vs_said`          | Words said were heard as something else, or not at all         |
+| `low_asr_confidence`     | The recogniser was unsure of a word (under 0.6)                |
+| `tool_error`             | A tool call failed                                             |
+| `repeat`                 | The agent said the same thing again                            |
+| `disclosure_missing`     | The agent didn't say it's an AI in its first sentences         |
+
+A person's thumbs-down (ElevenLabs Agents' feedback) comes in as a `human_feedback` finding. `findingLabel(type)` and
+`FINDING_META` name each type for a UI.
+
+What a stack didn't record is named, not guessed. `blindSpots(trace)` says which detectors can't
+look at this call and why ("no transcript of what was said"), so an empty list of findings on a
+call with no reference transcription isn't read as "heard everything".
+
+## Where a turn's evidence is
+
+Functions for one turn, which the [inspector parts](/docs/inspector) take as props:
+
+- `latencyBreakdown(trace, turnId)`: a reply's wait from the caller's last word to the agent's
+  first sound, measured on the recording, split into stages from the spans, with what they don't
+  cover called unexplained. `latencyRows(b)` lists them with that last.
+- `heardDiff(trace, turnId)`: what was said against what the recogniser heard, word by word.
+- `decisionsOf`, `toolsOf`, `modelInput`: the turn detector's decisions, the tool calls, and
+  the messages the model was given (and how many were new).
+- `turnEvidence(trace, turnId, findingId?)`: which of those explain the turn, in order, which
+  ones the stack didn't record, and which one explains the picked finding.
+- `latencyGist`, `heardGist`, `toolsGist`… : each one as a line for a heading ("Waited 1.21 s ·
+  46 ms unexplained").
+
+## Test cases
+
+A bad moment becomes a regression test. `draftTestCase(trace, turnId, findingId?)` writes checks
+that fail on this call: `no_finding`, `reply_within`, `hears` and `tool_succeeds`, each on a turn
+found again by what was said there. `runTestCase(otherTrace, test)` runs them on another call of
+the same flow, a new agent version say, and each check comes back `pass`, `fail` or `missing`.
+Missing means the stack didn't record what the check needs, and it's never counted as a pass.
+`toLiveKitTest(test, trace)` writes the same checks as a LiveKit Agents test in Python.
+
+## Many calls
+
+`@danolekh/earshot/review` is for a list of calls. `summarizeCall(trace)` keeps what a row shows.
+`filterCalls`, `facets` and `sortCalls` search the list, count each filter's values under the
+other filters, and sort the worst first. A link to a moment of a call is a `Moment` (`t`, the
+view, the picked turn, span or finding): `momentFor` makes one with a lead-in, `parseMoment` reads
+one from a URL, and `applyMoment` and `watchMoment` [keep a player in step with it](/docs/inspector#linking-to-a-moment).

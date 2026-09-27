@@ -1,0 +1,66 @@
+---
+title: Installation
+description: Add earshot and its one peer.
+---
+
+```bash
+pnpm add @danolekh/earshot @base-ui/react
+```
+
+earshot works with React 19. Each area is its own entry point, so an app ships only what it uses:
+
+```ts
+import { createConversation, fromDeepgram } from "@danolekh/earshot"; // or earshot/core, earshot/formats
+import { Player } from "@danolekh/earshot/player";
+import { Transcript } from "@danolekh/earshot/transcript";
+import { Timeline } from "@danolekh/earshot/timeline";
+import { Latency, FindingList } from "@danolekh/earshot/inspector";
+import { readCall, livekit } from "@danolekh/earshot/formats";
+import { detect } from "@danolekh/earshot/trace";
+import { summarizeCall, momentFor } from "@danolekh/earshot/review";
+import { Orb } from "@danolekh/earshot/orb";
+import { Visualizer } from "@danolekh/earshot/visualizer";
+import { fromMediaStream, scriptedSource } from "@danolekh/earshot/audio";
+```
+
+`@danolekh/earshot/core`, `@danolekh/earshot/formats`, `@danolekh/earshot/trace` and `@danolekh/earshot/review` have no React in them and
+run anywhere, a server included.
+
+## The call review block
+
+The screen on the [introduction](/docs) is a block in the registry, markup and one CSS file:
+
+```bash
+npx shadcn@latest add https://earshot.danolekh.com/r/call-review.json
+```
+
+The [call inspector](/docs/inspector) is one too, and reads the same skins:
+
+```bash
+npx shadcn@latest add https://earshot.danolekh.com/r/call-inspector.json
+```
+
+The call review's markup in four skins, CSS only (the Code tab shows them):
+
+<ComponentPreview name="call-review-skins" />
+
+Its CSS keys off `data-slot` and `data-*` state and reads its colours and type from custom
+properties, so a skin is a handful of variables:
+
+```css
+[data-skin="mine"] {
+  --bg: #fff;
+  --ink: #111;
+  --muted: #666;
+  --dim: #aaa;
+  --line: #eee;
+  --accent: #0a7;
+  --agent: #0a7;
+  --user: #333;
+  --tool: #0a7;
+  --ok: #0a7;
+  --danger: #d33;
+  --font: system-ui;
+  --font-mono: ui-monospace;
+}
+```

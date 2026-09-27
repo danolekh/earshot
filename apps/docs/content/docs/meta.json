@@ -1,0 +1,17 @@
+{
+  "title": "earshot",
+  "pages": [
+    "index",
+    "installation",
+    "conversation",
+    "call-trace",
+    "player",
+    "transcript",
+    "timeline",
+    "inspector",
+    "orb",
+    "visualizer",
+    "audio",
+    "accessibility"
+  ]
+}

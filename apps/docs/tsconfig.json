@@ -1,0 +1,12 @@
+{
+  "extends": "../../tsconfig.base.json",
+  "include": ["**/*.ts", "**/*.tsx"],
+  "exclude": ["node_modules", ".output", "public"],
+  "compilerOptions": {
+    "types": ["vite/client"],
+    "allowJs": true,
+    "noUncheckedIndexedAccess": false,
+    "verbatimModuleSyntax": false,
+    "paths": { "@/*": ["./src/*"] }
+  }
+}

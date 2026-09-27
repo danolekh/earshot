@@ -1,0 +1,11 @@
+{
+  // Until launch: earshot.danolekh.com serves one noindex page. Relaunch with `wrangler deploy`
+  // (the normal wrangler.jsonc).
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "earshot-docs",
+  "compatibility_date": "2026-09-01",
+  "assets": { "directory": "./hold", "not_found_handling": "single-page-application" },
+  "routes": [{ "pattern": "earshot.danolekh.com", "custom_domain": true }],
+  "workers_dev": false,
+  "observability": { "enabled": false },
+}

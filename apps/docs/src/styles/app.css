@@ -1,0 +1,98 @@
+@import "tailwindcss";
+@import "fumadocs-ui/css/neutral.css";
+@import "fumadocs-ui/css/preset.css";
+/* Self-hosted, so no third-party request blocks the first paint. */
+@import "@fontsource-variable/geist";
+@import "@fontsource-variable/geist-mono";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/roboto";
+@import "@fontsource/instrument-serif/latin-400.css";
+@import "../../registry/earshot/call-review.css";
+@import "../../registry/earshot/call-inspector.css";
+@import "../skins/skins.css";
+@import "../components/playground/playground.css";
+
+/* The registry components (registry/earshot) use shadcn's token names, so they drop into any
+ * shadcn app as they are; here those names point at the docs' Fumadocs palette. */
+@theme inline {
+  --color-background: var(--color-fd-background);
+  --color-foreground: var(--color-fd-foreground);
+  --color-muted: var(--color-fd-muted);
+  --color-muted-foreground: var(--color-fd-muted-foreground);
+  --color-card: var(--color-fd-card);
+  --color-card-foreground: var(--color-fd-card-foreground);
+  --color-border: var(--color-fd-border);
+  --color-primary: var(--color-fd-primary);
+  --color-accent: var(--color-fd-accent);
+  --color-ring: var(--color-fd-ring);
+}
+
+/* earshot: a studio console. Cool neutrals, hairlines, one meter-lime signal accent (darkened on
+ * light for contrast), a peak red for errors only. */
+:root {
+  --color-fd-background: #f4f5f7;
+  --color-fd-foreground: #0e1013;
+  --color-fd-muted: #e9ebef;
+  --color-fd-muted-foreground: #5d6470;
+  --color-fd-popover: #ffffff;
+  --color-fd-popover-foreground: #0e1013;
+  --color-fd-card: #ffffff;
+  --color-fd-card-foreground: #0e1013;
+  --color-fd-border: #dfe2e8;
+  --color-fd-primary: #4f7000;
+  --color-fd-primary-foreground: #ffffff;
+  --color-fd-secondary: #e9ebef;
+  --color-fd-secondary-foreground: #0e1013;
+  --color-fd-accent: #e4e7ec;
+  --color-fd-accent-foreground: #0e1013;
+  --color-fd-ring: #4f7000;
+}
+
+.dark {
+  --color-fd-background: #0b0c0e;
+  --color-fd-foreground: #e9ecef;
+  --color-fd-muted: #15171b;
+  --color-fd-muted-foreground: #9aa1ab;
+  --color-fd-popover: #131519;
+  --color-fd-popover-foreground: #e9ecef;
+  --color-fd-card: #131519;
+  --color-fd-card-foreground: #e9ecef;
+  --color-fd-border: #22252b;
+  --color-fd-primary: #c6ff3d;
+  --color-fd-primary-foreground: #0b0c0e;
+  --color-fd-secondary: #15171b;
+  --color-fd-secondary-foreground: #e9ecef;
+  --color-fd-accent: #1b1e23;
+  --color-fd-accent-foreground: #e9ecef;
+  --color-fd-ring: #c6ff3d;
+}
+
+@theme {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --font-display: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+}
+
+html {
+  scrollbar-gutter: stable;
+}
+
+html > body[data-scroll-locked] {
+  margin-right: 0px !important;
+  --removed-body-scroll-bar-size: 0px !important;
+}
+
+/* Display type: Inter, tight. */
+#nd-page h1,
+.prose h2 {
+  font-family: var(--font-display);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+}
+#nd-page h1 {
+  font-size: 2.4rem;
+  line-height: 1.05;
+}
+.prose h2 {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "earshot-docs",
+  "compatibility_date": "2026-09-01",
+  // A static site: the prerendered docs, the search index and the registry JSON.
+  "assets": {
+    "directory": "./.output/public",
+    "not_found_handling": "none",
+    "html_handling": "auto-trailing-slash",
+  },
+  "routes": [{ "pattern": "earshot.danolekh.com", "custom_domain": true }],
+  "workers_dev": true,
+  "observability": { "enabled": false },
+}
