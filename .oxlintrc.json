@@ -1,0 +1,65 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "react", "import", "jsx-a11y", "vitest"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn"
+  },
+  "env": {
+    "builtin": true,
+    "browser": true
+  },
+  "settings": {
+    "react": {
+      "version": "19.3.0"
+    }
+  },
+  "rules": {
+    "react/react-in-jsx-scope": "off",
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "no-underscore-dangle": "off"
+  },
+  "ignorePatterns": [
+    "node_modules/",
+    "dist/",
+    ".output/",
+    ".tanstack/",
+    ".source/",
+    "**/routeTree.gen.ts",
+    "apps/docs/public/r/"
+  ],
+  "overrides": [
+    {
+      "files": ["apps/debugger/src/**"],
+      "rules": {
+        "jsx-a11y/label-has-associated-control": [
+          "error",
+          {
+            "controlComponents": ["Switch", "Input"]
+          }
+        ],
+        "import/no-unassigned-import": [
+          "warn",
+          {
+            "allow": ["**/*.css"]
+          }
+        ]
+      }
+    },
+    {
+      "files": ["apps/docs/src/components/demos/index.tsx"],
+      "rules": {
+        "import/default": "off"
+      }
+    },
+    {
+      "files": ["apps/debugger/src/components/ui/input-group.tsx"],
+      "rules": {
+        "jsx-a11y/prefer-tag-over-role": "off",
+        "jsx-a11y/click-events-have-key-events": "off",
+        "jsx-a11y/no-noninteractive-element-interactions": "off"
+      }
+    }
+  ]
+}
