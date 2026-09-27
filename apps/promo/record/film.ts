@@ -21,8 +21,10 @@ export const easeInOut: Ease = (t) => (t < 0.5 ? 4 * t * t * t : 1 - (-2 * t + 2
 export interface AudioEvent {
   at: number;
   callId: string;
-  kind: "play" | "seek" | "stop";
+  kind: "play" | "seek" | "stop" | "mix";
   t: number;
+  /** `mix`: each file channel's gain after a mute or solo. */
+  gains?: [number, number];
 }
 
 export interface Filmed {
@@ -100,7 +102,7 @@ export class Film {
   private frames = 0;
   private started = 0;
   private pos: Point;
-  private readonly view: { width: number; height: number };
+  private readonly size: { width: number; height: number };
   private down = false;
   private events: AudioEvent[] = [];
   private errors: string[] = [];
@@ -122,7 +124,7 @@ export class Film {
     this.samples = o.samples;
     this.fps = o.fast ? 60 : 60 * o.samples;
     this.interval = 1000 / this.fps;
-    this.view = o.view;
+    this.size = o.view;
     this.pos = [o.view.width + 60, o.view.height - 60];
   }
 
@@ -262,7 +264,7 @@ export class Film {
 
   /** Takes the cursor off the frame (before a closing card, say). */
   async away(ms = 500): Promise<void> {
-    await this.move([this.view.width + 80, this.view.height - 40], ms);
+    await this.move([this.size.width + 80, this.size.height - 40], ms);
     await this.page.evaluate(() => (window as any).__cursor?.hide());
   }
 
@@ -306,6 +308,97 @@ export class Film {
     }, from);
     await this.hold((to - from) * 1000);
     await this.page.evaluate(() => (window as any).__stage.clock.pause());
+  }
+
+  /** Starts the call playing from `from` and returns at once, so the take can move on while it
+   * plays; `pause()` stops it. */
+  async playFrom(from: number): Promise<void> {
+    await this.page.evaluate((t) => {
+      const clock = (window as any).__stage.clock;
+      clock.seek(t);
+      clock.play();
+    }, from);
+  }
+
+  async pause(): Promise<void> {
+    await this.page.evaluate(() => (window as any).__stage.clock.pause());
+  }
+
+  /** Where on the screen time `t` is right now, over the timeline's lanes. */
+  async xAt(t: number): Promise<number> {
+    return this.page.evaluate((time) => {
+      const v = (window as any).__stage.viewport.get();
+      const box = document.querySelector("[data-slot=timeline-scrubber]")!.getBoundingClientRect();
+      return box.left + ((time - v.from) / (v.to - v.from)) * box.width;
+    }, t);
+  }
+
+  /** The view (seconds) and the scrubber's box, for aiming a zoom or a pan. */
+  async view(): Promise<{
+    from: number;
+    to: number;
+    left: number;
+    top: number;
+    width: number;
+    height: number;
+  }> {
+    return this.page.evaluate(() => {
+      const v = (window as any).__stage.viewport.get();
+      const b = document.querySelector("[data-slot=timeline-scrubber]")!.getBoundingClientRect();
+      return { from: v.from, to: v.to, left: b.left, top: b.top, width: b.width, height: b.height };
+    });
+  }
+
+  /** Zooms the timeline by `factor` (under 1 zooms in) at `at`, the way a person does: Ctrl and the
+   * wheel, a small step every frame, so it glides. */
+  async wheelZoom(at: Point, factor: number, ms: number): Promise<void> {
+    await this.move(at, 350);
+    const n = Math.max(1, Math.round(ms / this.interval));
+    const dy = Math.log(factor) / (0.01 * n);
+    await this.page.keyboard.down("Control");
+    for (let i = 0; i < n; i++) {
+      await this.page.mouse.wheel(0, dy);
+      await this.frame();
+    }
+    await this.page.keyboard.up("Control");
+  }
+
+  /** Pans the timeline to start at `from` seconds, with Shift and the wheel, over `ms`. The pointer
+   * must be over the lanes. */
+  async wheelPan(from: number, ms: number): Promise<void> {
+    const v = await this.view();
+    const px = ((from - v.from) / (v.to - v.from)) * v.width;
+    const n = Math.max(1, Math.round(ms / this.interval));
+    await this.page.keyboard.down("Shift");
+    for (let i = 0; i < n; i++) {
+      // Eased: most of the travel in the middle frames.
+      const w = (Math.cos((Math.PI * i) / n) - Math.cos((Math.PI * (i + 1)) / n)) / 2;
+      await this.page.mouse.wheel(0, px * w);
+      await this.frame();
+    }
+    await this.page.keyboard.up("Shift");
+  }
+
+  /** Punches in on `rect` (CSS px of the page), or back out with null, over `ms`: the app scales
+   * and moves under the captions and the cursor, which stay as they are. Text stays sharp. */
+  async camera(rect: { x: number; y: number; w: number; h: number } | null, ms = 700): Promise<void> {
+    await this.page.evaluate(
+      ({ rect, ms, view }) => {
+        const root = document.querySelector<HTMLElement>("[data-slot=sidebar-wrapper]") ?? document.body;
+        root.style.transformOrigin = "0 0";
+        root.style.transition = `transform ${ms}ms cubic-bezier(0.45, 0, 0.2, 1)`;
+        if (!rect) {
+          root.style.transform = "translate(0px, 0px) scale(1)";
+          return;
+        }
+        const s = Math.min(view.width / rect.w, view.height / rect.h);
+        const x = -rect.x * s + (view.width - rect.w * s) / 2;
+        const y = -rect.y * s + (view.height - rect.h * s) / 2;
+        root.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
+      },
+      { rect, ms, view: this.size },
+    );
+    await this.hold(ms);
   }
 
   /** Stops filming: closes the video and returns what the audio needs. */

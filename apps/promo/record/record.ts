@@ -4,7 +4,7 @@
  *   pnpm --filter promo record <take> [--theme dark|light] [--fast]
  *                                                       # → out/<take>[-<theme>].mp4
  *
- * Takes: `debugger` (the main film, dark and light) and `for-<company>` (companies.ts). The final
+ * Take: `debugger` (the film, dark and light). The final
  * is shot 3840 wide at 120 fps and blended to 1080p60; `--fast` shoots 1920 wide at 60 fps. The
  * orb teaser has its own recorder: `pnpm --filter promo record:teaser`. */
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";

@@ -6,7 +6,6 @@
     "prepare-teaser": "node record/prepare.ts",
     "record:teaser": "node record/teaser.ts",
     "record": "node record/record.ts",
-    "batch": "node record/batch.ts",
     "encode": "node record/encode.ts"
   },
   "devDependencies": {

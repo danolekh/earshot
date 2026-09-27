@@ -19,27 +19,45 @@ export interface Segment {
   at: number;
   from: number;
   to: number;
+  /** Each file channel's gain (mute and solo); [1, 1] when both sides are heard. */
+  gains: [number, number];
 }
 
 export function segments(filmed: Filmed): Segment[] {
   const out: Segment[] = [];
-  let open: { callId: string; at: number; from: number } | undefined;
+  let gains: [number, number] = [1, 1];
+  let open: { callId: string; at: number; from: number; gains: [number, number] } | undefined;
   const close = (at: number) => {
     if (!open) return;
     const length = (at - open.at) / 1000;
-    if (length > 0.02)
-      out.push({ callId: open.callId, at: open.at, from: open.from, to: open.from + length });
+    if (length > 0.02 && (open.gains[0] || open.gains[1])) out.push({ ...open, to: open.from + length });
     open = undefined;
   };
   for (const e of filmed.events) {
     if (e.kind === "stop") close(e.at);
-    else if (e.kind === "play" || open) {
+    else if (e.kind === "mix") {
+      gains = e.gains ?? [1, 1];
+      // A mute or solo mid-stretch: the rest plays with the new mix.
+      if (open) {
+        const { callId, from, at } = open;
+        close(e.at);
+        open = { callId, at: e.at, from: from + (e.at - at) / 1000, gains };
+      }
+    } else if (e.kind === "play" || open) {
       close(e.at);
-      open = { callId: e.callId, at: e.at, from: e.t };
+      open = { callId: e.callId, at: e.at, from: e.t, gains };
     }
   }
   close(filmed.start + filmed.duration * 1000 + filmed.interval);
   return out.map((s) => ({ ...s, at: Math.max(0, (s.at - filmed.start - filmed.interval) / 1000) }));
+}
+
+/** Caller left and agent right in the file, brought a little closer for headphones; one side heard
+ * alone (a solo, or the other muted) plays in both ears, as the page plays it. */
+function routing([left, right]: [number, number]): string {
+  if (left && !right) return "pan=stereo|c0=c0|c1=c0,";
+  if (right && !left) return "pan=stereo|c0=c1|c1=c1,";
+  return "pan=stereo|c0=0.75*c0+0.25*c1|c1=0.25*c0+0.75*c1,";
 }
 
 /** Writes the video with its sound in place of the silent one. Each stretch reads the recording
@@ -57,8 +75,7 @@ export function mux(filmed: Filmed, out: string): Segment[] {
     const len = s.to - s.from;
     return (
       `[${k + 1}:a]asetpts=PTS-STARTPTS,aresample=48000,aformat=sample_fmts=fltp:channel_layouts=stereo,` +
-      // Caller left and agent right in the file; brought a little closer for headphones.
-      "pan=stereo|c0=0.75*c0+0.25*c1|c1=0.25*c0+0.75*c1," +
+      routing(s.gains) +
       `afade=t=in:d=${fade},afade=t=out:st=${Math.max(0, len - fade).toFixed(4)}:d=${fade},` +
       `adelay=${Math.round(s.at * 1000)}:all=1[a${k}]`
     );
