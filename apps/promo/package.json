@@ -1,0 +1,13 @@
+{
+  "name": "promo",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "prepare-teaser": "node record/prepare.ts",
+    "record": "node record/record.ts"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.1",
+    "playwright": "1.63.0"
+  }
+}
