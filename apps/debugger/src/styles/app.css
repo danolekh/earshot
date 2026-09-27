@@ -1,0 +1,169 @@
+/* The debugger's styles: Tailwind v4 with shadcn's tokens (Base UI components, `base-nova`), in
+ * earshot's palette (lime on near-black, like the docs), plus the call's own colours. The earshot
+ * parts are skinned in skin.css, in the components layer so utilities can still override them. */
+@import "tailwindcss";
+@import "tw-animate-css";
+@import "shadcn/tailwind.css";
+@import "@fontsource-variable/inter";
+@import "@fontsource-variable/geist-mono";
+@import "./skin.css" layer(components);
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+  --radius: 0.5rem;
+  --background: #f4f5f7;
+  --foreground: #0e1013;
+  --card: #ffffff;
+  --card-foreground: #0e1013;
+  --popover: #ffffff;
+  --popover-foreground: #0e1013;
+  --primary: #4f7000;
+  --primary-foreground: #ffffff;
+  --secondary: #e9ebef;
+  --secondary-foreground: #0e1013;
+  --muted: #e9ebef;
+  --muted-foreground: #5d6470;
+  --accent: #e4e7ec;
+  --accent-foreground: #0e1013;
+  --destructive: #d42f2f;
+  --border: #dfe2e8;
+  --input: #dfe2e8;
+  --ring: #4f7000;
+  --sidebar: #ffffff;
+  --sidebar-foreground: #0e1013;
+  --sidebar-primary: #4f7000;
+  --sidebar-primary-foreground: #ffffff;
+  --sidebar-accent: #e9ebef;
+  --sidebar-accent-foreground: #0e1013;
+  --sidebar-border: #dfe2e8;
+  --sidebar-ring: #4f7000;
+  /* The call: who's speaking, and the pipeline's stages. */
+  --caller: #0a6fd6;
+  --agent: #4e8a00;
+  --warning: #a35f00;
+  --info: #5d6470;
+  --llm: #7a4fd9;
+  --tool: #c25a14;
+  --tts: #0f8a73;
+  --eou: #0a6fd6;
+}
+
+.dark {
+  color-scheme: dark;
+  --background: #0b0c0e;
+  --foreground: #e9ecef;
+  --card: #131519;
+  --card-foreground: #e9ecef;
+  --popover: #131519;
+  --popover-foreground: #e9ecef;
+  --primary: #c6ff3d;
+  --primary-foreground: #0b0c0e;
+  --secondary: #15171b;
+  --secondary-foreground: #e9ecef;
+  --muted: #181b21;
+  --muted-foreground: #9aa1ab;
+  --accent: #1d2026;
+  --accent-foreground: #e9ecef;
+  --destructive: #ff5c5c;
+  --border: #22252b;
+  --input: #2a2e36;
+  --ring: #c6ff3d;
+  --sidebar: #111317;
+  --sidebar-foreground: #e9ecef;
+  --sidebar-primary: #c6ff3d;
+  --sidebar-primary-foreground: #0b0c0e;
+  --sidebar-accent: #1b1e23;
+  --sidebar-accent-foreground: #e9ecef;
+  --sidebar-border: #22252b;
+  --sidebar-ring: #c6ff3d;
+  --caller: #59b7ff;
+  --agent: #c6ff3d;
+  --warning: #ffb547;
+  --info: #8b92a1;
+  --llm: #b48cff;
+  --tool: #ff9f5c;
+  --tts: #4fd1b5;
+  --eou: #59b7ff;
+}
+
+@theme inline {
+  --font-sans: "Inter Variable", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "Geist Mono Variable", ui-monospace, SFMono-Regular, Menlo, monospace;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-caller: var(--caller);
+  --color-agent: var(--agent);
+  --color-warning: var(--warning);
+  --color-info: var(--info);
+  --color-llm: var(--llm);
+  --color-tool: var(--tool);
+  --color-tts: var(--tts);
+  --color-eou: var(--eou);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+}
+
+/* The first paint, before motion-panels has measured itself: it sizes a panel from its group once
+ * it's in the page, so the prerendered HTML has no real sizes. The head script (first-paint.ts)
+ * put the stored sizes and closed panels on <html>; these lay the panels out from them (defaults as
+ * in DEFAULT_LAYOUT) until the page has hydrated. A sized panel is an outer box holding the element
+ * with our attributes, hence `:has`. Unlayered and !important, to win over the inline sizes. */
+:root:not([data-hydrated]) {
+  & :has(> [data-layout-panel="inspector"]) {
+    width: var(--layout-inspector, 416px) !important;
+  }
+  & [data-layout-panel="inspector"] {
+    width: var(--layout-inspector, 416px) !important;
+  }
+  &[data-inspector="closed"] :has(> [data-layout-panel="inspector"]) {
+    width: 0 !important;
+    overflow: clip;
+  }
+  & :has(> [data-layout-panel="transcript"]) {
+    height: var(--layout-transcript, 35%) !important;
+  }
+  & [data-layout-panel="transcript"] {
+    height: 100% !important;
+  }
+  &[data-transcript="closed"] :has(> [data-layout-panel="transcript"]) {
+    height: 0 !important;
+    overflow: clip;
+  }
+}

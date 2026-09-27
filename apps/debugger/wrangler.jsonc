@@ -1,0 +1,14 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "earshot-debugger",
+  "compatibility_date": "2026-09-01",
+  // A static site: the prerendered debugger and the demo call's audio (served with range requests).
+  "assets": {
+    "directory": "./.output/public",
+    "not_found_handling": "none",
+    "html_handling": "auto-trailing-slash",
+  },
+  "routes": [{ "pattern": "debugger.danolekh.com", "custom_domain": true }],
+  "workers_dev": true,
+  "observability": { "enabled": false },
+}

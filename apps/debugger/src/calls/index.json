@@ -1,0 +1,500 @@
+[
+ {
+  "id": "stadtwerke-zaehlerstand",
+  "title": "Stadtwerke Muster · Zählerstand",
+  "startedAt": "2026-09-24T09:14:02.000Z",
+  "duration": 56.91,
+  "direction": "outbound",
+  "language": "de-DE",
+  "provider": "livekit",
+  "agent": "stadtwerke-outbound v42",
+  "prompt": "zaehlerstand@7",
+  "goal": "Zählerstand erfasst",
+  "achieved": true,
+  "findings": [
+   {
+    "id": "early_endpoint:t3",
+    "type": "early_endpoint",
+    "severity": "error",
+    "start": 16.36,
+    "message": "The turn was ended after a 0.74 s pause, but the caller went on (\"null acht drei.\") in the middle of a number",
+    "turnId": "t3"
+   },
+   {
+    "id": "talk_over:17.22",
+    "type": "talk_over",
+    "severity": "warning",
+    "start": 17.22,
+    "message": "Both sides spoke at once for 0.44 s",
+    "turnId": "t5"
+   },
+   {
+    "id": "heard_vs_said:t7",
+    "type": "heard_vs_said",
+    "severity": "error",
+    "start": 24.12,
+    "message": "The agent heard \"Vier sieben eins acht drei.\": \"null\" was said but not heard",
+    "turnId": "t7"
+   },
+   {
+    "id": "low_asr_confidence:t7",
+    "type": "low_asr_confidence",
+    "severity": "warning",
+    "start": 24.51,
+    "message": "The recogniser was unsure of \"acht\" (0.41)",
+    "turnId": "t7"
+   },
+   {
+    "id": "tool_error:000000000000002b",
+    "type": "tool_error",
+    "severity": "error",
+    "start": 25.92,
+    "message": "crm.lookup_customer failed: 404: no contract for customer_id 47183",
+    "turnId": "t8"
+   },
+   {
+    "id": "repeat:t8",
+    "type": "repeat",
+    "severity": "warning",
+    "start": 26.44,
+    "message": "The agent repeated itself: \"Können Sie mir bitte Ihre Kundennummer noch einmal nennen?\" (0.91 like turn t2)",
+    "turnId": "t8"
+   },
+   {
+    "id": "dead_air:44.22",
+    "type": "dead_air",
+    "severity": "warning",
+    "start": 44.22,
+    "message": "2.38 s of silence on the line",
+    "turnId": "t12"
+   },
+   {
+    "id": "slow_turn:t13",
+    "type": "slow_turn",
+    "severity": "error",
+    "start": 44.22,
+    "message": "The caller waited 3.13 s for a reply; the longest stage was crm.submit_meter_reading (1.90 s)",
+    "turnId": "t13"
+   },
+   {
+    "id": "slow_tool:0000000000000054",
+    "type": "slow_tool",
+    "severity": "warning",
+    "start": 44.85,
+    "message": "crm.submit_meter_reading took 1.90 s",
+    "turnId": "t13"
+   },
+   {
+    "id": "talk_over:47.37",
+    "type": "talk_over",
+    "severity": "warning",
+    "start": 47.37,
+    "message": "Both sides spoke at once for 0.81 s",
+    "turnId": "t13"
+   }
+  ],
+  "errors": 4,
+  "warnings": 6,
+  "slowestReply": 3.13,
+  "turns": 16,
+  "text": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen? Ja, das ist in Ordnung. Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen? Ja, die ist vier sieben eins null acht drei. Danke, ich habe die vier sieben eins notiert. Stimmt das so? Entschuldigung, ich habe Sie unterbrochen. Wie war die Nummer noch mal? Vier sieben eins acht drei. Unter der Nummer vier sieben eins acht drei finde ich leider keinen Vertrag. Können Sie mir bitte Ihre Kundennummer noch einmal nennen? Vier. Sieben. Eins. Null. Acht. Drei. Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand? Zwölf dreiundvierzig. Hallo? Sind Sie noch da? Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert. Super, danke. Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!"
+ },
+ {
+  "id": "solar-beratung",
+  "title": "Sonnenwerk Solar · Beratungstermin",
+  "startedAt": "2026-09-25T14:32:10.000Z",
+  "duration": 43.6,
+  "direction": "outbound",
+  "language": "de-DE",
+  "provider": "livekit",
+  "agent": "sonnenwerk-leads v17",
+  "prompt": "solar-lead@3",
+  "goal": "Beratungstermin gebucht",
+  "achieved": true,
+  "findings": [
+   {
+    "id": "disclosure_missing:t0",
+    "type": "disclosure_missing",
+    "severity": "error",
+    "start": 0.4,
+    "message": "The agent didn't say it's an AI in its first 4 sentences",
+    "turnId": "t0"
+   },
+   {
+    "id": "dead_air:29.36",
+    "type": "dead_air",
+    "severity": "warning",
+    "start": 29.36,
+    "message": "3.17 s of silence on the line",
+    "turnId": "t8"
+   },
+   {
+    "id": "slow_turn:t8",
+    "type": "slow_turn",
+    "severity": "error",
+    "start": 29.36,
+    "message": "The caller waited 3.17 s for a reply; the longest stage was calendar.book_appointment (2.40 s)",
+    "turnId": "t8"
+   },
+   {
+    "id": "slow_tool:000000000000002b",
+    "type": "slow_tool",
+    "severity": "error",
+    "start": 29.99,
+    "message": "calendar.book_appointment took 2.40 s",
+    "turnId": "t8"
+   }
+  ],
+  "errors": 3,
+  "warnings": 1,
+  "slowestReply": 3.17,
+  "turns": 11,
+  "text": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz? Ja, kurz schon. Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach? Ja, das Dach ist nach Süden ausgerichtet. Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung? So um die hundertzwanzig Euro im Monat. Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr? Ja, Donnerstag um zehn passt. Ihr Termin ist eingetragen, Donnerstag um zehn Uhr. Sie bekommen gleich eine Bestätigung per SMS. Alles klar, danke schön. Gerne. Einen schönen Tag noch!"
+ },
+ {
+  "id": "praxis-termin",
+  "title": "Praxis Dr. Berger · Termin verschieben",
+  "startedAt": "2026-09-25T08:03:41.000Z",
+  "duration": 51.93,
+  "direction": "inbound",
+  "language": "de-DE",
+  "provider": "livekit",
+  "agent": "praxis-inbound v8",
+  "prompt": "praxis-termine@12",
+  "goal": "Termin verschoben",
+  "achieved": true,
+  "findings": [
+   {
+    "id": "false_interruption:17.35",
+    "type": "false_interruption",
+    "severity": "warning",
+    "start": 17.35,
+    "message": "The agent stopped for a backchannel (\"Mhm.\")",
+    "turnId": "t4"
+   },
+   {
+    "id": "repeat:t8",
+    "type": "repeat",
+    "severity": "warning",
+    "start": 26.46,
+    "message": "The agent repeated itself: \"Mittwoch um neun, Donnerstag um vierzehn oder Freitag um elf Uhr.\" (0.81 like turn t4)",
+    "turnId": "t8"
+   },
+   {
+    "id": "agent_did_not_stop:t11",
+    "type": "agent_did_not_stop",
+    "severity": "error",
+    "start": 36.41,
+    "message": "The agent kept talking 2.34 s after the caller came in",
+    "turnId": "t10"
+   },
+   {
+    "id": "talk_over:36.44",
+    "type": "talk_over",
+    "severity": "warning",
+    "start": 36.44,
+    "message": "Both sides spoke at once for 0.47 s",
+    "turnId": "t10"
+   },
+   {
+    "id": "talk_over:37.41",
+    "type": "talk_over",
+    "severity": "warning",
+    "start": 37.41,
+    "message": "Both sides spoke at once for 1.30 s",
+    "turnId": "t10"
+   }
+  ],
+  "errors": 1,
+  "warnings": 4,
+  "slowestReply": 1.42,
+  "turns": 15,
+  "text": "Praxis Doktor Berger, Sie sprechen mit der digitalen Assistentin. Ich bin eine KI. Wie kann ich Ihnen helfen? Ich möchte meinen Termin am Dienstag verschieben. Gerne. Wie ist Ihr Name, bitte? Jonas Wagner. Danke, Herr Wagner. Ich habe folgende Termine frei: Mittwoch um neun Uhr, Donnerstag um vierzehn Uhr oder Freitag um elf Uhr. Mhm. Entschuldigung, ich habe Sie unterbrochen. Was möchten Sie sagen? Nichts, ich habe nur zugehört. Welche Termine waren das? Mittwoch um neun, Donnerstag um vierzehn oder Freitag um elf Uhr. Donnerstag um vierzehn Uhr, bitte. Alles klar. Ich verschiebe Ihren Termin auf Donnerstag um vierzehn Uhr und schicke Ihnen eine Bestätigung per SMS an die hinterlegte Nummer. Moment, bitte an meine neue Nummer! Entschuldigung. Wie lautet Ihre neue Nummer? Null eins sieben zwei, vier fünf sechs, drei drei neun. Danke, die Bestätigung geht an die neue Nummer. Bis Donnerstag!"
+ },
+ {
+  "id": "versicherung-schaden",
+  "title": "Hanse Mobil · Schadenmeldung",
+  "startedAt": "2026-09-23T16:47:05.000Z",
+  "duration": 42.55,
+  "direction": "inbound",
+  "language": "de-DE",
+  "provider": "livekit",
+  "agent": "hanse-fnol v23",
+  "prompt": "schaden-fnol@5",
+  "goal": "Schaden gemeldet",
+  "achieved": true,
+  "findings": [
+   {
+    "id": "low_asr_confidence:t3",
+    "type": "low_asr_confidence",
+    "severity": "warning",
+    "start": 14.4,
+    "message": "The recogniser was unsure of \"Özdemir.\" (0.38)",
+    "turnId": "t3"
+   },
+   {
+    "id": "early_endpoint:t5",
+    "type": "early_endpoint",
+    "severity": "warning",
+    "start": 20.84,
+    "message": "The turn was ended after a 0.63 s pause, but the caller went on (\"Ecke Bahnhofstraße.\")",
+    "turnId": "t5"
+   },
+   {
+    "id": "talk_over:21.57",
+    "type": "talk_over",
+    "severity": "warning",
+    "start": 21.58,
+    "message": "Both sides spoke at once for 0.48 s",
+    "turnId": "t7"
+   }
+  ],
+  "errors": 0,
+  "warnings": 3,
+  "slowestReply": 1.31,
+  "turns": 13,
+  "text": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden? Ja, ich hatte heute Morgen einen kleinen Auffahrunfall. Das tut mir leid. Wie ist Ihr vollständiger Name? Murat Özdemir. Danke, Herr Özdemir. Wo ist der Unfall passiert? Das war in der Lindenstraße, Ecke Bahnhofstraße. Danke, Lindenstraße ist notiert. Gab es Verletzte? Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte? Nein, zum Glück nicht. Nur die Stoßstange ist kaputt. Gut zu hören. Ich schicke Ihnen einen Link, über den Sie Fotos vom Schaden hochladen können. Prima, danke. Gerne, Herr Özdemir. Alles Gute!"
+ },
+ {
+  "id": "tarif-wechsel",
+  "title": "Nordstrom Energie · Tarifwechsel",
+  "startedAt": "2026-09-22T11:20:33.000Z",
+  "duration": 38.7,
+  "direction": "inbound",
+  "language": "de-DE",
+  "provider": "livekit",
+  "agent": "nordstrom-service v5",
+  "prompt": "tarifwechsel@2",
+  "goal": "Tarif gewechselt",
+  "achieved": true,
+  "findings": [
+   {
+    "id": "dead_air:15.36",
+    "type": "dead_air",
+    "severity": "warning",
+    "start": 15.36,
+    "message": "3.32 s of silence on the line",
+    "turnId": "t4"
+   },
+   {
+    "id": "slow_turn:t4",
+    "type": "slow_turn",
+    "severity": "error",
+    "start": 15.36,
+    "message": "The caller waited 3.30 s for a reply; the longest stage was gpt-4.1 (2.75 s)",
+    "turnId": "t4"
+   }
+  ],
+  "errors": 1,
+  "warnings": 1,
+  "slowestReply": 3.3,
+  "turns": 9,
+  "text": "Nordstrom Energie, guten Tag. Ich bin die KI-Assistentin des Kundenservice. Worum geht es? Ich möchte in einen günstigeren Tarif wechseln. Gerne. Wie hoch ist Ihr Jahresverbrauch ungefähr? Ungefähr dreitausend Kilowattstunden. Bei dreitausend Kilowattstunden wäre unser Tarif Öko Plus am günstigsten. Sie sparen etwa hundertvierzig Euro im Jahr. Das klingt gut. Machen Sie das bitte. Erledigt. Ihr neuer Tarif gilt ab dem ersten November. Die Bestätigung kommt per E-Mail. Super, vielen Dank. Gerne. Auf Wiederhören!"
+ },
+ {
+  "id": "paket-rueckruf",
+  "title": "Blitzpaket · Neue Zustellung",
+  "startedAt": "2026-09-26T07:58:12.000Z",
+  "duration": 24.19,
+  "direction": "outbound",
+  "language": "de-DE",
+  "provider": "livekit",
+  "agent": "blitzpaket-outbound v31",
+  "prompt": "zustellung@9",
+  "goal": "Zustellung neu geplant",
+  "achieved": true,
+  "findings": [],
+  "errors": 0,
+  "warnings": 0,
+  "slowestReply": 1.38,
+  "turns": 5,
+  "text": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung? Morgen Nachmittag wäre gut. Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas? Nein, das war alles. Gerne. Einen schönen Tag noch!"
+ },
+ {
+  "id": "stadtwerke-zaehlerstand-v43",
+  "title": "Stadtwerke Muster · Zählerstand",
+  "startedAt": "2026-09-26T15:42:18.000Z",
+  "duration": 36.17,
+  "direction": "outbound",
+  "language": "de-DE",
+  "provider": "livekit",
+  "agent": "stadtwerke-outbound v43",
+  "prompt": "zaehlerstand@8",
+  "goal": "Zählerstand erfasst",
+  "achieved": true,
+  "findings": [],
+  "errors": 0,
+  "warnings": 0,
+  "slowestReply": 1.22,
+  "turns": 9,
+  "text": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen? Ja, das ist in Ordnung. Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen? Ja, die ist vier sieben eins null acht drei. Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand? Zwölf dreiundvierzig. Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert. Super, danke. Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!"
+ },
+ {
+  "id": "stadtwerke-zaehlerstand-pipecat",
+  "title": "Stadtwerke Muster · Zählerstand",
+  "startedAt": "2026-09-24T09:14:02.000Z",
+  "duration": 56.91,
+  "direction": "outbound",
+  "language": "de-DE",
+  "provider": "pipecat",
+  "agent": "stadtwerke-outbound v42",
+  "prompt": "zaehlerstand@7",
+  "goal": "Zählerstand erfasst",
+  "achieved": true,
+  "findings": [
+   {
+    "id": "early_endpoint:t3",
+    "type": "early_endpoint",
+    "severity": "error",
+    "start": 16.36,
+    "message": "The turn was ended after a 0.74 s pause, but the caller went on (\"null acht drei.\") in the middle of a number",
+    "turnId": "t3"
+   },
+   {
+    "id": "talk_over:17.22",
+    "type": "talk_over",
+    "severity": "warning",
+    "start": 17.22,
+    "message": "Both sides spoke at once for 0.44 s",
+    "turnId": "t5"
+   },
+   {
+    "id": "heard_vs_said:t7",
+    "type": "heard_vs_said",
+    "severity": "error",
+    "start": 24.12,
+    "message": "The agent heard \"Vier sieben eins acht drei.\": \"null\" was said but not heard",
+    "turnId": "t7"
+   },
+   {
+    "id": "tool_error:tool:call_not-found",
+    "type": "tool_error",
+    "severity": "error",
+    "start": 25.92,
+    "message": "crm.lookup_customer failed: 404: no contract for customer_id 47183",
+    "turnId": "t8"
+   },
+   {
+    "id": "repeat:t8",
+    "type": "repeat",
+    "severity": "warning",
+    "start": 26.44,
+    "message": "The agent repeated itself: \"Können Sie mir bitte Ihre Kundennummer noch einmal nennen?\" (0.91 like turn t2)",
+    "turnId": "t8"
+   },
+   {
+    "id": "dead_air:44.22",
+    "type": "dead_air",
+    "severity": "warning",
+    "start": 44.22,
+    "message": "2.38 s of silence on the line",
+    "turnId": "t12"
+   },
+   {
+    "id": "slow_turn:t13",
+    "type": "slow_turn",
+    "severity": "error",
+    "start": 44.22,
+    "message": "The caller waited 3.13 s for a reply; the longest stage was crm.submit_meter_reading (1.90 s)",
+    "turnId": "t13"
+   },
+   {
+    "id": "slow_tool:tool:call_saved",
+    "type": "slow_tool",
+    "severity": "warning",
+    "start": 44.85,
+    "message": "crm.submit_meter_reading took 1.90 s",
+    "turnId": "t13"
+   },
+   {
+    "id": "talk_over:47.37",
+    "type": "talk_over",
+    "severity": "warning",
+    "start": 47.37,
+    "message": "Both sides spoke at once for 0.81 s",
+    "turnId": "t13"
+   }
+  ],
+  "errors": 4,
+  "warnings": 5,
+  "slowestReply": 3.13,
+  "turns": 16,
+  "text": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen? Ja, das ist in Ordnung. Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen? Ja, die ist vier sieben eins null acht drei. Danke, ich habe die vier sieben eins notiert. Stimmt das so? Entschuldigung, ich habe Sie unterbrochen. Wie war die Nummer noch mal? Vier sieben eins acht drei. Unter der Nummer vier sieben eins acht drei finde ich leider keinen Vertrag. Können Sie mir bitte Ihre Kundennummer noch einmal nennen? Vier. Sieben. Eins. Null. Acht. Drei. Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand? Zwölf dreiundvierzig. Hallo? Sind Sie noch da? Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert. Super, danke. Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!"
+ },
+ {
+  "id": "stadtwerke-zaehlerstand-elevenlabs",
+  "title": "Stadtwerke Muster · Zählerstand",
+  "startedAt": "2026-09-24T09:14:02.000Z",
+  "duration": 56.91,
+  "direction": "outbound",
+  "language": "de-DE",
+  "provider": "elevenlabs",
+  "agent": "stadtwerke-outbound v42",
+  "prompt": "zaehlerstand@7",
+  "goal": "Zählerstand erfasst",
+  "achieved": true,
+  "findings": [
+   {
+    "id": "heard_vs_said:t7",
+    "type": "heard_vs_said",
+    "severity": "error",
+    "start": 24.12,
+    "message": "The agent heard \"Vier sieben eins acht drei.\": \"null\" was said but not heard",
+    "turnId": "t7"
+   },
+   {
+    "id": "tool_error:tool:toolu_not-found",
+    "type": "tool_error",
+    "severity": "error",
+    "start": 25,
+    "message": "crm.lookup_customer failed: 404: no contract for customer_id 47183",
+    "turnId": "t8"
+   },
+   {
+    "id": "repeat:t8",
+    "type": "repeat",
+    "severity": "warning",
+    "start": 26.46,
+    "message": "The agent repeated itself: \"Können Sie mir bitte Ihre Kundennummer noch einmal nennen?\" (0.91 like turn t2)",
+    "turnId": "t8"
+   },
+   {
+    "id": "human_feedback:t8",
+    "type": "human_feedback",
+    "severity": "warning",
+    "start": 32,
+    "message": "Someone disliked this reply",
+    "turnId": "t8"
+   },
+   {
+    "id": "slow_tool:tool:toolu_saved",
+    "type": "slow_tool",
+    "severity": "warning",
+    "start": 44,
+    "message": "crm.submit_meter_reading took 1.90 s",
+    "turnId": "t13"
+   },
+   {
+    "id": "dead_air:44.22",
+    "type": "dead_air",
+    "severity": "warning",
+    "start": 44.22,
+    "message": "2.38 s of silence on the line",
+    "turnId": "t12"
+   },
+   {
+    "id": "slow_turn:t13",
+    "type": "slow_turn",
+    "severity": "error",
+    "start": 44.22,
+    "message": "The caller waited 3.19 s for a reply; the longest stage was crm.submit_meter_reading (1.90 s)",
+    "turnId": "t13"
+   }
+  ],
+  "errors": 3,
+  "warnings": 4,
+  "slowestReply": 3.19,
+  "turns": 16,
+  "text": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen? Ja, das ist in Ordnung. Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen? Ja, die ist vier sieben eins null acht drei. Danke, ich Entschuldigung, ich habe Sie unterbrochen. Wie war die Nummer noch mal? Vier sieben eins acht drei. Unter der Nummer vier sieben eins acht drei finde ich leider keinen Vertrag. Können Sie mir bitte Ihre Kundennummer noch einmal nennen? Vier. Sieben. Eins. Null. Acht. Drei. Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand? Zwölf dreiundvierzig. Hallo? Sind Sie noch da? Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert. Super, danke. Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!"
+ }
+]

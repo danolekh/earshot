@@ -1,0 +1,535 @@
+/* The skin for earshot's parts. They ship no styles: everything here is CSS on their data-slot and
+ * data-* state and the variables they set (--view-from/--view-span for the zoom, --span-row,
+ * --span-mark, --word-confidence, --eou-probability, --item-row...), coloured with the app's shadcn
+ * tokens and the call palette (--caller, --agent, --llm, --tool, --tts, --eou). Layout and chrome
+ * are Tailwind classes in the components. */
+
+:root {
+  --gutter: 104px;
+  --h-ruler: 20px;
+  --h-findings: 22px;
+  --h-audio: 46px;
+  --h-words: 20px;
+  --h-turns: 30px;
+  --h-spans: 86px;
+  --h-context: 18px;
+  /* The tallest each kind of lane grows as the timeline gets room: waveforms take most of it; the
+   * others only as much as their content can use (a couple of rows of words, of turn-taking, and
+   * the span waterfall's rows). */
+  --max-audio: 280px;
+  --max-words: 28px;
+  --max-turns: 44px;
+  --max-spans: 150px;
+}
+
+/* Compact: the same lanes, shorter, for a small screen or a call with the transcript open wide. */
+[data-density="compact"] {
+  --h-findings: 18px;
+  --h-audio: 30px;
+  --h-words: 16px;
+  --h-turns: 22px;
+  --h-spans: 62px;
+  --h-context: 16px;
+}
+
+/* Expanded: taller waveforms and room for more span rows. */
+[data-density="expanded"] {
+  --h-findings: 26px;
+  --h-audio: 72px;
+  --h-words: 24px;
+  --h-turns: 36px;
+  --h-spans: 112px;
+  --h-context: 20px;
+  --max-audio: 360px;
+  --max-words: 32px;
+  --max-turns: 52px;
+  --max-spans: 200px;
+}
+
+/* Lanes: the gutter and the lanes come from one registry; each row is [data-lane] with its height. */
+.gutter li,
+.lane {
+  border-bottom: 1px solid var(--border);
+}
+
+.lane {
+  overflow: hidden;
+}
+
+/* Where hidden lanes were: a dashed hairline, matching the gutter's strip. */
+.lane-strip {
+  background: repeating-linear-gradient(90deg, var(--border) 0 4px, transparent 4px 8px) center / 100% 1px
+    no-repeat;
+}
+
+/* A side you can't hear right now (muted, or the other side soloed). */
+.lane[data-muted] .wave {
+  opacity: 0.35;
+}
+
+.timeline {
+  position: relative;
+  overflow: hidden;
+}
+
+.ruler {
+  height: var(--h-ruler);
+  color: var(--muted-foreground);
+  font-size: 10px;
+  font-variant-numeric: tabular-nums;
+}
+
+[data-slot="timeline-tick"] {
+  top: 2px;
+  padding-left: 3px;
+  border-left: 1px solid var(--border);
+  white-space: nowrap;
+}
+
+.scrubber {
+  cursor: text;
+}
+
+[data-lane="caller"] {
+  color: var(--caller);
+  --waveform-played: var(--caller);
+}
+
+[data-lane="agent"] {
+  color: var(--agent);
+  --waveform-played: var(--agent);
+}
+
+.wave {
+  position: absolute;
+  inset: 0;
+  height: 100%;
+  opacity: 0.9;
+}
+
+[data-slot="timeline-segment"] {
+  background: color-mix(in srgb, currentColor 9%, transparent);
+  border-left: 1px solid color-mix(in srgb, currentColor 40%, transparent);
+}
+
+[data-slot="timeline-segment"][data-selected] {
+  background: color-mix(in srgb, currentColor 22%, transparent);
+}
+
+/* Words */
+[data-slot="timeline-word"] {
+  top: 2px;
+  height: calc(var(--h-words) - 4px);
+  padding: 0 2px;
+  overflow: hidden;
+  border-left: 1px solid color-mix(in srgb, var(--muted-foreground) 45%, transparent);
+  font-size: 11px;
+  line-height: 16px;
+  white-space: nowrap;
+  opacity: calc(0.45 + var(--word-confidence, 1) * 0.55);
+}
+
+[data-lane="heard"] [data-slot="timeline-word"] {
+  color: var(--caller);
+}
+
+/* Word text only once zoomed in far enough to read it; mismatches stay visible as outlines. */
+[data-slot="timeline"]:not([data-zoomed]) [data-slot="timeline-word"],
+[data-slot="timeline"]:not([data-zoomed]) .context {
+  color: transparent !important;
+}
+
+[data-slot="timeline-word"][data-mismatch] {
+  outline: 1px dashed var(--destructive);
+  outline-offset: -1px;
+  background: color-mix(in srgb, var(--destructive) 18%, transparent);
+  color: var(--foreground);
+}
+
+[data-slot="timeline-word"][data-entity] {
+  font-weight: 600;
+}
+
+[data-slot="timeline-word"][data-source="tts"] {
+  color: var(--agent);
+}
+
+[data-slot="timeline-word"][data-source="tts"]:not([data-heard]) {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+  opacity: 0.55;
+}
+
+[data-slot="timeline-word"][data-estimated] {
+  border-left-style: dashed;
+}
+
+/* Turn-taking */
+.vad {
+  top: calc(4px + var(--item-row) * 8px);
+  height: 5px;
+  border-radius: 3px;
+}
+
+.vad[data-channel="caller"] {
+  background: color-mix(in srgb, var(--caller) 55%, transparent);
+}
+
+.vad[data-channel="agent"] {
+  background: color-mix(in srgb, var(--agent) 55%, transparent);
+}
+
+[data-slot="timeline-signal"] {
+  top: 19px;
+  height: 8px;
+}
+
+[data-slot="timeline-signal"][data-type="eou_decision"] {
+  border-bottom: 1px solid var(--eou);
+  border-right: 1px solid var(--eou);
+}
+
+[data-slot="timeline-signal"][data-type="eou_decision"]::after {
+  content: "";
+  position: absolute;
+  right: -4px;
+  bottom: -4px;
+  width: 7px;
+  height: 7px;
+  transform: rotate(45deg);
+  background: var(--eou);
+  opacity: calc(0.35 + var(--eou-probability, 1) * 0.65);
+}
+
+[data-slot="timeline-signal"][data-outcome="user_resumed"] {
+  border-color: var(--muted-foreground);
+}
+
+[data-slot="timeline-signal"][data-outcome="user_resumed"]::after {
+  background: transparent;
+  outline: 1px solid var(--muted-foreground);
+}
+
+[data-slot="timeline-signal"][data-type="interruption"]::before,
+[data-slot="timeline-signal"][data-type="false_interruption"]::before {
+  content: "▲";
+  position: absolute;
+  left: -5px;
+  top: -3px;
+  color: var(--destructive);
+  font-size: 10px;
+}
+
+[data-slot="timeline-overlap"] {
+  z-index: 1;
+  background: repeating-linear-gradient(
+    45deg,
+    color-mix(in srgb, var(--destructive) 30%, transparent) 0 3px,
+    transparent 3px 7px
+  );
+  pointer-events: none;
+}
+
+/* Spans: a row per stage */
+[data-slot="timeline-span"] {
+  top: calc(4px + var(--span-row) * 13px);
+  height: 11px;
+  min-width: 2px;
+  border-radius: 2px;
+  background: linear-gradient(
+    to right,
+    var(--c) 0 calc(var(--span-mark, 1) * 100%),
+    color-mix(in srgb, var(--c) 35%, transparent) calc(var(--span-mark, 1) * 100%)
+  );
+  --c: var(--muted-foreground);
+  cursor: pointer;
+}
+
+[data-slot="timeline-span"][data-kind="eou"] {
+  --c: var(--eou);
+}
+[data-slot="timeline-span"][data-kind="llm"] {
+  --c: var(--llm);
+}
+[data-slot="timeline-span"][data-kind="tool"] {
+  --c: var(--tool);
+}
+[data-slot="timeline-span"][data-kind="tts"] {
+  --c: var(--tts);
+}
+[data-slot="timeline-span"][data-kind="playout"] {
+  --c: var(--agent);
+}
+[data-slot="timeline-span"][data-status="error"] {
+  --c: var(--destructive);
+  outline: 1px solid var(--destructive);
+}
+[data-slot="timeline-span"][data-selected] {
+  outline: 2px solid var(--foreground);
+}
+
+.context {
+  top: 2px;
+  overflow: hidden;
+  color: var(--muted-foreground);
+  font-size: 10px;
+  white-space: nowrap;
+}
+
+/* Findings: an icon by kind of problem, colour by severity */
+[data-severity] {
+  --c: var(--info);
+}
+[data-severity="warning"] {
+  --c: var(--warning);
+}
+[data-severity="error"] {
+  --c: var(--destructive);
+}
+
+[data-slot="timeline-finding"],
+[data-slot="timeline-finding-cluster"] {
+  top: 3px;
+  height: 16px;
+  min-width: 14px;
+  cursor: pointer;
+}
+
+[data-slot="timeline-finding"] {
+  border-top: 2px solid color-mix(in srgb, var(--c) 60%, transparent);
+}
+
+/* The finding's icon, at its start, over the bar that spans its evidence. */
+[data-slot="timeline-finding"] > .marker {
+  position: absolute;
+  top: -1px;
+  left: -7px;
+  padding: 1px;
+  border-radius: 3px;
+  background: var(--card);
+}
+
+[data-slot="timeline-finding"][data-selected] {
+  background: color-mix(in srgb, var(--c) 22%, transparent);
+}
+
+[data-slot="timeline-finding-cluster"] {
+  padding: 0 4px;
+  border-radius: 8px;
+  background: color-mix(in srgb, var(--c) 30%, transparent);
+  color: var(--foreground);
+  font-size: 10px;
+  line-height: 16px;
+  text-align: center;
+}
+
+.playhead {
+  z-index: 3;
+  width: 1.5px;
+  background: var(--primary);
+}
+
+.skimmer {
+  z-index: 2;
+  width: 1px;
+  background: color-mix(in srgb, var(--foreground) 40%, transparent);
+}
+
+.skim-label {
+  position: absolute;
+  top: 0;
+  left: 6px;
+  padding: 1px 6px;
+  border-radius: 4px;
+  background: var(--popover);
+  color: var(--popover-foreground);
+  font-size: 11px;
+  white-space: nowrap;
+}
+
+/* Transcript */
+.transcript {
+  position: relative;
+  height: 100%;
+  padding: 8px 16px 12px;
+  overflow-y: auto;
+}
+
+.resume {
+  position: sticky;
+  top: 0;
+  float: right;
+  padding: 2px 8px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background: var(--muted);
+  font-size: 12px;
+  cursor: pointer;
+}
+
+.turn {
+  margin: 0 0 10px;
+  padding: 6px 10px;
+  border-left: 2px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.turn[data-past] {
+  opacity: 0.6;
+}
+
+.turn[data-active] {
+  border-left-color: var(--primary);
+  opacity: 1;
+}
+
+.turn[data-selected] {
+  background: var(--muted);
+}
+
+.turn-head {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: baseline;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  border-radius: 4px;
+  background: none;
+  color: inherit;
+  font: inherit;
+  font-size: 12px;
+  text-align: left;
+  cursor: pointer;
+}
+
+.turn-head:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+}
+
+.speaker[data-role="user"] {
+  color: var(--caller);
+}
+
+.speaker[data-role="agent"] {
+  color: var(--agent);
+}
+
+.time {
+  color: var(--muted-foreground);
+  font-variant-numeric: tabular-nums;
+}
+
+.finding-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  padding: 0 6px;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--c) 20%, transparent);
+  color: var(--c);
+  font-size: 11px;
+}
+
+.turn-text {
+  margin: 2px 0 0;
+}
+
+.word[data-status="active"] {
+  background: color-mix(in srgb, var(--primary) 25%, transparent);
+  border-radius: 3px;
+}
+
+.word[data-status="unspoken"] {
+  color: var(--muted-foreground);
+  text-decoration: line-through;
+}
+
+.word[data-missed] {
+  text-decoration: underline wavy var(--destructive);
+}
+
+.heard-line {
+  margin: 2px 0 0;
+  color: var(--muted-foreground);
+  font-size: 12px;
+}
+
+/* Inspector visuals that follow data: the latency bar and the heard-vs-said words (earshot's parts,
+ * which place the bar's segments themselves). */
+
+[data-slot="latency-segment"] {
+  background: var(--c);
+}
+
+[data-kind] {
+  --c: var(--muted-foreground);
+}
+[data-kind="endpointing"] {
+  --c: var(--eou);
+}
+[data-kind="llm"] {
+  --c: var(--llm);
+}
+[data-kind="tool"] {
+  --c: var(--tool);
+}
+[data-kind="tts"] {
+  --c: var(--tts);
+}
+[data-kind="stt"] {
+  --c: var(--eou);
+}
+
+/* Placed from a figure the stack reported, not a span: only its length is known. */
+[data-slot="latency-segment"][data-reported] {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--c) 0 3px,
+    color-mix(in srgb, var(--c) 40%, transparent) 3px 6px
+  );
+}
+
+.stage-row[data-reported] {
+  border-left-style: dashed;
+}
+
+/* A span worked out rather than traced (a tool call found in the next request's input). */
+[data-slot="timeline-span"][data-estimated] {
+  background: color-mix(in srgb, var(--c) 30%, transparent);
+  outline: 1px dashed var(--c);
+  outline-offset: -1px;
+}
+
+[data-slot="latency-segment"][data-kind="unexplained"] {
+  background: repeating-linear-gradient(45deg, var(--muted-foreground) 0 2px, transparent 2px 6px);
+}
+
+.stage-row {
+  border-left: 4px solid var(--c);
+}
+
+.stage-row[data-kind="unexplained"] {
+  border-left-style: dotted;
+}
+
+[data-slot="heard-vs-said-word"][data-op="missing"],
+[data-slot="heard-vs-said-word"][data-op="changed"],
+[data-slot="heard-vs-said-word"][data-op="extra"] {
+  outline: 1px dashed var(--destructive);
+  background: color-mix(in srgb, var(--destructive) 15%, transparent);
+}
+
+[data-slot="heard-vs-said-word"][data-low] {
+  color: var(--warning);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    scroll-behavior: auto !important;
+    transition: none !important;
+  }
+}

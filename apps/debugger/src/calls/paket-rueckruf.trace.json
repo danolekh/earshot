@@ -1,0 +1,1514 @@
+{
+ "version": 1,
+ "call": {
+  "id": "paket-rueckruf",
+  "startedAt": "2026-09-26T07:58:12.000Z",
+  "versions": {
+   "sdk": "livekit-agents 1.8.3",
+   "agent": "blitzpaket-outbound v31",
+   "prompt": "zustellung@9"
+  },
+  "title": "Blitzpaket · Neue Zustellung",
+  "direction": "outbound",
+  "language": "de-DE",
+  "duration": 24.185,
+  "consent": "granted",
+  "outcome": {
+   "goal": "Zustellung neu geplant",
+   "achieved": true,
+   "window": "morgen 14–18 Uhr"
+  },
+  "synthetic": true,
+  "provider": "livekit"
+ },
+ "clock": {
+  "t0UnixMs": 1790409492000,
+  "channels": [
+   "caller",
+   "agent"
+  ],
+  "sampleRate": 48000,
+  "tolerance": 0.1
+ },
+ "audio": {
+  "sources": [
+   {
+    "src": "/calls/paket-rueckruf/call.ogg",
+    "type": "audio/ogg; codecs=opus"
+   },
+   {
+    "src": "/calls/paket-rueckruf/call.mp3",
+    "type": "audio/mpeg"
+   }
+  ],
+  "peaks": {
+   "caller": {
+    "rate": 200,
+    "min": "//////8A/wD//////v7+/v7//v7+/v///v7+/v/+//7+/v7+/v7+/v7//v///////v7///7+/////wD///7///7+/////////////wD//v/+////AP////7//v/+/v/+/v7+//7+///+/v7//////v/////////////+/v7///7+/v79/v7+/v7////+/v////7+///////+/////////////////////v/+//////////7//v7////////////+/////v7///7////+/gD//////v////////7+/v//AP8AAP////7///////7+/v7+//7//v7///8A/////v7///////7+//////////7+//7+/v7///7+/v7+/v7//v/////+////AAD//////v7+//7/////////AP////7+///+/v7+/v/+/v7+/v///v7+/v7+/v7+/v/+/v///v7//wD//wD//////v7+/v7//v///v7///////8A///////+/v////7//////////v/+/v//////////AP////////////////8A/v7+/v7+/v7+/v/+/v7+//7////+//////7//v7/AP////7+/v7//v7////+/v7+//7+/v/+/v////8A////////AP8A/////wAA/wD/AP///v7/////////////AP/////+//////////////7+/v//////AP8A//////7+/v7//////////wD/////////////AP///////wD///7////////+///+/////v7+//7//v////7///7+/v7////+/v7+/////v////7////////+/v7///7///7+//4A///////////+/v7////////+/v7+//8AAP/////////+/v7///////8A//////////////7//wD///////////7///7//v7///////8A//////////7///8A///+//////7+/v////////////7////////+/////////v7////+////////////AP/////+///+/gD//wAAAAAAAP8A//////////////7//wD////////////+///+/f7+/v7+/v/////+/v7/////////AP////////7////////+/////////////v////7/////AP////////7//v7//v7+//8AAP//////AP/+/v7+///+/////////v7+///+/v7///////////////8AAP8A/////v7+/v7+/v7+/v7//////v7+/v///wD///7+/v/+/v7+/v7////+/v///v////7+/v7///////7//////v////8A//7//////////f3+/v7+//7////+///+/v7//v7+/v7//wD//v7+///+/v///v39/v7//////v7////////+/v/+/v7///7+/////wD/AP8A//////////////8A/v/////+/v7+/v7+/v7//v7+/v////7+/////////v7+/v/+/v/////////////+//////////////////////////////7+/v7//////////////wD///////8A//////////////7+///////+/////////////////////////////////v7+/v7//v///v7////+/////v/+/v7///////7/AP///////////v7+///+/v7+/v/+//7+/f7+/f7+/////v7//////wD/AP/////+//////7+//////8AAP//////AP///gD//wAA//////////7//v/////////+/v7+/v7+/v//////////////AAAA//8A///+//7+/v7+/v/+/v////////7+/v///////v////7+/v////////8A/////////v/+/v3+/v7+//////7+//7///7////////+/v7//////////////////v///v7///8A////////////AAD/AP8A//////8A//////////7///7+/v////8A/wAA///+/////////v/+/v7+/v7///7+///+/v//AP////////7+/v7+//7+/v7////////////+//7/AP7+/v7///////////////7+/////////////////////wD////////+/v7+/v7/AAAA/////v///////////////////////////////////wD/AP/+//8A///+/v7///7+/v7+/v7+/v7+/v/+/v7+/////v7+//////////////7+//7+//7///////////8A//////////7///7+/v7+/v///v///////v7//////v7+///////+/v7+/v/+//7+///////////////+/v///////wAAAP8A//////8A/////////////////PT37vvv++3879b4xPe/r7m13a+y3bu2tLC+vrrJu7jF0MzLysfLydTe4+jo6Oj0+fr9/v7+/v39/N/i+/z66u3j4+7s6/3n5+fp9+z38Pbz9Pf4+/f99//4/vf+9/z2+vb69Pv07e/f7N3n3uPn7OTi5ODl4ufi3Orr3eTt8PDv7vH28PH19fP5/Pz8/P38+/z+/Pz8+/v7/P7+/v7+/////////vz69Pfw8Pny+vDy7+/y7/b09/7+//3+///////////x8vX6/P38/v39/f77/vz8+/328+zs8efq6e3q+ers6Oju6+7u7urn5+3r7u7v8vf7+/3+/wAA/////v/+/u74/P7+/v7///////////7///////////////7+/v///Pz5+/r6+/r9+P3q6+Tk7uLv3/Hi8OXw4vfk+ujv6Ovs7/j0+Pv7+/39/P7+/v3+/fbv6ebk5urp8PL1+fv8/v7+////////////8vT9//7++/Tt7fTu7vHs7PXp6e7s+PDy8vT59v37+/z9/v7/AP/////+/v/+/u/5+fr9/f7+///+//7+/////v7+///+/v/////////+/v7//v/+/v8AAAAAAAD//////////////////wAAAAAA//8A//////7/////////////AAD//////wD///////7///7//v7//////v/////+/v7///////////////////7+/v///v7//v7///7/AP/+/v/+///+/v7+/v/////////////+/v///wD///////7+///////+///+//7+/v///////v7+/////////wD//////wD///////////////////////7+///////+//////////////7//v///v7//v7///7+///////////////+/v////7+/v3+/v7///7+//7+/v/+/////////wD//wD////////+/v/////+///+/v7+/v7+//7+///////////+/////wD//////////////////////wD/AP8AAP///wD////+/v/+/v///v/+/v7////+/v/////+//7//v7+/f7+//////7//v7//v7+/v////7+///////////////+/v///////v7+/v7/////AP/+/v///////////v////7+///////+/////////////v7+//7+//7+/v7/AP/+AAAAAAD//wAA////////AAAA/////////v///wD+//7////+/v///////////v7//v/+//7+/v/+/////v7//////////v///////v7////+/////wAA/////wAA/////v7+//7+//////////7+/////v///v8A//////8A////AP7///////7///////8A//////7///7///8A//8A//7//////v7///////7+//7+//7+//7+/v7+/v//////AP///wAA/wAA////////AP////////8A//////7//v7+/////////v/+//////////8AAAD///////8A/wD//////v/+//7////+/v7+//7//v7+/v////7+//7+/v/+/////////v////////7///7//v/+/v7+/v7+/v7+/////v7+/v////////7//v/+///////////+//7//////////////v7/AP/////+/v7+/v7/////AP///v7///7+/v7+/v7+/v7+//////////////////////////7//v7//////wD//wAAAAAA///+/wD///7+/v7//v7+/v////7////+AP/+/v////7//v/////+/v3+/f7//v/////+/v///////v/+//7+/v7+/v7////+//7+/v7+/v7///4A/v7+///////////////+/v//////////AP/////+/v7//////////v7///7///7+/v/+/v7+//////////7+/v///wD/AAD/AP////7+/v7//v////7+/v7+/v7+/v7+/v///////v/+/////wD///////////////8AAP///v7////////+/v7+/v///////v7////////////////////////////+//////8AAP////////8A//////8A//8AAAAA//////8AAP////8A//////8A/wD////+///+//7//v7+/v/+/v/+/v////8A//////7///8A//////////7//v7+/v/+//7////+/////////////////wD///8AAP///////wD//////////////wD//v///v///v/+/v7///7///7////+/v7//////////wD/AAD////////+//8A/////v7///7//v7+//7+/v7//v7////+//////7+/////v7+//7+/v7+//7+/v//AP///wD/AP8A//7+/////////////v7+/v/+//////8AAAD//////////v///////////wD//wD/AAAA//8A////AP8A////AP7///////7+//7+/v7+/f7+/v7+/v7+///+//7+/////////////////////////v7+/v/+/v7//v/////+/////v8AAP/////+//7+/v////////////7//////wAA/////v///v7+/v789+375+Po2vDg5u/n9err6+z47/Hr7Ovp6Ofy6fLv8PTv+/D79fz3/Pj9+fn89v35/vr9+Pf+/v36/v79+////f37/v///v7+/////v/+/v7+/v/+///////////////+/////////v/+/v/+//7//v7+/v//AP///v/+/+74/fz60enB7cTH2Mrkztfr4eDn7vH19vb3+vv6/P39/v7+/v7+/v7//////wD/AP//AP/////////+/P349Pni2tfY6d3t39zn4O7h5ujs8u/x8vL38fT49Pb49vb4+Pb8+vv/+vz9/v7+/v39/v39/fz7+/v75/Tk8+j13fHf9eT06/n6+fj3+ff6+Pv5/Pn8+/38/fX+9Pz0/PX79/z5/f38//3//f7+/v7//v/+/v7+/v7+/v7//v//////////AP//////AP//////AAD////////////////+/v/+/v7+////////AP/+///+/v7+/v7+/v3+/v7+//7//////wD//v///////////////////v7//////v7+///////+/v7////////////+//////////7//wD//////v7//v/+/////////////v///v7+/v////7////+/v7+/////wD////////+/v7+////////AP////////7//v/+/v7+/v7+/v7+/v7/AP7+/v////////7+/v/+///+/v7+/v7//v/+/v/+//7+/v7+//////////////////7//////////v8A///+/////v7+/////////////////////////v////7+//3+///+/v7//////v7//////////v7+//7+/v7+//7+/v/+/v///wAA///////////+/v/+/wD//v//AP///////v/////+/v////////////////////7///7/////AP/////////+//7//v7///7///7+///////////////+//7//v7+//7//v////7//////////////v/////////+////AP8A/v////8A/v///v///////////////v7+/////////v7+/v///wD////////+/v7+/f7//v7+/v/+/v7///////7//v7//////wD////////+/////////wD///////////7///7+//////8A///+///+/v7//v7+//8A/wD/////////AP///gD//////////v7////+//7///7+/v/+/v7////+/////v7+/v7+//////7///7//////v7+///+/v7+//7+//7+/v////////7+/wD//v7//////////w==",
+    "max": "AgICAgICAQICAgEBAQEBAAEBAgAAAAEBAQEBAAEBAQEBAQEBAQEBAAEBAQEBAQEBAAEBAQEBAQECAQICAQEBAQEBAQEBAQEBAQECAQICAQEBAQEBAgEBAQEBAQEBAQEBAQEBAQEBAQEBAQECAgEBAQICAQEBAQECAQEBAAEAAQAAAAEAAQEBAQEBAQEAAAEBAQEBAgICAgIBAQEBAQEBAQICAgEBAgEBAQEBAQEBAgICAQEBAQECAgIBAQECAgIBAQEBAAABAQEBAgIBAQIBAQIBAQICAgECAgEBAQECAgICAgEBAgECAQEBAQEBAQECAgEBAQABAQECAQICAQEBAgIBAQEBAQEBAgECAQABAQEBAQEBAQAAAAABAAABAQIBAQEBAgECAgIBAgEBAQABAQEBAQIBAgIBAgICAgEBAQEBAAEBAQEBAQEAAQIBAAABAQEBAAAAAAEAAQEBAQEBAgIBAgICAgEBAQAAAAABAQEBAAEBAgEBAgICAQEBAQEBAAIBAQEBAQEBAQEBAAEBAQICAgICAQICAgICAgEBAgIBAQECAQICAgEAAQEBAQEAAQEAAAABAQACAgEBAgEBAQEBAQEBAgIBAgABAQEBAQEBAgEBAAEBAgEBAQEBAQEBAgICAQEBAQECAgICAgICAgMDAwICAQIBAQEBAQEBAQEBAgICAgICAgEBAgIBAQECAQIBAQEAAQIBAQICAgICAgIBAQEAAAEBAgEBAgEBAgIBAQIBAQECAQICAgIBAgICAgMCAQECAQICAQEBAQEBAQEBAQEBAAEBAQEBAQECAQIAAAEBAQECAQABAQEBAQECAQEBAQECAgEAAQEBAQEBAAEBAQECAQICAQIBAQEBAAEBAQEBAQEBAQEBAQIDAgIBAgICAgEBAQECAQECAgICAgIBAgICAQEBAgECAgICAQEBAgEBAQECAQEBAQECAgICAQECAQIBAgICAgEBAgICAQEBAQEBAQEAAQEBAgICAgIBAQEBAQICAQEBAgIBAgICAQEBAQEBAQIBAgEBAQEBAgIBAQEBAQEBAQICAgMDAgICAgECAQEBAQEBAQEBAgEBAQIBAQEBAQECAQEBAQEAAQEBAQEAAQECAQIBAQIBAQECAQIBAgEBAQECAQEBAQECAgEAAgEBAQEBAQEBAQECAQABAQECAgICAQEBAQABAAABAQEBAQECAgIBAQICAgEBAQAAAQIBAQECAQIBAQEAAQEBAQEBAgECAgICAgICAQECAgECAQEBAQAAAAEBAAAAAQEBAQEBAQEAAQEBAgEBAQEAAQEBAQEBAQEBAQEBAQEBAQEBAQEBAQIAAQEBAQECAgICAAECAgICAQEBAgEBAQEBAAABAQEBAQEBAgEBAQIBAAEBAAEAAAEBAQIBAQEBAQEBAQIBAQAAAAEBAgEBAQECAQEBAQEBAQIBAQEBAQABAQEBAgICAgICAgICAQEBAgEBAgICAQEBAQECAQABAAABAQEBAQECAQEBAQEBAQEBAQEBAQEBAQEBAQECAgICAQEBAQEBAQECAgIBAgEBAQEBAQECAQECAgIBAQEBAAABAQECAgICAgEBAQICAgECAQECAgEBAQICAQEBAQEAAQEBAQEBAQIBAQECAgEBAQECAgEBAQEBAQEBAgIBAQEAAAEBAQIBAQEBAgIBAQECAQEBAAEBAQICAQECAQIBAQIBAgIBAQEAAQEBAQEBAQEBAQAAAAAAAAABAQEBAQECAQEBAgIBAgECAQEBAQEBAQEBAQECAgICAgICAQICAgIBAQICAgICAQICAQICAgABAQECAQEBAQEBAQAAAAAAAQEBAgIBAQECAQECAgIBAgECAQEBAQEBAAABAQEBAQEBAQEBAQABAQEBAQEBAQECAQIBAQECAgICAgICAgEBAQEBAQEBAAAAAAABAQEBAQEBAQEBAQEBAQIBAQEBAQABAQEBAgEBAQEBAgEBAQECAQECAQICAQECAgICAgECAgICAgICAgIBAQECAgECAgIBAQEBAQEAAQABAgICAQIDAQEBAQEBAQEBAQEAAAABAQECAQABAQEBAQECAgIBAQECAQABAQABAQAAAQEBAgEBAQECAQECAQEBAQEBAQABAQECAgICAQEBAQEBAQEBAgEBAQECAgECAgECAgIBAQEBAQICAAAAAQEBAgMDAQAAAgIBAQICAgEBAQECAgEBAQEBAQECAQEBAQECAgICAgIBAQECAgEAAQEBAQEBAQEAAAEBAQAAAAEBAQABAQEBAQEBAQIBAQICAgIBAQAAAQEBAQEBAQECAgEBAgICAgICAgIBAQEBAgABAQEAAAECAQECAgEBAQEBAQEBAQECAQEBAQEBAQEBAAEBAQEBAgEBAQIBAQEBAQIBAQECAgICAgICAgICAgMBAgICAgEBAQEBAQECAgICAgoFEAcNDg8OCigMLww7SSpCRUZGQkBFRTY8QUQ2QkU3LTc2Mz06PD05ODInIxAPCgQDBAIBAQECAhgXAwMGGiUMJhsFHBscGAwWCRIRCg8CDQIKAgoDCQQJBAgGCQgJCQYJBg0JHBExFj8cSBdGCk9SF1MNTlYmWUUOUkw+OTYgMyomHBQOCQYEBAQEAwQGBQQEBgQCAwICBQQCAgEBAgEBAQIBAQUGDg0FDwYJDAkQDg4LDgoIBgICAgEBAgIBAgICAQILDgcHBgUFBQQFBAQGAwMGBAQTKhAuESsPKQgmBi88EjwOOzsJNT88Fzc2LRMiGREIAwICAgMCAgIBAQEBAhIHBgICAQICAgECAQIBAgEBAgICAQICAQEBAQEBAQIBAgUFBwEEAgQCBBgZHxUeEx8OHgweDx8bHR0cIA8fDhcHFQQQAgoEAgMBAgEBAQECBRQGHSAiIR8bEA4KBgUDAQICAQICAgICAgICCwkEAgEDBQYWFBgWGhoWFBQYHRgXDw4MCQgGBwQDBgMEAgICAgICAQEBAQEBAg4QCAYDAQECAgEBAQEBAQEBAQABAQEBAQEBAQEBAQEBAQEBAQEBAQECAgMCAwMCAQEBAgIBAQECAQECAgICAgICAgICAQIBAQEBAgEBAQECAgECAwMBAQECAgICAgEBAQABAQEBAQEBAQIBAQEBAQEAAQECAgEBAQICAgECAgECAgEBAQEBAAEBAQECAgICAgIBAQEBAQEAAQEBAgEBAQIBAgEBAAEBAQEBAgIBAQEBAQEBAQEBAQEAAQEBAQEBAQEBAQEBAQABAQEBAQICAQIBAQIBAgEBAgICAgIBAQIBAQEBAgIBAgEBAgECAQEAAgICAgEBAQECAQEBAQIBAQEBAQABAQECAgIBAQEBAQEBAQEBAQEBAQEBAAAAAQEBAQEBAQEBAAEBAQECAQIBAgICAQIBAgECAgEBAQECAgICAgECAQEBAQEBAQIBAQIBAQECAQIAAgEBAgIBAQEBAgIBAQEBAQEBAQIBAQICAgICAwICAgICAgIBAQEBAQABAQEAAQECAQEAAQEBAQEBAQEBAQEBAAAAAQIBAQEBAQEBAQEAAQECAQEAAQECAgECAgICAQEBAQIBAQIBAAEBAQIBAgICAQEBAQECAQEBAQECAQEBAQEAAQICAQEBAQEBAgIBAQEBAQABAQEBAQAAAQEBAgICAwMCAgECAgICAQIBAgICAgICAgICAgECAQEBAgIBAQEBAQEAAQEBAQIBAQECAQEBAQEBAQEBAQEBAQICAQEBAQEBAQEBAQIBAQEBAAEBAQEBAAABAQICAQICAgMCAQEBAQEBAQEBAQEBAgEBAQEAAQEBAQECAgICAQIBAgICAgEBAQEBAQECAgABAgIBAgICAgECAQEBAgECAgECAQECAgEBAQIBAQEAAQEBAQEAAQEAAQABAAEAAAAAAQECAQICAgECAgMCAgICAgEBAgIBAgECAgECAQIBAQEBAgEBAQEBAQEBAgICAQEBAQEBAQECAgICAQICAgIBAgECAgICAQECAQECAQEBAQEBAQAAAQEBAQEBAQEBAQABAQEBAAEAAQICAgEBAQEBAQIBAQEBAQEBAQEBAQEAAAABAAEBAQECAQEAAAEBAQICAgEBAQEBAQICAgICAgEBAQEBAgEBAQIBAQEBAQEBAgIBAQEBAQEAAAECAgIBAgEBAgEBAgEBAQAAAQEBAQEBAQECAgICAQICAgECAgEBAQEBAQEBAQABAgIBAgICAgICAgICAgEAAQIBAQEBAAABAAABAQICAQEBAQEBAgEBAAEBAQIBAQEBAgEBAAAAAAABAAECAQIBAQECAgEBAQEBAQEAAAAAAAEBAQEBAQABAAAAAAABAQECAQABAQEBAQECAQEBAQIBAAECAQIBAQICAgEBAQIBAQEBAQEBAgICAQEBAQEBAQAAAgIBAQABAQIBAQIBAQABAQECAgICAgICAgIBAQEBAgEBAQEBAQEBAQEAAQAAAQEBAQEBAQEBAQEBAgIBAQICAgEBAQEBAQEBAgICAgEBAQEBAgICAQEBAQABAQEBAQABAAEBAgEBAgEBAQEBAQEBAQICAQEBAQEBAQECAgICAgECAgICAQICAgIBAQEBAgECAgICAgICAQECAgIBAQECAgECAQECAgIBAQEBAQEBAQEBAQEBAQABAQEBAQEBAQECAgICAQEBAgECAgEBAQICAgECAQABAQEBAgEBAQEAAQEBAQIBAgICAQECAQECAgECAgICAgEBAQICAQICAgEBAQIBAgEBAQEBAQEBAQIBAQEBAQEBAQABAQEBAAABAQIBAgICAgICAgICAgECAgIBAQECAgEBAQEBAQEBAQEBAQAAAAEBAQEBAQEBAQEBAQEBAgECAQABAgEAAAEBAQEBAAEBAgEBAgICAgICAgEBAQECAQEBAQECAQEBAQEBAQEBAgIDAgICAgICAQEBAQIBAgICAgEBAgIBAgICAgICAQECAQICAgICAQIBAgECAQIBAgEBAQABAQEAAAAAAAEAAAABAQEBAQEBAQIBAQEBAQECAQECAQECAgECAQEBAQEBAQABAQEBAgEBAQECAgICAgICAQIBAQEBAQEBAQEBAQEBAQABAQEBAgIDAwIBAQIBAAABAQIHBBIWGiIMREUNQgdFM0FCBT0HPQU6Pw48EzEOMQsmCCIIHxIDGAUQBQ8EEAUNBAgLAwgEBQMCAgAFBAIDBAIBAwIDAgICAgEBAgICAQEBAQEBAAEBAgIBAQEBAQEBAQEBAgEBAgEBAQIAAgEBAQEBAQEBAAECAgEBAQEBAhMIBAUGNRJDRxxJHFBTGE5EDDsrGhoQDAcFBgcEAgMCAgICAgEBAQEBAgIDAgMCAgIDAwECAQICAQEAAQYDDRUeMBtCFEA2P0gTRAxEPgowKgwqByIiAxwZBBkXBBkWBQ8IDAUECQMCAgIBAQIBAQABAwQFBAUHBh8lDh4EJQgaCRwHFQMKBQ4DDAILAwgFBggEBwQIAxAFDgQLBQoDCAMGAwQDAwIDAgQDAgECAgIBAQIBAQEBAQEBAQICAgEBAQEBAQECAgICAgICAgICAgIDAgECAgEBAgECAQABAQEBAAEBAgEBAgICAgEBAQEBAAEBAQEBAAAAAAABAQECAgEBAQIBAQICAQEBAQIBAQICAgEBAQEBAgEBAQEBAQECAQIBAQEBAQECAQECAQEBAQECAQICAQEBAgIBAQEBAQEBAQECAQEBAgECAgECAQEBAgEAAQECAgEBAQEBAQEBAQICAgICAgEBAQEBAAAAAQECAQICAgEBAgIBAQIBAQEBAQEBAQABAQABAAECAgEBAQEBAQEBAQEAAQEBAQEBAAAAAAEBAQEBAQABAQABAAEBAQECAQEBAgEBAQECAQEBAQIBAQEBAQECAQIAAQEAAQEBAQIBAQEBAgIBAQEBAQECAgEBAQEBAQEBAQABAQEBAQEBAQEBAQECAgECAQEBAQABAQEAAAABAQEBAAAAAAEBAgIDAgECAgMCAQEBAQEBAgIBAQIBAgIBAQEBAQEBAQEAAAEBAQEBAQICAQEBAgEBAQEBAQECAQECAgICAQECAgIBAQEBAQEBAQECAQEBAQEBAQEBAQECAgEBAQEBAQEBAQEBAQEBAQEBAQECAgIBAgECAQICAgICAgIBAQECAgEBAQEBAgICAgECAQEBAgEBAgEBAgIBAQECAQEBAQEBAAAAAQEBAgICAgEBAQEBAAEAAAABAAEBAQEBAQEBAgEBAQEBAQECAQEBAgMCAgICAQEBAQIBAgECAgICAwIBAgICAQEBAQEAAQEBAQICAgEBAQECAQEBAQEBAQECAQICAQECAQEBAgEBAgICAQECAgECAQEBAgIBAQABAQEBAAEAAQEBAQEBAQEBAAECAAEBAQICAQEBAQEBAgIBAQEBAQIBAAEBAQEBAQAAAQEBAQEBAQABAQECAQECAgEBAQICAg=="
+   },
+   "agent": {
+    "rate": 200,
+    "min": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA+///+e3r5d7y19zf7fn4+/38/f7+/f/+/vz29PDv6Pvm+OTr4eDm3vjb99r22vHc7tzv3O/f7Obv5ezf4uLt4uLj5Onn8Ony8vr4/vv9/AD8/fz9+Pfv6+7m8eT45Pjm+Oz66/nq+Oz27O3u7vLv9/P7+fz+/f3//////////v///v////////////////////8A/wAAAAAAAAAAAAAAAAAAAP///v79/vz8/Pz8+/z57Ofm4N3b3Nvc2tjT0dTS2Nbe1NnX29rb29vd3dzb3d/e3t/h5+Ds6/n19fz7/f7//wD///////388evm3N7T09vh6eXm2+fP2rTi3PL4+/7///////8AAAAAAAAAAAAAAAD8+/z7/PTr5ubf3N3d4dva4ejz8e/y8vX4+/v8/fz9/v7+/////vz6+Pn07Ork5OXh3uLl6u3v8fP09vn57fjz7OLf29jb29/g4eHm7/f6+/v8/P3y1Obt7/n6+vr6+/z5+fv4+PTs4uHg393h5ePk4ubn4+Hh5+rr6uXf2+Dc79vK6/Xr+Pz//f73++754u/O1+za5+Pq9e/t8efl5O/w5O3s8/X1+Pnt7ujl9+jr9e/j6Ono6uvk9PX9/v7//////v/9+vbZ4crqyejE7c/o0dTb2Pbi3+bg4OHn7Ozy+fj48+bu+fv7/P375tXW3eTk39/g4eLh3+Di5+33+vv9/f39/fv6+v388dTOvcr0xtDu0fPi4Ovl++j36vPt8/P6/P3+/v/+//399vPz7eHd0s/u0dnc3OXx7+359vv5+PLm4+v0/v7//////////////fz5+ffz0eza6uf3+fn9/v7////+/v3p+/z8/P3+/v7++/r0/uv7+vD69PX8/f/0///9AAD/////AAAAAAAAAAD67u/k6unp7uvx8vDy9fr8/v///wAAAAAAAAAAAAAAAAAAAAAAAAAAAAD88/by7eHg4+Lm4e3n6fv7/gD//////wD/////+evDyc3mz9Tm5eLi5eHq4t7T5tTb2+jb3era0enc3Obd3+Lg6PTi4vjj6Obj99zn2Oz5+fr+/v7+/v7+/v3s9/r6+vr5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3+Tn6/T3+fn+AP8A//7+/v///vz8/Pr79/f28/Tm4+Hf6ev2+fvr393n5+Xl5eXo6uzs7u7x9fT48O3p4d+/49La0d3y+Pr9/f37/fv6+vrZ0s3P0NHW2N3a4uHl6erp6Ofk5d3d4drd29/f3d7e4OLh4+Pk5uns7vT09ff4+/X6+fr+/vX08Ofn39zo5ejp7On38vv6/P369vLp8/n7/v////////////7+/f39+dzgz8zK4cjI7c3Q+d3e3tre2dzn3+Hs4uLy4uHh4eXk4ODbztjY1tfZ19ng29zk5drM09LQ1dLY1d7b3uDe2trb2djh6O7x7+zu8/T49vn9/Pv99vPp1uXP7Nnu1+7h8+P16ers7fDq9ur26/ft+e/78f32/Pr9/P/8/Pr7+vr4+e/z8PT49/v6+fv7/f3++ezj6+fk5+fn6evt5fHW4uzO4+He4Nzs8Pn59Obh8uHn/+Pr4uL24vLk5ubo+Ov08/X8+P/7/f3+/v7///////////7+/Pv7+/To493c3+Ht4uPj5OTk4+Hh397g4OLl6Ofs6/P29/j6/P7+/v7+/v////////79/Pr48vj38/n6/frgwsnIyM3T1NTb3dja2t3c29vb29rb3t7f3Nzc3Nze2drc0uDY1e7Y1//a6eDi9Ofv7fL5+Pn89Pr49f3//v////////////30/Ofo0erU8s3X1eHq7fH49fr8/Pz7+/v9+vr+/v////8A/wAAAAAA//78+vH19uvz+vvq3dfj2tfY4Nna793k7efq7O7w8/X2+/X5/fj5//73/f3z9/Xo7ePf69vb7tza8tzd99zZ+Nfa+eHr+PP79fr5+vr9/v77/O311t346vz6/P0A/f/+////////AAD//Pz+/v797/Hn9eLz3u7l8d/15fjm8fLq9+r48Ov88Pz+8v3+9/7/+v0A+/39//79AAAAAAAA//v9//7+/v79/f3+////AAAAAAAAAAAAAAAAAAAAAAAAAAD//f7o5szF0sPXx8nfwtvE7Mfvy/DOz+TO8dLu4/H39/v8/P78/f3+/v707eTs9u/t7+3x7/D38/by7vLt9ez58fDu7u7q9ev07uzt8fHx8PL19fn1+vb4+fn6+OX50+u8wvC989fe3fba2tvg6uTg4d7e3+Ln7PT47/Dp9PP39/r7/v7///////7///vy5N7b3NjU1tni7vj08/j4+Pn8/f37+frt8+3y3O3S4d7l4+zy6fX3/P3///7////4/f7/AP8AAAAAAAAA//394vP4/ef1+uz37ffy3ebo4uPm4eXq7/b4+fn6+Pj6+/v4/Pv8+fv6+/z9/v8AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD++/n7+Pbp+9vvzerX4NPV6dbyxe3Cy+LJwuTOyNrLy83bzM3H0NnY3tnc2t3d2dfW197k29zd3+Dj5+Xl5Prh0PrX59rh4eDv4/Pl7evx8u3w8fTy9PT09/n6+vn5+/z6+/7+//37/v///wAAAAAAAAAAAP/9+fTn7ero5uPp4+Hh4OHc39rZ2NrX2Nvb29ze3d7h3dzb29zc3OPd3d3e397f5N7e3t3d3tzc4uTh5t/X3dDh4dvX4dzc1rHo5Njn3ufm5urv8vX6++/h2dbW2d3b3dvY1NHR09bS1tbe3t7e5u/q4+Pi4eDb3t/e4eDd39nX2+Df3+Hg3uTu9fX5+//+/f3//+va5vn7+Pv6+/v67d/b0svOxMTGx8vZ1MrT19Xb2NnZ4OXt+Pv8/P3+/v/////+/v///wAAAAAA//z89OTq5uLv09fa3fLk5ujp8Oz16/Lu/Pf7+Pf9/P38/P38/P38/f7+////////AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+    "max": "AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAgECDxoaIRwkKB4mBQ4ECwYGAwICAgIBAwEIFAUZARwdHB4LHwgeCSEXGiMaJxYnGSkbLxszGDISLxI5HTIqMyUlKQ8nCyQHFQMMCAgIAAUABQEGBAwGJQwqDicNIhAbGBMVCxcIFwkWChYJFAYTBA8KCgoBAgACAAECAAIBAQIBAQEBAgEBAQEBAQEBAQEBAQABAAAAAAAAAAAAAAAAAAAAAQEBAQIDAwMEBAMDBAQKGh0eHyAgISEhISUqLS4uLDEzMjArJyUkJCQjJCUmJCIkJSMgHh8RGwcQCgUFAwMBAQABAQEBAQIEExgWFh4jJR8cFxoYHBoxIyQfHA8IBQIBAQEBAQABAAAAAAAAAAAAAAAEAwYFBhAZGB0fISAcICEgHBsTEwwRDwsLCAUFBQQDAwIBAQEBAwQICAkKGBgZGRwbHBsYFBEPDw0LCQcHBwgJFBkbHR0cHRwdHR4WDgkFBQUEBAMVMB4SDAkGBQQGAwQHCAcJBwshNyktJyskJyUoKSktMSgWGBUXFhodKSQfKylIIgsYEgMEAwMKBhcINgs8MyocGRsKFA0PFBMeIxQPEQ4PCgkHBwsLDA4PEQ8MDwkYEhcUFRQPEAYEAwIBAQECAQICDA8fLjksOTA7HS0XJRUmHx4dECEiIiAZHBcECAUGDR4KCAYEAwUCCRYbGhUVGhwcGxsdHx4cGg4HBQQDBAMCBAQFBQUDBhYjMzEsLh8kIR8UCxcRFxcTFgkVAREACAAFAAMBAgUECQYLDgwWHx4hIBsbFBYNEA4LCAYGCxMZGBgNBwABAQEBAQABAQEDCAAHBwgaKx0kERgCCgEGAgIBAQIBAgIUBwQDBAMDAgICAgsHDgYTCA8GAwwDAgQHBQICAQABAAABAAAAAAAAAAAHEhQXHBgXFBYNDQwLBwQFAgEBAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAECCwYSGSIPHhoaGxQSDQYFBAIBAQEBAAEAAQICChkxKScfHRcTEhkWFhsaHRccKSowMyE1PiA0QydGNx0qIh4aDxkaAxoYFhgaHSEUHw4WCAsDBQMEAwIDAgMWBwYJBAUHBQcIBwYHBAQFBxEDFgsaFRoRFAYPAwkDBAcBBQYCAQEAAQABAQABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQEJDQwLDQ8NEQ8NEh4uOkFAODElEAgFAwIDAwMHBQgIDAcHBgkJDSctMzw0KSEmJyEeEQ8QDAwLCgkHBgQDAgEBAQEBAQMIDBMXGBkaGRgYFxYWGBscHBceGxsSDAcEAwMEAwICAwgABQcfKiUlHxsREgkHAwMDAgYCAhENBAUEAwMEDSQhJSYlJiQjIyAUCAYBBQMEAwMDAgEBAQEBAQEECwYTKSUhHCEhJiYoJB4ZFQ4PEhMLCQgFAgICAQIDAwYHCgQEBxwjJygeEhkZFxgZGhkZGhocHx8gISMkIh4ZEAcHBAQDAwICAQEBAgMCIisRFAsGBAYKHRsYGBgYGBkZGRgXFw4QERcZIBsVKR8VBgMDAgEBAQICAgsHEywWRSZFJw8pFwwZEwkPDQUKCwMDBgQCBAgCBgMCCwoEBA4CAw0FBQUNAwwFCwQJAwQCAgEBAQABAAABAAAAAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBBRMNDhMVDRYhNzc4SUVKPTowKi8mIRYRFhgZGRkaGhgXEgsEAgEBAQEKCgUNEycnJCMgHxwcFhQUERMREQ4VDwsHBAMCAQICAgIBBQsFAQQJAgYKBQsNDBEOFhgdHR4cHyEgHyAgICEhHx8hICAhHxoYGRoaGBcXGRohJykqJSMhICAgHyEhIBcXFxcXGBgbGxwdHB8eGBYaGRkaGRkZGRodKCgqKCcmJSUkHCAeICEeHR0bGhkXFhYVFRYWFxcVDAwLBQIBAgICAwQOFiMdDxERCAYFAwQQGBYWFhUXGBgcFxIVExkWFhUZExkWGBkYFwgFBAYVETEPKQ4oECkcDBQFDAICCgwPDgIBCAUPBQYKBAgJAgEJAgEKAgQIAwUGAgEEAQAAAAABAAAGBQMCAgICAgICAQEBAQEBAQEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEBAhgOFA4kFDYYPxFBEz8SMQ0iDyASIxAkIxYyHigOIgQaCxAHDQwMDxQZKR0JAgICAQEBAgIBDQYQCAQGBAUDAwMCAwMJGRwgKS82OTk2NTItKScnJioqKSclJicnKCIlIyYoJRotDh0LJhMLCw4HCwwFCAEGAwQEAgICAwEBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFEA0MGyAhGiAhISEiIyEcHx4YEQsLCQUBAQAAAAECAgECAwQDBQYECQkMCg0cFxorGBUMBwgcIyQeHR0eHBsZFxYUExMSEAwLDhARJhsnJTIzLiMNCAQEAwUEAg4IBAglLCsqJyciIiEgGRIVFhUUExMSEhMXFx0dHSEjIyIlIR0bGRcVFBMSERENDgUJBAkHBwkEBwQNEA0eISIeIRgMGQwKCgcEBAUEBgwTEwgGAgEBAQEBAQEAAQICBAUDCQ8gIiAoJCIZGxcSFA8MFRkZHRsfIRMiIxMjIx4kJSUkJCYiIiopJSYoJighJSUfJCk2MCksMTcuLi8qLSEbHBsbHh4XFRAMCg0REgsICgoEAgIFCAkfJERHIT0mLxwmHRkkDRoKGQoZCxkMFhIUERMTDxEDDgAIAAICBAYHBgYICA4PDwsLCAcHBgUFAwIDDh4NHh8gFCEhBxsRDRYxHBo0Hh4gIiIQEgUFEx4aFhsCFBoYHAMcGxwdDx0EHBsZEgwLAQUCBAMDAwECAQIBAQEBAgMDBwUFBgYYJCUmHCQhICAiIx4jICIkIiEhHx8dGhgUEQ8RCggGAwIBAQICAgEBAQEBAQEDBAYHCggLCwgFBAoXGxwgIR4bGRsTExYXFxkYGhsZGhsbGxoZHiAfHh4eHSEbDR0aDB4cCxsXFBoJHhwXFwASCAsFEQYCCQUCAgICAQEAAQEBAQISBysWSyNCFE1JJjQaGwgPBwYEBgUFBwYFBA4DAgIBAQAAAAAAAAAAAQIFBQsKCxQMBwwZGRoaGhwdHBsPHxwUFxYTFBMSDg4MBAsOAgYNAwUGBgUOBQkaEx0fGh8cGRoZHBwYHiEbHyIWIxsQEA0NCgUJAggABQoFBRgYJwsYEAsBBwACAQECAQEBAQABAAEEAgMEAgMEBRETDBQMKhInEicVIRcPGQgTCxESChIHCA4ECAwEBwcDBwcCAwcBAAQBAAAAAAAAAAYCAgIDAgIEAwICAgEBAAAAAAAAAAAAAAAAAAAAAAAAAAEDAwYZHS4zKzorOhg6T0M2MD4iNB00DzEnJCUWFQcPAwUEBAQFAwICAgQFFRYKFRUOGBgZGAgVCRIPDxIMEQgRDhQYCxsLHBkdGxIXBhUFEQQPBQsFBwYGBgoNEhIgJxMkHSsoKiQOHxYbGxgcFxcZGhwcHBsaFxAJDBIODw4LCgYDAgEAAQEBAgEBAQgTGR4eISYmJiolGQwRCwMGCQYFAgUHBgoPEicNSBVZFz4SLCMPIQoMCAIDAwEBAQEJAgIBAQEBAAABAAABAQIGJBQKBRkPBRMNERcJGxUWEhAREhIPDgkHBgYFBgYIBgcGBQUGBgYGBQIDAgEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACBAYFBQ4lGjMfQBJCD0dHP0UiUA9EPicuIycjIyUkJyQiIiMjFyckJSUmKCQjISAfIiAXGRwYGBcYGBgYFBcZDyQfDyEMHxklHCIMIxAgChwLHg0bFhsRCA4CDwQECQIDDAMDAQIHAwEBAQAAAAAAAAAAAQEDBB42FTQ1MyEtKSMdHyElIyIgHx4eHx8cHBwbGRkZHBwcGxscHBwcHBwbGhsbGxwdHRodHh4fHxsdGRQbLCYfJiMoIh0qIy0eKhseHxYaGBYSDAsJBAgrOTs7NTEwMDIyNTEsKSUiHh4fIRwZEhYaGxwbGhcZGRUVExAQEhYbHxwdHhwcHxkRDg8GAgEBAwMCARQoGQUGBgcGBgUFChggJTQ3REdJRUExNjorJycoKyMYFRYNDAUFBAQDAwEBAQECAwIAAAAAAAAAAAIHFRoXGhgdHw8lISkhJx0mCyYNIg4MDwQNCwMHAQUEAgMFAwMDAwICAgIBAQEBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=="
+   }
+  }
+ },
+ "turns": [
+  {
+   "channel": "agent",
+   "start": 0.4,
+   "end": 8.405833,
+   "text": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?",
+   "speechId": "speech_greeting",
+   "latency": {
+    "ttsTtfb": 0.35
+   },
+   "id": "t0",
+   "context": {
+    "promptVersion": "zustellung@9",
+    "model": "gpt-4.1-mini",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "caller",
+   "start": 9.105833,
+   "end": 11.250125,
+   "text": "Morgen Nachmittag wäre gut.",
+   "confidence": 0.93,
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "id": "t1"
+  },
+  {
+   "channel": "agent",
+   "start": 12.590125,
+   "end": 18.535125,
+   "text": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?",
+   "speechId": "speech_confirm",
+   "latency": {
+    "e2e": 1.34,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14,
+    "tool": 0.35,
+    "waveformGap": 1.375
+   },
+   "context": {
+    "promptVersion": "zustellung@9",
+    "model": "gpt-4.1-mini",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   },
+   "id": "t2",
+   "replyTo": "t1"
+  },
+  {
+   "channel": "caller",
+   "start": 19.135125,
+   "end": 20.744083,
+   "text": "Nein, das war alles.",
+   "confidence": 0.95,
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "id": "t3"
+  },
+  {
+   "channel": "agent",
+   "start": 21.534083,
+   "end": 23.384917,
+   "text": "Gerne. Einen schönen Tag noch!",
+   "speechId": "speech_bye",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14,
+    "waveformGap": 0.899
+   },
+   "context": {
+    "promptVersion": "zustellung@9",
+    "model": "gpt-4.1-mini",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   },
+   "id": "t4",
+   "replyTo": "t3"
+  }
+ ],
+ "spans": [
+  {
+   "id": "0000000000000001",
+   "traceId": "0000000000000000000000007df4fa24",
+   "name": "agent_session",
+   "kind": "session",
+   "start": 0,
+   "end": 24.185,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.agent_name": "blitzpaket-outbound v31",
+    "lk.pii.room_name": "paket-rueckruf"
+   }
+  },
+  {
+   "id": "0000000000000002",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000001",
+   "name": "agent_turn",
+   "kind": "agent_turn",
+   "start": 0.05,
+   "end": 8.405833,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.speech_id": "speech_greeting",
+    "lk.generation_id": "gen_greeting",
+    "lk.interrupted": false
+   },
+   "turnId": "t0"
+  },
+  {
+   "id": "0000000000000003",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000002",
+   "name": "tts_node",
+   "kind": "tts",
+   "start": 0.05,
+   "end": 8.405833,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {},
+   "turnId": "t0"
+  },
+  {
+   "id": "0000000000000004",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000003",
+   "name": "tts_request",
+   "kind": "tts",
+   "start": 0.05,
+   "end": 8.405833,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "firstChunk": 0.39999999999999997,
+   "attributes": {
+    "lk.response.ttfb": 0.35,
+    "lk.pii.input_text": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?",
+    "lk.tts.streaming": true,
+    "lk.tts.label": "cartesia sonic-2 (de)"
+   },
+   "turnId": "t0"
+  },
+  {
+   "id": "0000000000000005",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000002",
+   "name": "agent_speaking",
+   "kind": "playout",
+   "start": 0.4,
+   "end": 8.405833,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.speech_id": "speech_greeting",
+    "lk.interrupted": false
+   },
+   "turnId": "t0"
+  },
+  {
+   "id": "0000000000000006",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000001",
+   "name": "user_turn",
+   "kind": "user_turn",
+   "start": 9.105833,
+   "end": 11.600125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.pii.user_transcript": "Morgen Nachmittag wäre gut.",
+    "lk.transcript_confidence": 0.93,
+    "lk.transcription_delay": 0.18,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.stt.events": "[{\"received_at\":1790409503.430125,\"type\":\"final_transcript\"}]"
+   },
+   "turnId": "t1"
+  },
+  {
+   "id": "0000000000000007",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000006",
+   "name": "eou_wait",
+   "kind": "eou",
+   "start": 11.250125,
+   "end": 11.600125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35,
+    "lk.eou.endpointing_delay": 0.35
+   },
+   "turnId": "t1"
+  },
+  {
+   "id": "0000000000000008",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000007",
+   "name": "eou_detection",
+   "kind": "eou",
+   "start": 11.270125,
+   "end": 11.320125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "turnId": "t1"
+  },
+  {
+   "id": "0000000000000009",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000001",
+   "name": "agent_turn",
+   "kind": "agent_turn",
+   "start": 11.600125,
+   "end": 18.535125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.speech_id": "speech_confirm",
+    "lk.generation_id": "gen_confirm",
+    "lk.e2e_latency": 1.34,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.interrupted": false
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "000000000000000a",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000009",
+   "name": "llm_node",
+   "kind": "llm",
+   "start": 11.600125,
+   "end": 11.940125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {},
+   "turnId": "t2"
+  },
+  {
+   "id": "000000000000000b",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "000000000000000a",
+   "name": "llm_request",
+   "kind": "llm",
+   "start": 11.605125,
+   "end": 11.940125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "firstChunk": 11.900125,
+   "llm": {
+    "model": "gpt-4.1-mini",
+    "messages": [
+     {
+      "role": "system",
+      "content": "Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu."
+     },
+     {
+      "role": "assistant",
+      "content": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?"
+     },
+     {
+      "role": "user",
+      "content": "Morgen Nachmittag wäre gut."
+     }
+    ],
+    "toolCalls": [
+     {
+      "name": "delivery.reschedule",
+      "arguments": {
+       "parcel": "BP-4471-2208",
+       "window": "2026-09-27T14:00/18:00"
+      }
+     }
+    ]
+   },
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 506,
+    "gen_ai.usage.output_tokens": 24,
+    "lk.response.ttft": 0.295,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.\"},{\"role\":\"assistant\",\"content\":\"Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?\"},{\"role\":\"user\",\"content\":\"Morgen Nachmittag wäre gut.\"}]",
+    "lk.pii.response.function_calls": "[{\"name\":\"delivery.reschedule\",\"arguments\":{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}}]"
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "000000000000000c",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "000000000000000b",
+   "name": "llm_request_run",
+   "kind": "llm",
+   "start": 11.606125,
+   "end": 11.940125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "000000000000000d",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000009",
+   "name": "function_tool",
+   "kind": "tool",
+   "start": 11.900125,
+   "end": 12.250125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "tool": {
+    "name": "delivery.reschedule",
+    "callId": "call_confirm",
+    "arguments": {
+     "parcel": "BP-4471-2208",
+     "window": "2026-09-27T14:00/18:00"
+    },
+    "result": {
+     "status": "rescheduled"
+    },
+    "isError": false
+   },
+   "attributes": {
+    "lk.function_tool.name": "delivery.reschedule",
+    "lk.function_tool.id": "call_confirm",
+    "lk.pii.function_tool.arguments": "{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}",
+    "lk.pii.function_tool.output": "{\"status\":\"rescheduled\"}",
+    "lk.function_tool.is_error": false
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "000000000000000e",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000009",
+   "name": "llm_node",
+   "kind": "llm",
+   "start": 12.250125,
+   "end": 13.050125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {},
+   "turnId": "t2"
+  },
+  {
+   "id": "000000000000000f",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "000000000000000e",
+   "name": "llm_request",
+   "kind": "llm",
+   "start": 12.255125,
+   "end": 13.050125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "firstChunk": 12.450125,
+   "llm": {
+    "model": "gpt-4.1-mini",
+    "messages": [
+     {
+      "role": "system",
+      "content": "Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu."
+     },
+     {
+      "role": "assistant",
+      "content": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?"
+     },
+     {
+      "role": "user",
+      "content": "Morgen Nachmittag wäre gut."
+     },
+     {
+      "role": "tool_call",
+      "content": "{\"name\":\"delivery.reschedule\",\"arguments\":{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}}"
+     },
+     {
+      "role": "tool_result",
+      "content": "{\"status\":\"rescheduled\"}"
+     }
+    ],
+    "output": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?"
+   },
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 590,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.response.ttft": 0.195,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.\"},{\"role\":\"assistant\",\"content\":\"Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?\"},{\"role\":\"user\",\"content\":\"Morgen Nachmittag wäre gut.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"delivery.reschedule\\\",\\\"arguments\\\":{\\\"parcel\\\":\\\"BP-4471-2208\\\",\\\"window\\\":\\\"2026-09-27T14:00/18:00\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"status\\\":\\\"rescheduled\\\"}\"}]",
+    "lk.pii.response.text": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?"
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "0000000000000010",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "000000000000000f",
+   "name": "llm_request_run",
+   "kind": "llm",
+   "start": 12.256125,
+   "end": 13.050125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "0000000000000011",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000009",
+   "name": "tts_node",
+   "kind": "tts",
+   "start": 12.450125,
+   "end": 18.535125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {},
+   "turnId": "t2"
+  },
+  {
+   "id": "0000000000000012",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000011",
+   "name": "tts_request",
+   "kind": "tts",
+   "start": 12.450125,
+   "end": 18.535125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "firstChunk": 12.590125,
+   "attributes": {
+    "lk.response.ttfb": 0.14,
+    "lk.pii.input_text": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?",
+    "lk.tts.streaming": true,
+    "lk.tts.label": "cartesia sonic-2 (de)"
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "0000000000000013",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000009",
+   "name": "agent_speaking",
+   "kind": "playout",
+   "start": 12.590125,
+   "end": 18.535125,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.speech_id": "speech_confirm",
+    "lk.interrupted": false
+   },
+   "turnId": "t2"
+  },
+  {
+   "id": "0000000000000014",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000001",
+   "name": "user_turn",
+   "kind": "user_turn",
+   "start": 19.135125,
+   "end": 21.094083,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.pii.user_transcript": "Nein, das war alles.",
+    "lk.transcript_confidence": 0.95,
+    "lk.transcription_delay": 0.18,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.stt.events": "[{\"received_at\":1790409512.9240835,\"type\":\"final_transcript\"}]"
+   },
+   "turnId": "t3"
+  },
+  {
+   "id": "0000000000000015",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000014",
+   "name": "eou_wait",
+   "kind": "eou",
+   "start": 20.744083,
+   "end": 21.094083,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35,
+    "lk.eou.endpointing_delay": 0.35
+   },
+   "turnId": "t3"
+  },
+  {
+   "id": "0000000000000016",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000015",
+   "name": "eou_detection",
+   "kind": "eou",
+   "start": 20.764083,
+   "end": 20.814083,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "turnId": "t3"
+  },
+  {
+   "id": "0000000000000017",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000001",
+   "name": "agent_turn",
+   "kind": "agent_turn",
+   "start": 21.094083,
+   "end": 23.384917,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.speech_id": "speech_bye",
+    "lk.generation_id": "gen_bye",
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.interrupted": false
+   },
+   "turnId": "t4"
+  },
+  {
+   "id": "0000000000000018",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000017",
+   "name": "llm_node",
+   "kind": "llm",
+   "start": 21.094083,
+   "end": 21.994083,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {},
+   "turnId": "t4"
+  },
+  {
+   "id": "0000000000000019",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000018",
+   "name": "llm_request",
+   "kind": "llm",
+   "start": 21.099083,
+   "end": 21.994083,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "firstChunk": 21.394083000000002,
+   "llm": {
+    "model": "gpt-4.1-mini",
+    "messages": [
+     {
+      "role": "system",
+      "content": "Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu."
+     },
+     {
+      "role": "assistant",
+      "content": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?"
+     },
+     {
+      "role": "user",
+      "content": "Morgen Nachmittag wäre gut."
+     },
+     {
+      "role": "tool_call",
+      "content": "{\"name\":\"delivery.reschedule\",\"arguments\":{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}}"
+     },
+     {
+      "role": "tool_result",
+      "content": "{\"status\":\"rescheduled\"}"
+     },
+     {
+      "role": "assistant",
+      "content": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?"
+     },
+     {
+      "role": "user",
+      "content": "Nein, das war alles."
+     }
+    ],
+    "output": "Gerne. Einen schönen Tag noch!"
+   },
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 674,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.response.ttft": 0.295,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.\"},{\"role\":\"assistant\",\"content\":\"Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?\"},{\"role\":\"user\",\"content\":\"Morgen Nachmittag wäre gut.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"delivery.reschedule\\\",\\\"arguments\\\":{\\\"parcel\\\":\\\"BP-4471-2208\\\",\\\"window\\\":\\\"2026-09-27T14:00/18:00\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"status\\\":\\\"rescheduled\\\"}\"},{\"role\":\"assistant\",\"content\":\"Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?\"},{\"role\":\"user\",\"content\":\"Nein, das war alles.\"}]",
+    "lk.pii.response.text": "Gerne. Einen schönen Tag noch!"
+   },
+   "turnId": "t4"
+  },
+  {
+   "id": "000000000000001a",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000019",
+   "name": "llm_request_run",
+   "kind": "llm",
+   "start": 21.100083,
+   "end": 21.994083,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "turnId": "t4"
+  },
+  {
+   "id": "000000000000001b",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000017",
+   "name": "tts_node",
+   "kind": "tts",
+   "start": 21.394083,
+   "end": 23.384917,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {},
+   "turnId": "t4"
+  },
+  {
+   "id": "000000000000001c",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "000000000000001b",
+   "name": "tts_request",
+   "kind": "tts",
+   "start": 21.394083,
+   "end": 23.384917,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "firstChunk": 21.534083,
+   "attributes": {
+    "lk.response.ttfb": 0.14,
+    "lk.pii.input_text": "Gerne. Einen schönen Tag noch!",
+    "lk.tts.streaming": true,
+    "lk.tts.label": "cartesia sonic-2 (de)"
+   },
+   "turnId": "t4"
+  },
+  {
+   "id": "000000000000001d",
+   "traceId": "0000000000000000000000007df4fa24",
+   "parentId": "0000000000000017",
+   "name": "agent_speaking",
+   "kind": "playout",
+   "start": 21.534083,
+   "end": 23.384917,
+   "process": "voice-agent",
+   "status": {
+    "code": "unset"
+   },
+   "attributes": {
+    "lk.speech_id": "speech_bye",
+    "lk.interrupted": false
+   },
+   "turnId": "t4"
+  }
+ ],
+ "signals": [
+  {
+   "type": "disclosure",
+   "at": 0.4,
+   "data": {
+    "text": "Ich bin eine KI."
+   },
+   "id": "g0"
+  },
+  {
+   "type": "eou_decision",
+   "at": 11.600125,
+   "channel": "caller",
+   "data": {
+    "probability": 0.9,
+    "wait": 0.35,
+    "outcome": "committed",
+    "threshold": 0.15
+   },
+   "turnId": "t1",
+   "id": "g1"
+  },
+  {
+   "type": "eou_decision",
+   "at": 21.094083,
+   "channel": "caller",
+   "data": {
+    "probability": 0.9,
+    "wait": 0.35,
+    "outcome": "committed",
+    "threshold": 0.15
+   },
+   "turnId": "t3",
+   "id": "g2"
+  }
+ ],
+ "words": [
+  {
+   "text": "Guten",
+   "start": 0.42,
+   "end": 0.688,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w0"
+  },
+  {
+   "text": "Morgen,",
+   "start": 0.688,
+   "end": 1.025,
+   "estimated": true,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w1"
+  },
+  {
+   "text": "hier",
+   "start": 1.255,
+   "end": 1.505,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w2"
+  },
+  {
+   "text": "ist",
+   "start": 1.505,
+   "end": 1.825,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w3"
+  },
+  {
+   "text": "die",
+   "start": 1.825,
+   "end": 1.905,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w4"
+  },
+  {
+   "text": "digitale",
+   "start": 1.905,
+   "end": 2.465,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w5"
+  },
+  {
+   "text": "Assistentin",
+   "start": 2.465,
+   "end": 3.025,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w6"
+  },
+  {
+   "text": "von",
+   "start": 3.025,
+   "end": 3.265,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w7"
+  },
+  {
+   "text": "Blitzpaket.",
+   "start": 3.265,
+   "end": 3.885,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w8"
+  },
+  {
+   "text": "Ich",
+   "start": 4.015,
+   "end": 4.145,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w9"
+  },
+  {
+   "text": "bin",
+   "start": 4.145,
+   "end": 4.225,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w10"
+  },
+  {
+   "text": "eine",
+   "start": 4.225,
+   "end": 4.385,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w11"
+  },
+  {
+   "text": "KI.",
+   "start": 4.385,
+   "end": 4.645,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w12"
+  },
+  {
+   "text": "Wir",
+   "start": 4.91,
+   "end": 5.025,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w13"
+  },
+  {
+   "text": "konnten",
+   "start": 5.025,
+   "end": 5.265,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w14"
+  },
+  {
+   "text": "Ihr",
+   "start": 5.265,
+   "end": 5.345,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w15"
+  },
+  {
+   "text": "Paket",
+   "start": 5.345,
+   "end": 5.665,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w16"
+  },
+  {
+   "text": "gestern",
+   "start": 5.665,
+   "end": 5.985,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w17"
+  },
+  {
+   "text": "nicht",
+   "start": 5.985,
+   "end": 6.065,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w18"
+  },
+  {
+   "text": "zustellen.",
+   "start": 6.065,
+   "end": 6.585,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w19"
+  },
+  {
+   "text": "Wann",
+   "start": 6.81,
+   "end": 6.945,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w20"
+  },
+  {
+   "text": "passt",
+   "start": 6.945,
+   "end": 7.185,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w21"
+  },
+  {
+   "text": "Ihnen",
+   "start": 7.185,
+   "end": 7.425,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w22"
+  },
+  {
+   "text": "eine",
+   "start": 7.425,
+   "end": 7.585,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w23"
+  },
+  {
+   "text": "neue",
+   "start": 7.585,
+   "end": 7.825,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w24"
+  },
+  {
+   "text": "Zustellung?",
+   "start": 7.825,
+   "end": 8.325,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w25"
+  },
+  {
+   "text": "Morgen",
+   "start": 9.131,
+   "end": 9.586,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w26"
+  },
+  {
+   "text": "Morgen",
+   "start": 9.131,
+   "end": 9.586,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.95,
+   "turnId": "t1",
+   "id": "w27"
+  },
+  {
+   "text": "Nachmittag",
+   "start": 9.586,
+   "end": 10.446,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w28"
+  },
+  {
+   "text": "Nachmittag",
+   "start": 9.586,
+   "end": 10.446,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.88,
+   "turnId": "t1",
+   "id": "w29"
+  },
+  {
+   "text": "wäre",
+   "start": 10.586,
+   "end": 10.866,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w30"
+  },
+  {
+   "text": "wäre",
+   "start": 10.586,
+   "end": 10.866,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.98,
+   "turnId": "t1",
+   "id": "w31"
+  },
+  {
+   "text": "gut.",
+   "start": 10.866,
+   "end": 11.221,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w32"
+  },
+  {
+   "text": "gut.",
+   "start": 10.866,
+   "end": 11.221,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.91,
+   "turnId": "t1",
+   "id": "w33"
+  },
+  {
+   "text": "Alles",
+   "start": 12.615,
+   "end": 12.827,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w34"
+  },
+  {
+   "text": "klar.",
+   "start": 12.827,
+   "end": 13.235,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w35"
+  },
+  {
+   "text": "Die",
+   "start": 13.42,
+   "end": 13.547,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w36"
+  },
+  {
+   "text": "Zustellung",
+   "start": 13.547,
+   "end": 14.107,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w37"
+  },
+  {
+   "text": "ist",
+   "start": 14.107,
+   "end": 14.347,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w38"
+  },
+  {
+   "text": "für",
+   "start": 14.347,
+   "end": 14.427,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w39"
+  },
+  {
+   "text": "morgen",
+   "start": 14.427,
+   "end": 14.987,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w40"
+  },
+  {
+   "text": "zwischen",
+   "start": 14.987,
+   "end": 15.307,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w41"
+  },
+  {
+   "text": "vierzehn",
+   "start": 15.307,
+   "end": 15.867,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w42"
+  },
+  {
+   "text": "und",
+   "start": 15.867,
+   "end": 16.027,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w43"
+  },
+  {
+   "text": "achtzehn",
+   "start": 16.107,
+   "end": 16.507,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w44"
+  },
+  {
+   "text": "Uhr",
+   "start": 16.507,
+   "end": 16.667,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w45"
+  },
+  {
+   "text": "geplant.",
+   "start": 16.667,
+   "end": 17.155,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w46"
+  },
+  {
+   "text": "Brauchen",
+   "start": 17.275,
+   "end": 17.547,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w47"
+  },
+  {
+   "text": "Sie",
+   "start": 17.547,
+   "end": 17.627,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w48"
+  },
+  {
+   "text": "sonst",
+   "start": 17.627,
+   "end": 17.947,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w49"
+  },
+  {
+   "text": "noch",
+   "start": 17.947,
+   "end": 18.107,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w50"
+  },
+  {
+   "text": "etwas?",
+   "start": 18.107,
+   "end": 18.51,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w51"
+  },
+  {
+   "text": "Nein,",
+   "start": 19.165,
+   "end": 19.535,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t3",
+   "id": "w52"
+  },
+  {
+   "text": "Nein,",
+   "start": 19.165,
+   "end": 19.535,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.99,
+   "turnId": "t3",
+   "id": "w53"
+  },
+  {
+   "text": "das",
+   "start": 19.79,
+   "end": 20.095,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t3",
+   "id": "w54"
+  },
+  {
+   "text": "das",
+   "start": 19.79,
+   "end": 20.095,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.94,
+   "turnId": "t3",
+   "id": "w55"
+  },
+  {
+   "text": "war",
+   "start": 20.095,
+   "end": 20.335,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t3",
+   "id": "w56"
+  },
+  {
+   "text": "war",
+   "start": 20.095,
+   "end": 20.335,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.9,
+   "turnId": "t3",
+   "id": "w57"
+  },
+  {
+   "text": "alles.",
+   "start": 20.335,
+   "end": 20.695,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t3",
+   "id": "w58"
+  },
+  {
+   "text": "alles.",
+   "start": 20.335,
+   "end": 20.695,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "confidence": 0.97,
+   "turnId": "t3",
+   "id": "w59"
+  },
+  {
+   "text": "Gerne.",
+   "start": 21.554,
+   "end": 22.087,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t4",
+   "id": "w60"
+  },
+  {
+   "text": "Einen",
+   "start": 22.087,
+   "end": 22.407,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t4",
+   "id": "w61"
+  },
+  {
+   "text": "schönen",
+   "start": 22.407,
+   "end": 22.807,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t4",
+   "id": "w62"
+  },
+  {
+   "text": "Tag",
+   "start": 22.807,
+   "end": 23.127,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t4",
+   "id": "w63"
+  },
+  {
+   "text": "noch!",
+   "start": 23.127,
+   "end": 23.349,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t4",
+   "id": "w64"
+  }
+ ],
+ "speech": {
+  "caller": [
+   {
+    "start": 9.135,
+    "end": 11.215
+   },
+   {
+    "start": 19.165,
+    "end": 19.5
+   },
+   {
+    "start": 19.79,
+    "end": 20.635
+   }
+  ],
+  "agent": [
+   {
+    "start": 0.415,
+    "end": 4.7
+   },
+   {
+    "start": 4.905,
+    "end": 8.395
+   },
+   {
+    "start": 12.605,
+    "end": 18.52
+   },
+   {
+    "start": 21.55,
+    "end": 23.385
+   }
+  ]
+ },
+ "findings": []
+}
