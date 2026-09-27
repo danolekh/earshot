@@ -4,7 +4,9 @@
  *
  * Only in a stage build (`vite build --mode stage`, which reads .env.stage): STAGE is false in
  * every other build, and all of this is dropped from it. */
-import type { Clock } from "@danolekh/earshot/core";
+import { gainsFor, type ListeningStore } from "@danolekh/earshot/audio";
+import type { Clock, Role } from "@danolekh/earshot/core";
+import type { Viewport } from "@danolekh/earshot/timeline";
 
 export const STAGE: boolean = import.meta.env.VITE_STAGE === "1";
 
@@ -12,15 +14,17 @@ export interface StageAudioEvent {
   /** The page's time (ms) when it happened. */
   at: number;
   callId: string;
-  kind: "play" | "seek" | "stop";
+  /** `mix`: who is heard changed (mute or solo); `gains` is each file channel's. */
+  kind: "play" | "seek" | "stop" | "mix";
   /** Where in the call (seconds). */
   t: number;
+  gains?: [number, number];
 }
 
 declare global {
   interface Window {
     /** Set by the recorder before the page's scripts run. */
-    __stage?: { audio: StageAudioEvent[]; clock?: Clock };
+    __stage?: { audio: StageAudioEvent[]; clock?: Clock; viewport?: Viewport };
   }
 }
 
@@ -99,5 +103,24 @@ export function markStageReady(): void {
     requestAnimationFrame(() =>
       requestAnimationFrame(() => document.documentElement.setAttribute("data-stage-ready", "")),
     ),
+  );
+}
+
+/** Logs who is heard (mute and solo) whenever it changes, so the recorder mixes the recording the
+ * way the page would have played it. */
+export function watchStageMix(
+  callId: string,
+  clock: Clock,
+  listening: ListeningStore,
+  channels: readonly (Role | null)[],
+): () => void {
+  return listening.subscribe(() =>
+    window.__stage?.audio.push({
+      at: performance.now(),
+      callId,
+      kind: "mix",
+      t: clock.time(),
+      gains: gainsFor(listening.get(), channels),
+    }),
   );
 }

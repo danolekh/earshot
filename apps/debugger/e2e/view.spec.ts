@@ -132,6 +132,17 @@ test.describe("view settings", () => {
     expect((await findings.boundingBox())!.height).toBe(18);
   });
 
+  test("a link's theme applies for that visit only (an embed matching its page)", async ({
+    debuggerPage: page,
+  }) => {
+    await page.emulateMedia({ colorScheme: "dark" });
+    await open(page, "/call/stadtwerke-zaehlerstand/?theme=light");
+    await expect(page.locator("html")).not.toHaveClass(/dark/);
+    expect(await page.evaluate(() => localStorage.getItem("debugger:theme"))).toBeNull();
+    await open(page, "/call/stadtwerke-zaehlerstand/");
+    await expect(page.locator("html")).toHaveClass(/dark/);
+  });
+
   test("a chosen theme applies before the first paint on reload", async ({ debuggerPage: page }) => {
     await page.emulateMedia({ colorScheme: "dark" });
     await open(page);

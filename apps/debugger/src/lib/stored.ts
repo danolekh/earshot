@@ -91,9 +91,17 @@ export const theme: Stored<Theme> = createStored<Theme>(
   (v) => v,
 );
 
+declare global {
+  interface Window {
+    /** `?theme=` from the page's first load (first-paint.ts), until a theme is picked here. */
+    __urlTheme?: "light" | "dark" | null;
+  }
+}
+
 /** Puts a theme on the page now (the first-paint script does it before the first paint and when
- * the OS or another tab changes). */
+ * the OS or another tab changes). A theme picked here replaces the one the URL asked for. */
 export function applyTheme(t: Theme): void {
+  window.__urlTheme = null;
   const dark = t === "dark" || (t === "system" && !matchMedia("(prefers-color-scheme: light)").matches);
   document.documentElement.classList.toggle("dark", dark);
 }

@@ -1,7 +1,9 @@
 /* The script in <head> that runs before the first paint. The page is prerendered with the defaults
  * (dark, inspector open, default panel sizes), so what this browser remembers is put on <html>
  * before anything shows:
- * - `.dark` from the stored theme, or the OS (followed while the theme is "system");
+ * - `.dark` from `?theme=light|dark` for this page load (an embed matching its page; never stored,
+ *   and dropped once a theme is picked in the View menu), else the stored theme, else the OS
+ *   (followed while the theme is "system");
  * - `data-inspector="closed"` / `data-transcript="closed"` for a closed panel;
  * - `--layout-inspector` / `--layout-transcript` for the panel sizes.
  * Unlayered CSS in app.css sizes the panels from these (falling back to DEFAULT_LAYOUT's sizes)
@@ -15,8 +17,10 @@ export const FIRST_PAINT_SCRIPT = `(() => {
   const root = document.documentElement;
   const get = (key) => { try { return localStorage.getItem(key); } catch { return null; } };
   const light = matchMedia("(prefers-color-scheme: light)");
+  const asked = new URLSearchParams(location.search).get("theme");
+  window.__urlTheme = asked === "light" || asked === "dark" ? asked : null;
   const apply = () => {
-    const t = get(${k(KEYS.theme)});
+    const t = window.__urlTheme || get(${k(KEYS.theme)});
     root.classList.toggle("dark", t === "dark" || (t !== "light" && !light.matches));
   };
   apply();

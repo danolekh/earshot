@@ -15,7 +15,7 @@ import { type DebuggerAction, debuggerKey } from "@/lib/keys";
 import { layout } from "@/lib/layout";
 import { type Prepared, prepare } from "@/lib/prepare";
 import type { DebugSearch } from "@/lib/search";
-import { createStageClock, filming, markStageReady } from "@/lib/stage";
+import { createStageClock, filming, markStageReady, watchStageMix } from "@/lib/stage";
 import { inspectorOpen, singleKeys } from "@/lib/stored";
 import { useUrlSync } from "@/lib/url-sync";
 import { LANE_SETS, setLanes, shownState, toggleSet, viewSettings, visibleLanes } from "@/lib/view";
@@ -68,12 +68,20 @@ export const Debugger = memo(function Debugger({ trace, search, onSearch, nav }:
       {...(channels && { channels })}
       className="h-svh"
     >
+      {STAGE && stage && <StageMix callId={trace.call.id} />}
       <TooltipProvider delay={300}>
         <Body prepared={prepared} search={search} onSearch={onSearch} nav={nav} />
       </TooltipProvider>
     </Player.Root>
   );
 });
+
+/** While filmed: tells the recorder who is heard, so the film's sound follows mute and solo. */
+function StageMix({ callId }: { callId: string }) {
+  const { clock, listening, channels } = usePlayer("StageMix");
+  useEffect(() => watchStageMix(callId, clock, listening, channels), [callId, clock, listening, channels]);
+  return null;
+}
 
 function Body({
   prepared,
@@ -89,6 +97,10 @@ function Body({
   const { trace, conversation } = prepared;
   const { clock, selection } = usePlayer("Debugger");
   const [viewport] = useState(() => createViewport(trace.call.duration, { minSpan: 0.4 }));
+  // While filmed, the take reads the view to aim its zooms and pans.
+  useEffect(() => {
+    if (STAGE && filming()) window.__stage!.viewport = viewport;
+  }, [viewport]);
   const [follow, setFollow] = useState(true);
   const [help, setHelp] = useState(false);
   const [viewMenu, setViewMenu] = useState(false);
