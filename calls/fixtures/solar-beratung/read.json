@@ -1,0 +1,2588 @@
+{
+ "audio": {
+  "sources": [
+   {
+    "src": "/calls/solar-beratung/call.ogg",
+    "type": "audio/ogg; codecs=opus"
+   },
+   {
+    "src": "/calls/solar-beratung/call.mp3",
+    "type": "audio/mpeg"
+   }
+  ]
+ },
+ "call": {
+  "consent": "granted",
+  "direction": "outbound",
+  "duration": 43.595,
+  "id": "solar-beratung",
+  "language": "de-DE",
+  "outcome": {
+   "achieved": true,
+   "appointment": "Do 10:00",
+   "goal": "Beratungstermin gebucht"
+  },
+  "provider": "livekit",
+  "startedAt": "2026-09-25T14:32:10.000Z",
+  "synthetic": true,
+  "title": "Sonnenwerk Solar · Beratungstermin",
+  "versions": {
+   "agent": "sonnenwerk-leads v17",
+   "prompt": "solar-lead@3",
+   "sdk": "livekit-agents 1.8.3"
+  }
+ },
+ "clock": {
+  "channels": [
+   "caller",
+   "agent"
+  ],
+  "sampleRate": 48000,
+  "t0UnixMs": 1790346730000
+ },
+ "findings": [],
+ "signals": [
+  {
+   "at": 0.4,
+   "data": {
+    "text": "Ich bin eine KI."
+   },
+   "id": "g0",
+   "type": "disclosure"
+  },
+  {
+   "at": 8.922958,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g1",
+   "turnId": "t1",
+   "type": "eou_decision"
+  },
+  {
+   "at": 16.243125,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g2",
+   "turnId": "t3",
+   "type": "eou_decision"
+  },
+  {
+   "at": 23.178667,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g3",
+   "turnId": "t5",
+   "type": "eou_decision"
+  },
+  {
+   "at": 29.735417,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g4",
+   "turnId": "t7",
+   "type": "eou_decision"
+  },
+  {
+   "at": 40.813375,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g5",
+   "turnId": "t9",
+   "type": "eou_decision"
+  }
+ ],
+ "spans": [
+  {
+   "attributes": {
+    "lk.agent_name": "sonnenwerk-leads v17",
+    "lk.pii.room_name": "solar-beratung"
+   },
+   "end": 43.595,
+   "id": "0000000000000001",
+   "kind": "session",
+   "name": "agent_session",
+   "process": "voice-agent",
+   "start": 0,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff"
+  },
+  {
+   "attributes": {
+    "lk.generation_id": "gen_greeting",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 6.730083,
+   "id": "0000000000000002",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {},
+   "end": 6.730083,
+   "id": "0000000000000003",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?",
+    "lk.response.ttfb": 0.35,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 6.730083,
+   "firstChunk": 0.39999999999999997,
+   "id": "0000000000000004",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000003",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 6.730083,
+   "id": "0000000000000005",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.4,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Ja, kurz schon.",
+    "lk.stt.events": "[{\"received_at\":1790346738.7529583,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.923,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 8.922958,
+   "id": "0000000000000006",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 7.430083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 8.922958,
+   "id": "0000000000000007",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000006",
+   "process": "voice-agent",
+   "start": 8.572958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 8.642958,
+   "id": "0000000000000008",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000007",
+   "process": "voice-agent",
+   "start": 8.592958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_ask-roof",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-roof"
+   },
+   "end": 12.324667,
+   "id": "0000000000000009",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 8.922958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 9.822958,
+   "id": "000000000000000a",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 8.922958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 506,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?\"},{\"role\":\"user\",\"content\":\"Ja, kurz schon.\"}]",
+    "lk.pii.response.text": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?",
+    "lk.response.ttft": 0.295
+   },
+   "end": 9.822958,
+   "firstChunk": 9.222958,
+   "id": "000000000000000b",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, kurz schon.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "output": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?"
+   },
+   "name": "llm_request",
+   "parentId": "000000000000000a",
+   "process": "voice-agent",
+   "start": 8.927958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 9.822958,
+   "id": "000000000000000c",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "000000000000000b",
+   "process": "voice-agent",
+   "start": 8.928958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 12.324667,
+   "id": "000000000000000d",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 9.222958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 12.324667,
+   "firstChunk": 9.362958,
+   "id": "000000000000000e",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "000000000000000d",
+   "process": "voice-agent",
+   "start": 9.222958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-roof"
+   },
+   "end": 12.324667,
+   "id": "000000000000000f",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 9.362958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Ja, das Dach ist nach Süden ausgerichtet.",
+    "lk.stt.events": "[{\"received_at\":1790346746.0731251,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.933,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 16.243125,
+   "id": "0000000000000010",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 12.924667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 16.243125,
+   "id": "0000000000000011",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000010",
+   "process": "voice-agent",
+   "start": 15.893125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 15.963125,
+   "id": "0000000000000012",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000011",
+   "process": "voice-agent",
+   "start": 15.913125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.77,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_ask-bill",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-bill"
+   },
+   "end": 19.549125,
+   "id": "0000000000000013",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 16.243125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 17.123125,
+   "id": "0000000000000014",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000013",
+   "process": "voice-agent",
+   "start": 16.243125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 590,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?\"},{\"role\":\"user\",\"content\":\"Ja, kurz schon.\"},{\"role\":\"assistant\",\"content\":\"Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?\"},{\"role\":\"user\",\"content\":\"Ja, das Dach ist nach Süden ausgerichtet.\"}]",
+    "lk.pii.response.text": "Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?",
+    "lk.response.ttft": 0.275
+   },
+   "end": 17.123125,
+   "firstChunk": 16.523125,
+   "id": "0000000000000015",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, kurz schon.",
+      "role": "user"
+     },
+     {
+      "content": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das Dach ist nach Süden ausgerichtet.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "output": "Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?"
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000014",
+   "process": "voice-agent",
+   "start": 16.248125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 17.123125,
+   "id": "0000000000000016",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 16.249125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 19.549125,
+   "id": "0000000000000017",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000013",
+   "process": "voice-agent",
+   "start": 16.523125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 19.549125,
+   "firstChunk": 16.663125,
+   "id": "0000000000000018",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000017",
+   "process": "voice-agent",
+   "start": 16.523125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-bill"
+   },
+   "end": 19.549125,
+   "id": "0000000000000019",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000013",
+   "process": "voice-agent",
+   "start": 16.663125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "So um die hundertzwanzig Euro im Monat.",
+    "lk.stt.events": "[{\"received_at\":1790346753.0086668,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.937,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 23.178667,
+   "id": "000000000000001a",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 20.149125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 23.178667,
+   "id": "000000000000001b",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "000000000000001a",
+   "process": "voice-agent",
+   "start": 22.828667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 22.898667,
+   "id": "000000000000001c",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "000000000000001b",
+   "process": "voice-agent",
+   "start": 22.848667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.81,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_offer",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_offer"
+   },
+   "end": 26.709375,
+   "id": "000000000000001d",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 23.178667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {},
+   "end": 24.098667,
+   "id": "000000000000001e",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "000000000000001d",
+   "process": "voice-agent",
+   "start": 23.178667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 674,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?\"},{\"role\":\"user\",\"content\":\"Ja, kurz schon.\"},{\"role\":\"assistant\",\"content\":\"Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?\"},{\"role\":\"user\",\"content\":\"Ja, das Dach ist nach Süden ausgerichtet.\"},{\"role\":\"assistant\",\"content\":\"Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?\"},{\"role\":\"user\",\"content\":\"So um die hundertzwanzig Euro im Monat.\"}]",
+    "lk.pii.response.text": "Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?",
+    "lk.response.ttft": 0.315
+   },
+   "end": 24.098667,
+   "firstChunk": 23.498667,
+   "id": "000000000000001f",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, kurz schon.",
+      "role": "user"
+     },
+     {
+      "content": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das Dach ist nach Süden ausgerichtet.",
+      "role": "user"
+     },
+     {
+      "content": "Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?",
+      "role": "assistant"
+     },
+     {
+      "content": "So um die hundertzwanzig Euro im Monat.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "output": "Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?"
+   },
+   "name": "llm_request",
+   "parentId": "000000000000001e",
+   "process": "voice-agent",
+   "start": 23.183667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 24.098667,
+   "id": "0000000000000020",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "000000000000001f",
+   "process": "voice-agent",
+   "start": 23.184667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {},
+   "end": 26.709375,
+   "id": "0000000000000021",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "000000000000001d",
+   "process": "voice-agent",
+   "start": 23.498667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 26.709375,
+   "firstChunk": 23.638667,
+   "id": "0000000000000022",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000021",
+   "process": "voice-agent",
+   "start": 23.498667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_offer"
+   },
+   "end": 26.709375,
+   "id": "0000000000000023",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "000000000000001d",
+   "process": "voice-agent",
+   "start": 23.718667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Ja, Donnerstag um zehn passt.",
+    "lk.stt.events": "[{\"received_at\":1790346759.5654168,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.942,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 29.735417,
+   "id": "0000000000000024",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 27.309375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 29.735417,
+   "id": "0000000000000025",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000024",
+   "process": "voice-agent",
+   "start": 29.385417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 29.455417,
+   "id": "0000000000000026",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000025",
+   "process": "voice-agent",
+   "start": 29.405417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 3.14,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_booked",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_booked"
+   },
+   "end": 38.244625,
+   "id": "0000000000000027",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 29.735417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {},
+   "end": 30.025417,
+   "id": "0000000000000028",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000027",
+   "process": "voice-agent",
+   "start": 29.735417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 758,
+    "gen_ai.usage.output_tokens": 24,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?\"},{\"role\":\"user\",\"content\":\"Ja, kurz schon.\"},{\"role\":\"assistant\",\"content\":\"Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?\"},{\"role\":\"user\",\"content\":\"Ja, das Dach ist nach Süden ausgerichtet.\"},{\"role\":\"assistant\",\"content\":\"Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?\"},{\"role\":\"user\",\"content\":\"So um die hundertzwanzig Euro im Monat.\"},{\"role\":\"assistant\",\"content\":\"Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?\"},{\"role\":\"user\",\"content\":\"Ja, Donnerstag um zehn passt.\"}]",
+    "lk.pii.response.function_calls": "[{\"name\":\"calendar.book_appointment\",\"arguments\":{\"slot\":\"2026-10-01T10:00\",\"advisor\":\"albers\"}}]",
+    "lk.response.ttft": 0.245
+   },
+   "end": 30.025417,
+   "firstChunk": 29.985417,
+   "id": "0000000000000029",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, kurz schon.",
+      "role": "user"
+     },
+     {
+      "content": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das Dach ist nach Süden ausgerichtet.",
+      "role": "user"
+     },
+     {
+      "content": "Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?",
+      "role": "assistant"
+     },
+     {
+      "content": "So um die hundertzwanzig Euro im Monat.",
+      "role": "user"
+     },
+     {
+      "content": "Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, Donnerstag um zehn passt.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "toolCalls": [
+     {
+      "arguments": {
+       "advisor": "albers",
+       "slot": "2026-10-01T10:00"
+      },
+      "name": "calendar.book_appointment"
+     }
+    ]
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000028",
+   "process": "voice-agent",
+   "start": 29.740417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 30.025417,
+   "id": "000000000000002a",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000029",
+   "process": "voice-agent",
+   "start": 29.741417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.function_tool.id": "call_booked",
+    "lk.function_tool.is_error": false,
+    "lk.function_tool.name": "calendar.book_appointment",
+    "lk.pii.function_tool.arguments": "{\"slot\":\"2026-10-01T10:00\",\"advisor\":\"albers\"}",
+    "lk.pii.function_tool.output": "{\"status\":\"booked\",\"booking_id\":\"bk_8813\"}"
+   },
+   "end": 32.385417,
+   "id": "000000000000002b",
+   "kind": "tool",
+   "name": "function_tool",
+   "parentId": "0000000000000027",
+   "process": "voice-agent",
+   "start": 29.985417,
+   "status": {
+    "code": "unset"
+   },
+   "tool": {
+    "arguments": {
+     "advisor": "albers",
+     "slot": "2026-10-01T10:00"
+    },
+    "callId": "call_booked",
+    "isError": false,
+    "name": "calendar.book_appointment",
+    "result": {
+     "booking_id": "bk_8813",
+     "status": "booked"
+    }
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {},
+   "end": 38.244625,
+   "id": "000000000000002c",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000027",
+   "process": "voice-agent",
+   "start": 32.385417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Ihr Termin ist eingetragen, Donnerstag um zehn Uhr. Sie bekommen gleich eine Bestätigung per SMS.",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 38.244625,
+   "firstChunk": 32.525417,
+   "id": "000000000000002d",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "000000000000002c",
+   "process": "voice-agent",
+   "start": 32.385417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_booked"
+   },
+   "end": 38.244625,
+   "id": "000000000000002e",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000027",
+   "process": "voice-agent",
+   "start": 32.525417,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Alles klar, danke schön.",
+    "lk.stt.events": "[{\"received_at\":1790346770.6433752,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.92,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 40.813375,
+   "id": "000000000000002f",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 38.844625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t9"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 40.813375,
+   "id": "0000000000000030",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "000000000000002f",
+   "process": "voice-agent",
+   "start": 40.463375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t9"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 40.533375,
+   "id": "0000000000000031",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000030",
+   "process": "voice-agent",
+   "start": 40.483375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t9"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_bye",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_bye"
+   },
+   "end": 42.795083,
+   "id": "0000000000000032",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 40.813375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {},
+   "end": 41.713375,
+   "id": "0000000000000033",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000032",
+   "process": "voice-agent",
+   "start": 40.813375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 926,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?\"},{\"role\":\"user\",\"content\":\"Ja, kurz schon.\"},{\"role\":\"assistant\",\"content\":\"Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?\"},{\"role\":\"user\",\"content\":\"Ja, das Dach ist nach Süden ausgerichtet.\"},{\"role\":\"assistant\",\"content\":\"Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?\"},{\"role\":\"user\",\"content\":\"So um die hundertzwanzig Euro im Monat.\"},{\"role\":\"assistant\",\"content\":\"Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?\"},{\"role\":\"user\",\"content\":\"Ja, Donnerstag um zehn passt.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"calendar.book_appointment\\\",\\\"arguments\\\":{\\\"slot\\\":\\\"2026-10-01T10:00\\\",\\\"advisor\\\":\\\"albers\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"status\\\":\\\"booked\\\",\\\"booking_id\\\":\\\"bk_8813\\\"}\"},{\"role\":\"assistant\",\"content\":\"Ihr Termin ist eingetragen, Donnerstag um zehn Uhr. Sie bekommen gleich eine Bestätigung per SMS.\"},{\"role\":\"user\",\"content\":\"Alles klar, danke schön.\"}]",
+    "lk.pii.response.text": "Gerne. Einen schönen Tag noch!",
+    "lk.response.ttft": 0.295
+   },
+   "end": 41.713375,
+   "firstChunk": 41.113375000000005,
+   "id": "0000000000000034",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du rufst Interessenten von Sonnenwerk Solar an. Qualifiziere den Lead (Einfamilienhaus, Dach, Stromrechnung) und buche mit calendar.book_appointment einen Beratungstermin.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, kurz schon.",
+      "role": "user"
+     },
+     {
+      "content": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das Dach ist nach Süden ausgerichtet.",
+      "role": "user"
+     },
+     {
+      "content": "Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?",
+      "role": "assistant"
+     },
+     {
+      "content": "So um die hundertzwanzig Euro im Monat.",
+      "role": "user"
+     },
+     {
+      "content": "Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, Donnerstag um zehn passt.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"calendar.book_appointment\",\"arguments\":{\"slot\":\"2026-10-01T10:00\",\"advisor\":\"albers\"}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"status\":\"booked\",\"booking_id\":\"bk_8813\"}",
+      "role": "tool_result"
+     },
+     {
+      "content": "Ihr Termin ist eingetragen, Donnerstag um zehn Uhr. Sie bekommen gleich eine Bestätigung per SMS.",
+      "role": "assistant"
+     },
+     {
+      "content": "Alles klar, danke schön.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "output": "Gerne. Einen schönen Tag noch!"
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000033",
+   "process": "voice-agent",
+   "start": 40.818375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 41.713375,
+   "id": "0000000000000035",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000034",
+   "process": "voice-agent",
+   "start": 40.819375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {},
+   "end": 42.795083,
+   "id": "0000000000000036",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000032",
+   "process": "voice-agent",
+   "start": 41.113375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Gerne. Einen schönen Tag noch!",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 42.795083,
+   "firstChunk": 41.253375,
+   "id": "0000000000000037",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000036",
+   "process": "voice-agent",
+   "start": 41.113375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_bye"
+   },
+   "end": 42.795083,
+   "id": "0000000000000038",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000032",
+   "process": "voice-agent",
+   "start": 41.253375,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000043e51aff",
+   "turnId": "t10"
+  }
+ ],
+ "turns": [
+  {
+   "channel": "agent",
+   "end": 6.730083,
+   "id": "t0",
+   "latency": {
+    "ttsTtfb": 0.35
+   },
+   "speechId": "speech_greeting",
+   "start": 0.4,
+   "text": "Guten Tag, hier ist Lena von Sonnenwerk Solar. Sie hatten sich auf unserer Website für eine Solaranlage interessiert. Passt es gerade kurz?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.923,
+   "end": 8.572958,
+   "id": "t1",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 7.430083,
+   "text": "Ja, kurz schon."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1-mini"
+   },
+   "end": 12.324667,
+   "id": "t2",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t1",
+   "speechId": "speech_ask-roof",
+   "start": 9.362958,
+   "text": "Prima. Wohnen Sie in einem Einfamilienhaus mit eigenem Dach?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.933,
+   "end": 15.893125,
+   "id": "t3",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 12.924667,
+   "text": "Ja, das Dach ist nach Süden ausgerichtet."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1-mini"
+   },
+   "end": 19.549125,
+   "id": "t4",
+   "latency": {
+    "e2e": 0.77,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.275,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t3",
+   "speechId": "speech_ask-bill",
+   "start": 16.663125,
+   "text": "Sehr gut. Wie hoch ist ungefähr Ihre monatliche Stromrechnung?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.937,
+   "end": 22.828667,
+   "id": "t5",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 20.149125,
+   "text": "So um die hundertzwanzig Euro im Monat."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1-mini"
+   },
+   "end": 26.709375,
+   "id": "t6",
+   "latency": {
+    "e2e": 0.81,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.315,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t5",
+   "speechId": "speech_offer",
+   "start": 23.718667,
+   "text": "Dann lohnt sich eine Beratung. Passt Ihnen Donnerstag um zehn Uhr?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.942,
+   "end": 29.385417,
+   "id": "t7",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 27.309375,
+   "text": "Ja, Donnerstag um zehn passt."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1-mini"
+   },
+   "end": 38.244625,
+   "id": "t8",
+   "latency": {
+    "e2e": 3.14,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.245,
+    "tool": 2.4,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t7",
+   "speechId": "speech_booked",
+   "start": 32.525417,
+   "text": "Ihr Termin ist eingetragen, Donnerstag um zehn Uhr. Sie bekommen gleich eine Bestätigung per SMS."
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.92,
+   "end": 40.463375,
+   "id": "t9",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 38.844625,
+   "text": "Alles klar, danke schön."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1-mini"
+   },
+   "end": 42.795083,
+   "id": "t10",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t9",
+   "speechId": "speech_bye",
+   "start": 41.253375,
+   "text": "Gerne. Einen schönen Tag noch!"
+  }
+ ],
+ "version": 1,
+ "words": [
+  {
+   "channel": "agent",
+   "end": 0.6441603442857142,
+   "estimated": true,
+   "heard": true,
+   "id": "w0",
+   "source": "tts",
+   "start": 0.4,
+   "text": "Guten",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 0.8747562249999999,
+   "estimated": true,
+   "heard": true,
+   "id": "w1",
+   "source": "tts",
+   "start": 0.6712892714285714,
+   "text": "Tag,",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.1008306178571428,
+   "estimated": true,
+   "heard": true,
+   "id": "w2",
+   "source": "tts",
+   "start": 0.8973636642857142,
+   "text": "hier",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.28621162,
+   "estimated": true,
+   "heard": true,
+   "id": "w3",
+   "source": "tts",
+   "start": 1.123438057142857,
+   "text": "ist",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.507764525,
+   "estimated": true,
+   "heard": true,
+   "id": "w4",
+   "source": "tts",
+   "start": 1.3042975714285714,
+   "text": "Lena",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.6931455271428568,
+   "estimated": true,
+   "heard": true,
+   "id": "w5",
+   "source": "tts",
+   "start": 1.530371964285714,
+   "text": "von",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.158858776428571,
+   "estimated": true,
+   "heard": true,
+   "id": "w6",
+   "source": "tts",
+   "start": 1.7112314785714284,
+   "text": "Sonnenwerk",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.493448877857143,
+   "estimated": true,
+   "heard": true,
+   "id": "w7",
+   "source": "tts",
+   "start": 2.208595142857143,
+   "text": "Solar.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.6878728557142857,
+   "estimated": true,
+   "heard": true,
+   "id": "w8",
+   "source": "tts",
+   "start": 2.525099292857143,
+   "text": "Sie",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.9908125421428573,
+   "estimated": true,
+   "heard": true,
+   "id": "w9",
+   "source": "tts",
+   "start": 2.7059588071428573,
+   "text": "hatten",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.225929910714286,
+   "estimated": true,
+   "heard": true,
+   "id": "w10",
+   "source": "tts",
+   "start": 3.0224629571428574,
+   "text": "sich",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.411310912857143,
+   "estimated": true,
+   "heard": true,
+   "id": "w11",
+   "source": "tts",
+   "start": 3.2485373500000003,
+   "text": "auf",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.75494399,
+   "estimated": true,
+   "heard": true,
+   "id": "w12",
+   "source": "tts",
+   "start": 3.4293968642857147,
+   "text": "unserer",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.116663018571429,
+   "estimated": true,
+   "heard": true,
+   "id": "w13",
+   "source": "tts",
+   "start": 3.7911158928571433,
+   "text": "Website",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.315608484285715,
+   "estimated": true,
+   "heard": true,
+   "id": "w14",
+   "source": "tts",
+   "start": 4.152834921428572,
+   "text": "für",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.537161389285715,
+   "estimated": true,
+   "heard": true,
+   "id": "w15",
+   "source": "tts",
+   "start": 4.333694435714286,
+   "text": "eine",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.0480895171428575,
+   "estimated": true,
+   "heard": true,
+   "id": "w16",
+   "source": "tts",
+   "start": 4.559768828571429,
+   "text": "Solaranlage",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.672054841428572,
+   "estimated": true,
+   "heard": true,
+   "id": "w17",
+   "source": "tts",
+   "start": 5.102347371428572,
+   "text": "interessiert.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.979516015714287,
+   "estimated": true,
+   "heard": true,
+   "id": "w18",
+   "source": "tts",
+   "start": 5.7353556714285725,
+   "text": "Passt",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 6.128725115000001,
+   "estimated": true,
+   "heard": true,
+   "id": "w19",
+   "source": "tts",
+   "start": 6.006644942857144,
+   "text": "es",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 6.427143313571429,
+   "estimated": true,
+   "heard": true,
+   "id": "w20",
+   "source": "tts",
+   "start": 6.14228957857143,
+   "text": "gerade",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 6.702954072857144,
+   "estimated": true,
+   "heard": true,
+   "id": "w21",
+   "source": "tts",
+   "start": 6.45879372857143,
+   "text": "kurz?",
+   "turnId": "t0"
+  },
+  {
+   "channel": "caller",
+   "end": 7.687229875,
+   "estimated": true,
+   "id": "w22",
+   "source": "streaming_asr",
+   "start": 7.430083,
+   "text": "Ja,",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 8.03723534375,
+   "estimated": true,
+   "id": "w23",
+   "source": "streaming_asr",
+   "start": 7.71580175,
+   "text": "kurz",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 8.52295721875,
+   "estimated": true,
+   "id": "w24",
+   "source": "streaming_asr",
+   "start": 8.0729501875,
+   "text": "schon.",
+   "turnId": "t1"
+  },
+  {
+   "channel": "agent",
+   "end": 9.668839421311477,
+   "estimated": true,
+   "heard": true,
+   "id": "w25",
+   "source": "tts",
+   "start": 9.362958,
+   "text": "Prima.",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 10.008707667213116,
+   "estimated": true,
+   "heard": true,
+   "id": "w26",
+   "source": "tts",
+   "start": 9.70282624590164,
+   "text": "Wohnen",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 10.217483875409837,
+   "estimated": true,
+   "heard": true,
+   "id": "w27",
+   "source": "tts",
+   "start": 10.04269449180328,
+   "text": "Sie",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 10.367996955737706,
+   "estimated": true,
+   "heard": true,
+   "id": "w28",
+   "source": "tts",
+   "start": 10.236904918032788,
+   "text": "in",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 10.644746813114756,
+   "estimated": true,
+   "heard": true,
+   "id": "w29",
+   "source": "tts",
+   "start": 10.38256273770492,
+   "text": "einem",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.37303591147541,
+   "estimated": true,
+   "heard": true,
+   "id": "w30",
+   "source": "tts",
+   "start": 10.673878377049181,
+   "text": "Einfamilienhaus",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.62550946557377,
+   "estimated": true,
+   "heard": true,
+   "id": "w31",
+   "source": "tts",
+   "start": 11.450720081967214,
+   "text": "mit",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.994509275409838,
+   "estimated": true,
+   "heard": true,
+   "id": "w32",
+   "source": "tts",
+   "start": 11.644930508196722,
+   "text": "eigenem",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.295535436065576,
+   "estimated": true,
+   "heard": true,
+   "id": "w33",
+   "source": "tts",
+   "start": 12.03335136065574,
+   "text": "Dach?",
+   "turnId": "t2"
+  },
+  {
+   "channel": "caller",
+   "end": 13.179106257142857,
+   "estimated": true,
+   "id": "w34",
+   "source": "streaming_asr",
+   "start": 12.924667,
+   "text": "Ja,",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 13.461816542857143,
+   "estimated": true,
+   "id": "w35",
+   "source": "streaming_asr",
+   "start": 13.207377285714285,
+   "text": "das",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 13.808136642857143,
+   "estimated": true,
+   "id": "w36",
+   "source": "streaming_asr",
+   "start": 13.490087571428571,
+   "text": "Dach",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 14.097914685714287,
+   "estimated": true,
+   "id": "w37",
+   "source": "streaming_asr",
+   "start": 13.843475428571429,
+   "text": "ist",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 14.444234785714286,
+   "estimated": true,
+   "id": "w38",
+   "source": "streaming_asr",
+   "start": 14.126185714285715,
+   "text": "nach",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 14.861232457142858,
+   "estimated": true,
+   "id": "w39",
+   "source": "streaming_asr",
+   "start": 14.479573571428572,
+   "text": "Süden",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 15.7941764,
+   "estimated": true,
+   "id": "w40",
+   "source": "streaming_asr",
+   "start": 14.903639,
+   "text": "ausgerichtet.",
+   "turnId": "t3"
+  },
+  {
+   "channel": "agent",
+   "end": 16.86926785714286,
+   "estimated": true,
+   "heard": true,
+   "id": "w41",
+   "source": "tts",
+   "start": 16.663125,
+   "text": "Sehr",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.09831547619048,
+   "estimated": true,
+   "heard": true,
+   "id": "w42",
+   "source": "tts",
+   "start": 16.89217261904762,
+   "text": "gut.",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.286134523809526,
+   "estimated": true,
+   "heard": true,
+   "id": "w43",
+   "source": "tts",
+   "start": 17.12122023809524,
+   "text": "Wie",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.510601190476194,
+   "estimated": true,
+   "heard": true,
+   "id": "w44",
+   "source": "tts",
+   "start": 17.304458333333336,
+   "text": "hoch",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.698420238095242,
+   "estimated": true,
+   "heard": true,
+   "id": "w45",
+   "source": "tts",
+   "start": 17.533505952380956,
+   "text": "ist",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 18.087801190476196,
+   "estimated": true,
+   "heard": true,
+   "id": "w46",
+   "source": "tts",
+   "start": 17.716744047619052,
+   "text": "ungefähr",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 18.335172619047626,
+   "estimated": true,
+   "heard": true,
+   "id": "w47",
+   "source": "tts",
+   "start": 18.129029761904768,
+   "text": "Ihre",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 18.811591666666672,
+   "estimated": true,
+   "heard": true,
+   "id": "w48",
+   "source": "tts",
+   "start": 18.358077380952388,
+   "text": "monatliche",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 19.480410714285718,
+   "estimated": true,
+   "heard": true,
+   "id": "w49",
+   "source": "tts",
+   "start": 18.861982142857148,
+   "text": "Stromrechnung?",
+   "turnId": "t4"
+  },
+  {
+   "channel": "caller",
+   "end": 20.329994085000003,
+   "estimated": true,
+   "id": "w50",
+   "source": "streaming_asr",
+   "start": 20.149125,
+   "text": "So",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 20.530959735000003,
+   "estimated": true,
+   "id": "w51",
+   "source": "streaming_asr",
+   "start": 20.350090650000002,
+   "text": "um",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 20.792215080000002,
+   "estimated": true,
+   "id": "w52",
+   "source": "streaming_asr",
+   "start": 20.551056300000003,
+   "text": "die",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 21.723355925,
+   "estimated": true,
+   "id": "w53",
+   "source": "streaming_asr",
+   "start": 20.8190105,
+   "text": "hundertzwanzig",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 22.125287225,
+   "estimated": true,
+   "id": "w54",
+   "source": "streaming_asr",
+   "start": 21.82383875,
+   "text": "Euro",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 22.339650585,
+   "estimated": true,
+   "id": "w55",
+   "source": "streaming_asr",
+   "start": 22.1587815,
+   "text": "im",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 22.781775015,
+   "estimated": true,
+   "id": "w56",
+   "source": "streaming_asr",
+   "start": 22.35974715,
+   "text": "Monat.",
+   "turnId": "t5"
+  },
+  {
+   "channel": "agent",
+   "end": 23.919535447761195,
+   "estimated": true,
+   "heard": true,
+   "id": "w57",
+   "source": "tts",
+   "start": 23.718667,
+   "text": "Dann",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 24.182896301492537,
+   "estimated": true,
+   "heard": true,
+   "id": "w58",
+   "source": "tts",
+   "start": 23.941854164179105,
+   "text": "lohnt",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 24.410547208955226,
+   "estimated": true,
+   "heard": true,
+   "id": "w59",
+   "source": "tts",
+   "start": 24.20967876119403,
+   "text": "sich",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 24.63373437313433,
+   "estimated": true,
+   "heard": true,
+   "id": "w60",
+   "source": "tts",
+   "start": 24.432865925373136,
+   "text": "eine",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 25.057789985074628,
+   "estimated": true,
+   "heard": true,
+   "id": "w61",
+   "source": "tts",
+   "start": 24.65605308955224,
+   "text": "Beratung.",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 25.343469555223884,
+   "estimated": true,
+   "heard": true,
+   "id": "w62",
+   "source": "tts",
+   "start": 25.10242741791045,
+   "text": "Passt",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 25.61129415223881,
+   "estimated": true,
+   "heard": true,
+   "id": "w63",
+   "source": "tts",
+   "start": 25.370252014925377,
+   "text": "Ihnen",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 26.07998719701493,
+   "estimated": true,
+   "heard": true,
+   "id": "w64",
+   "source": "tts",
+   "start": 25.638076611940303,
+   "text": "Donnerstag",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 26.24960944179105,
+   "estimated": true,
+   "heard": true,
+   "id": "w65",
+   "source": "tts",
+   "start": 26.129088373134334,
+   "text": "um",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 26.46386911940299,
+   "estimated": true,
+   "heard": true,
+   "id": "w66",
+   "source": "tts",
+   "start": 26.263000671641795,
+   "text": "zehn",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 26.687056283582095,
+   "estimated": true,
+   "heard": true,
+   "id": "w67",
+   "source": "tts",
+   "start": 26.4861878358209,
+   "text": "Uhr?",
+   "turnId": "t6"
+  },
+  {
+   "channel": "caller",
+   "end": 27.55850004,
+   "estimated": true,
+   "id": "w68",
+   "source": "streaming_asr",
+   "start": 27.309375,
+   "text": "Ja,",
+   "turnId": "t7"
+  },
+  {
+   "channel": "caller",
+   "end": 28.27127446,
+   "estimated": true,
+   "id": "w69",
+   "source": "streaming_asr",
+   "start": 27.5861806,
+   "text": "Donnerstag",
+   "turnId": "t7"
+  },
+  {
+   "channel": "caller",
+   "end": 28.53423978,
+   "estimated": true,
+   "id": "w70",
+   "source": "streaming_asr",
+   "start": 28.347396,
+   "text": "um",
+   "turnId": "t7"
+  },
+  {
+   "channel": "caller",
+   "end": 28.8664065,
+   "estimated": true,
+   "id": "w71",
+   "source": "streaming_asr",
+   "start": 28.5550002,
+   "text": "zehn",
+   "turnId": "t7"
+  },
+  {
+   "channel": "caller",
+   "end": 29.336976019999998,
+   "estimated": true,
+   "id": "w72",
+   "source": "streaming_asr",
+   "start": 28.9010072,
+   "text": "passt.",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 32.735510355102036,
+   "estimated": true,
+   "heard": true,
+   "id": "w73",
+   "source": "tts",
+   "start": 32.525417,
+   "text": "Ihr",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 33.12651743265306,
+   "estimated": true,
+   "heard": true,
+   "id": "w74",
+   "source": "tts",
+   "start": 32.75885406122449,
+   "text": "Termin",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 33.37746227346938,
+   "estimated": true,
+   "heard": true,
+   "id": "w75",
+   "source": "tts",
+   "start": 33.167368918367345,
+   "text": "ist",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 34.08360938367347,
+   "estimated": true,
+   "heard": true,
+   "id": "w76",
+   "source": "tts",
+   "start": 33.40080597959184,
+   "text": "eingetragen,",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 34.73723315510204,
+   "estimated": true,
+   "heard": true,
+   "id": "w77",
+   "source": "tts",
+   "start": 34.15947642857143,
+   "text": "Donnerstag",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 34.95899836326531,
+   "estimated": true,
+   "heard": true,
+   "id": "w78",
+   "source": "tts",
+   "start": 34.80142834693878,
+   "text": "um",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 35.2391228367347,
+   "estimated": true,
+   "heard": true,
+   "id": "w79",
+   "source": "tts",
+   "start": 34.97650614285715,
+   "text": "zehn",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 35.53091916326532,
+   "estimated": true,
+   "heard": true,
+   "id": "w80",
+   "source": "tts",
+   "start": 35.26830246938776,
+   "text": "Uhr.",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 35.77019215102042,
+   "estimated": true,
+   "heard": true,
+   "id": "w81",
+   "source": "tts",
+   "start": 35.56009879591838,
+   "text": "Sie",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 36.266245906122464,
+   "estimated": true,
+   "heard": true,
+   "id": "w82",
+   "source": "tts",
+   "start": 35.79353585714287,
+   "text": "bekommen",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 36.68643261632654,
+   "estimated": true,
+   "heard": true,
+   "id": "w83",
+   "source": "tts",
+   "start": 36.31876924489797,
+   "text": "gleich",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 36.98990079591838,
+   "estimated": true,
+   "heard": true,
+   "id": "w84",
+   "source": "tts",
+   "start": 36.72728410204083,
+   "text": "eine",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 37.649360493877566,
+   "estimated": true,
+   "heard": true,
+   "id": "w85",
+   "source": "tts",
+   "start": 37.01908042857144,
+   "text": "Bestätigung",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 37.92948496734695,
+   "estimated": true,
+   "heard": true,
+   "id": "w86",
+   "source": "tts",
+   "start": 37.71939161224491,
+   "text": "per",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 38.21544536734696,
+   "estimated": true,
+   "heard": true,
+   "id": "w87",
+   "source": "tts",
+   "start": 37.952828673469405,
+   "text": "SMS.",
+   "turnId": "t8"
+  },
+  {
+   "channel": "caller",
+   "end": 39.194275,
+   "estimated": true,
+   "id": "w88",
+   "source": "streaming_asr",
+   "start": 38.844625,
+   "text": "Alles",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 39.582775,
+   "estimated": true,
+   "id": "w89",
+   "source": "streaming_asr",
+   "start": 39.233125,
+   "text": "klar,",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 39.971275,
+   "estimated": true,
+   "id": "w90",
+   "source": "streaming_asr",
+   "start": 39.621625,
+   "text": "danke",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 40.41805,
+   "estimated": true,
+   "id": "w91",
+   "source": "streaming_asr",
+   "start": 40.010125,
+   "text": "schön.",
+   "turnId": "t9"
+  },
+  {
+   "channel": "agent",
+   "end": 41.5666898516129,
+   "estimated": true,
+   "heard": true,
+   "id": "w92",
+   "source": "tts",
+   "start": 41.253375,
+   "text": "Gerne.",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 41.8700582,
+   "estimated": true,
+   "heard": true,
+   "id": "w93",
+   "source": "tts",
+   "start": 41.601502612903225,
+   "text": "Einen",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 42.25797182580645,
+   "estimated": true,
+   "heard": true,
+   "id": "w94",
+   "source": "tts",
+   "start": 41.89989770967742,
+   "text": "schönen",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 42.476794896774194,
+   "estimated": true,
+   "heard": true,
+   "id": "w95",
+   "source": "tts",
+   "start": 42.29775783870968,
+   "text": "Tag",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 42.76524349032258,
+   "estimated": true,
+   "heard": true,
+   "id": "w96",
+   "source": "tts",
+   "start": 42.496687903225805,
+   "text": "noch!",
+   "turnId": "t10"
+  }
+ ]
+}

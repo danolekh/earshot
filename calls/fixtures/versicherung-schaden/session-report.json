@@ -1,0 +1,14 @@
+{
+ "room": "versicherung-schaden",
+ "job_id": "AJ_000000000000",
+ "sdk_version": "1.8.3",
+ "audio_recording_started_at": 1790182025,
+ "started_at": 1790182023.8,
+ "events": [
+  {
+   "type": "disclosure",
+   "created_at": 1790182025.4,
+   "text": "Ich bin eine KI."
+  }
+ ]
+}

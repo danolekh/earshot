@@ -1,0 +1,2346 @@
+{
+ "audio": {
+  "sources": [
+   {
+    "src": "/calls/stadtwerke-zaehlerstand-v43/call.ogg",
+    "type": "audio/ogg; codecs=opus"
+   },
+   {
+    "src": "/calls/stadtwerke-zaehlerstand-v43/call.mp3",
+    "type": "audio/mpeg"
+   }
+  ]
+ },
+ "call": {
+  "consent": "granted",
+  "direction": "outbound",
+  "duration": 36.174,
+  "id": "stadtwerke-zaehlerstand-v43",
+  "language": "de-DE",
+  "outcome": {
+   "achieved": true,
+   "customer_id": "471083",
+   "goal": "Zählerstand erfasst",
+   "id_attempts": 1,
+   "meter_reading_submitted": true,
+   "reading_kwh": 1243
+  },
+  "provider": "livekit",
+  "startedAt": "2026-09-26T15:42:18.000Z",
+  "synthetic": true,
+  "title": "Stadtwerke Muster · Zählerstand",
+  "versions": {
+   "agent": "stadtwerke-outbound v43",
+   "prompt": "zaehlerstand@8",
+   "sdk": "livekit-agents 1.8.3"
+  }
+ },
+ "clock": {
+  "channels": [
+   "caller",
+   "agent"
+  ],
+  "sampleRate": 48000,
+  "t0UnixMs": 1790437338000
+ },
+ "findings": [],
+ "signals": [
+  {
+   "at": 0.4,
+   "data": {
+    "text": "Ich bin eine KI."
+   },
+   "id": "g0",
+   "type": "disclosure"
+  },
+  {
+   "at": 9.351208,
+   "data": {
+    "granted": true
+   },
+   "id": "g1",
+   "type": "consent"
+  },
+  {
+   "at": 9.701208,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g2",
+   "turnId": "t1",
+   "type": "eou_decision"
+  },
+  {
+   "at": 17.10675,
+   "channel": "caller",
+   "data": {
+    "outcome": "user_resumed",
+    "probability": 0.06,
+    "threshold": 0.15,
+    "wait": 0.6
+   },
+   "id": "g3",
+   "turnId": "t3",
+   "type": "eou_decision"
+  },
+  {
+   "at": 18.796708,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g4",
+   "turnId": "t3",
+   "type": "eou_decision"
+  },
+  {
+   "at": 25.895625,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g5",
+   "turnId": "t5",
+   "type": "eou_decision"
+  },
+  {
+   "at": 31.971542,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g6",
+   "turnId": "t7",
+   "type": "eou_decision"
+  }
+ ],
+ "spans": [
+  {
+   "attributes": {
+    "lk.agent_name": "stadtwerke-outbound v43",
+    "lk.pii.room_name": "stadtwerke-zaehlerstand-v43"
+   },
+   "end": 36.174,
+   "id": "0000000000000001",
+   "kind": "session",
+   "name": "agent_session",
+   "process": "voice-agent",
+   "start": 0,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487"
+  },
+  {
+   "attributes": {
+    "lk.generation_id": "gen_greeting",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 6.919083,
+   "id": "0000000000000002",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {},
+   "end": 6.919083,
+   "id": "0000000000000003",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+    "lk.response.ttfb": 0.35,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 6.919083,
+   "firstChunk": 0.39999999999999997,
+   "id": "0000000000000004",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000003",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 6.919083,
+   "id": "0000000000000005",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.4,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Ja, das ist in Ordnung.",
+    "lk.stt.events": "[{\"received_at\":1790437347.5312085,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.936,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 9.701208,
+   "id": "0000000000000006",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 7.619083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 9.701208,
+   "id": "0000000000000007",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000006",
+   "process": "voice-agent",
+   "start": 9.351208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 9.421208,
+   "id": "0000000000000008",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000007",
+   "process": "voice-agent",
+   "start": 9.371208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_ask-id",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-id"
+   },
+   "end": 13.891083,
+   "id": "0000000000000009",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 9.701208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 10.601208,
+   "id": "000000000000000a",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 9.701208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 506,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?\"},{\"role\":\"user\",\"content\":\"Ja, das ist in Ordnung.\"}]",
+    "lk.pii.response.text": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+    "lk.response.ttft": 0.295
+   },
+   "end": 10.601208,
+   "firstChunk": 10.001208,
+   "id": "000000000000000b",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das ist in Ordnung.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?"
+   },
+   "name": "llm_request",
+   "parentId": "000000000000000a",
+   "process": "voice-agent",
+   "start": 9.706208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 10.601208,
+   "id": "000000000000000c",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "000000000000000b",
+   "process": "voice-agent",
+   "start": 9.707208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 13.891083,
+   "id": "000000000000000d",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 10.001208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 13.891083,
+   "firstChunk": 10.141208,
+   "id": "000000000000000e",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "000000000000000d",
+   "process": "voice-agent",
+   "start": 10.001208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-id"
+   },
+   "end": 13.891083,
+   "id": "000000000000000f",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 10.261208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Ja, die ist vier sieben eins null acht drei.",
+    "lk.stt.events": "[{\"received_at\":1790437354.6867502,\"type\":\"final_transcript\"},{\"received_at\":1790437356.6267085,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.938,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 18.796708,
+   "id": "0000000000000010",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 14.491083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.outcome": "user_resumed",
+    "lk.eou.wait_duration": 0.6
+   },
+   "end": 17.10675,
+   "id": "0000000000000011",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000010",
+   "process": "voice-agent",
+   "start": 16.50675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.06,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 16.56675,
+   "id": "0000000000000012",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000011",
+   "process": "voice-agent",
+   "start": 16.52675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 18.796708,
+   "id": "0000000000000013",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000010",
+   "process": "voice-agent",
+   "start": 18.446708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 18.516708,
+   "id": "0000000000000014",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000013",
+   "process": "voice-agent",
+   "start": 18.466708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 1.15,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_found",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_found"
+   },
+   "end": 23.297333,
+   "id": "0000000000000015",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 18.796708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 19.086708,
+   "id": "0000000000000016",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 18.796708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 590,
+    "gen_ai.usage.output_tokens": 24,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?\"},{\"role\":\"user\",\"content\":\"Ja, das ist in Ordnung.\"},{\"role\":\"assistant\",\"content\":\"Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?\"},{\"role\":\"user\",\"content\":\"Ja, die ist vier sieben eins null acht drei.\"}]",
+    "lk.pii.response.function_calls": "[{\"name\":\"crm.lookup_customer\",\"arguments\":{\"customer_id\":\"471083\"}}]",
+    "lk.response.ttft": 0.245
+   },
+   "end": 19.086708,
+   "firstChunk": 19.046708000000002,
+   "id": "0000000000000017",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das ist in Ordnung.",
+      "role": "user"
+     },
+     {
+      "content": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, die ist vier sieben eins null acht drei.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "toolCalls": [
+     {
+      "arguments": {
+       "customer_id": "471083"
+      },
+      "name": "crm.lookup_customer"
+     }
+    ]
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000016",
+   "process": "voice-agent",
+   "start": 18.801708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 19.086708,
+   "id": "0000000000000018",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000017",
+   "process": "voice-agent",
+   "start": 18.802708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.function_tool.id": "call_found",
+    "lk.function_tool.is_error": false,
+    "lk.function_tool.name": "crm.lookup_customer",
+    "lk.pii.function_tool.arguments": "{\"customer_id\":\"471083\"}",
+    "lk.pii.function_tool.output": "{\"customer_id\":\"471083\",\"name\":\"Petra Keller\",\"meter\":\"Strom, Zähler 1ESY1160543\"}"
+   },
+   "end": 19.256708,
+   "id": "0000000000000019",
+   "kind": "tool",
+   "name": "function_tool",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 19.046708,
+   "status": {
+    "code": "unset"
+   },
+   "tool": {
+    "arguments": {
+     "customer_id": "471083"
+    },
+    "callId": "call_found",
+    "isError": false,
+    "name": "crm.lookup_customer",
+    "result": {
+     "customer_id": "471083",
+     "meter": "Strom, Zähler 1ESY1160543",
+     "name": "Petra Keller"
+    }
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 20.056708,
+   "id": "000000000000001a",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 19.256708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 674,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?\"},{\"role\":\"user\",\"content\":\"Ja, das ist in Ordnung.\"},{\"role\":\"assistant\",\"content\":\"Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?\"},{\"role\":\"user\",\"content\":\"Ja, die ist vier sieben eins null acht drei.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"crm.lookup_customer\\\",\\\"arguments\\\":{\\\"customer_id\\\":\\\"471083\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"customer_id\\\":\\\"471083\\\",\\\"name\\\":\\\"Petra Keller\\\",\\\"meter\\\":\\\"Strom, Zähler 1ESY1160543\\\"}\"}]",
+    "lk.pii.response.text": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?",
+    "lk.response.ttft": 0.195
+   },
+   "end": 20.056708,
+   "firstChunk": 19.456708,
+   "id": "000000000000001b",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das ist in Ordnung.",
+      "role": "user"
+     },
+     {
+      "content": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, die ist vier sieben eins null acht drei.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"crm.lookup_customer\",\"arguments\":{\"customer_id\":\"471083\"}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"customer_id\":\"471083\",\"name\":\"Petra Keller\",\"meter\":\"Strom, Zähler 1ESY1160543\"}",
+      "role": "tool_result"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?"
+   },
+   "name": "llm_request",
+   "parentId": "000000000000001a",
+   "process": "voice-agent",
+   "start": 19.261708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 20.056708,
+   "id": "000000000000001c",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "000000000000001b",
+   "process": "voice-agent",
+   "start": 19.262708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 23.297333,
+   "id": "000000000000001d",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 19.456708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 23.297333,
+   "firstChunk": 19.596708,
+   "id": "000000000000001e",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "000000000000001d",
+   "process": "voice-agent",
+   "start": 19.456708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_found"
+   },
+   "end": 23.297333,
+   "id": "000000000000001f",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 19.596708,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Zwölf dreiundvierzig.",
+    "lk.stt.events": "[{\"received_at\":1790437363.725625,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.97,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 25.895625,
+   "id": "0000000000000020",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 23.997333,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 25.895625,
+   "id": "0000000000000021",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000020",
+   "process": "voice-agent",
+   "start": 25.545625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 25.615625,
+   "id": "0000000000000022",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000021",
+   "process": "voice-agent",
+   "start": 25.565625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 1.09,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_saved",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_saved"
+   },
+   "end": 29.908833,
+   "id": "0000000000000023",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 25.895625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {},
+   "end": 26.185625,
+   "id": "0000000000000024",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000023",
+   "process": "voice-agent",
+   "start": 25.895625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 758,
+    "gen_ai.usage.output_tokens": 24,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?\"},{\"role\":\"user\",\"content\":\"Ja, das ist in Ordnung.\"},{\"role\":\"assistant\",\"content\":\"Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?\"},{\"role\":\"user\",\"content\":\"Ja, die ist vier sieben eins null acht drei.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"crm.lookup_customer\\\",\\\"arguments\\\":{\\\"customer_id\\\":\\\"471083\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"customer_id\\\":\\\"471083\\\",\\\"name\\\":\\\"Petra Keller\\\",\\\"meter\\\":\\\"Strom, Zähler 1ESY1160543\\\"}\"},{\"role\":\"assistant\",\"content\":\"Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?\"},{\"role\":\"user\",\"content\":\"Zwölf dreiundvierzig.\"}]",
+    "lk.pii.response.function_calls": "[{\"name\":\"crm.submit_meter_reading\",\"arguments\":{\"customer_id\":\"471083\",\"reading_kwh\":1243}}]",
+    "lk.response.ttft": 0.245
+   },
+   "end": 26.185625,
+   "firstChunk": 26.145625000000003,
+   "id": "0000000000000025",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das ist in Ordnung.",
+      "role": "user"
+     },
+     {
+      "content": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, die ist vier sieben eins null acht drei.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"crm.lookup_customer\",\"arguments\":{\"customer_id\":\"471083\"}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"customer_id\":\"471083\",\"name\":\"Petra Keller\",\"meter\":\"Strom, Zähler 1ESY1160543\"}",
+      "role": "tool_result"
+     },
+     {
+      "content": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?",
+      "role": "assistant"
+     },
+     {
+      "content": "Zwölf dreiundvierzig.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "toolCalls": [
+     {
+      "arguments": {
+       "customer_id": "471083",
+       "reading_kwh": 1243
+      },
+      "name": "crm.submit_meter_reading"
+     }
+    ]
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000024",
+   "process": "voice-agent",
+   "start": 25.900625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 26.185625,
+   "id": "0000000000000026",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000025",
+   "process": "voice-agent",
+   "start": 25.901625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.function_tool.id": "call_saved",
+    "lk.function_tool.is_error": false,
+    "lk.function_tool.name": "crm.submit_meter_reading",
+    "lk.pii.function_tool.arguments": "{\"customer_id\":\"471083\",\"reading_kwh\":1243}",
+    "lk.pii.function_tool.output": "{\"status\":\"queued\",\"reading_id\":\"mr_20260926_1542\"}"
+   },
+   "end": 26.495625,
+   "id": "0000000000000027",
+   "kind": "tool",
+   "name": "function_tool",
+   "parentId": "0000000000000023",
+   "process": "voice-agent",
+   "start": 26.145625,
+   "status": {
+    "code": "unset"
+   },
+   "tool": {
+    "arguments": {
+     "customer_id": "471083",
+     "reading_kwh": 1243
+    },
+    "callId": "call_saved",
+    "isError": false,
+    "name": "crm.submit_meter_reading",
+    "result": {
+     "reading_id": "mr_20260926_1542",
+     "status": "queued"
+    }
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {},
+   "end": 29.908833,
+   "id": "0000000000000028",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000023",
+   "process": "voice-agent",
+   "start": 26.495625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert.",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 29.908833,
+   "firstChunk": 26.635625,
+   "id": "0000000000000029",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000028",
+   "process": "voice-agent",
+   "start": 26.495625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_saved"
+   },
+   "end": 29.908833,
+   "id": "000000000000002a",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000023",
+   "process": "voice-agent",
+   "start": 26.635625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Super, danke.",
+    "lk.stt.events": "[{\"received_at\":1790437369.8015418,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.905,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 31.971542,
+   "id": "000000000000002b",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 30.508833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 31.971542,
+   "id": "000000000000002c",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "000000000000002b",
+   "process": "voice-agent",
+   "start": 31.621542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 31.691542,
+   "id": "000000000000002d",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "000000000000002c",
+   "process": "voice-agent",
+   "start": 31.641542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_goodbye",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_goodbye"
+   },
+   "end": 35.373792,
+   "id": "000000000000002e",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 31.971542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {},
+   "end": 32.871542,
+   "id": "000000000000002f",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "000000000000002e",
+   "process": "voice-agent",
+   "start": 31.971542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 926,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.\"},{\"role\":\"assistant\",\"content\":\"Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?\"},{\"role\":\"user\",\"content\":\"Ja, das ist in Ordnung.\"},{\"role\":\"assistant\",\"content\":\"Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?\"},{\"role\":\"user\",\"content\":\"Ja, die ist vier sieben eins null acht drei.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"crm.lookup_customer\\\",\\\"arguments\\\":{\\\"customer_id\\\":\\\"471083\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"customer_id\\\":\\\"471083\\\",\\\"name\\\":\\\"Petra Keller\\\",\\\"meter\\\":\\\"Strom, Zähler 1ESY1160543\\\"}\"},{\"role\":\"assistant\",\"content\":\"Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?\"},{\"role\":\"user\",\"content\":\"Zwölf dreiundvierzig.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"crm.submit_meter_reading\\\",\\\"arguments\\\":{\\\"customer_id\\\":\\\"471083\\\",\\\"reading_kwh\\\":1243}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"status\\\":\\\"queued\\\",\\\"reading_id\\\":\\\"mr_20260926_1542\\\"}\"},{\"role\":\"assistant\",\"content\":\"Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert.\"},{\"role\":\"user\",\"content\":\"Super, danke.\"}]",
+    "lk.pii.response.text": "Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!",
+    "lk.response.ttft": 0.295
+   },
+   "end": 32.871542,
+   "firstChunk": 32.271542,
+   "id": "0000000000000030",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Stadtwerke Muster. Sag zu Beginn, dass du eine KI bist, und frag nach der Einwilligung zur Aufzeichnung. Erfrage die Kundennummer, prüfe sie mit crm.lookup_customer und speichere den Zählerstand mit crm.submit_meter_reading.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, das ist in Ordnung.",
+      "role": "user"
+     },
+     {
+      "content": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, die ist vier sieben eins null acht drei.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"crm.lookup_customer\",\"arguments\":{\"customer_id\":\"471083\"}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"customer_id\":\"471083\",\"name\":\"Petra Keller\",\"meter\":\"Strom, Zähler 1ESY1160543\"}",
+      "role": "tool_result"
+     },
+     {
+      "content": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?",
+      "role": "assistant"
+     },
+     {
+      "content": "Zwölf dreiundvierzig.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"crm.submit_meter_reading\",\"arguments\":{\"customer_id\":\"471083\",\"reading_kwh\":1243}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"status\":\"queued\",\"reading_id\":\"mr_20260926_1542\"}",
+      "role": "tool_result"
+     },
+     {
+      "content": "Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert.",
+      "role": "assistant"
+     },
+     {
+      "content": "Super, danke.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!"
+   },
+   "name": "llm_request",
+   "parentId": "000000000000002f",
+   "process": "voice-agent",
+   "start": 31.976542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 32.871542,
+   "id": "0000000000000031",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000030",
+   "process": "voice-agent",
+   "start": 31.977542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {},
+   "end": 35.373792,
+   "id": "0000000000000032",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "000000000000002e",
+   "process": "voice-agent",
+   "start": 32.271542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 35.373792,
+   "firstChunk": 32.411542,
+   "id": "0000000000000033",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000032",
+   "process": "voice-agent",
+   "start": 32.271542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_goodbye"
+   },
+   "end": 35.373792,
+   "id": "0000000000000034",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "000000000000002e",
+   "process": "voice-agent",
+   "start": 32.531542,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "00000000000000000000000075c4f487",
+   "turnId": "t8"
+  }
+ ],
+ "turns": [
+  {
+   "channel": "agent",
+   "end": 6.919083,
+   "id": "t0",
+   "latency": {
+    "ttsTtfb": 0.35
+   },
+   "speechId": "speech_greeting",
+   "start": 0.4,
+   "text": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.936,
+   "end": 9.351208,
+   "id": "t1",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 7.619083,
+   "text": "Ja, das ist in Ordnung."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 13.891083,
+   "id": "t2",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t1",
+   "speechId": "speech_ask-id",
+   "start": 10.261208,
+   "text": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.938,
+   "end": 18.446708,
+   "id": "t3",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 14.491083,
+   "text": "Ja, die ist vier sieben eins null acht drei."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 23.297333,
+   "id": "t4",
+   "latency": {
+    "e2e": 1.15,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.245,
+    "tool": 0.21,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t3",
+   "speechId": "speech_found",
+   "start": 19.596708,
+   "text": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.97,
+   "end": 25.545625,
+   "id": "t5",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 23.997333,
+   "text": "Zwölf dreiundvierzig."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 29.908833,
+   "id": "t6",
+   "latency": {
+    "e2e": 1.09,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.245,
+    "tool": 0.35,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t5",
+   "speechId": "speech_saved",
+   "start": 26.635625,
+   "text": "Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert."
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.905,
+   "end": 31.621542,
+   "id": "t7",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 30.508833,
+   "text": "Super, danke."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 35.373792,
+   "id": "t8",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t7",
+   "speechId": "speech_goodbye",
+   "start": 32.531542,
+   "text": "Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!"
+  }
+ ],
+ "version": 1,
+ "words": [
+  {
+   "channel": "agent",
+   "end": 0.6461751622377623,
+   "estimated": true,
+   "heard": true,
+   "id": "w0",
+   "source": "tts",
+   "start": 0.4,
+   "text": "Guten",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 0.8786739265734265,
+   "estimated": true,
+   "heard": true,
+   "id": "w1",
+   "source": "tts",
+   "start": 0.673527958041958,
+   "text": "Tag,",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.1066138916083916,
+   "estimated": true,
+   "heard": true,
+   "id": "w2",
+   "source": "tts",
+   "start": 0.901467923076923,
+   "text": "hier",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.293524662937063,
+   "estimated": true,
+   "heard": true,
+   "id": "w3",
+   "source": "tts",
+   "start": 1.129407888111888,
+   "text": "ist",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.475876634965035,
+   "estimated": true,
+   "heard": true,
+   "id": "w4",
+   "source": "tts",
+   "start": 1.3117598601398601,
+   "text": "die",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.8633745755244755,
+   "estimated": true,
+   "heard": true,
+   "id": "w5",
+   "source": "tts",
+   "start": 1.4941118321678322,
+   "text": "digitale",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.3967540937062934,
+   "estimated": true,
+   "heard": true,
+   "id": "w6",
+   "source": "tts",
+   "start": 1.9044037692307692,
+   "text": "Assistentin",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.61557646013986,
+   "estimated": true,
+   "heard": true,
+   "id": "w7",
+   "source": "tts",
+   "start": 2.4514596853146853,
+   "text": "der",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.085132788111888,
+   "estimated": true,
+   "heard": true,
+   "id": "w8",
+   "source": "tts",
+   "start": 2.6338116573426573,
+   "text": "Stadtwerke",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.4635131300699302,
+   "estimated": true,
+   "heard": true,
+   "id": "w9",
+   "source": "tts",
+   "start": 3.1352795804195805,
+   "text": "Muster.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.6641002993006992,
+   "estimated": true,
+   "heard": true,
+   "id": "w10",
+   "source": "tts",
+   "start": 3.4999835244755246,
+   "text": "Ich",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.8464522713286713,
+   "estimated": true,
+   "heard": true,
+   "id": "w11",
+   "source": "tts",
+   "start": 3.6823354965034967,
+   "text": "bin",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.069833437062937,
+   "estimated": true,
+   "heard": true,
+   "id": "w12",
+   "source": "tts",
+   "start": 3.8646874685314687,
+   "text": "eine",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.256744208391608,
+   "estimated": true,
+   "heard": true,
+   "id": "w13",
+   "source": "tts",
+   "start": 4.092627433566434,
+   "text": "KI.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.4801253741258735,
+   "estimated": true,
+   "heard": true,
+   "id": "w14",
+   "source": "tts",
+   "start": 4.274979405594405,
+   "text": "Darf",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.667036145454545,
+   "estimated": true,
+   "heard": true,
+   "id": "w15",
+   "source": "tts",
+   "start": 4.50291937062937,
+   "text": "ich",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.849388117482516,
+   "estimated": true,
+   "heard": true,
+   "id": "w16",
+   "source": "tts",
+   "start": 4.685271342657342,
+   "text": "das",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.236886058041957,
+   "estimated": true,
+   "heard": true,
+   "id": "w17",
+   "source": "tts",
+   "start": 4.867623314685313,
+   "text": "Gespräch",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.442032026573425,
+   "estimated": true,
+   "heard": true,
+   "id": "w18",
+   "source": "tts",
+   "start": 5.277915251748251,
+   "text": "zur",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 6.239821904195803,
+   "estimated": true,
+   "heard": true,
+   "id": "w19",
+   "source": "tts",
+   "start": 5.460267223776222,
+   "text": "Qualitätssicherung",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 6.859818609090908,
+   "estimated": true,
+   "heard": true,
+   "id": "w20",
+   "source": "tts",
+   "start": 6.32643909090909,
+   "text": "aufzeichnen?",
+   "turnId": "t0"
+  },
+  {
+   "channel": "caller",
+   "end": 7.87890175,
+   "estimated": true,
+   "id": "w21",
+   "source": "streaming_asr",
+   "start": 7.619083,
+   "text": "Ja,",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 8.167589249999999,
+   "estimated": true,
+   "id": "w22",
+   "source": "streaming_asr",
+   "start": 7.9077705,
+   "text": "das",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 8.45627675,
+   "estimated": true,
+   "id": "w23",
+   "source": "streaming_asr",
+   "start": 8.196458,
+   "text": "ist",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 8.6800095625,
+   "estimated": true,
+   "id": "w24",
+   "source": "streaming_asr",
+   "start": 8.4851455,
+   "text": "in",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 9.2862533125,
+   "estimated": true,
+   "id": "w25",
+   "source": "streaming_asr",
+   "start": 8.701661125,
+   "text": "Ordnung.",
+   "turnId": "t1"
+  },
+  {
+   "channel": "agent",
+   "end": 10.533448625,
+   "estimated": true,
+   "heard": true,
+   "id": "w26",
+   "source": "tts",
+   "start": 10.261208,
+   "text": "Danke.",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 10.680372136904762,
+   "estimated": true,
+   "heard": true,
+   "id": "w27",
+   "source": "tts",
+   "start": 10.563697583333333,
+   "text": "Es",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 10.887793565476189,
+   "estimated": true,
+   "heard": true,
+   "id": "w28",
+   "source": "tts",
+   "start": 10.693335976190475,
+   "text": "geht",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.026074517857142,
+   "estimated": true,
+   "heard": true,
+   "id": "w29",
+   "source": "tts",
+   "start": 10.909399964285713,
+   "text": "um",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.272387464285712,
+   "estimated": true,
+   "heard": true,
+   "id": "w30",
+   "source": "tts",
+   "start": 11.039038357142855,
+   "text": "Ihren",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.803904874999999,
+   "estimated": true,
+   "heard": true,
+   "id": "w31",
+   "source": "tts",
+   "start": 11.298315142857142,
+   "text": "Zählerstand.",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.132322136904762,
+   "estimated": true,
+   "heard": true,
+   "id": "w32",
+   "source": "tts",
+   "start": 11.860081511904761,
+   "text": "Können",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.318137166666666,
+   "estimated": true,
+   "heard": true,
+   "id": "w33",
+   "source": "tts",
+   "start": 12.162571095238095,
+   "text": "Sie",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.490988357142857,
+   "estimated": true,
+   "heard": true,
+   "id": "w34",
+   "source": "tts",
+   "start": 12.335422285714285,
+   "text": "mir",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.741622583333333,
+   "estimated": true,
+   "heard": true,
+   "id": "w35",
+   "source": "tts",
+   "start": 12.508273476190476,
+   "text": "bitte",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.962007851190476,
+   "estimated": true,
+   "heard": true,
+   "id": "w36",
+   "source": "tts",
+   "start": 12.767550261904763,
+   "text": "Ihre",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 13.489203982142858,
+   "estimated": true,
+   "heard": true,
+   "id": "w37",
+   "source": "tts",
+   "start": 12.98361425,
+   "text": "Kundennummer",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 13.856512761904764,
+   "estimated": true,
+   "heard": true,
+   "id": "w38",
+   "source": "tts",
+   "start": 13.54538061904762,
+   "text": "nennen?",
+   "turnId": "t2"
+  },
+  {
+   "channel": "caller",
+   "end": 14.807533,
+   "estimated": true,
+   "id": "w39",
+   "source": "streaming_asr",
+   "start": 14.491083,
+   "text": "Ja,",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 15.159144111111111,
+   "estimated": true,
+   "id": "w40",
+   "source": "streaming_asr",
+   "start": 14.842694111111111,
+   "text": "die",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 15.510755222222222,
+   "estimated": true,
+   "id": "w41",
+   "source": "streaming_asr",
+   "start": 15.194305222222223,
+   "text": "ist",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 15.941478833333335,
+   "estimated": true,
+   "id": "w42",
+   "source": "streaming_asr",
+   "start": 15.545916333333334,
+   "text": "vier",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 16.539217722222222,
+   "estimated": true,
+   "id": "w43",
+   "source": "streaming_asr",
+   "start": 15.985430222222224,
+   "text": "sieben",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 16.99631216666667,
+   "estimated": true,
+   "id": "w44",
+   "source": "streaming_asr",
+   "start": 16.60074966666667,
+   "text": "eins",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 17.43582605555556,
+   "estimated": true,
+   "id": "w45",
+   "source": "streaming_asr",
+   "start": 17.04026355555556,
+   "text": "null",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 17.87533994444445,
+   "estimated": true,
+   "id": "w46",
+   "source": "streaming_asr",
+   "start": 17.479777444444448,
+   "text": "acht",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 18.39396633333334,
+   "estimated": true,
+   "id": "w47",
+   "source": "streaming_asr",
+   "start": 17.919291333333337,
+   "text": "drei.",
+   "turnId": "t3"
+  },
+  {
+   "channel": "agent",
+   "end": 19.884534388888888,
+   "estimated": true,
+   "heard": true,
+   "id": "w48",
+   "source": "tts",
+   "start": 19.596708,
+   "text": "Danke,",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 20.122105376543207,
+   "estimated": true,
+   "heard": true,
+   "id": "w49",
+   "source": "tts",
+   "start": 19.91651509876543,
+   "text": "Frau",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 20.473893185185183,
+   "estimated": true,
+   "heard": true,
+   "id": "w50",
+   "source": "tts",
+   "start": 20.144948740740737,
+   "text": "Keller,",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 20.674914790123452,
+   "estimated": true,
+   "heard": true,
+   "id": "w51",
+   "source": "tts",
+   "start": 20.51044256790123,
+   "text": "ich",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 20.898779759259252,
+   "estimated": true,
+   "heard": true,
+   "id": "w52",
+   "source": "tts",
+   "start": 20.693189481481475,
+   "text": "habe",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 21.086095345679006,
+   "estimated": true,
+   "heard": true,
+   "id": "w53",
+   "source": "tts",
+   "start": 20.921623123456783,
+   "text": "Sie",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 21.515550592592586,
+   "estimated": true,
+   "heard": true,
+   "id": "w54",
+   "source": "tts",
+   "start": 21.10437003703703,
+   "text": "gefunden.",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 21.72570954320987,
+   "estimated": true,
+   "heard": true,
+   "id": "w55",
+   "source": "tts",
+   "start": 21.561237320987647,
+   "text": "Wie",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 22.03181062345678,
+   "estimated": true,
+   "heard": true,
+   "id": "w56",
+   "source": "tts",
+   "start": 21.743984234567893,
+   "text": "lautet",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 22.228263555555547,
+   "estimated": true,
+   "heard": true,
+   "id": "w57",
+   "source": "tts",
+   "start": 22.063791333333324,
+   "text": "Ihr",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 22.657718802469127,
+   "estimated": true,
+   "heard": true,
+   "id": "w58",
+   "source": "tts",
+   "start": 22.24653824691357,
+   "text": "aktueller",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 23.23794025308641,
+   "estimated": true,
+   "heard": true,
+   "id": "w59",
+   "source": "tts",
+   "start": 22.703405530864188,
+   "text": "Zählerstand?",
+   "turnId": "t4"
+  },
+  {
+   "channel": "caller",
+   "end": 24.37736830909091,
+   "estimated": true,
+   "id": "w60",
+   "source": "streaming_asr",
+   "start": 23.997333,
+   "text": "Zwölf",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 25.43302194545455,
+   "estimated": true,
+   "id": "w61",
+   "source": "streaming_asr",
+   "start": 24.419594454545457,
+   "text": "dreiundvierzig.",
+   "turnId": "t5"
+  },
+  {
+   "channel": "agent",
+   "end": 26.943404259701495,
+   "estimated": true,
+   "heard": true,
+   "id": "w62",
+   "source": "tts",
+   "start": 26.635625,
+   "text": "Vielen",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 27.241412749253733,
+   "estimated": true,
+   "heard": true,
+   "id": "w63",
+   "source": "tts",
+   "start": 26.977601955223882,
+   "text": "Dank,",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 27.446598922388063,
+   "estimated": true,
+   "heard": true,
+   "id": "w64",
+   "source": "tts",
+   "start": 27.270725059701494,
+   "text": "der",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 27.99376205074627,
+   "estimated": true,
+   "heard": true,
+   "id": "w65",
+   "source": "tts",
+   "start": 27.466140462686568,
+   "text": "Zählerstand",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 28.316197465671642,
+   "estimated": true,
+   "heard": true,
+   "id": "w66",
+   "source": "tts",
+   "start": 28.05238667164179,
+   "text": "zwölf",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 29.00503676119403,
+   "estimated": true,
+   "heard": true,
+   "id": "w67",
+   "source": "tts",
+   "start": 28.345509776119403,
+   "text": "dreiundvierzig",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 29.254191400000003,
+   "estimated": true,
+   "heard": true,
+   "id": "w68",
+   "source": "tts",
+   "start": 29.078317537313435,
+   "text": "ist",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 29.84532299402985,
+   "estimated": true,
+   "heard": true,
+   "id": "w69",
+   "source": "tts",
+   "start": 29.27373294029851,
+   "text": "gespeichert.",
+   "turnId": "t6"
+  },
+  {
+   "channel": "caller",
+   "end": 31.00955205,
+   "estimated": true,
+   "id": "w70",
+   "source": "streaming_asr",
+   "start": 30.508833,
+   "text": "Super,",
+   "turnId": "t7"
+  },
+  {
+   "channel": "caller",
+   "end": 31.56590655,
+   "estimated": true,
+   "id": "w71",
+   "source": "streaming_asr",
+   "start": 31.0651875,
+   "text": "danke.",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 32.82508585245902,
+   "estimated": true,
+   "heard": true,
+   "id": "w72",
+   "source": "tts",
+   "start": 32.531542,
+   "text": "Gerne.",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 33.10931085245902,
+   "estimated": true,
+   "heard": true,
+   "id": "w73",
+   "source": "tts",
+   "start": 32.85770183606557,
+   "text": "Einen",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 33.47274609836065,
+   "estimated": true,
+   "heard": true,
+   "id": "w74",
+   "source": "tts",
+   "start": 33.13726740983606,
+   "text": "schönen",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 33.677760852459016,
+   "estimated": true,
+   "heard": true,
+   "id": "w75",
+   "source": "tts",
+   "start": 33.51002150819672,
+   "text": "Tag",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 33.9480075737705,
+   "estimated": true,
+   "heard": true,
+   "id": "w76",
+   "source": "tts",
+   "start": 33.69639855737705,
+   "text": "noch,",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 34.18563831147541,
+   "estimated": true,
+   "heard": true,
+   "id": "w77",
+   "source": "tts",
+   "start": 33.97596413114754,
+   "text": "Frau",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 34.54441413114754,
+   "estimated": true,
+   "heard": true,
+   "id": "w78",
+   "source": "tts",
+   "start": 34.20893544262295,
+   "text": "Keller.",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 34.749428885245905,
+   "estimated": true,
+   "heard": true,
+   "id": "w79",
+   "source": "tts",
+   "start": 34.58168954098361,
+   "text": "Auf",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 35.3132194590164,
+   "estimated": true,
+   "heard": true,
+   "id": "w80",
+   "source": "tts",
+   "start": 34.76806659016394,
+   "text": "Wiederhören!",
+   "turnId": "t8"
+  }
+ ]
+}

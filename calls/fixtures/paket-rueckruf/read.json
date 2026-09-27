@@ -1,0 +1,1423 @@
+{
+ "audio": {
+  "sources": [
+   {
+    "src": "/calls/paket-rueckruf/call.ogg",
+    "type": "audio/ogg; codecs=opus"
+   },
+   {
+    "src": "/calls/paket-rueckruf/call.mp3",
+    "type": "audio/mpeg"
+   }
+  ]
+ },
+ "call": {
+  "consent": "granted",
+  "direction": "outbound",
+  "duration": 24.185,
+  "id": "paket-rueckruf",
+  "language": "de-DE",
+  "outcome": {
+   "achieved": true,
+   "goal": "Zustellung neu geplant",
+   "window": "morgen 14–18 Uhr"
+  },
+  "provider": "livekit",
+  "startedAt": "2026-09-26T07:58:12.000Z",
+  "synthetic": true,
+  "title": "Blitzpaket · Neue Zustellung",
+  "versions": {
+   "agent": "blitzpaket-outbound v31",
+   "prompt": "zustellung@9",
+   "sdk": "livekit-agents 1.8.3"
+  }
+ },
+ "clock": {
+  "channels": [
+   "caller",
+   "agent"
+  ],
+  "sampleRate": 48000,
+  "t0UnixMs": 1790409492000
+ },
+ "findings": [],
+ "signals": [
+  {
+   "at": 0.4,
+   "data": {
+    "text": "Ich bin eine KI."
+   },
+   "id": "g0",
+   "type": "disclosure"
+  },
+  {
+   "at": 11.600125,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g1",
+   "turnId": "t1",
+   "type": "eou_decision"
+  },
+  {
+   "at": 21.094083,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g2",
+   "turnId": "t3",
+   "type": "eou_decision"
+  }
+ ],
+ "spans": [
+  {
+   "attributes": {
+    "lk.agent_name": "blitzpaket-outbound v31",
+    "lk.pii.room_name": "paket-rueckruf"
+   },
+   "end": 24.185,
+   "id": "0000000000000001",
+   "kind": "session",
+   "name": "agent_session",
+   "process": "voice-agent",
+   "start": 0,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24"
+  },
+  {
+   "attributes": {
+    "lk.generation_id": "gen_greeting",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 8.405833,
+   "id": "0000000000000002",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {},
+   "end": 8.405833,
+   "id": "0000000000000003",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?",
+    "lk.response.ttfb": 0.35,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 8.405833,
+   "firstChunk": 0.39999999999999997,
+   "id": "0000000000000004",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000003",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 8.405833,
+   "id": "0000000000000005",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.4,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Morgen Nachmittag wäre gut.",
+    "lk.stt.events": "[{\"received_at\":1790409503.430125,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.93,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 11.600125,
+   "id": "0000000000000006",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 9.105833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 11.600125,
+   "id": "0000000000000007",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000006",
+   "process": "voice-agent",
+   "start": 11.250125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 11.320125,
+   "id": "0000000000000008",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000007",
+   "process": "voice-agent",
+   "start": 11.270125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 1.34,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_confirm",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_confirm"
+   },
+   "end": 18.535125,
+   "id": "0000000000000009",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 11.600125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 11.940125,
+   "id": "000000000000000a",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 11.600125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 506,
+    "gen_ai.usage.output_tokens": 24,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.\"},{\"role\":\"assistant\",\"content\":\"Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?\"},{\"role\":\"user\",\"content\":\"Morgen Nachmittag wäre gut.\"}]",
+    "lk.pii.response.function_calls": "[{\"name\":\"delivery.reschedule\",\"arguments\":{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}}]",
+    "lk.response.ttft": 0.295
+   },
+   "end": 11.940125,
+   "firstChunk": 11.900125,
+   "id": "000000000000000b",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?",
+      "role": "assistant"
+     },
+     {
+      "content": "Morgen Nachmittag wäre gut.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "toolCalls": [
+     {
+      "arguments": {
+       "parcel": "BP-4471-2208",
+       "window": "2026-09-27T14:00/18:00"
+      },
+      "name": "delivery.reschedule"
+     }
+    ]
+   },
+   "name": "llm_request",
+   "parentId": "000000000000000a",
+   "process": "voice-agent",
+   "start": 11.605125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 11.940125,
+   "id": "000000000000000c",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "000000000000000b",
+   "process": "voice-agent",
+   "start": 11.606125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.function_tool.id": "call_confirm",
+    "lk.function_tool.is_error": false,
+    "lk.function_tool.name": "delivery.reschedule",
+    "lk.pii.function_tool.arguments": "{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}",
+    "lk.pii.function_tool.output": "{\"status\":\"rescheduled\"}"
+   },
+   "end": 12.250125,
+   "id": "000000000000000d",
+   "kind": "tool",
+   "name": "function_tool",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 11.900125,
+   "status": {
+    "code": "unset"
+   },
+   "tool": {
+    "arguments": {
+     "parcel": "BP-4471-2208",
+     "window": "2026-09-27T14:00/18:00"
+    },
+    "callId": "call_confirm",
+    "isError": false,
+    "name": "delivery.reschedule",
+    "result": {
+     "status": "rescheduled"
+    }
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 13.050125,
+   "id": "000000000000000e",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 12.250125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 590,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.\"},{\"role\":\"assistant\",\"content\":\"Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?\"},{\"role\":\"user\",\"content\":\"Morgen Nachmittag wäre gut.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"delivery.reschedule\\\",\\\"arguments\\\":{\\\"parcel\\\":\\\"BP-4471-2208\\\",\\\"window\\\":\\\"2026-09-27T14:00/18:00\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"status\\\":\\\"rescheduled\\\"}\"}]",
+    "lk.pii.response.text": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?",
+    "lk.response.ttft": 0.195
+   },
+   "end": 13.050125,
+   "firstChunk": 12.450125,
+   "id": "000000000000000f",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?",
+      "role": "assistant"
+     },
+     {
+      "content": "Morgen Nachmittag wäre gut.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"delivery.reschedule\",\"arguments\":{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"status\":\"rescheduled\"}",
+      "role": "tool_result"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "output": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?"
+   },
+   "name": "llm_request",
+   "parentId": "000000000000000e",
+   "process": "voice-agent",
+   "start": 12.255125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 13.050125,
+   "id": "0000000000000010",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "000000000000000f",
+   "process": "voice-agent",
+   "start": 12.256125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 18.535125,
+   "id": "0000000000000011",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 12.450125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 18.535125,
+   "firstChunk": 12.590125,
+   "id": "0000000000000012",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000011",
+   "process": "voice-agent",
+   "start": 12.450125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_confirm"
+   },
+   "end": 18.535125,
+   "id": "0000000000000013",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 12.590125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Nein, das war alles.",
+    "lk.stt.events": "[{\"received_at\":1790409512.9240835,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.95,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 21.094083,
+   "id": "0000000000000014",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 19.135125,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 21.094083,
+   "id": "0000000000000015",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000014",
+   "process": "voice-agent",
+   "start": 20.744083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 20.814083,
+   "id": "0000000000000016",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 20.764083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_bye",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_bye"
+   },
+   "end": 23.384917,
+   "id": "0000000000000017",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 21.094083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 21.994083,
+   "id": "0000000000000018",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000017",
+   "process": "voice-agent",
+   "start": 21.094083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1-mini",
+    "gen_ai.usage.input_tokens": 674,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.\"},{\"role\":\"assistant\",\"content\":\"Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?\"},{\"role\":\"user\",\"content\":\"Morgen Nachmittag wäre gut.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"delivery.reschedule\\\",\\\"arguments\\\":{\\\"parcel\\\":\\\"BP-4471-2208\\\",\\\"window\\\":\\\"2026-09-27T14:00/18:00\\\"}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"status\\\":\\\"rescheduled\\\"}\"},{\"role\":\"assistant\",\"content\":\"Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?\"},{\"role\":\"user\",\"content\":\"Nein, das war alles.\"}]",
+    "lk.pii.response.text": "Gerne. Einen schönen Tag noch!",
+    "lk.response.ttft": 0.295
+   },
+   "end": 21.994083,
+   "firstChunk": 21.394083000000002,
+   "id": "0000000000000019",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin von Blitzpaket. Sag, dass du eine KI bist. Plane nicht zugestellte Pakete mit delivery.reschedule neu.",
+      "role": "system"
+     },
+     {
+      "content": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?",
+      "role": "assistant"
+     },
+     {
+      "content": "Morgen Nachmittag wäre gut.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"delivery.reschedule\",\"arguments\":{\"parcel\":\"BP-4471-2208\",\"window\":\"2026-09-27T14:00/18:00\"}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"status\":\"rescheduled\"}",
+      "role": "tool_result"
+     },
+     {
+      "content": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?",
+      "role": "assistant"
+     },
+     {
+      "content": "Nein, das war alles.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1-mini",
+    "output": "Gerne. Einen schönen Tag noch!"
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000018",
+   "process": "voice-agent",
+   "start": 21.099083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 21.994083,
+   "id": "000000000000001a",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000019",
+   "process": "voice-agent",
+   "start": 21.100083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 23.384917,
+   "id": "000000000000001b",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000017",
+   "process": "voice-agent",
+   "start": 21.394083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Gerne. Einen schönen Tag noch!",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 23.384917,
+   "firstChunk": 21.534083,
+   "id": "000000000000001c",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "000000000000001b",
+   "process": "voice-agent",
+   "start": 21.394083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_bye"
+   },
+   "end": 23.384917,
+   "id": "000000000000001d",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000017",
+   "process": "voice-agent",
+   "start": 21.534083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "0000000000000000000000007df4fa24",
+   "turnId": "t4"
+  }
+ ],
+ "turns": [
+  {
+   "channel": "agent",
+   "end": 8.405833,
+   "id": "t0",
+   "latency": {
+    "ttsTtfb": 0.35
+   },
+   "speechId": "speech_greeting",
+   "start": 0.4,
+   "text": "Guten Morgen, hier ist die digitale Assistentin von Blitzpaket. Ich bin eine KI. Wir konnten Ihr Paket gestern nicht zustellen. Wann passt Ihnen eine neue Zustellung?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.93,
+   "end": 11.250125,
+   "id": "t1",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 9.105833,
+   "text": "Morgen Nachmittag wäre gut."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1-mini"
+   },
+   "end": 18.535125,
+   "id": "t2",
+   "latency": {
+    "e2e": 1.34,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "tool": 0.35,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t1",
+   "speechId": "speech_confirm",
+   "start": 12.590125,
+   "text": "Alles klar. Die Zustellung ist für morgen zwischen vierzehn und achtzehn Uhr geplant. Brauchen Sie sonst noch etwas?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.95,
+   "end": 20.744083,
+   "id": "t3",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 19.135125,
+   "text": "Nein, das war alles."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1-mini"
+   },
+   "end": 23.384917,
+   "id": "t4",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t3",
+   "speechId": "speech_bye",
+   "start": 21.534083,
+   "text": "Gerne. Einen schönen Tag noch!"
+  }
+ ],
+ "version": 1,
+ "words": [
+  {
+   "channel": "agent",
+   "end": 0.6588712467065868,
+   "estimated": true,
+   "heard": true,
+   "id": "w0",
+   "source": "tts",
+   "start": 0.4,
+   "text": "Guten",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.0327963808383234,
+   "estimated": true,
+   "heard": true,
+   "id": "w1",
+   "source": "tts",
+   "start": 0.6876347185628742,
+   "text": "Morgen,",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.286873715568862,
+   "estimated": true,
+   "heard": true,
+   "id": "w2",
+   "source": "tts",
+   "start": 1.0711476766467065,
+   "text": "hier",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.4834241065868263,
+   "estimated": true,
+   "heard": true,
+   "id": "w3",
+   "source": "tts",
+   "start": 1.3108432754491017,
+   "text": "ist",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.6751805856287425,
+   "estimated": true,
+   "heard": true,
+   "id": "w4",
+   "source": "tts",
+   "start": 1.502599754491018,
+   "text": "die",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.0826631035928145,
+   "estimated": true,
+   "heard": true,
+   "id": "w5",
+   "source": "tts",
+   "start": 1.694356233532934,
+   "text": "digitale",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.643550804790419,
+   "estimated": true,
+   "heard": true,
+   "id": "w6",
+   "source": "tts",
+   "start": 2.1258083113772455,
+   "text": "Assistentin",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.8736585796407184,
+   "estimated": true,
+   "heard": true,
+   "id": "w7",
+   "source": "tts",
+   "start": 2.701077748502994,
+   "text": "von",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.4105767209580837,
+   "estimated": true,
+   "heard": true,
+   "id": "w8",
+   "source": "tts",
+   "start": 2.89283422754491,
+   "text": "Blitzpaket.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.640684495808383,
+   "estimated": true,
+   "heard": true,
+   "id": "w9",
+   "source": "tts",
+   "start": 3.4681036646706587,
+   "text": "Ich",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.832440974850299,
+   "estimated": true,
+   "heard": true,
+   "id": "w10",
+   "source": "tts",
+   "start": 3.659860143712575,
+   "text": "bin",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.067342661676647,
+   "estimated": true,
+   "heard": true,
+   "id": "w11",
+   "source": "tts",
+   "start": 3.851616622754491,
+   "text": "eine",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.263893052694611,
+   "estimated": true,
+   "heard": true,
+   "id": "w12",
+   "source": "tts",
+   "start": 4.091312221556886,
+   "text": "KI.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.455649531736527,
+   "estimated": true,
+   "heard": true,
+   "id": "w13",
+   "source": "tts",
+   "start": 4.283068700598802,
+   "text": "Wir",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.819986841916167,
+   "estimated": true,
+   "heard": true,
+   "id": "w14",
+   "source": "tts",
+   "start": 4.474825179640718,
+   "text": "konnten",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.0309189688622755,
+   "estimated": true,
+   "heard": true,
+   "id": "w15",
+   "source": "tts",
+   "start": 4.858338137724551,
+   "text": "Ihr",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.308965863473054,
+   "estimated": true,
+   "heard": true,
+   "id": "w16",
+   "source": "tts",
+   "start": 5.050094616766467,
+   "text": "Paket",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.682890997604789,
+   "estimated": true,
+   "heard": true,
+   "id": "w17",
+   "source": "tts",
+   "start": 5.337729335329341,
+   "text": "gestern",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.98011354011976,
+   "estimated": true,
+   "heard": true,
+   "id": "w18",
+   "source": "tts",
+   "start": 5.721242293413173,
+   "text": "nicht",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 6.483474297604789,
+   "estimated": true,
+   "heard": true,
+   "id": "w19",
+   "source": "tts",
+   "start": 6.008877011976047,
+   "text": "zustellen.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 6.7519333682634715,
+   "estimated": true,
+   "heard": true,
+   "id": "w20",
+   "source": "tts",
+   "start": 6.536207329341316,
+   "text": "Wann",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 7.034774174850298,
+   "estimated": true,
+   "heard": true,
+   "id": "w21",
+   "source": "tts",
+   "start": 6.7759029281437115,
+   "text": "passt",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 7.322408893413172,
+   "estimated": true,
+   "heard": true,
+   "id": "w22",
+   "source": "tts",
+   "start": 7.063537646706585,
+   "text": "Ihnen",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 7.5668984041916145,
+   "estimated": true,
+   "heard": true,
+   "id": "w23",
+   "source": "tts",
+   "start": 7.351172365269459,
+   "text": "eine",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 7.80659400299401,
+   "estimated": true,
+   "heard": true,
+   "id": "w24",
+   "source": "tts",
+   "start": 7.590867964071855,
+   "text": "neue",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 8.348306056287424,
+   "estimated": true,
+   "heard": true,
+   "id": "w25",
+   "source": "tts",
+   "start": 7.83056356287425,
+   "text": "Zustellung?",
+   "turnId": "t0"
+  },
+  {
+   "channel": "caller",
+   "end": 9.588298700000001,
+   "estimated": true,
+   "id": "w26",
+   "source": "streaming_asr",
+   "start": 9.105833,
+   "text": "Morgen",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 10.400066385714286,
+   "estimated": true,
+   "id": "w27",
+   "source": "streaming_asr",
+   "start": 9.641906,
+   "text": "Nachmittag",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 10.828924785714285,
+   "estimated": true,
+   "id": "w28",
+   "source": "streaming_asr",
+   "start": 10.48430642857143,
+   "text": "wäre",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 11.211834071428573,
+   "estimated": true,
+   "id": "w29",
+   "source": "streaming_asr",
+   "start": 10.867215714285715,
+   "text": "gut.",
+   "turnId": "t1"
+  },
+  {
+   "channel": "agent",
+   "end": 12.864509615384616,
+   "estimated": true,
+   "heard": true,
+   "id": "w30",
+   "source": "tts",
+   "start": 12.590125,
+   "text": "Alles",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 13.169381410256412,
+   "estimated": true,
+   "heard": true,
+   "id": "w31",
+   "source": "tts",
+   "start": 12.894996794871796,
+   "text": "klar.",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 13.382791666666668,
+   "estimated": true,
+   "heard": true,
+   "id": "w32",
+   "source": "tts",
+   "start": 13.199868589743591,
+   "text": "Die",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 13.906154914529916,
+   "estimated": true,
+   "heard": true,
+   "id": "w33",
+   "source": "tts",
+   "start": 13.403116452991455,
+   "text": "Zustellung",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 14.144971153846155,
+   "estimated": true,
+   "heard": true,
+   "id": "w34",
+   "source": "tts",
+   "start": 13.962048076923079,
+   "text": "ist",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 14.348219017094019,
+   "estimated": true,
+   "heard": true,
+   "id": "w35",
+   "source": "tts",
+   "start": 14.165295940170942,
+   "text": "für",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 14.68865918803419,
+   "estimated": true,
+   "heard": true,
+   "id": "w36",
+   "source": "tts",
+   "start": 14.368543803418806,
+   "text": "morgen",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 15.13580448717949,
+   "estimated": true,
+   "heard": true,
+   "id": "w37",
+   "source": "tts",
+   "start": 14.724227564102566,
+   "text": "zwischen",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 15.593112179487182,
+   "estimated": true,
+   "heard": true,
+   "id": "w38",
+   "source": "tts",
+   "start": 15.181535256410259,
+   "text": "vierzehn",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 15.821766025641027,
+   "estimated": true,
+   "heard": true,
+   "id": "w39",
+   "source": "tts",
+   "start": 15.63884294871795,
+   "text": "und",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 16.253667735042736,
+   "estimated": true,
+   "heard": true,
+   "id": "w40",
+   "source": "tts",
+   "start": 15.842090811965814,
+   "text": "achtzehn",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 16.482321581196587,
+   "estimated": true,
+   "heard": true,
+   "id": "w41",
+   "source": "tts",
+   "start": 16.29939850427351,
+   "text": "Uhr",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 16.914223290598294,
+   "estimated": true,
+   "heard": true,
+   "id": "w42",
+   "source": "tts",
+   "start": 16.502646367521372,
+   "text": "geplant.",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 17.371530982905988,
+   "estimated": true,
+   "heard": true,
+   "id": "w43",
+   "source": "tts",
+   "start": 16.959954059829066,
+   "text": "Brauchen",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 17.600184829059838,
+   "estimated": true,
+   "heard": true,
+   "id": "w44",
+   "source": "tts",
+   "start": 17.41726175213676,
+   "text": "Sie",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 17.89489423076924,
+   "estimated": true,
+   "heard": true,
+   "id": "w45",
+   "source": "tts",
+   "start": 17.620509615384623,
+   "text": "sonst",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 18.154035256410264,
+   "estimated": true,
+   "heard": true,
+   "id": "w46",
+   "source": "tts",
+   "start": 17.925381410256417,
+   "text": "noch",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 18.499556623931632,
+   "estimated": true,
+   "heard": true,
+   "id": "w47",
+   "source": "tts",
+   "start": 18.179441239316247,
+   "text": "etwas?",
+   "turnId": "t2"
+  },
+  {
+   "channel": "caller",
+   "end": 19.548857057142857,
+   "estimated": true,
+   "id": "w48",
+   "source": "streaming_asr",
+   "start": 19.135125,
+   "text": "Nein,",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 19.870648657142855,
+   "estimated": true,
+   "id": "w49",
+   "source": "streaming_asr",
+   "start": 19.594827285714285,
+   "text": "das",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 20.177116847619047,
+   "estimated": true,
+   "id": "w50",
+   "source": "streaming_asr",
+   "start": 19.901295476190477,
+   "text": "war",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 20.690451066666668,
+   "estimated": true,
+   "id": "w51",
+   "source": "streaming_asr",
+   "start": 20.20776366666667,
+   "text": "alles.",
+   "turnId": "t3"
+  },
+  {
+   "channel": "agent",
+   "end": 21.910220232258062,
+   "estimated": true,
+   "heard": true,
+   "id": "w52",
+   "source": "tts",
+   "start": 21.534083,
+   "text": "Gerne.",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 22.2744166,
+   "estimated": true,
+   "heard": true,
+   "id": "w53",
+   "source": "tts",
+   "start": 21.952013258064515,
+   "text": "Einen",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 22.740110316129034,
+   "estimated": true,
+   "heard": true,
+   "id": "w54",
+   "source": "tts",
+   "start": 22.310239193548387,
+   "text": "schönen",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 23.00280933548387,
+   "estimated": true,
+   "heard": true,
+   "id": "w55",
+   "source": "tts",
+   "start": 22.78787377419355,
+   "text": "Tag",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 23.349094406451613,
+   "estimated": true,
+   "heard": true,
+   "id": "w56",
+   "source": "tts",
+   "start": 23.02669106451613,
+   "text": "noch!",
+   "turnId": "t4"
+  }
+ ]
+}

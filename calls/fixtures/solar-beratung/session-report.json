@@ -1,0 +1,14 @@
+{
+ "room": "solar-beratung",
+ "job_id": "AJ_000000000000",
+ "sdk_version": "1.8.3",
+ "audio_recording_started_at": 1790346730,
+ "started_at": 1790346728.8,
+ "events": [
+  {
+   "type": "disclosure",
+   "created_at": 1790346730.4,
+   "text": "Ich bin eine KI."
+  }
+ ]
+}

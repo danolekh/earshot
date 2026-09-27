@@ -1,0 +1,281 @@
+{
+ "conversation_id": "conv_stadtwerke-zaehlerstand",
+ "agent_id": "agent_stadtwerke",
+ "agent_name": "stadtwerke-outbound v42",
+ "metadata": {
+  "start_time_unix_secs": 1790241242,
+  "call_duration_secs": 57,
+  "main_language": "de",
+  "phone_call": {
+   "direction": "outbound"
+  }
+ },
+ "analysis": {
+  "call_successful": "success",
+  "call_summary_title": "Zählerstand erfasst"
+ },
+ "transcript": [
+  {
+   "role": "agent",
+   "message": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+   "time_in_call_secs": 0
+  },
+  {
+   "role": "user",
+   "message": "Ja, das ist in Ordnung.",
+   "time_in_call_secs": 7,
+   "source_medium": "audio"
+  },
+  {
+   "role": "agent",
+   "message": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+   "time_in_call_secs": 10,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.18
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.3
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14
+     }
+    }
+   }
+  },
+  {
+   "role": "user",
+   "message": "Ja, die ist vier sieben eins",
+   "time_in_call_secs": 14,
+   "source_medium": "audio"
+  },
+  {
+   "role": "user",
+   "message": "null acht drei.",
+   "time_in_call_secs": 17,
+   "source_medium": "audio"
+  },
+  {
+   "role": "agent",
+   "message": "Danke, ich",
+   "time_in_call_secs": 17,
+   "interrupted": true,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.18
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.25
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14
+     }
+    }
+   }
+  },
+  {
+   "role": "agent",
+   "message": "Entschuldigung, ich habe Sie unterbrochen. Wie war die Nummer noch mal?",
+   "time_in_call_secs": 19,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.18
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.3
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14
+     }
+    }
+   }
+  },
+  {
+   "role": "user",
+   "message": "Vier sieben eins acht drei.",
+   "time_in_call_secs": 22,
+   "source_medium": "audio"
+  },
+  {
+   "role": "agent",
+   "message": "",
+   "time_in_call_secs": 25,
+   "tool_calls": [
+    {
+     "request_id": "toolu_not-found",
+     "tool_name": "crm.lookup_customer",
+     "params_as_json": "{\"customer_id\":\"47183\"}",
+     "type": "webhook"
+    }
+   ],
+   "tool_results": [
+    {
+     "request_id": "toolu_not-found",
+     "tool_name": "crm.lookup_customer",
+     "result_value": "404: no contract for customer_id 47183",
+     "is_error": true,
+     "tool_latency_secs": 0.18
+    }
+   ],
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.25
+     }
+    }
+   }
+  },
+  {
+   "role": "agent",
+   "message": "Unter der Nummer vier sieben eins acht drei finde ich leider keinen Vertrag. Können Sie mir bitte Ihre Kundennummer noch einmal nennen?",
+   "time_in_call_secs": 26,
+   "feedback": {
+    "score": "dislike",
+    "time_in_call_secs": 32
+   },
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.18
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14
+     }
+    }
+   }
+  },
+  {
+   "role": "user",
+   "message": "Vier. Sieben. Eins. Null. Acht. Drei.",
+   "time_in_call_secs": 32,
+   "source_medium": "audio"
+  },
+  {
+   "role": "agent",
+   "message": "",
+   "time_in_call_secs": 37,
+   "tool_calls": [
+    {
+     "request_id": "toolu_found",
+     "tool_name": "crm.lookup_customer",
+     "params_as_json": "{\"customer_id\":\"471083\"}",
+     "type": "webhook"
+    }
+   ],
+   "tool_results": [
+    {
+     "request_id": "toolu_found",
+     "tool_name": "crm.lookup_customer",
+     "result_value": "{\"customer_id\":\"471083\",\"name\":\"Petra Keller\",\"meter\":\"Strom, Zähler 1ESY1160543\"}",
+     "is_error": false,
+     "tool_latency_secs": 0.21
+    }
+   ],
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.25
+     }
+    }
+   }
+  },
+  {
+   "role": "agent",
+   "message": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?",
+   "time_in_call_secs": 38,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.18
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14
+     }
+    }
+   }
+  },
+  {
+   "role": "user",
+   "message": "Zwölf dreiundvierzig.",
+   "time_in_call_secs": 42,
+   "source_medium": "audio"
+  },
+  {
+   "role": "user",
+   "message": "Hallo? Sind Sie noch da?",
+   "time_in_call_secs": 46,
+   "source_medium": "audio"
+  },
+  {
+   "role": "agent",
+   "message": "",
+   "time_in_call_secs": 44,
+   "tool_calls": [
+    {
+     "request_id": "toolu_saved",
+     "tool_name": "crm.submit_meter_reading",
+     "params_as_json": "{\"customer_id\":\"471083\",\"reading_kwh\":1243}",
+     "type": "webhook"
+    }
+   ],
+   "tool_results": [
+    {
+     "request_id": "toolu_saved",
+     "tool_name": "crm.submit_meter_reading",
+     "result_value": "{\"status\":\"stored\",\"reading_id\":\"mr_20260926_0412\"}",
+     "is_error": false,
+     "tool_latency_secs": 1.9
+    }
+   ],
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.25
+     }
+    }
+   }
+  },
+  {
+   "role": "agent",
+   "message": "Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert.",
+   "time_in_call_secs": 47,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.18
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14
+     }
+    }
+   }
+  },
+  {
+   "role": "user",
+   "message": "Super, danke.",
+   "time_in_call_secs": 51,
+   "source_medium": "audio"
+  },
+  {
+   "role": "agent",
+   "message": "Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!",
+   "time_in_call_secs": 53,
+   "conversation_turn_metrics": {
+    "metrics": {
+     "convai_asr_trailing_service_latency": {
+      "elapsed_time": 0.18
+     },
+     "convai_llm_service_ttfb": {
+      "elapsed_time": 0.3
+     },
+     "convai_tts_service_ttfb": {
+      "elapsed_time": 0.14
+     }
+    }
+   }
+  }
+ ]
+}

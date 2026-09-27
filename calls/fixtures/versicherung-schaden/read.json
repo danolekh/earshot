@@ -1,0 +1,3023 @@
+{
+ "audio": {
+  "sources": [
+   {
+    "src": "/calls/versicherung-schaden/call.ogg",
+    "type": "audio/ogg; codecs=opus"
+   },
+   {
+    "src": "/calls/versicherung-schaden/call.mp3",
+    "type": "audio/mpeg"
+   }
+  ]
+ },
+ "call": {
+  "consent": "granted",
+  "direction": "inbound",
+  "duration": 42.546,
+  "id": "versicherung-schaden",
+  "language": "de-DE",
+  "outcome": {
+   "achieved": true,
+   "claim_id": "SM-2026-07731",
+   "goal": "Schaden gemeldet"
+  },
+  "provider": "livekit",
+  "startedAt": "2026-09-23T16:47:05.000Z",
+  "synthetic": true,
+  "title": "Hanse Mobil · Schadenmeldung",
+  "versions": {
+   "agent": "hanse-fnol v23",
+   "prompt": "schaden-fnol@5",
+   "sdk": "livekit-agents 1.8.3"
+  }
+ },
+ "clock": {
+  "channels": [
+   "caller",
+   "agent"
+  ],
+  "sampleRate": 48000,
+  "t0UnixMs": 1790182025000
+ },
+ "findings": [],
+ "signals": [
+  {
+   "at": 0.4,
+   "data": {
+    "text": "Ich bin eine KI."
+   },
+   "id": "g0",
+   "type": "disclosure"
+  },
+  {
+   "at": 10.282833,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g1",
+   "turnId": "t1",
+   "type": "eou_decision"
+  },
+  {
+   "at": 15.379958,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g2",
+   "turnId": "t3",
+   "type": "eou_decision"
+  },
+  {
+   "at": 21.166042,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.6,
+    "threshold": 0.15,
+    "wait": 0.3
+   },
+   "id": "g3",
+   "turnId": "t5",
+   "type": "eou_decision"
+  },
+  {
+   "at": 21.556042,
+   "channel": "caller",
+   "data": {
+    "decision": "stop",
+    "stopAfter": 0.5
+   },
+   "id": "g4",
+   "turnId": "t7",
+   "type": "interruption"
+  },
+  {
+   "at": 23.271208,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g5",
+   "turnId": "t6",
+   "type": "eou_decision"
+  },
+  {
+   "at": 33.0565,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g6",
+   "turnId": "t9",
+   "type": "eou_decision"
+  },
+  {
+   "at": 39.61675,
+   "channel": "caller",
+   "data": {
+    "outcome": "committed",
+    "probability": 0.9,
+    "threshold": 0.15,
+    "wait": 0.35
+   },
+   "id": "g7",
+   "turnId": "t11",
+   "type": "eou_decision"
+  }
+ ],
+ "spans": [
+  {
+   "attributes": {
+    "lk.agent_name": "hanse-fnol v23",
+    "lk.pii.room_name": "versicherung-schaden"
+   },
+   "end": 42.546,
+   "id": "0000000000000001",
+   "kind": "session",
+   "name": "agent_session",
+   "process": "voice-agent",
+   "start": 0,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61"
+  },
+  {
+   "attributes": {
+    "lk.generation_id": "gen_greeting",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 5.49775,
+   "id": "0000000000000002",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {},
+   "end": 5.49775,
+   "id": "0000000000000003",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+    "lk.response.ttfb": 0.35,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 5.49775,
+   "firstChunk": 0.39999999999999997,
+   "id": "0000000000000004",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000003",
+   "process": "voice-agent",
+   "start": 0.05,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_greeting"
+   },
+   "end": 5.49775,
+   "id": "0000000000000005",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000002",
+   "process": "voice-agent",
+   "start": 0.4,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t0"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+    "lk.stt.events": "[{\"received_at\":1790182035.1128335,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.931,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 10.282833,
+   "id": "0000000000000006",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 6.19775,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 10.282833,
+   "id": "0000000000000007",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000006",
+   "process": "voice-agent",
+   "start": 9.932833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 10.002833,
+   "id": "0000000000000008",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000007",
+   "process": "voice-agent",
+   "start": 9.952833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t1"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_ask-name",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-name"
+   },
+   "end": 13.164208,
+   "id": "0000000000000009",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 10.282833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 11.182833,
+   "id": "000000000000000a",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 10.282833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 506,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.\"},{\"role\":\"assistant\",\"content\":\"Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?\"},{\"role\":\"user\",\"content\":\"Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.\"}]",
+    "lk.pii.response.text": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+    "lk.response.ttft": 0.295
+   },
+   "end": 11.182833,
+   "firstChunk": 10.582832999999999,
+   "id": "000000000000000b",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.",
+      "role": "system"
+     },
+     {
+      "content": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Das tut mir leid. Wie ist Ihr vollständiger Name?"
+   },
+   "name": "llm_request",
+   "parentId": "000000000000000a",
+   "process": "voice-agent",
+   "start": 10.287833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 11.182833,
+   "id": "000000000000000c",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "000000000000000b",
+   "process": "voice-agent",
+   "start": 10.288833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {},
+   "end": 13.164208,
+   "id": "000000000000000d",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 10.582833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 13.164208,
+   "firstChunk": 10.722833000000001,
+   "id": "000000000000000e",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "000000000000000d",
+   "process": "voice-agent",
+   "start": 10.582833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-name"
+   },
+   "end": 13.164208,
+   "id": "000000000000000f",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000009",
+   "process": "voice-agent",
+   "start": 10.722833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t2"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Murat Özdemir.",
+    "lk.stt.events": "[{\"received_at\":1790182040.2099583,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.65,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 15.379958,
+   "id": "0000000000000010",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 13.764208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 15.379958,
+   "id": "0000000000000011",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "0000000000000010",
+   "process": "voice-agent",
+   "start": 15.029958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 15.099958,
+   "id": "0000000000000012",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "0000000000000011",
+   "process": "voice-agent",
+   "start": 15.049958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t3"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.77,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_ask-where",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-where"
+   },
+   "end": 18.382667,
+   "id": "0000000000000013",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 15.379958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 16.259958,
+   "id": "0000000000000014",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000013",
+   "process": "voice-agent",
+   "start": 15.379958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 590,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.\"},{\"role\":\"assistant\",\"content\":\"Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?\"},{\"role\":\"user\",\"content\":\"Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.\"},{\"role\":\"assistant\",\"content\":\"Das tut mir leid. Wie ist Ihr vollständiger Name?\"},{\"role\":\"user\",\"content\":\"Murat Özdemir.\"}]",
+    "lk.pii.response.text": "Danke, Herr Özdemir. Wo ist der Unfall passiert?",
+    "lk.response.ttft": 0.275
+   },
+   "end": 16.259958,
+   "firstChunk": 15.659958,
+   "id": "0000000000000015",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.",
+      "role": "system"
+     },
+     {
+      "content": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+      "role": "user"
+     },
+     {
+      "content": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+      "role": "assistant"
+     },
+     {
+      "content": "Murat Özdemir.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Danke, Herr Özdemir. Wo ist der Unfall passiert?"
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000014",
+   "process": "voice-agent",
+   "start": 15.384958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 16.259958,
+   "id": "0000000000000016",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000015",
+   "process": "voice-agent",
+   "start": 15.385958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {},
+   "end": 18.382667,
+   "id": "0000000000000017",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000013",
+   "process": "voice-agent",
+   "start": 15.659958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Danke, Herr Özdemir. Wo ist der Unfall passiert?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 18.382667,
+   "firstChunk": 15.799958,
+   "id": "0000000000000018",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000017",
+   "process": "voice-agent",
+   "start": 15.659958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_ask-where"
+   },
+   "end": 18.382667,
+   "id": "0000000000000019",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000013",
+   "process": "voice-agent",
+   "start": 15.799958,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t4"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.3,
+    "lk.pii.user_transcript": "Das war in der Lindenstraße,",
+    "lk.stt.events": "[{\"received_at\":1790182046.0460417,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.938,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 21.166042,
+   "id": "000000000000001a",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 18.982667,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.3,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.3
+   },
+   "end": 21.166042,
+   "id": "000000000000001b",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "000000000000001a",
+   "process": "voice-agent",
+   "start": 20.866042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.6,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 20.936042,
+   "id": "000000000000001c",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "000000000000001b",
+   "process": "voice-agent",
+   "start": 20.886042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t5"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.69,
+    "lk.end_of_turn_delay": 0.3,
+    "lk.generation_id": "gen_noted",
+    "lk.interrupted": true,
+    "lk.speech_id": "speech_noted"
+   },
+   "end": 22.056042,
+   "id": "0000000000000020",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 21.166042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {},
+   "end": 22.016042,
+   "id": "0000000000000021",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000020",
+   "process": "voice-agent",
+   "start": 21.166042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 716,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.\"},{\"role\":\"assistant\",\"content\":\"Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?\"},{\"role\":\"user\",\"content\":\"Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.\"},{\"role\":\"assistant\",\"content\":\"Das tut mir leid. Wie ist Ihr vollständiger Name?\"},{\"role\":\"user\",\"content\":\"Murat Özdemir.\"},{\"role\":\"assistant\",\"content\":\"Danke, Herr Özdemir. Wo ist der Unfall passiert?\"},{\"role\":\"user\",\"content\":\"Das war in der Lindenstraße,\"},{\"role\":\"user\",\"content\":\"Ecke Bahnhofstraße.\"}]",
+    "lk.pii.response.text": "Danke, Lindenstraße ist notiert. Gab es Verletzte?",
+    "lk.response.ttft": 0.245
+   },
+   "end": 22.016042,
+   "firstChunk": 21.416042,
+   "id": "0000000000000022",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.",
+      "role": "system"
+     },
+     {
+      "content": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+      "role": "user"
+     },
+     {
+      "content": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+      "role": "assistant"
+     },
+     {
+      "content": "Murat Özdemir.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Herr Özdemir. Wo ist der Unfall passiert?",
+      "role": "assistant"
+     },
+     {
+      "content": "Das war in der Lindenstraße,",
+      "role": "user"
+     },
+     {
+      "content": "Ecke Bahnhofstraße.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Danke, Lindenstraße ist notiert. Gab es Verletzte?"
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000021",
+   "process": "voice-agent",
+   "start": 21.171042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 22.016042,
+   "id": "0000000000000023",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000022",
+   "process": "voice-agent",
+   "start": 21.172042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {},
+   "end": 22.056042,
+   "id": "0000000000000024",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000020",
+   "process": "voice-agent",
+   "start": 21.416042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Danke, Lindenstraße ist notiert. Gab es Verletzte?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 22.056042,
+   "firstChunk": 21.556042,
+   "id": "0000000000000025",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000024",
+   "process": "voice-agent",
+   "start": 21.416042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Ecke Bahnhofstraße.",
+    "lk.stt.events": "[{\"received_at\":1790182048.1012084,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.93,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 23.271208,
+   "id": "000000000000001d",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 21.466042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": true,
+    "lk.speech_id": "speech_noted"
+   },
+   "end": 22.056042,
+   "id": "0000000000000026",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000020",
+   "process": "voice-agent",
+   "start": 21.556042,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t7"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 23.271208,
+   "id": "000000000000001e",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "000000000000001d",
+   "process": "voice-agent",
+   "start": 22.921208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 22.991208,
+   "id": "000000000000001f",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "000000000000001e",
+   "process": "voice-agent",
+   "start": 22.941208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t6"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_sorry",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_sorry"
+   },
+   "end": 28.415083,
+   "id": "0000000000000027",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 23.271208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {},
+   "end": 24.171208,
+   "id": "0000000000000028",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000027",
+   "process": "voice-agent",
+   "start": 23.271208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 758,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.\"},{\"role\":\"assistant\",\"content\":\"Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?\"},{\"role\":\"user\",\"content\":\"Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.\"},{\"role\":\"assistant\",\"content\":\"Das tut mir leid. Wie ist Ihr vollständiger Name?\"},{\"role\":\"user\",\"content\":\"Murat Özdemir.\"},{\"role\":\"assistant\",\"content\":\"Danke, Herr Özdemir. Wo ist der Unfall passiert?\"},{\"role\":\"user\",\"content\":\"Das war in der Lindenstraße,\"},{\"role\":\"user\",\"content\":\"Ecke Bahnhofstraße.\"},{\"role\":\"assistant\",\"content\":\"Danke, Lindenstraße\"}]",
+    "lk.pii.response.text": "Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?",
+    "lk.response.ttft": 0.295
+   },
+   "end": 24.171208,
+   "firstChunk": 23.571208000000002,
+   "id": "0000000000000029",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.",
+      "role": "system"
+     },
+     {
+      "content": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+      "role": "user"
+     },
+     {
+      "content": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+      "role": "assistant"
+     },
+     {
+      "content": "Murat Özdemir.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Herr Özdemir. Wo ist der Unfall passiert?",
+      "role": "assistant"
+     },
+     {
+      "content": "Das war in der Lindenstraße,",
+      "role": "user"
+     },
+     {
+      "content": "Ecke Bahnhofstraße.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Lindenstraße",
+      "role": "assistant"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?"
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000028",
+   "process": "voice-agent",
+   "start": 23.276208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 24.171208,
+   "id": "000000000000002a",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000029",
+   "process": "voice-agent",
+   "start": 23.277208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {},
+   "end": 28.415083,
+   "id": "000000000000002b",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000027",
+   "process": "voice-agent",
+   "start": 23.571208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 28.415083,
+   "firstChunk": 23.711208,
+   "id": "000000000000002c",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "000000000000002b",
+   "process": "voice-agent",
+   "start": 23.571208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_sorry"
+   },
+   "end": 28.415083,
+   "id": "000000000000002d",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000027",
+   "process": "voice-agent",
+   "start": 23.711208,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t8"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Nein, zum Glück nicht. Nur die Stoßstange ist kaputt.",
+    "lk.stt.events": "[{\"received_at\":1790182057.8865001,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.942,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 33.0565,
+   "id": "000000000000002e",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 29.015083,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t9"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 33.0565,
+   "id": "000000000000002f",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "000000000000002e",
+   "process": "voice-agent",
+   "start": 32.7065,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t9"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 32.7765,
+   "id": "0000000000000030",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "000000000000002f",
+   "process": "voice-agent",
+   "start": 32.7265,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t9"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 1.29,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_photos",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_photos"
+   },
+   "end": 37.635833,
+   "id": "0000000000000031",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 33.0565,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {},
+   "end": 33.3465,
+   "id": "0000000000000032",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000031",
+   "process": "voice-agent",
+   "start": 33.0565,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 842,
+    "gen_ai.usage.output_tokens": 24,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.\"},{\"role\":\"assistant\",\"content\":\"Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?\"},{\"role\":\"user\",\"content\":\"Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.\"},{\"role\":\"assistant\",\"content\":\"Das tut mir leid. Wie ist Ihr vollständiger Name?\"},{\"role\":\"user\",\"content\":\"Murat Özdemir.\"},{\"role\":\"assistant\",\"content\":\"Danke, Herr Özdemir. Wo ist der Unfall passiert?\"},{\"role\":\"user\",\"content\":\"Das war in der Lindenstraße,\"},{\"role\":\"user\",\"content\":\"Ecke Bahnhofstraße.\"},{\"role\":\"assistant\",\"content\":\"Danke, Lindenstraße\"},{\"role\":\"assistant\",\"content\":\"Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?\"},{\"role\":\"user\",\"content\":\"Nein, zum Glück nicht. Nur die Stoßstange ist kaputt.\"}]",
+    "lk.pii.response.function_calls": "[{\"name\":\"claims.create\",\"arguments\":{\"name\":\"Murat Özdemir\",\"location\":\"Lindenstraße / Bahnhofstraße\",\"injured\":false}}]",
+    "lk.response.ttft": 0.245
+   },
+   "end": 33.3465,
+   "firstChunk": 33.3065,
+   "id": "0000000000000033",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.",
+      "role": "system"
+     },
+     {
+      "content": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+      "role": "user"
+     },
+     {
+      "content": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+      "role": "assistant"
+     },
+     {
+      "content": "Murat Özdemir.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Herr Özdemir. Wo ist der Unfall passiert?",
+      "role": "assistant"
+     },
+     {
+      "content": "Das war in der Lindenstraße,",
+      "role": "user"
+     },
+     {
+      "content": "Ecke Bahnhofstraße.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Lindenstraße",
+      "role": "assistant"
+     },
+     {
+      "content": "Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?",
+      "role": "assistant"
+     },
+     {
+      "content": "Nein, zum Glück nicht. Nur die Stoßstange ist kaputt.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "toolCalls": [
+     {
+      "arguments": {
+       "injured": false,
+       "location": "Lindenstraße / Bahnhofstraße",
+       "name": "Murat Özdemir"
+      },
+      "name": "claims.create"
+     }
+    ]
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000032",
+   "process": "voice-agent",
+   "start": 33.0615,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 33.3465,
+   "id": "0000000000000034",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000033",
+   "process": "voice-agent",
+   "start": 33.0625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.function_tool.id": "call_photos",
+    "lk.function_tool.is_error": false,
+    "lk.function_tool.name": "claims.create",
+    "lk.pii.function_tool.arguments": "{\"name\":\"Murat Özdemir\",\"location\":\"Lindenstraße / Bahnhofstraße\",\"injured\":false}",
+    "lk.pii.function_tool.output": "{\"claim_id\":\"SM-2026-07731\",\"upload_link_sent\":true}"
+   },
+   "end": 33.6565,
+   "id": "0000000000000035",
+   "kind": "tool",
+   "name": "function_tool",
+   "parentId": "0000000000000031",
+   "process": "voice-agent",
+   "start": 33.3065,
+   "status": {
+    "code": "unset"
+   },
+   "tool": {
+    "arguments": {
+     "injured": false,
+     "location": "Lindenstraße / Bahnhofstraße",
+     "name": "Murat Özdemir"
+    },
+    "callId": "call_photos",
+    "isError": false,
+    "name": "claims.create",
+    "result": {
+     "claim_id": "SM-2026-07731",
+     "upload_link_sent": true
+    }
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {},
+   "end": 34.4565,
+   "id": "0000000000000036",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "0000000000000031",
+   "process": "voice-agent",
+   "start": 33.6565,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 926,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.\"},{\"role\":\"assistant\",\"content\":\"Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?\"},{\"role\":\"user\",\"content\":\"Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.\"},{\"role\":\"assistant\",\"content\":\"Das tut mir leid. Wie ist Ihr vollständiger Name?\"},{\"role\":\"user\",\"content\":\"Murat Özdemir.\"},{\"role\":\"assistant\",\"content\":\"Danke, Herr Özdemir. Wo ist der Unfall passiert?\"},{\"role\":\"user\",\"content\":\"Das war in der Lindenstraße,\"},{\"role\":\"user\",\"content\":\"Ecke Bahnhofstraße.\"},{\"role\":\"assistant\",\"content\":\"Danke, Lindenstraße\"},{\"role\":\"assistant\",\"content\":\"Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?\"},{\"role\":\"user\",\"content\":\"Nein, zum Glück nicht. Nur die Stoßstange ist kaputt.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"claims.create\\\",\\\"arguments\\\":{\\\"name\\\":\\\"Murat Özdemir\\\",\\\"location\\\":\\\"Lindenstraße / Bahnhofstraße\\\",\\\"injured\\\":false}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"claim_id\\\":\\\"SM-2026-07731\\\",\\\"upload_link_sent\\\":true}\"}]",
+    "lk.pii.response.text": "Gut zu hören. Ich schicke Ihnen einen Link, über den Sie Fotos vom Schaden hochladen können.",
+    "lk.response.ttft": 0.195
+   },
+   "end": 34.4565,
+   "firstChunk": 33.8565,
+   "id": "0000000000000037",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.",
+      "role": "system"
+     },
+     {
+      "content": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+      "role": "user"
+     },
+     {
+      "content": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+      "role": "assistant"
+     },
+     {
+      "content": "Murat Özdemir.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Herr Özdemir. Wo ist der Unfall passiert?",
+      "role": "assistant"
+     },
+     {
+      "content": "Das war in der Lindenstraße,",
+      "role": "user"
+     },
+     {
+      "content": "Ecke Bahnhofstraße.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Lindenstraße",
+      "role": "assistant"
+     },
+     {
+      "content": "Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?",
+      "role": "assistant"
+     },
+     {
+      "content": "Nein, zum Glück nicht. Nur die Stoßstange ist kaputt.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"claims.create\",\"arguments\":{\"name\":\"Murat Özdemir\",\"location\":\"Lindenstraße / Bahnhofstraße\",\"injured\":false}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"claim_id\":\"SM-2026-07731\",\"upload_link_sent\":true}",
+      "role": "tool_result"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Gut zu hören. Ich schicke Ihnen einen Link, über den Sie Fotos vom Schaden hochladen können."
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000036",
+   "process": "voice-agent",
+   "start": 33.6615,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 34.4565,
+   "id": "0000000000000038",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000037",
+   "process": "voice-agent",
+   "start": 33.6625,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {},
+   "end": 37.635833,
+   "id": "0000000000000039",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "0000000000000031",
+   "process": "voice-agent",
+   "start": 33.8565,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Gut zu hören. Ich schicke Ihnen einen Link, über den Sie Fotos vom Schaden hochladen können.",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 37.635833,
+   "firstChunk": 33.9965,
+   "id": "000000000000003a",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000039",
+   "process": "voice-agent",
+   "start": 33.8565,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_photos"
+   },
+   "end": 37.635833,
+   "id": "000000000000003b",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "0000000000000031",
+   "process": "voice-agent",
+   "start": 33.9965,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t10"
+  },
+  {
+   "attributes": {
+    "lk.end_of_turn_delay": 0.35,
+    "lk.pii.user_transcript": "Prima, danke.",
+    "lk.stt.events": "[{\"received_at\":1790182064.4467502,\"type\":\"final_transcript\"}]",
+    "lk.transcript_confidence": 0.905,
+    "lk.transcription_delay": 0.18
+   },
+   "end": 39.61675,
+   "id": "000000000000003c",
+   "kind": "user_turn",
+   "name": "user_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 38.235833,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t11"
+  },
+  {
+   "attributes": {
+    "lk.eou.endpointing_delay": 0.35,
+    "lk.eou.outcome": "committed",
+    "lk.eou.wait_duration": 0.35
+   },
+   "end": 39.61675,
+   "id": "000000000000003d",
+   "kind": "eou",
+   "name": "eou_wait",
+   "parentId": "000000000000003c",
+   "process": "voice-agent",
+   "start": 39.26675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t11"
+  },
+  {
+   "attributes": {
+    "lk.eou.probability": 0.9,
+    "lk.eou.unlikely_threshold": 0.15
+   },
+   "end": 39.33675,
+   "id": "000000000000003e",
+   "kind": "eou",
+   "name": "eou_detection",
+   "parentId": "000000000000003d",
+   "process": "voice-agent",
+   "start": 39.28675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t11"
+  },
+  {
+   "attributes": {
+    "lk.e2e_latency": 0.79,
+    "lk.end_of_turn_delay": 0.35,
+    "lk.generation_id": "gen_bye",
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_bye"
+   },
+   "end": 41.745542,
+   "id": "000000000000003f",
+   "kind": "agent_turn",
+   "name": "agent_turn",
+   "parentId": "0000000000000001",
+   "process": "voice-agent",
+   "start": 39.61675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t12"
+  },
+  {
+   "attributes": {},
+   "end": 40.51675,
+   "id": "0000000000000040",
+   "kind": "llm",
+   "name": "llm_node",
+   "parentId": "000000000000003f",
+   "process": "voice-agent",
+   "start": 39.61675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t12"
+  },
+  {
+   "attributes": {
+    "gen_ai.operation.name": "chat",
+    "gen_ai.provider.name": "openai",
+    "gen_ai.request.model": "gpt-4.1",
+    "gen_ai.usage.input_tokens": 1010,
+    "gen_ai.usage.output_tokens": 38,
+    "lk.pii.chat_ctx": "[{\"role\":\"system\",\"content\":\"Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.\"},{\"role\":\"assistant\",\"content\":\"Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?\"},{\"role\":\"user\",\"content\":\"Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.\"},{\"role\":\"assistant\",\"content\":\"Das tut mir leid. Wie ist Ihr vollständiger Name?\"},{\"role\":\"user\",\"content\":\"Murat Özdemir.\"},{\"role\":\"assistant\",\"content\":\"Danke, Herr Özdemir. Wo ist der Unfall passiert?\"},{\"role\":\"user\",\"content\":\"Das war in der Lindenstraße,\"},{\"role\":\"user\",\"content\":\"Ecke Bahnhofstraße.\"},{\"role\":\"assistant\",\"content\":\"Danke, Lindenstraße\"},{\"role\":\"assistant\",\"content\":\"Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?\"},{\"role\":\"user\",\"content\":\"Nein, zum Glück nicht. Nur die Stoßstange ist kaputt.\"},{\"role\":\"tool_call\",\"content\":\"{\\\"name\\\":\\\"claims.create\\\",\\\"arguments\\\":{\\\"name\\\":\\\"Murat Özdemir\\\",\\\"location\\\":\\\"Lindenstraße / Bahnhofstraße\\\",\\\"injured\\\":false}}\"},{\"role\":\"tool_result\",\"content\":\"{\\\"claim_id\\\":\\\"SM-2026-07731\\\",\\\"upload_link_sent\\\":true}\"},{\"role\":\"assistant\",\"content\":\"Gut zu hören. Ich schicke Ihnen einen Link, über den Sie Fotos vom Schaden hochladen können.\"},{\"role\":\"user\",\"content\":\"Prima, danke.\"}]",
+    "lk.pii.response.text": "Gerne, Herr Özdemir. Alles Gute!",
+    "lk.response.ttft": 0.295
+   },
+   "end": 40.51675,
+   "firstChunk": 39.91675,
+   "id": "0000000000000041",
+   "kind": "llm",
+   "llm": {
+    "messages": [
+     {
+      "content": "Du bist die digitale Assistentin der Hanse Mobil Versicherung. Sag, dass du eine KI bist. Nimm Schadenmeldungen auf: Name, Ort, Verletzte, Fotos.",
+      "role": "system"
+     },
+     {
+      "content": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?",
+      "role": "assistant"
+     },
+     {
+      "content": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall.",
+      "role": "user"
+     },
+     {
+      "content": "Das tut mir leid. Wie ist Ihr vollständiger Name?",
+      "role": "assistant"
+     },
+     {
+      "content": "Murat Özdemir.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Herr Özdemir. Wo ist der Unfall passiert?",
+      "role": "assistant"
+     },
+     {
+      "content": "Das war in der Lindenstraße,",
+      "role": "user"
+     },
+     {
+      "content": "Ecke Bahnhofstraße.",
+      "role": "user"
+     },
+     {
+      "content": "Danke, Lindenstraße",
+      "role": "assistant"
+     },
+     {
+      "content": "Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?",
+      "role": "assistant"
+     },
+     {
+      "content": "Nein, zum Glück nicht. Nur die Stoßstange ist kaputt.",
+      "role": "user"
+     },
+     {
+      "content": "{\"name\":\"claims.create\",\"arguments\":{\"name\":\"Murat Özdemir\",\"location\":\"Lindenstraße / Bahnhofstraße\",\"injured\":false}}",
+      "role": "tool_call"
+     },
+     {
+      "content": "{\"claim_id\":\"SM-2026-07731\",\"upload_link_sent\":true}",
+      "role": "tool_result"
+     },
+     {
+      "content": "Gut zu hören. Ich schicke Ihnen einen Link, über den Sie Fotos vom Schaden hochladen können.",
+      "role": "assistant"
+     },
+     {
+      "content": "Prima, danke.",
+      "role": "user"
+     }
+    ],
+    "model": "gpt-4.1",
+    "output": "Gerne, Herr Özdemir. Alles Gute!"
+   },
+   "name": "llm_request",
+   "parentId": "0000000000000040",
+   "process": "voice-agent",
+   "start": 39.62175,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t12"
+  },
+  {
+   "attributes": {
+    "lk.retry_count": 0
+   },
+   "end": 40.51675,
+   "id": "0000000000000042",
+   "kind": "llm",
+   "name": "llm_request_run",
+   "parentId": "0000000000000041",
+   "process": "voice-agent",
+   "start": 39.62275,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t12"
+  },
+  {
+   "attributes": {},
+   "end": 41.745542,
+   "id": "0000000000000043",
+   "kind": "tts",
+   "name": "tts_node",
+   "parentId": "000000000000003f",
+   "process": "voice-agent",
+   "start": 39.91675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t12"
+  },
+  {
+   "attributes": {
+    "lk.pii.input_text": "Gerne, Herr Özdemir. Alles Gute!",
+    "lk.response.ttfb": 0.14,
+    "lk.tts.label": "cartesia sonic-2 (de)",
+    "lk.tts.streaming": true
+   },
+   "end": 41.745542,
+   "firstChunk": 40.05675,
+   "id": "0000000000000044",
+   "kind": "tts",
+   "name": "tts_request",
+   "parentId": "0000000000000043",
+   "process": "voice-agent",
+   "start": 39.91675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t12"
+  },
+  {
+   "attributes": {
+    "lk.interrupted": false,
+    "lk.speech_id": "speech_bye"
+   },
+   "end": 41.745542,
+   "id": "0000000000000045",
+   "kind": "playout",
+   "name": "agent_speaking",
+   "parentId": "000000000000003f",
+   "process": "voice-agent",
+   "start": 40.05675,
+   "status": {
+    "code": "unset"
+   },
+   "traceId": "000000000000000000000000f4501f61",
+   "turnId": "t12"
+  }
+ ],
+ "turns": [
+  {
+   "channel": "agent",
+   "end": 5.49775,
+   "id": "t0",
+   "latency": {
+    "ttsTtfb": 0.35
+   },
+   "speechId": "speech_greeting",
+   "start": 0.4,
+   "text": "Hanse Mobil Versicherung, hier spricht Ihre digitale Assistentin. Ich bin eine KI. Möchten Sie einen Schaden melden?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.931,
+   "end": 9.932833,
+   "id": "t1",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 6.19775,
+   "text": "Ja, ich hatte heute Morgen einen kleinen Auffahrunfall."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 13.164208,
+   "id": "t2",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t1",
+   "speechId": "speech_ask-name",
+   "start": 10.722833,
+   "text": "Das tut mir leid. Wie ist Ihr vollständiger Name?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.65,
+   "end": 15.029958,
+   "id": "t3",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 13.764208,
+   "text": "Murat Özdemir."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 18.382667,
+   "id": "t4",
+   "latency": {
+    "e2e": 0.77,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.275,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t3",
+   "speechId": "speech_ask-where",
+   "start": 15.799958,
+   "text": "Danke, Herr Özdemir. Wo ist der Unfall passiert?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.938,
+   "end": 20.866042,
+   "id": "t5",
+   "latency": {
+    "endOfTurn": 0.3,
+    "transcription": 0.18
+   },
+   "start": 18.982667,
+   "text": "Das war in der Lindenstraße,"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.93,
+   "end": 22.921208,
+   "id": "t6",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 21.466042,
+   "text": "Ecke Bahnhofstraße."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 22.056042,
+   "id": "t7",
+   "interrupted": {
+    "at": 22.056042
+   },
+   "latency": {
+    "e2e": 0.69,
+    "endOfTurn": 0.3,
+    "llmTtft": 0.245,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t5",
+   "speechId": "speech_noted",
+   "start": 21.556042,
+   "text": "Danke, Lindenstraße ist notiert. Gab es Verletzte?"
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 28.415083,
+   "id": "t8",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t6",
+   "speechId": "speech_sorry",
+   "start": 23.711208,
+   "text": "Entschuldigung. Also Lindenstraße Ecke Bahnhofstraße. Gab es Verletzte?"
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.942,
+   "end": 32.7065,
+   "id": "t9",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 29.015083,
+   "text": "Nein, zum Glück nicht. Nur die Stoßstange ist kaputt."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 37.635833,
+   "id": "t10",
+   "latency": {
+    "e2e": 1.29,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.245,
+    "tool": 0.35,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t9",
+   "speechId": "speech_photos",
+   "start": 33.9965,
+   "text": "Gut zu hören. Ich schicke Ihnen einen Link, über den Sie Fotos vom Schaden hochladen können."
+  },
+  {
+   "channel": "caller",
+   "confidence": 0.905,
+   "end": 39.26675,
+   "id": "t11",
+   "latency": {
+    "endOfTurn": 0.35,
+    "transcription": 0.18
+   },
+   "start": 38.235833,
+   "text": "Prima, danke."
+  },
+  {
+   "channel": "agent",
+   "context": {
+    "model": "gpt-4.1"
+   },
+   "end": 41.745542,
+   "id": "t12",
+   "latency": {
+    "e2e": 0.79,
+    "endOfTurn": 0.35,
+    "llmTtft": 0.295,
+    "ttsTtfb": 0.14
+   },
+   "replyTo": "t11",
+   "speechId": "speech_bye",
+   "start": 40.05675,
+   "text": "Gerne, Herr Özdemir. Alles Gute!"
+  }
+ ],
+ "version": 1,
+ "words": [
+  {
+   "channel": "agent",
+   "end": 0.6352807692307691,
+   "estimated": true,
+   "heard": true,
+   "id": "w0",
+   "source": "tts",
+   "start": 0.4,
+   "text": "Hanse",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 0.8967038461538461,
+   "estimated": true,
+   "heard": true,
+   "id": "w1",
+   "source": "tts",
+   "start": 0.6614230769230769,
+   "text": "Mobil",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.4718346153846154,
+   "estimated": true,
+   "heard": true,
+   "id": "w2",
+   "source": "tts",
+   "start": 0.9228461538461538,
+   "text": "Versicherung,",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 1.728900641025641,
+   "estimated": true,
+   "heard": true,
+   "id": "w3",
+   "source": "tts",
+   "start": 1.5328333333333333,
+   "text": "hier",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.06439358974359,
+   "estimated": true,
+   "heard": true,
+   "id": "w4",
+   "source": "tts",
+   "start": 1.7506858974358974,
+   "text": "spricht",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.295317307692308,
+   "estimated": true,
+   "heard": true,
+   "id": "w5",
+   "source": "tts",
+   "start": 2.09925,
+   "text": "Ihre",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 2.670023717948718,
+   "estimated": true,
+   "heard": true,
+   "id": "w6",
+   "source": "tts",
+   "start": 2.317102564102564,
+   "text": "digitale",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.219012179487179,
+   "estimated": true,
+   "heard": true,
+   "id": "w7",
+   "source": "tts",
+   "start": 2.7092371794871792,
+   "text": "Assistentin.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.432507692307692,
+   "estimated": true,
+   "heard": true,
+   "id": "w8",
+   "source": "tts",
+   "start": 3.275653846153846,
+   "text": "Ich",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.606789743589743,
+   "estimated": true,
+   "heard": true,
+   "id": "w9",
+   "source": "tts",
+   "start": 3.449935897435897,
+   "text": "bin",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.8202852564102563,
+   "estimated": true,
+   "heard": true,
+   "id": "w10",
+   "source": "tts",
+   "start": 3.6242179487179484,
+   "text": "eine",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 3.9989243589743584,
+   "estimated": true,
+   "heard": true,
+   "id": "w11",
+   "source": "tts",
+   "start": 3.8420705128205124,
+   "text": "KI.",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.330060256410255,
+   "estimated": true,
+   "heard": true,
+   "id": "w12",
+   "source": "tts",
+   "start": 4.016352564102563,
+   "text": "Möchten",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.521770512820512,
+   "estimated": true,
+   "heard": true,
+   "id": "w13",
+   "source": "tts",
+   "start": 4.364916666666666,
+   "text": "Sie",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 4.7744794871794864,
+   "estimated": true,
+   "heard": true,
+   "id": "w14",
+   "source": "tts",
+   "start": 4.539198717948717,
+   "text": "einen",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.114329487179486,
+   "estimated": true,
+   "heard": true,
+   "id": "w15",
+   "source": "tts",
+   "start": 4.800621794871794,
+   "text": "Schaden",
+   "turnId": "t0"
+  },
+  {
+   "channel": "agent",
+   "end": 5.462893589743588,
+   "estimated": true,
+   "heard": true,
+   "id": "w16",
+   "source": "tts",
+   "start": 5.149185897435896,
+   "text": "melden?",
+   "turnId": "t0"
+  },
+  {
+   "channel": "caller",
+   "end": 6.437862478571429,
+   "estimated": true,
+   "id": "w17",
+   "source": "streaming_asr",
+   "start": 6.19775,
+   "text": "Ja,",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 6.704654121428572,
+   "estimated": true,
+   "id": "w18",
+   "source": "streaming_asr",
+   "start": 6.464541642857143,
+   "text": "ich",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 7.09150200357143,
+   "estimated": true,
+   "id": "w19",
+   "source": "streaming_asr",
+   "start": 6.731333285714286,
+   "text": "hatte",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 7.491689467857144,
+   "estimated": true,
+   "id": "w20",
+   "source": "streaming_asr",
+   "start": 7.131520750000001,
+   "text": "heute",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 7.951905051785715,
+   "estimated": true,
+   "id": "w21",
+   "source": "streaming_asr",
+   "start": 7.5317082142857155,
+   "text": "Morgen",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 8.35876230714286,
+   "estimated": true,
+   "id": "w22",
+   "source": "streaming_asr",
+   "start": 7.998593589285716,
+   "text": "einen",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 8.879006010714287,
+   "estimated": true,
+   "id": "w23",
+   "source": "streaming_asr",
+   "start": 8.39878105357143,
+   "text": "kleinen",
+   "turnId": "t1"
+  },
+  {
+   "channel": "caller",
+   "end": 9.832786133928574,
+   "estimated": true,
+   "id": "w24",
+   "source": "streaming_asr",
+   "start": 8.932364339285716,
+   "text": "Auffahrunfall.",
+   "turnId": "t1"
+  },
+  {
+   "channel": "agent",
+   "end": 10.898612,
+   "estimated": true,
+   "heard": true,
+   "id": "w25",
+   "source": "tts",
+   "start": 10.722833,
+   "text": "Das",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.093922,
+   "estimated": true,
+   "heard": true,
+   "id": "w26",
+   "source": "tts",
+   "start": 10.918142999999999,
+   "text": "tut",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.289231999999998,
+   "estimated": true,
+   "heard": true,
+   "id": "w27",
+   "source": "tts",
+   "start": 11.113452999999998,
+   "text": "mir",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.572431499999997,
+   "estimated": true,
+   "heard": true,
+   "id": "w28",
+   "source": "tts",
+   "start": 11.308762999999997,
+   "text": "leid.",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.777506999999998,
+   "estimated": true,
+   "heard": true,
+   "id": "w29",
+   "source": "tts",
+   "start": 11.601727999999998,
+   "text": "Wie",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 11.972816999999997,
+   "estimated": true,
+   "heard": true,
+   "id": "w30",
+   "source": "tts",
+   "start": 11.797037999999997,
+   "text": "ist",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.168126999999997,
+   "estimated": true,
+   "heard": true,
+   "id": "w31",
+   "source": "tts",
+   "start": 11.992347999999996,
+   "text": "Ihr",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 12.802884499999996,
+   "estimated": true,
+   "heard": true,
+   "id": "w32",
+   "source": "tts",
+   "start": 12.187657999999995,
+   "text": "vollständiger",
+   "turnId": "t2"
+  },
+  {
+   "channel": "agent",
+   "end": 13.134911499999996,
+   "estimated": true,
+   "heard": true,
+   "id": "w33",
+   "source": "tts",
+   "start": 12.871242999999996,
+   "text": "Name?",
+   "turnId": "t2"
+  },
+  {
+   "channel": "caller",
+   "end": 14.219878,
+   "estimated": true,
+   "id": "w34",
+   "source": "streaming_asr",
+   "start": 13.764208,
+   "text": "Murat",
+   "turnId": "t3"
+  },
+  {
+   "channel": "caller",
+   "end": 14.954013,
+   "estimated": true,
+   "id": "w35",
+   "source": "streaming_asr",
+   "start": 14.270508,
+   "text": "Özdemir.",
+   "turnId": "t3"
+  },
+  {
+   "channel": "agent",
+   "end": 16.132020585714287,
+   "estimated": true,
+   "heard": true,
+   "id": "w36",
+   "source": "tts",
+   "start": 15.799958,
+   "text": "Danke,",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 16.40610398979592,
+   "estimated": true,
+   "heard": true,
+   "id": "w37",
+   "source": "tts",
+   "start": 16.16891642857143,
+   "text": "Herr",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 16.859395773469387,
+   "estimated": true,
+   "heard": true,
+   "id": "w38",
+   "source": "tts",
+   "start": 16.432458163265306,
+   "text": "Özdemir.",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.049145822448978,
+   "estimated": true,
+   "heard": true,
+   "id": "w39",
+   "source": "tts",
+   "start": 16.906833285714285,
+   "text": "Wo",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.2547083755102,
+   "estimated": true,
+   "heard": true,
+   "id": "w40",
+   "source": "tts",
+   "start": 17.06495832653061,
+   "text": "ist",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.465541763265303,
+   "estimated": true,
+   "heard": true,
+   "id": "w41",
+   "source": "tts",
+   "start": 17.275791714285713,
+   "text": "der",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 17.8186876877551,
+   "estimated": true,
+   "heard": true,
+   "id": "w42",
+   "source": "tts",
+   "start": 17.486625102040815,
+   "text": "Unfall",
+   "turnId": "t4"
+  },
+  {
+   "channel": "agent",
+   "end": 18.329958653061222,
+   "estimated": true,
+   "heard": true,
+   "id": "w43",
+   "source": "tts",
+   "start": 17.855583530612243,
+   "text": "passiert?",
+   "turnId": "t4"
+  },
+  {
+   "channel": "caller",
+   "end": 19.216465275862067,
+   "estimated": true,
+   "id": "w44",
+   "source": "streaming_asr",
+   "start": 18.982667,
+   "text": "Das",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 19.476241137931034,
+   "estimated": true,
+   "id": "w45",
+   "source": "streaming_asr",
+   "start": 19.242442862068966,
+   "text": "war",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 19.677567431034486,
+   "estimated": true,
+   "id": "w46",
+   "source": "streaming_asr",
+   "start": 19.502218724137933,
+   "text": "in",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 19.930848896551726,
+   "estimated": true,
+   "id": "w47",
+   "source": "streaming_asr",
+   "start": 19.69705062068966,
+   "text": "der",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 20.775120448275867,
+   "estimated": true,
+   "id": "w48",
+   "source": "streaming_asr",
+   "start": 19.956826482758625,
+   "text": "Lindenstraße,",
+   "turnId": "t5"
+  },
+  {
+   "channel": "caller",
+   "end": 21.79345435,
+   "estimated": true,
+   "id": "w49",
+   "source": "streaming_asr",
+   "start": 21.466042,
+   "text": "Ecke",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 21.957512588235296,
+   "estimated": true,
+   "heard": true,
+   "id": "w50",
+   "source": "tts",
+   "start": 21.556042,
+   "text": "Danke,",
+   "turnId": "t7"
+  },
+  {
+   "channel": "caller",
+   "end": 22.812070549999998,
+   "estimated": true,
+   "id": "w51",
+   "source": "streaming_asr",
+   "start": 21.8298335,
+   "text": "Bahnhofstraße.",
+   "turnId": "t6"
+  },
+  {
+   "channel": "agent",
+   "end": 22.747708666666668,
+   "estimated": true,
+   "heard": true,
+   "id": "w52",
+   "source": "tts",
+   "start": 22.00212043137255,
+   "text": "Lindenstraße",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 23.059963568627452,
+   "estimated": true,
+   "heard": false,
+   "id": "w53",
+   "source": "tts",
+   "start": 22.83055180392157,
+   "text": "ist",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 23.601630235294117,
+   "estimated": true,
+   "heard": false,
+   "id": "w54",
+   "source": "tts",
+   "start": 23.085453764705882,
+   "text": "notiert.",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 23.88839494117647,
+   "estimated": true,
+   "heard": false,
+   "id": "w55",
+   "source": "tts",
+   "start": 23.65898317647059,
+   "text": "Gab",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 24.651982999999998,
+   "estimated": true,
+   "heard": true,
+   "id": "w56",
+   "source": "tts",
+   "start": 23.711208,
+   "text": "Entschuldigung.",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 24.085943960784313,
+   "estimated": true,
+   "heard": false,
+   "id": "w57",
+   "source": "tts",
+   "start": 23.9138851372549,
+   "text": "es",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 24.735943960784315,
+   "estimated": true,
+   "heard": false,
+   "id": "w58",
+   "source": "tts",
+   "start": 24.105061607843137,
+   "text": "Verletzte?",
+   "turnId": "t7"
+  },
+  {
+   "channel": "agent",
+   "end": 25.050505743055552,
+   "estimated": true,
+   "heard": true,
+   "id": "w59",
+   "source": "tts",
+   "start": 24.756513555555554,
+   "text": "Also",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 25.847551229166665,
+   "estimated": true,
+   "heard": true,
+   "id": "w60",
+   "source": "tts",
+   "start": 25.083171541666665,
+   "text": "Lindenstraße",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 26.22647449305555,
+   "estimated": true,
+   "heard": true,
+   "id": "w61",
+   "source": "tts",
+   "start": 25.932482305555553,
+   "text": "Ecke",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 27.141116854166665,
+   "estimated": true,
+   "heard": true,
+   "id": "w62",
+   "source": "tts",
+   "start": 26.259140291666665,
+   "text": "Bahnhofstraße.",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 27.474307999999997,
+   "estimated": true,
+   "heard": true,
+   "id": "w63",
+   "source": "tts",
+   "start": 27.239114249999997,
+   "text": "Gab",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 27.676835951388885,
+   "estimated": true,
+   "heard": true,
+   "id": "w64",
+   "source": "tts",
+   "start": 27.500440638888886,
+   "text": "es",
+   "turnId": "t8"
+  },
+  {
+   "channel": "agent",
+   "end": 28.343218243055553,
+   "estimated": true,
+   "heard": true,
+   "id": "w65",
+   "source": "tts",
+   "start": 27.696435430555553,
+   "text": "Verletzte?",
+   "turnId": "t8"
+  },
+  {
+   "channel": "caller",
+   "end": 29.3842247,
+   "estimated": true,
+   "id": "w66",
+   "source": "streaming_asr",
+   "start": 29.015083,
+   "text": "Nein,",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 29.67133491111111,
+   "estimated": true,
+   "id": "w67",
+   "source": "streaming_asr",
+   "start": 29.425240444444444,
+   "text": "zum",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 30.06782044074074,
+   "estimated": true,
+   "id": "w68",
+   "source": "streaming_asr",
+   "start": 29.69867874074074,
+   "text": "Glück",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 30.53950150185185,
+   "estimated": true,
+   "id": "w69",
+   "source": "streaming_asr",
+   "start": 30.108836185185183,
+   "text": "nicht.",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 30.833447670370365,
+   "estimated": true,
+   "id": "w70",
+   "source": "streaming_asr",
+   "start": 30.5873532037037,
+   "text": "Nur",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 31.10688596666666,
+   "estimated": true,
+   "id": "w71",
+   "source": "streaming_asr",
+   "start": 30.860791499999994,
+   "text": "die",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 31.81098957962962,
+   "estimated": true,
+   "id": "w72",
+   "source": "streaming_asr",
+   "start": 31.13422979629629,
+   "text": "Stoßstange",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 32.13227957777777,
+   "estimated": true,
+   "id": "w73",
+   "source": "streaming_asr",
+   "start": 31.886185111111104,
+   "text": "ist",
+   "turnId": "t9"
+  },
+  {
+   "channel": "caller",
+   "end": 32.65181234074073,
+   "estimated": true,
+   "id": "w74",
+   "source": "streaming_asr",
+   "start": 32.1596234074074,
+   "text": "kaputt.",
+   "turnId": "t9"
+  },
+  {
+   "channel": "agent",
+   "end": 34.13737740645161,
+   "estimated": true,
+   "heard": true,
+   "id": "w75",
+   "source": "tts",
+   "start": 33.9965,
+   "text": "Gut",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 34.25868850645161,
+   "estimated": true,
+   "heard": true,
+   "id": "w76",
+   "source": "tts",
+   "start": 34.1530304516129,
+   "text": "zu",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 34.5169637516129,
+   "estimated": true,
+   "heard": true,
+   "id": "w77",
+   "source": "tts",
+   "start": 34.27042829032258,
+   "text": "hören.",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 34.68523398709677,
+   "estimated": true,
+   "heard": true,
+   "id": "w78",
+   "source": "tts",
+   "start": 34.54435658064516,
+   "text": "Ich",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 34.98264184516128,
+   "estimated": true,
+   "heard": true,
+   "id": "w79",
+   "source": "tts",
+   "start": 34.70088703225806,
+   "text": "schicke",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 35.22526404516128,
+   "estimated": true,
+   "heard": true,
+   "id": "w80",
+   "source": "tts",
+   "start": 35.01394793548386,
+   "text": "Ihnen",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 35.46005972258064,
+   "estimated": true,
+   "heard": true,
+   "id": "w81",
+   "source": "tts",
+   "start": 35.24874361290322,
+   "text": "einen",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 35.694855399999994,
+   "estimated": true,
+   "heard": true,
+   "id": "w82",
+   "source": "tts",
+   "start": 35.483539290322575,
+   "text": "Link,",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 35.89443172580645,
+   "estimated": true,
+   "heard": true,
+   "id": "w83",
+   "source": "tts",
+   "start": 35.71833496774193,
+   "text": "über",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 36.05487543870968,
+   "estimated": true,
+   "heard": true,
+   "id": "w84",
+   "source": "tts",
+   "start": 35.913998032258064,
+   "text": "den",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 36.21140589032258,
+   "estimated": true,
+   "heard": true,
+   "id": "w85",
+   "source": "tts",
+   "start": 36.070528483870966,
+   "text": "Sie",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 36.43837504516129,
+   "estimated": true,
+   "heard": true,
+   "id": "w86",
+   "source": "tts",
+   "start": 36.22705893548387,
+   "text": "Fotos",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 36.60273201935484,
+   "estimated": true,
+   "heard": true,
+   "id": "w87",
+   "source": "tts",
+   "start": 36.461854612903224,
+   "text": "vom",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 36.90013987741935,
+   "estimated": true,
+   "heard": true,
+   "id": "w88",
+   "source": "tts",
+   "start": 36.618385064516126,
+   "text": "Schaden",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 37.283639483870964,
+   "estimated": true,
+   "heard": true,
+   "id": "w89",
+   "source": "tts",
+   "start": 36.93144596774193,
+   "text": "hochladen",
+   "turnId": "t10"
+  },
+  {
+   "channel": "agent",
+   "end": 37.60452690967741,
+   "estimated": true,
+   "heard": true,
+   "id": "w90",
+   "source": "tts",
+   "start": 37.32277209677419,
+   "text": "können.",
+   "turnId": "t10"
+  },
+  {
+   "channel": "caller",
+   "end": 38.69974565,
+   "estimated": true,
+   "id": "w91",
+   "source": "streaming_asr",
+   "start": 38.235833,
+   "text": "Prima,",
+   "turnId": "t11"
+  },
+  {
+   "channel": "caller",
+   "end": 39.215204150000005,
+   "estimated": true,
+   "id": "w92",
+   "source": "streaming_asr",
+   "start": 38.7512915,
+   "text": "danke.",
+   "turnId": "t11"
+  },
+  {
+   "channel": "agent",
+   "end": 40.37915574545455,
+   "estimated": true,
+   "heard": true,
+   "id": "w93",
+   "source": "tts",
+   "start": 40.05675,
+   "text": "Gerne,",
+   "turnId": "t12"
+  },
+  {
+   "channel": "agent",
+   "end": 40.645268424242424,
+   "estimated": true,
+   "heard": true,
+   "id": "w94",
+   "source": "tts",
+   "start": 40.41497860606061,
+   "text": "Herr",
+   "turnId": "t12"
+  },
+  {
+   "channel": "agent",
+   "end": 41.085377854545456,
+   "estimated": true,
+   "heard": true,
+   "id": "w95",
+   "source": "tts",
+   "start": 40.67085618181818,
+   "text": "Özdemir.",
+   "turnId": "t12"
+  },
+  {
+   "channel": "agent",
+   "end": 41.407783599999995,
+   "estimated": true,
+   "heard": true,
+   "id": "w96",
+   "source": "tts",
+   "start": 41.131435818181814,
+   "text": "Alles",
+   "turnId": "t12"
+  },
+  {
+   "channel": "agent",
+   "end": 41.71483669090909,
+   "estimated": true,
+   "heard": true,
+   "id": "w97",
+   "source": "tts",
+   "start": 41.43848890909091,
+   "text": "Gute!",
+   "turnId": "t12"
+  }
+ ]
+}

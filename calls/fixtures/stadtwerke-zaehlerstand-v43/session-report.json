@@ -1,0 +1,19 @@
+{
+ "room": "stadtwerke-zaehlerstand-v43",
+ "job_id": "AJ_000000000000",
+ "sdk_version": "1.8.3",
+ "audio_recording_started_at": 1790437338,
+ "started_at": 1790437336.8,
+ "events": [
+  {
+   "type": "disclosure",
+   "created_at": 1790437338.4,
+   "text": "Ich bin eine KI."
+  },
+  {
+   "type": "consent",
+   "created_at": 1790437347.3512084,
+   "granted": true
+  }
+ ]
+}

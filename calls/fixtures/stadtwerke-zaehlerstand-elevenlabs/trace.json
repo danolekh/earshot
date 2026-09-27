@@ -1,0 +1,2381 @@
+{
+ "version": 1,
+ "call": {
+  "id": "stadtwerke-zaehlerstand-elevenlabs",
+  "startedAt": "2026-09-24T09:14:02.000Z",
+  "duration": 56.911,
+  "direction": "outbound",
+  "language": "de-DE",
+  "outcome": {
+   "goal": "Zählerstand erfasst",
+   "achieved": true,
+   "meter_reading_submitted": true,
+   "customer_id": "471083",
+   "reading_kwh": 1243,
+   "id_attempts": 3
+  },
+  "versions": {
+   "agent": "stadtwerke-outbound v42",
+   "prompt": "zaehlerstand@7"
+  },
+  "title": "Stadtwerke Muster · Zählerstand",
+  "consent": "granted",
+  "synthetic": true,
+  "provider": "elevenlabs"
+ },
+ "clock": {
+  "t0UnixMs": 1790241242000,
+  "channels": [
+   "mixed"
+  ],
+  "tolerance": 0.1
+ },
+ "audio": {
+  "sources": [
+   {
+    "src": "/calls/stadtwerke-zaehlerstand-elevenlabs/call.mp3",
+    "type": "audio/mpeg"
+   }
+  ],
+  "peaks": {
+   "mixed": {
+    "rate": 200,
+    "min": "//////8A/wD////+/v7+/v7//v7+/v///v7+/v/+//7+/v7+/v7+/v7//v///////v7///7+/////wD///7///7+/////////////wD//v/+//7////+9/Hn8OTf5N/06Pn49vz6/Pz8/v79/fz+9vfv8+jo6Oj77PTx9Pz6/Pv6+tWs5u31+Pr69vTr6t/j1c3mwszf0O/K8Nbx1/Hf9eD04fT46vr4/P39/f/+///+/v7//vf8/P39/Pv6+vz8+/z8/Pv8/fz+/f78/f39/f79/PP17fjr8tzY2eLv7PDy8/ny9fX9/vz19PXz8Pb18+zx7Onn9/n//v7//v/////+9+3t6fDm793V8Nb04ffu+vb9+P74/fr9/P79//7o6efe0svdzdXf4+fk5+rs8PP09frz+Pr37eDf49zg4uj19PL1+fr8+/v6vbDo6vf6+Pj29/D19fLr7urm4t/b0dLJ19vW1NfT1dXV083J093c2NXX1dfXxNvSy9vW6/X76vj5/Pv24OTw28Xn4tzl6u3t7ufo6eTg4PL09evf3+rd3+3k5ubi2dzl+fj8/fz+/f7+/v/35eT69+7p1NPP9czQ3M/U19jf593g9uTu8Pb6+v79+dPq+frk0dLOztrR5d3k+OP35/Lo7uz4+f378u3hzu3R483xyO7J7Nbm6Oz08fby7e/u6eXn6+7w9vv+/v79/v79/fXp9fHW4O/Qw+PXze7W2+Ht6vX5/f39///+/////f7////////8/unW19Ta4s/T8czW6NHQ7tHT8ODt+vv8/f7+/v7+/v37/vr14vvi5ODm/un15vXj9OP14vPg4+Dh+N/i4+vk39vX2djX3ubv8/Lv8PPx8PLs8u/v7vr+//79/f7+//7s4/T16OTQ5Nno6O7t9frs+P388/3+/v/4/f7++/36/v7+/P39/v7//v7///7//v7////////////////////+/Pv06NXH1srN3OXk6/Dw9PTv7ePt6PL49/7//v79/wD////+//z67dLY1tPP1dnm6unm4+Dh4ujw6/nq7vn4+v/0+vD0/eTp6OHg3fLZ1tv54OLh4eLk6+Pc3N7b4/Py+fn6/f3+/f39/f7////98vf4+vz39/n3+vr6+fn6+Pv46+HU3s3Ny9zK9MnR9Njy4ffp+ejr/fH9/vz++vr//v3+/v7+/v7+//8AAP//////AP/+/v7+///+9vrt+dDp0PDN6sHYzMj01dbk3unw8Pb6/f3+/f37+/zx59jY2+Li7erk3/v9/f7+/v79+uzh7O7Tx8fWx8nT3uPt5eDm1NzU1/D8/P7+/vv6/vz9/fLi3OHn4+bq5+nk0N3m5fP4+/7+/v///v39/v/+/v7///z8/v753+HIx8HLxc7Uz9LV19DN1dTa4Ofr7/X5+/39/v7+/v3+/Pvz6NvM6/r67t/a2vPq+f37//7//v/////+/Pz8/fz8/f79/P39/Pbv3N3p1dfZ2+nj8O329PLx5t3s1e/i8fL1+Pf++f/9/f7+///57tzn9fn6+/z778rQ0dDQ09HS2uHk6e/2+/78/Pz9/Pz9+/Xz8/X59e/i4eDd4OHr4Ovl5+zr6Ovs8fj489r52uXq6vr3/fz9/fnz7Ozs+e777/fx8vHz8vL08fbz9vbz+Pr9/f3+/P79+vL58vPk6uHZ2+Dc2trr7fH2+fr7+/v0+Pf4+/7+/v/+/v7+/vz69uzg3urp9/n55+LWzc7Z2t7d4OPm4+Xg4+fr6urp6+rs7e3x9PPy7+ny+f3+/////vz48Ovm4+Lg3Nve3+Hi5efo7fDw8PHw8vP09fT29/n7+/7+///+/v//AAAA//8A//7+//7+/v7+/v/+/v////////7+/v///v///v////7+/f/+//////8A/////////v/+/v3+/v3+/v////7+//7///7////////+/v7+//////7//////////v///v7///8A////////////AAD/AP8A//////8A//////////7///7+/v///////fPn8NzR4s/F38zV6eDW4M7l2+3g8Oz07/jx7fXz/Pn9+vz9/f7+/f3+/v7+/v7////////////+//7/AP7+/v7//////////v////7+///////////////////////+8vz03MDhw77JztfT3+ft8/Hz9Pz7/f39/v/+/v7//v7+/v7/////////////////AP/+//7+/ffk7PXv7/Dx8/f4+Pr8/Pz9/P3+/f3+/////v7+/////////////v7+/v7+//7//v////////8A//3+9ebe8+Pv7urq7Ovs7/Dy9/X4/vv8/fz3+/z9/v7+/v338Pjz4PDg89r02vTZ+Nr32PXc8d/u6PXu9u/9/f/+AP8AAP8A//////8A//////////////76//H79fry+PT69/z2/Pf9+f37+/v7/Pv//P/8//z//v/+//3+/v7+//////////7////////+/v7+/v7////+/v/+///////////+//7///////////8A/////////v///v////8AAP///v/////+/v/+/v7//v7///7+/v/+/v///v4A//7///7+/v//////////AP///v7+//7//v7+/////////v7///7+/v7+/////v/+/v7///////7+//////////////8AAAAAAAAAAP8A//7+//////8AAP///////v////ns8d/L6rnhw7np49/n5+fm5+Pn5ebm7Ovv8vX5+fv7/Pz8/PX9+f799fTs8u3v7u3y8PX09/P48/n28fn1/Pj++Pr49/j3+Pj7+v7//v/+/v/+///+/v/////+//7+/v7+/v///v7+///+/v7+/v39/v7+/v7+//7+/v7+/v7+/v7//v///f/+/f////7//////wD//Ofh4Ozr8/Xz9/T28u/o7O38//7+/v8AAP//9uv08+HXz9TS1tfa2uHi9vP0/P356erw9unU2uPu8Onl4+Lk4+bk5+ns6/Pz9/37/v/9//nx9fXq9e3o3MzL1NrQ2ufy9PP4/vb9+/z6893W2trY2djY2trg6PH6+f39+v38+vXt5uPt6+/z8/j8/fvv2uvY1OnV2Nvd19rs2+Hr8+fq6ebg5PDe2+He0OTRzevd4PXn8/Hw8c/c2uXj5Nvs9fv8/P7+/v3++/v19Orv+On0+Ov39vD39fT5/Pf3+v73+PPz9vj4+/r+/Pr89enq6/P3+vz8/////wD////////////////39/j6+fr4+dnOzcfT5uDd3t3b29fU2Nna2dnY3Nvg3t/j5OXj5uXf5+Du7uvs6+fm5OXk6Ovi3+Dg4ODg4N7c3NvY1tfU1tTR0tbb9PT1+f3+/Pz8/Pfmyb++vsDE0ejz+Pn8+/z8/fz179fo+fXr9fXq+Pv3/fL48vjs8uvh2eTe1uDt7fL1+vf6/fv9/O/i3uHv7/n5+/r7/P39/f7++vz+/v38+f39+vHe2dza2Nnj5uDg4uTm6vH3+/7//v7+/v4A//7+//////776OTi39zb2uDc2trY2NXX4eHZ2tze4ODi5NjZ5uDi3eHl4eHf5eLq3/Le3eXf4t/Z3N7f3tzd2tvz2dzy3uTj5ePi4N/i4+Xj4uPg3eHm5uvu8uro6+7z9Pb39/r6+/7+/f79//7+/v7+/v///////////v7//v/+/v7+/v/+/////v7//////////v7//////v7////+/////wAA/////wAA///+/v7+//7+//////////7+//7//v///v8A//////8A////AP7///////7///////8A//7///7///7///8A//8A//7///7+/PHi6tro2M/u1dnY5s7V2tff4+no5+nr8ezw8vLz9Pb49vf48/r2/fr8/P78/v39/v7//v/+/v///v7+/////////v/+//////////8A/wD///////8A/////////v7+//7////+/v7+/v7//v7++/z+/vz59PLv+e3t+e/w9vHv9fz9+vn///7+/vz9/vr2/P3y9u/x9/j8+/z9/Pz9/f7+//////7//v/+//8A//f9/P77/f39//7//////////v7//v37+/z+/v7+/fv39fTz8vDx8O7u7Orm5OHe3tjU0tTV2dja3+Hj5uvq7vT6+/v9/v7+/v7+/v7+/v7+/v7////+9+zt7Onu6Oj05+f06Of39/z5+v38//39/Pv++ezv5fbj4/ji5Ozn8ufp9u749vb5+/3+8Pj8/f7+/vz67fbj9Nzq1+/c7On07fTv8vP29PX19vT79vv3+/b8+Pz2/Pf89/z5/Pv7/v3//v78/v8A///+///+/v3+/v7//////v7+/v7+/v7+/v/+/v7+///+//////7+/v///wD/AAD/AP////7+/v7//v////7+/v7+/v3+/v7+/v///////v/+/////wD///////////////4AAP///v7////////+/v7+/v///////v7////////////////////////////+/////wAAAP32/PL58Prx+vDr6+T25fbi9N3V59Pe1d7M3sfyy9H33und6OXn2ufr8OHr5u3q6+zv8fLy9vX29Pz7+O/34/b7++r5+v39/v7////+//////7//fzs9fH3/PX9+Pr46vv23efuye7Sz9/Z49nt9vX69fr6+/v79/r7/Pn8/P38/P79/v39/f79/f7//v/+/v7///7///7+/vX7/P3//v///////wD/AP/////////+//8A/////f3y/fDz4ezl5PT4/fz++/ry+uP63fbh9ej56vrv+e368frx/PL68vjs8/vu+/H79f70/vn3/fb79/z4/fr7/vv+/P/9/v7+//7//v8AAAD//////////v///////////wD//wD/AAAA//8A////AP8A///+AP7///////7+/v7+/v7+/f7+/v7+/v3+///+//7+///+///+/////////////////v7+/v7+/v7//v/////+/////v//AP/////+//7+/v////////////7//////wAA/////v///v7+//////////3+/v7//////////v////////8A///+/v7+//7+//////v9/v757PPf4N3Uz9DW3Nve4OHg5vL59fXqzNPK0eXq8Pb1+vn79+Pc3N7g4uPk5ePg393d5uDl9O/v8vHp5uTj397h397g4efx+Pn39wD57evQ7MrRxMXf3+7f3uzk8+r27vb09fT19Pb39Pbz9vT49/r4+v79/vz+/////v/6/P3/6vzw7uvm4uHl8Pn3+PL39/X39/X1+PT6+Pr069bGzdXe4ePj4uPk3NvZ7Ozs7u3s7vL07+PT0tjg4+jp8u/y8O/x3tHi5eXl4NTZ3PPg3vfa+dvZ2tXo0tnj5OTj8Ovt8fL7/vzw8Pf6+Obb2NXp9PX2/Pv7/f3///////r07d3Z79ju1ujU6/P+9vr0/Pv6+vv6+/v7+/39/f79/vz9+fz6/f0A+/3+/vj//v79+Pr8/Pz+/P/+////////AP/+/v/+/v7+/v7+/f3+/v7+//7//////wD+//729/X09vXz8/Xy8/T08vTu19HZ2dra4Nja3dvd2Nfb2dzi6ev08O/u7u/u7ufW0ODa2dfb1dLOz9bW1tfX19ne39/n9PT29PX28e/q5ebj4t3g4ODe39/c4OLh3+Hh4uLl4+Pj3NbW3OTj5+Ti5Ovj5eXj8uPd1vbd3tzr3t7w4N/k7uXl9OPi2t3a4O7m6/fz+/v7/f3+/P38/f7+/v/+/v329urt6uvp6O3j9tzl4NvX6uHz6/Hs7/rw9/f28/b9+/r6/fz7/v38/v///f7+/v///////////////v////7+//3+///+/v7+/////v7//////////v7+//3+/v7+//7+/v/+/v///wAA///////////+/v/+/wD//v//AP///////v/+///+/v7///////////////////7//v7/////AP/////////+//7+/v7//v7+/v7+/v/9/v79/Pz9/Pv7/f7++fX79vDy8fnx8fnx7+/t7Onu5uTj4uPh4ODf5ODh4uLn5efo7+vy9fb39vn9+fz+/f7+////AP///v79/v7+/fnz+u/t9+zq6+nz6en0+f75+vz7/vv+/fz8+fbj7drx8+vr7Pvr6uvt+vH29/39/v3+/v7+/////////f/9/fv59/by8u/08Pfx9vL48fny+vD47vjv+PL39Pbw9vD68fLz8vvw+/Dv7+777/H28fP19Pb4+Pr6/v7//v3//v7+/f7+/v7+/v79/v7+/v79/v7+/v////7///7////+/v7+///+/v7+//7+//7+/v///v////7+/v/69ff0/PT79fv1/PT98/309eXj8+Hy3+Dk2OnY2eLq5evo9Ozr6Ozr7Ovt7ezs7Ozt7u7v7/Dx8vL0/f79/fv+/v/+/v/+/v7+//7+/v7+/v7++vX69fP36OnY5Nfm3+rh7evz8/f4+Pz5+vj6+fv5+/z6/Pv9+/7//v7+///+///+/v7/9/v//v7+/v///////v///v///v7//////v7///7//v396fTi6dDP8N327fz5/fr7/f39+Oz23fHf6Ofs7e3y8vL28fzz+u/67fft+u319/P78/v1/Pj7/fr9+/z8/v3+/v3+/v7//v////8A///////+/v/+///+//7+//7+/v7+//7///////////8A/////////v7+//7+/v7+/v/////////+//////7+//7///7//wAA/wD//v/+/v7+/v7+/v/////////+/v7+/v////7////////+//7//////////////////////////v7//v//AP//AP////////////////7+/////////v7+///+/v///v7+/v7+//7//////////////////////wD//////v/+/v7//v///v79/v7+/f7+/////v79/f799vj07efo4eHu397t5Obt6u3y8Pf3/v308/Tu4+zh8fH19fj37fHf9dfy1u7e6d/t6fLp8+b25/fn+Of56fjg+OH44/rp+uz77fzu/Oz76fvm9OT04e/s5/Dk9+r68/z5/Pn9+vz8/Pv7/fv8/Pz8/fz9/Pn6+ff0/Pv9/f79/v738vPs5ePm4uDa1c3JwsPCwcLGz9PW3N3g4enu8uzm3ubp+PX59Pf27/Hr8PXz+/Tr6+fm5OTj4+De4eHz7uzs7e3t5+vn5uPn4eTo7PXx+fL4+/76/P/9/fz++/n76/LS3NjZ68/H28vrz93S2Pne5OLk/Ojv7/j5+fv5+PPx7vT9/f7+/f7+/v/+AAAA//8A///+/OjDwsnQzMPY3OLs6u729vDy9fr2+Pn+/v7///7+/v///wAA///++Pr9/fz+/v3+/Pfv6eX12+zd1eDf8tvo39jk1uXk4+Ll3uPk4+Xp9+z1+/j4+fr6+vv6+/v7+/n4+/v8/vz16ebk/uj85Pfk8+nx6/Lv9/T2+/n7+/v5/On3/f///////v7+/vv89PXr9frz+Pf5+ff6/Pn49fX6+Pr8/fv9/Pb38PXo8OLy2fLe9d/y5PTh9tv22OjU4Pbu9vj27PLa3N/i6eLl5u75+fz+/v7+/v7+/v7+/vf6+vn69/f29fT19fj5+vr9+vnp8dbr6+fo5ubx9O3p8Ojl5uPk4ePo5uXl5ufo7fX8+/r7/Pv8+fn4/P3+/fr22t3Z7Nfp+vb8+/77+Pz2/Pz8+vf6+fb4+vr5+vz8/P39/fPy4djo1evS5tjo1ezV79Tc79nk7+Th3uDv4Obu9vv9/f7+/f79/v7++/z9/fz+/v///v8A///+AP7//v7+/v7+/////v/+/v7//wD//v/+/v/+/v7+/f7+/f7+/////v7+//7+/v7+//7+/v7//v39/fX3+/n7+vPIw7/M4d/c3NrY19jQztTS0dLT1NPZ4ufp6Ors7uzq49zE5Ojh5vXz9e3j4+Hq6+fm5ePj4uDe2NfV19bX1dXW193i8PL2+vv7/vz9/v/+/Prr6Nzd49/p8vX+/Pv9/f7//fv2+/v57ubh5Orx7vnx+fn8/Pb2/Pv19+/j7uLX2N7f5ufp8e/z8/D18PXu9+Tv4eji7/r8/vv9/P78/v7///7+/vz6/fv8/v7+/v7++vrp19XT19XZ2tvc4uXf4ODh4ePn6fH4+/z7+/v8/v3+/wAA//76+fTo5OPe3ePi4NbT0tTa5d/e3d7j3d3d397Y09TY2N3b2tLW3dnh2Njj9ubmAOb75eze693z5vXv9/f4+vv//f/9/Pz8/f38/f7+//7+/v/+/////v/z++/88/jv9N/y3ODf0d7c197m6N/h4ODf4OHf3t7f3t3f39/Y3NfX2dze2trb29rb2tzd3t3d3ePp5eTk4uHh4+Lj4+Hh4+Da2dnc2dfa29nb3OLn4uHk5OTk5OTg3+He4uXk4+Ho6uru8PLz9PLy8/T39vj4+/v8/f7+//7+///////+/////v7////+/v7+/v7+/v/////+/wD///////////////////7//v///v7+/////v7//v7+/////v//////////AP/+//////////7//v7+/v7+/v////7+////AP8A//7+/v7/////AP//AAD////+//7+////AAD/AP//////AAD///7+///////+/f39/f39/f7//v79/f39/Pv7/f3+/v389vLw8/Dx8fHy8/vy8fvw8O/v8+rw5uTy5/Po9en48Pv79Pz6/fv+/f7+/v//AP///v/+/v////7//////v////////////7+/v7+///+/f7+/////v7//////wD///7+/f/+///+/v7+///+///+/wD/AP/+/v/+//////7////////+/v79/Pr/+fv49v729PT09/P08vbz9PH08fHx8/Hv7/Dx8O/z8fb/+fv8/P/+//7//v37++v16vjq7/f1/ff8+Pz9+P37/f38//3+/v7+/f79/v3+/v/////+/////v7+/v7+/v////////7+/v7+/v79/v7+/v7////+///+/v/+/v7////////+//7+/v7///7///7+//7+/v///////v799/rw5u3p9+z16evz6u/r7vXw9+zv9fL48/r1/PX7+Pv6+v78/vz+/Pz7/v77/P3//v/9/v////z////+/////v7//v79/v7+//////7///7+/v7//v//AP////8A/v/////+/v7+/v/+/v/+//7+/////v7+/v7/////////AP///////////wD//////wD///////////////////7+/v/+//7+//7+9/ry+/X98/Dx6frc49zS7tXZ1tnn1Mzgztzy4ufr7+rq5+bo5ebm5ufm6enx6uvr6/Ps6+7w9PP29fn4+fn7/Pv9/f7//v7+/v7//////v///v7////+/v/+/v7///////7//////////wAA////AAD///////7//gD///////8A///+/v7///////7///////79/f3w9eDu9uz37vfx+PL5+vv7+vr7+/z7/Pr8/f38/fv+/f7//v///v////////7//v///////v7//wD+/f/+/v7+/v///////////v7//f7+//7//////v7+/v7/////AAD//v////7+//7+////AP///v/////////////+/v3+/v7+/v39/f79/vz1/v/+/v///v7+/v7++fzx9PDs8uPo5+Xm6uLo7+vs6O3u7u7y7Orv9vPs9+747O7r7ffu+vT39vb9+P75/vj9+v77+f77/v7///7+//7+/v7+/f7+/v/+/v///v/+/v/+/v7+/v7+/f7+//7+/wD///7+/v/+//7+//7+///+/v/+/v8A//7//v///v////7///////////////8AAP/////+/v7///7//v7////////+/v7///7+//7+///////+///+//////////////8A//8AAAD//wAAAP////////7//v79/////v7+////////AAD//////////wD//////v///v///////////////wAAAAD///7///////////8AAAD//v///v///v/+///////////////+/v/+/v338d/XwL3lv7/KtsjH1dbc3eDi4N/h5Obs9Pv7+/v7/Pb0+fz67+Lb4+zx8vn7+vn7+fv8+/v9/Pz61fXMyu7S8dTq2Njx2PPg9fP3+vr9/P79/f76+v7+/Pv6693z1u3K6c3n1unc8t/z5vjq+er19eLu3/Hn7/bt8PD1/PL6/Pj88fv9//7+//////////7+/v7++/Hu8O7r6Oz37fH69Pj5+vn8/Pn49Org4ubo3Obp6uXj4+Lb3ert8PLz9vf19PXw7e7w7OPt5eXk5e3e3ejq5uPm3uHk6u7y8vT08vX49/Hn3tjW2uXt9Pn5+Pr7+Pv39vf6+vv8/fz78+Hb3NnV1Nvc3dvX2ebn5eTk4+Xm6O/3/fz8/Pz8/f79/f3//f/+9vXy9+/38vf19Pn1+vf5+vn9/P/+/v/+//7+/v/////+//////7///////////7//wD////////////////+//8A/////////////////v/+/f76+vr59/j39vb18vLj19zg5OTm4+fo6OXh39/j4uXn5unr6ubk5eTl5OXl6Njc2NLP0tjg5eXd3d/g29nZ3uDj5OPi4uLl9/f9/f3+/v346+r1+vz56+Xj4ev29vb6+/v8/P39+/n9+/7+/v///vf4+PPx6+Pm4N7b2+vb2dbZ79fx9+H4+/39/f3///3//vrz5OP03uDo7O/3/f79/v7+////9/399/39/v8A/v7++vLw8vT3+/79/v369OTZ3d7e3ejg4+Lg3Nzc3fTm5ufx6OXi5t/f8N/g6N/h6+fy+fr4/vz+/v/+//39/vv2+e7w8Orq7Oz2+vz7/f3v49ni7dvw4+rg5OXn6ur06PTo9fH98/T08vPz9PD46PXm9Ov18/H09fj4+fXy8urr5+bj6O3u+v7//v/++/389/v78Pvo+u38+vry/f74+//+/P3+/v39/vz7/v/+/////////////Pz5+fb5+/z8/f39/v7+////AAD/AP////////////7///7+///+/////v7+/v7+/v7+/v7+/v/+//////8AAAD///////7//v///v////8A/////v////////////7//////v/+///+//7+////AAAA///////////+/v3+//7///////////////////7+//////////7+//7/////AP/+/vbu89zv0czMy+PM4NHf1tXp2urZ3ujb2urh7fTt7+3x7evt7O7t7e7u8vP39/n7/P3+/v7+//7+/v////7+/v7////9/f/+/v7+/v7//v7+/v////7/////////7Pb7+vT5+v77/Pr6/fr6/Pv8/P79/fr269fc3t/V2N7f7t7W6dPg7N/f4ezm6Oz48PH46/j9/P3+///+////AP///vnz8vTt6uzm6Pno6gDs7/P1//v+/f7+7/X4/P3+/v3+/v7+/v39+/v9/v7//v7+9Ob05/Li89zx3vPr+vj9/v7+/v7+/v7//v/+/////v////////7///////7//////Pf++/b9+//++/z///7+/v7//v7+/v3y/f/////+///////+///////+/////v/////+//////7+/v7+/v7+/v7+/f39/v7//v7///////////////////8A/v7+/v7//////wD/////AP//AAD///////7+/f7///7//v7+//7+/v7+///+//7////////+/v///////v7+/v7///8A/wD//v///////v///////v7+///+///+//7+/v7+/v7//v7+/////wD//////////v////////////8A//8A/v////////7+/v7+/v7+////AP////7+/////////wD//////////v/////////+/v/////+/v7//////v/+/v7////+/v7////////////////////+//7///8A///////+//////////7+//7///8AAAD+/v7+/v7+///+/v7+//7+/v7///7/AP/+///////////+/////////////v7////+///////+AP/////+//////////7//v7/////AP/////+/v///////////wD//wD/////////////////////////////AP8A///////+//7//v///////v////////8AAP7//////wD///79/f3+/v7+/Pv79uvx6PLm8eLz4vXl9ub25/jk4+vk9Ofj9uLj7+jw6+rl49/x4+Lk4OLo4+Lj5efn6evs7e3w8PL09/f39vj6+vz9/f7+/v////7//v/+/v7+/v/+/v7//v7+//7//////v7///////7//////v7+/v////7+//7+/v7//v/+//7+/v7+9uDg4ODk7ubn6/jv7evp8Ovs7uz08PP2/Pr8/Pr19+DY3trg39/f4d/g3+He3/Hr8N/f3ObGz8DI1M3X19jq2+Ti5evb4tTb0NPl4+bd6+v07vro49XgquvW8tTl8vD57fb39fT79/j5+f35+vz8/P36+f3+//////n6+vnv+vf56Pnk+eHy3vTp9uf26PHZ2MTX5s3EytTvycPCyOLHyMnY3eXj6vHz8fPz9/j5+fPv8e729/r7/Pr68dvV2Nrg4eHc3+De3+Ts6+fq6Onr6uri2dTV2tzY2djc2+Hk5+nu6uni5/D1/v7+/f39/v7+9vD4+eG+zM7R6NXU0NPZ1tPY2drn3eTh4uPr5OXo7fP39/3+/v3//v79/Pr59fX1+vj4+fn49fX3+Pf7+vr68/79/f358fbt7PDL0tfM09XZ0M/K1djf3t3a19TT19zh5PHz9Pb5+vr6/Pr7+vz6/Pz+/v7////+/v7+8Pjj4eHz7PTu8evX59bu4ena3uTc2eng3N3g3tvc5NzY3d7d3d/f3Obm4N3h4+bs8/z++O/q/P39/v7//v3+/v3+/f78/PPb4N7o2tnW2tjZ2+Da3uTw7PH2+fn9/f39/f7+/v39+/j59vj29/r7/Pz58O7p6e/p7evw7vL59vj5+fn7+/r7+/3++Pr+/v7////+/vDu7ubu7u/y8vXu6/Ty9PP6/v79/v8A//7////8/v798uzq7vLv8ezo7uvv8fn8/f/+AP//AP7/+/Xr8OH04OH12fH58PX8/fv7/v79+/78//z//v39/f38+v37+Pr8/fz+/v3x+/P6/fr0/v73+/76/P79/v7+/v////7+//7/+/38/f7////+/v7///7///8A///+/v7//v///////v///v7//v7+/v/+///////+//7///7+/v///////////////////v////8A/v8A//8A/wD//////////////////v7+/v/////+////AAD+//7+/v7//////////////v/+/v/+/v7///7++fz5/Pz8+fv5/fj88+/06PTo5uvp7e3t7Ovt8fn1+f39/v7+/v7///7+//7+/P38/Pv45fXj9OTu4+736vv09/798v3/////+//////+/v////////4AAP////7+/v79/v/+/v7+/v7//v7+/////////wD/AAD///7v9vjz4+XH6cPN1dvp3evj8On17vXq6vLo+OXn++Xk+Onq+Oz1/P7//v/+/f3+/e3h9/z+//79/v33++Xh8+D54+f35ffl5PXo8PX59fn6/v39//8A/////v7+/v7+//7+/v7//wD//////////wAAAAD///////8A////AP////7+/v/+/v7////+/v7+/v////////7///7+/v////7//v7+/v7+/v///v7+/////v7+////////////AP/+/////////////////////////v7+//////////7////+/v7//v////7+//////7////+//7//////v7+/v///////////////wD//wD/AP8A///+/ff15Njp0O3Bz+bPzOLO283k4N/h3uLd2t/Y2tjT1NLV2uPl6uTm6vbq9vD49Pjy+fnv8/P3+/L3+Pf7+fb7/vv99vz9//7+/////v7+/v3+/v////7//v///v79/v///////////////////////v7+/v776eLb6Nzj5d/h49/n2t3e4+Le3dvd3Nvc397d3N7e4OLi5+nr6uzo3tja09HY1Nas4c3Y4Nng4efp7vT3+ujV1dXS1djb3d3b2tjb3eHi4N7Y3evk5+bl3tnY1tbX2d/h5ejm5+Xl5OXn5+vz/Pro5PP1+Pv6+fP16+Xi3dTRxsTDzL/EzM/a3Nvt9vr8/f7+/fz9/f39/fz+/v7//vrv7ebn+OH24vDk8ev58v31/Pf/9/38/P79/f39/f/9//7+/v7+//8A/v/+9/Hl6+ro5fP17fn7/P38/v3+/v7+/Pz8/Pz8+vzz8ujz5fHe7t/v3fLt+vH29vD38/vu+Pfm8evp8uz08vH38PP78vL7/vb8/f38/fz+/v///v7//v7+/v7+/v7+//////////////7//////v/+/////wD////+/v7+///+///+/v397un659zd0drh3OHt8fP39/r4/Pv7+/z9/f39+fz9/dTR19fZ3eLn6/H09fnt5N3Yz8O/vL7J0NDX3N3b4d/h4unt7Ozr5+Tk39nU1tXW1dXV1NPT1tfZ19vc4eLh5eXk3tva2tHVzNvi29PS9uDz6+ru8+/3+v70+P/89/b6/f7+//3++v3+/f38/v////8A//7////+///+///+//////////////7+/v/+/v7//////////wD///7//v//AP/+//7+/v////////8A/wD//////////v7///////7//v7+/v////7+/v/+//7+/v7+/////////////////////wD////////+/////////////wD//v7//v7//v/////+/v/+/v///////////////w==",
+    "max": "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"
+   }
+  }
+ },
+ "turns": [
+  {
+   "channel": "agent",
+   "start": 0.435,
+   "end": 6.895,
+   "text": "Guten Tag, hier ist die digitale Assistentin der Stadtwerke Muster. Ich bin eine KI. Darf ich das Gespräch zur Qualitätssicherung aufzeichnen?",
+   "id": "t0",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "caller",
+   "start": 7.649,
+   "end": 9.324,
+   "text": "Ja, das ist in Ordnung.",
+   "id": "t1"
+  },
+  {
+   "channel": "agent",
+   "start": 10.281,
+   "end": 13.826,
+   "text": "Danke. Es geht um Ihren Zählerstand. Können Sie mir bitte Ihre Kundennummer nennen?",
+   "latency": {
+    "transcription": 0.18,
+    "llmTtft": 0.3,
+    "ttsTtfb": 0.14,
+    "waveformGap": 1.001
+   },
+   "id": "t2",
+   "replyTo": "t1",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "caller",
+   "start": 14.516,
+   "end": 16.471,
+   "text": "Ja, die ist vier sieben eins",
+   "id": "t3"
+  },
+  {
+   "channel": "caller",
+   "start": 17.132,
+   "end": 18.407,
+   "text": "null acht drei.",
+   "id": "t4"
+  },
+  {
+   "channel": "agent",
+   "start": 17.232,
+   "end": 17.687,
+   "text": "Danke, ich",
+   "interrupted": {
+    "at": 17.687
+   },
+   "latency": {
+    "transcription": 0.18,
+    "llmTtft": 0.25,
+    "ttsTtfb": 0.14,
+    "waveformGap": 0.867
+   },
+   "id": "t5",
+   "replyTo": "t3",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "agent",
+   "start": 19.357,
+   "end": 22.132,
+   "text": "Entschuldigung, ich habe Sie unterbrochen. Wie war die Nummer noch mal?",
+   "latency": {
+    "transcription": 0.18,
+    "llmTtft": 0.3,
+    "ttsTtfb": 0.14,
+    "waveformGap": 0.977
+   },
+   "id": "t6",
+   "replyTo": "t4",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "caller",
+   "start": 22.832,
+   "end": 25.287,
+   "text": "Vier sieben eins acht drei.",
+   "id": "t7"
+  },
+  {
+   "channel": "agent",
+   "start": 26.461,
+   "end": 32.146,
+   "text": "Unter der Nummer vier sieben eins acht drei finde ich leider keinen Vertrag. Können Sie mir bitte Ihre Kundennummer noch einmal nennen?",
+   "latency": {
+    "llmTtft": 0.25,
+    "transcription": 0.18,
+    "ttsTtfb": 0.14,
+    "tool": 0.17999999999999972,
+    "waveformGap": 1.191
+   },
+   "id": "t8",
+   "replyTo": "t7",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "caller",
+   "start": 32.906,
+   "end": 37.161,
+   "text": "Vier. Sieben. Eins. Null. Acht. Drei.",
+   "id": "t9"
+  },
+  {
+   "channel": "agent",
+   "start": 38.362,
+   "end": 42.067,
+   "text": "Danke, Frau Keller, ich habe Sie gefunden. Wie lautet Ihr aktueller Zählerstand?",
+   "latency": {
+    "llmTtft": 0.25,
+    "transcription": 0.18,
+    "ttsTtfb": 0.14,
+    "tool": 0.21000000000000085,
+    "waveformGap": 1.237
+   },
+   "id": "t10",
+   "replyTo": "t9",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "caller",
+   "start": 42.823,
+   "end": 44.223,
+   "text": "Zwölf dreiundvierzig.",
+   "id": "t11"
+  },
+  {
+   "channel": "caller",
+   "start": 46.573,
+   "end": 48.183,
+   "text": "Hallo? Sind Sie noch da?",
+   "id": "t12"
+  },
+  {
+   "channel": "agent",
+   "start": 47.408,
+   "end": 50.498,
+   "text": "Vielen Dank, der Zählerstand zwölf dreiundvierzig ist gespeichert.",
+   "latency": {
+    "llmTtft": 0.25,
+    "transcription": 0.18,
+    "ttsTtfb": 0.14,
+    "tool": 1.8999999999999986,
+    "waveformGap": 3.188
+   },
+   "id": "t13",
+   "replyTo": "t11",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  },
+  {
+   "channel": "caller",
+   "start": 51.154,
+   "end": 52.184,
+   "text": "Super, danke.",
+   "id": "t14"
+  },
+  {
+   "channel": "agent",
+   "start": 53.15,
+   "end": 56.065,
+   "text": "Gerne. Einen schönen Tag noch, Frau Keller. Auf Wiederhören!",
+   "latency": {
+    "transcription": 0.18,
+    "llmTtft": 0.3,
+    "ttsTtfb": 0.14,
+    "waveformGap": 0.98
+   },
+   "id": "t15",
+   "replyTo": "t14",
+   "context": {
+    "promptVersion": "zaehlerstand@7",
+    "model": "gpt-4.1",
+    "stt": "deepgram nova-3 (de)",
+    "tts": "cartesia sonic-2 (de)",
+    "turnDetector": "livekit turn-detector (multilingual)",
+    "interruptionMode": "vad, min 0.5 s"
+   }
+  }
+ ],
+ "spans": [
+  {
+   "id": "tool:toolu_not-found",
+   "name": "crm.lookup_customer",
+   "kind": "tool",
+   "start": 25,
+   "end": 25.18,
+   "status": {
+    "code": "error",
+    "message": "404: no contract for customer_id 47183"
+   },
+   "tool": {
+    "name": "crm.lookup_customer",
+    "callId": "toolu_not-found",
+    "arguments": {
+     "customer_id": "47183"
+    },
+    "result": "404: no contract for customer_id 47183",
+    "isError": true
+   },
+   "attributes": {},
+   "estimated": true,
+   "turnId": "t8"
+  },
+  {
+   "id": "tool:toolu_found",
+   "name": "crm.lookup_customer",
+   "kind": "tool",
+   "start": 37,
+   "end": 37.21,
+   "status": {
+    "code": "ok"
+   },
+   "tool": {
+    "name": "crm.lookup_customer",
+    "callId": "toolu_found",
+    "arguments": {
+     "customer_id": "471083"
+    },
+    "result": {
+     "customer_id": "471083",
+     "name": "Petra Keller",
+     "meter": "Strom, Zähler 1ESY1160543"
+    },
+    "isError": false
+   },
+   "attributes": {},
+   "estimated": true,
+   "turnId": "t10"
+  },
+  {
+   "id": "tool:toolu_saved",
+   "name": "crm.submit_meter_reading",
+   "kind": "tool",
+   "start": 44,
+   "end": 45.9,
+   "status": {
+    "code": "ok"
+   },
+   "tool": {
+    "name": "crm.submit_meter_reading",
+    "callId": "toolu_saved",
+    "arguments": {
+     "customer_id": "471083",
+     "reading_kwh": 1243
+    },
+    "result": {
+     "status": "stored",
+     "reading_id": "mr_20260926_0412"
+    },
+    "isError": false
+   },
+   "attributes": {},
+   "estimated": true,
+   "turnId": "t13"
+  }
+ ],
+ "signals": [
+  {
+   "type": "interruption",
+   "at": 17.232,
+   "channel": "caller",
+   "turnId": "t5",
+   "data": {
+    "decision": "stop",
+    "stopAfter": 0.455
+   },
+   "id": "g0"
+  }
+ ],
+ "words": [
+  {
+   "text": "Guten",
+   "start": 0.435,
+   "end": 0.629,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w0"
+  },
+  {
+   "text": "Tag,",
+   "start": 0.629,
+   "end": 0.949,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w1"
+  },
+  {
+   "text": "hier",
+   "start": 0.949,
+   "end": 1.189,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w2"
+  },
+  {
+   "text": "ist",
+   "start": 1.189,
+   "end": 1.269,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w3"
+  },
+  {
+   "text": "die",
+   "start": 1.269,
+   "end": 1.349,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w4"
+  },
+  {
+   "text": "digitale",
+   "start": 1.349,
+   "end": 1.989,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w5"
+  },
+  {
+   "text": "Assistentin",
+   "start": 1.989,
+   "end": 2.469,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w6"
+  },
+  {
+   "text": "der",
+   "start": 2.469,
+   "end": 2.549,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w7"
+  },
+  {
+   "text": "Stadtwerke",
+   "start": 2.549,
+   "end": 3.109,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w8"
+  },
+  {
+   "text": "Muster.",
+   "start": 3.109,
+   "end": 3.52,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w9"
+  },
+  {
+   "text": "Ich",
+   "start": 3.66,
+   "end": 3.829,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w10"
+  },
+  {
+   "text": "bin",
+   "start": 3.829,
+   "end": 3.909,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w11"
+  },
+  {
+   "text": "eine",
+   "start": 3.909,
+   "end": 4.149,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w12"
+  },
+  {
+   "text": "KI.",
+   "start": 4.149,
+   "end": 4.455,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w13"
+  },
+  {
+   "text": "Darf",
+   "start": 4.59,
+   "end": 4.709,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w14"
+  },
+  {
+   "text": "ich",
+   "start": 4.709,
+   "end": 4.789,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w15"
+  },
+  {
+   "text": "das",
+   "start": 4.789,
+   "end": 4.949,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w16"
+  },
+  {
+   "text": "Gespräch",
+   "start": 4.949,
+   "end": 5.349,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w17"
+  },
+  {
+   "text": "zur",
+   "start": 5.349,
+   "end": 5.509,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w18"
+  },
+  {
+   "text": "Qualitätssicherung",
+   "start": 5.509,
+   "end": 6.229,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w19"
+  },
+  {
+   "text": "aufzeichnen?",
+   "start": 6.229,
+   "end": 6.895,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t0",
+   "id": "w20"
+  },
+  {
+   "text": "Ja,",
+   "start": 7.649,
+   "end": 7.854,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w21"
+  },
+  {
+   "text": "Ja,",
+   "start": 7.649,
+   "end": 7.90025,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t1",
+   "estimated": true,
+   "id": "w22"
+  },
+  {
+   "text": "das",
+   "start": 7.928166666666667,
+   "end": 8.179416666666667,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t1",
+   "estimated": true,
+   "id": "w23"
+  },
+  {
+   "text": "das",
+   "start": 8.129,
+   "end": 8.339,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w24"
+  },
+  {
+   "text": "ist",
+   "start": 8.207333333333333,
+   "end": 8.458583333333333,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t1",
+   "estimated": true,
+   "id": "w25"
+  },
+  {
+   "text": "ist",
+   "start": 8.339,
+   "end": 8.659,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w26"
+  },
+  {
+   "text": "in",
+   "start": 8.4865,
+   "end": 8.674937499999999,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t1",
+   "estimated": true,
+   "id": "w27"
+  },
+  {
+   "text": "in",
+   "start": 8.659,
+   "end": 8.819,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w28"
+  },
+  {
+   "text": "Ordnung.",
+   "start": 8.695875,
+   "end": 9.261187499999998,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t1",
+   "estimated": true,
+   "id": "w29"
+  },
+  {
+   "text": "Ordnung.",
+   "start": 8.819,
+   "end": 9.324,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t1",
+   "id": "w30"
+  },
+  {
+   "text": "Danke.",
+   "start": 10.281,
+   "end": 10.656,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w31"
+  },
+  {
+   "text": "Es",
+   "start": 11.044,
+   "end": 11.124,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w32"
+  },
+  {
+   "text": "geht",
+   "start": 11.124,
+   "end": 11.284,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w33"
+  },
+  {
+   "text": "um",
+   "start": 11.284,
+   "end": 11.364,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w34"
+  },
+  {
+   "text": "Ihren",
+   "start": 11.364,
+   "end": 11.604,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w35"
+  },
+  {
+   "text": "Zählerstand.",
+   "start": 11.604,
+   "end": 12.324,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w36"
+  },
+  {
+   "text": "Können",
+   "start": 12.324,
+   "end": 12.484,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w37"
+  },
+  {
+   "text": "Sie",
+   "start": 12.484,
+   "end": 12.564,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w38"
+  },
+  {
+   "text": "mir",
+   "start": 12.564,
+   "end": 12.724,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w39"
+  },
+  {
+   "text": "bitte",
+   "start": 12.724,
+   "end": 12.884,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w40"
+  },
+  {
+   "text": "Ihre",
+   "start": 12.884,
+   "end": 13.044,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w41"
+  },
+  {
+   "text": "Kundennummer",
+   "start": 13.044,
+   "end": 13.524,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w42"
+  },
+  {
+   "text": "nennen?",
+   "start": 13.524,
+   "end": 13.826,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t2",
+   "id": "w43"
+  },
+  {
+   "text": "Ja,",
+   "start": 14.516,
+   "end": 14.781,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t3",
+   "id": "w44"
+  },
+  {
+   "text": "Ja,",
+   "start": 14.516,
+   "end": 14.758689655172414,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t3",
+   "estimated": true,
+   "id": "w45"
+  },
+  {
+   "text": "die",
+   "start": 14.785655172413794,
+   "end": 15.028344827586208,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t3",
+   "estimated": true,
+   "id": "w46"
+  },
+  {
+   "text": "ist",
+   "start": 15.055310344827587,
+   "end": 15.298000000000002,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t3",
+   "estimated": true,
+   "id": "w47"
+  },
+  {
+   "text": "die",
+   "start": 15.076,
+   "end": 15.211,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t3",
+   "id": "w48"
+  },
+  {
+   "text": "ist",
+   "start": 15.211,
+   "end": 15.451,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t3",
+   "id": "w49"
+  },
+  {
+   "text": "vier",
+   "start": 15.324965517241381,
+   "end": 15.628327586206899,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t3",
+   "estimated": true,
+   "id": "w50"
+  },
+  {
+   "text": "vier",
+   "start": 15.451,
+   "end": 15.691,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t3",
+   "id": "w51"
+  },
+  {
+   "text": "sieben",
+   "start": 15.662034482758623,
+   "end": 16.086741379310347,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t3",
+   "estimated": true,
+   "id": "w52"
+  },
+  {
+   "text": "sieben",
+   "start": 15.691,
+   "end": 16.091,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t3",
+   "id": "w53"
+  },
+  {
+   "text": "eins",
+   "start": 16.091,
+   "end": 16.471,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t3",
+   "id": "w54"
+  },
+  {
+   "text": "eins",
+   "start": 16.13393103448276,
+   "end": 16.437293103448276,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t3",
+   "estimated": true,
+   "id": "w55"
+  },
+  {
+   "text": "null",
+   "start": 17.132,
+   "end": 17.427,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t4",
+   "id": "w56"
+  },
+  {
+   "text": "null",
+   "start": 17.132,
+   "end": 17.490593750000002,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t4",
+   "estimated": true,
+   "id": "w57"
+  },
+  {
+   "text": "Danke,",
+   "start": 17.232,
+   "end": 17.527,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t5",
+   "id": "w58"
+  },
+  {
+   "text": "ich",
+   "start": 17.527,
+   "end": 17.687,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t5",
+   "id": "w59"
+  },
+  {
+   "text": "acht",
+   "start": 17.5304375,
+   "end": 17.889031250000002,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t4",
+   "estimated": true,
+   "id": "w60"
+  },
+  {
+   "text": "acht",
+   "start": 17.607,
+   "end": 17.912,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t4",
+   "id": "w61"
+  },
+  {
+   "text": "habe",
+   "start": 17.687,
+   "end": 17.847,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t5",
+   "id": "w62"
+  },
+  {
+   "text": "die",
+   "start": 17.847,
+   "end": 17.927,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t5",
+   "id": "w63"
+  },
+  {
+   "text": "vier",
+   "start": 17.927,
+   "end": 18.247,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t5",
+   "id": "w64"
+  },
+  {
+   "text": "drei.",
+   "start": 17.928875,
+   "end": 18.3591875,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t4",
+   "estimated": true,
+   "id": "w65"
+  },
+  {
+   "text": "drei.",
+   "start": 18.067,
+   "end": 18.407,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t4",
+   "id": "w66"
+  },
+  {
+   "text": "sieben",
+   "start": 18.247,
+   "end": 18.487,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t5",
+   "id": "w67"
+  },
+  {
+   "text": "eins",
+   "start": 18.487,
+   "end": 18.727,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t5",
+   "id": "w68"
+  },
+  {
+   "text": "notiert.",
+   "start": 18.727,
+   "end": 19.152,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t5",
+   "id": "w69"
+  },
+  {
+   "text": "Stimmt",
+   "start": 19.307,
+   "end": 19.527,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t6",
+   "id": "w70"
+  },
+  {
+   "text": "Entschuldigung,",
+   "start": 19.357,
+   "end": 19.962,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w71"
+  },
+  {
+   "text": "das",
+   "start": 19.527,
+   "end": 19.687,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t6",
+   "id": "w72"
+  },
+  {
+   "text": "so?",
+   "start": 19.687,
+   "end": 19.837,
+   "channel": "agent",
+   "source": "tts",
+   "heard": false,
+   "turnId": "t6",
+   "id": "w73"
+  },
+  {
+   "text": "ich",
+   "start": 19.962,
+   "end": 20.122,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w74"
+  },
+  {
+   "text": "habe",
+   "start": 20.122,
+   "end": 20.282,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w75"
+  },
+  {
+   "text": "Sie",
+   "start": 20.282,
+   "end": 20.442,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w76"
+  },
+  {
+   "text": "unterbrochen.",
+   "start": 20.442,
+   "end": 20.912,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w77"
+  },
+  {
+   "text": "Wie",
+   "start": 21.097,
+   "end": 21.242,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w78"
+  },
+  {
+   "text": "war",
+   "start": 21.242,
+   "end": 21.402,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w79"
+  },
+  {
+   "text": "die",
+   "start": 21.402,
+   "end": 21.562,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w80"
+  },
+  {
+   "text": "Nummer",
+   "start": 21.562,
+   "end": 21.722,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w81"
+  },
+  {
+   "text": "noch",
+   "start": 21.722,
+   "end": 21.882,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w82"
+  },
+  {
+   "text": "mal?",
+   "start": 21.882,
+   "end": 22.132,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t6",
+   "id": "w83"
+  },
+  {
+   "text": "Vier",
+   "start": 22.832,
+   "end": 23.071,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t7",
+   "id": "w84"
+  },
+  {
+   "text": "Vier",
+   "start": 22.832,
+   "end": 23.22655357142857,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t7",
+   "estimated": true,
+   "id": "w85"
+  },
+  {
+   "text": "sieben",
+   "start": 23.071,
+   "end": 23.471,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t7",
+   "id": "w86"
+  },
+  {
+   "text": "sieben",
+   "start": 23.27039285714286,
+   "end": 23.822767857142857,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t7",
+   "estimated": true,
+   "id": "w87"
+  },
+  {
+   "text": "eins",
+   "start": 23.471,
+   "end": 23.912,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t7",
+   "id": "w88"
+  },
+  {
+   "text": "eins",
+   "start": 23.88414285714286,
+   "end": 24.27869642857143,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t7",
+   "estimated": true,
+   "id": "w89"
+  },
+  {
+   "text": "null",
+   "start": 24.122,
+   "end": 24.431,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t7",
+   "id": "w90"
+  },
+  {
+   "text": "acht",
+   "start": 24.322535714285717,
+   "end": 24.717089285714287,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t7",
+   "estimated": true,
+   "id": "w91"
+  },
+  {
+   "text": "acht",
+   "start": 24.511,
+   "end": 24.807,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t7",
+   "id": "w92"
+  },
+  {
+   "text": "drei.",
+   "start": 24.760928571428575,
+   "end": 25.23439285714286,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t7",
+   "estimated": true,
+   "id": "w93"
+  },
+  {
+   "text": "drei.",
+   "start": 24.957,
+   "end": 25.287,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t7",
+   "id": "w94"
+  },
+  {
+   "text": "Unter",
+   "start": 26.461,
+   "end": 26.598,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w95"
+  },
+  {
+   "text": "der",
+   "start": 26.598,
+   "end": 26.68,
+   "estimated": true,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w96"
+  },
+  {
+   "text": "Nummer",
+   "start": 26.68,
+   "end": 26.92,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w97"
+  },
+  {
+   "text": "vier",
+   "start": 26.92,
+   "end": 27.24,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w98"
+  },
+  {
+   "text": "sieben",
+   "start": 27.24,
+   "end": 27.48,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w99"
+  },
+  {
+   "text": "eins",
+   "start": 27.48,
+   "end": 27.8,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w100"
+  },
+  {
+   "text": "acht",
+   "start": 27.8,
+   "end": 28.04,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w101"
+  },
+  {
+   "text": "drei",
+   "start": 28.04,
+   "end": 28.2,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w102"
+  },
+  {
+   "text": "finde",
+   "start": 28.2,
+   "end": 28.52,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w103"
+  },
+  {
+   "text": "ich",
+   "start": 28.52,
+   "end": 28.68,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w104"
+  },
+  {
+   "text": "leider",
+   "start": 28.68,
+   "end": 28.92,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w105"
+  },
+  {
+   "text": "keinen",
+   "start": 28.92,
+   "end": 29.16,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w106"
+  },
+  {
+   "text": "Vertrag.",
+   "start": 29.16,
+   "end": 29.651,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w107"
+  },
+  {
+   "text": "Können",
+   "start": 29.991,
+   "end": 30.12,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w108"
+  },
+  {
+   "text": "Sie",
+   "start": 30.2,
+   "end": 30.28,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w109"
+  },
+  {
+   "text": "mir",
+   "start": 30.28,
+   "end": 30.36,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w110"
+  },
+  {
+   "text": "bitte",
+   "start": 30.36,
+   "end": 30.6,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w111"
+  },
+  {
+   "text": "Ihre",
+   "start": 30.6,
+   "end": 30.84,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w112"
+  },
+  {
+   "text": "Kundennummer",
+   "start": 30.84,
+   "end": 31.32,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w113"
+  },
+  {
+   "text": "noch",
+   "start": 31.32,
+   "end": 31.48,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w114"
+  },
+  {
+   "text": "einmal",
+   "start": 31.48,
+   "end": 31.8,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w115"
+  },
+  {
+   "text": "nennen?",
+   "start": 31.8,
+   "end": 32.146,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t8",
+   "id": "w116"
+  },
+  {
+   "text": "Vier.",
+   "start": 32.906,
+   "end": 33.296,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t9",
+   "id": "w117"
+  },
+  {
+   "text": "Vier.",
+   "start": 32.906,
+   "end": 33.51065789473684,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t9",
+   "estimated": true,
+   "id": "w118"
+  },
+  {
+   "text": "Sieben.",
+   "start": 33.57784210526316,
+   "end": 34.384052631578946,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t9",
+   "estimated": true,
+   "id": "w119"
+  },
+  {
+   "text": "Sieben.",
+   "start": 33.695,
+   "end": 34.1,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t9",
+   "id": "w120"
+  },
+  {
+   "text": "Eins.",
+   "start": 34.47363157894737,
+   "end": 35.07828947368421,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t9",
+   "estimated": true,
+   "id": "w121"
+  },
+  {
+   "text": "Eins.",
+   "start": 34.492,
+   "end": 34.902,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t9",
+   "id": "w122"
+  },
+  {
+   "text": "Null.",
+   "start": 35.14547368421053,
+   "end": 35.750131578947375,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t9",
+   "estimated": true,
+   "id": "w123"
+  },
+  {
+   "text": "Null.",
+   "start": 35.331,
+   "end": 35.676,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t9",
+   "id": "w124"
+  },
+  {
+   "text": "Acht.",
+   "start": 35.81731578947369,
+   "end": 36.42197368421053,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t9",
+   "estimated": true,
+   "id": "w125"
+  },
+  {
+   "text": "Acht.",
+   "start": 36.081,
+   "end": 36.376,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t9",
+   "id": "w126"
+  },
+  {
+   "text": "Drei.",
+   "start": 36.48915789473685,
+   "end": 37.093815789473695,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t9",
+   "estimated": true,
+   "id": "w127"
+  },
+  {
+   "text": "Drei.",
+   "start": 36.766,
+   "end": 37.161,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "customer_id",
+   "turnId": "t9",
+   "id": "w128"
+  },
+  {
+   "text": "Danke,",
+   "start": 38.362,
+   "end": 38.582,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w129"
+  },
+  {
+   "text": "Frau",
+   "start": 38.582,
+   "end": 38.742,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w130"
+  },
+  {
+   "text": "Keller,",
+   "start": 38.742,
+   "end": 39.062,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w131"
+  },
+  {
+   "text": "ich",
+   "start": 39.062,
+   "end": 39.222,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w132"
+  },
+  {
+   "text": "habe",
+   "start": 39.222,
+   "end": 39.382,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w133"
+  },
+  {
+   "text": "Sie",
+   "start": 39.382,
+   "end": 39.462,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w134"
+  },
+  {
+   "text": "gefunden.",
+   "start": 39.462,
+   "end": 39.917,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w135"
+  },
+  {
+   "text": "Wie",
+   "start": 40.237,
+   "end": 40.422,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w136"
+  },
+  {
+   "text": "lautet",
+   "start": 40.422,
+   "end": 40.742,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w137"
+  },
+  {
+   "text": "Ihr",
+   "start": 40.742,
+   "end": 40.902,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w138"
+  },
+  {
+   "text": "aktueller",
+   "start": 40.982,
+   "end": 41.382,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w139"
+  },
+  {
+   "text": "Zählerstand?",
+   "start": 41.382,
+   "end": 42.067,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t10",
+   "id": "w140"
+  },
+  {
+   "text": "Zwölf",
+   "start": 42.823,
+   "end": 43.173,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "meter_reading",
+   "turnId": "t11",
+   "id": "w141"
+  },
+  {
+   "text": "Zwölf",
+   "start": 42.823,
+   "end": 43.166636363636364,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t11",
+   "estimated": true,
+   "id": "w142"
+  },
+  {
+   "text": "dreiundvierzig.",
+   "start": 43.20481818181818,
+   "end": 44.12118181818182,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t11",
+   "estimated": true,
+   "id": "w143"
+  },
+  {
+   "text": "dreiundvierzig.",
+   "start": 43.288,
+   "end": 44.223,
+   "channel": "caller",
+   "source": "aligned",
+   "entity": "meter_reading",
+   "turnId": "t11",
+   "id": "w144"
+  },
+  {
+   "text": "Hallo?",
+   "start": 46.573,
+   "end": 46.958,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t12",
+   "id": "w145"
+  },
+  {
+   "text": "Hallo?",
+   "start": 46.573,
+   "end": 46.97872,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t12",
+   "estimated": true,
+   "id": "w146"
+  },
+  {
+   "text": "Sind",
+   "start": 47.0238,
+   "end": 47.3136,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t12",
+   "estimated": true,
+   "id": "w147"
+  },
+  {
+   "text": "Sind",
+   "start": 47.148,
+   "end": 47.414,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t12",
+   "id": "w148"
+  },
+  {
+   "text": "Sie",
+   "start": 47.345800000000004,
+   "end": 47.57764,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t12",
+   "estimated": true,
+   "id": "w149"
+  },
+  {
+   "text": "Vielen",
+   "start": 47.408,
+   "end": 47.652,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w150"
+  },
+  {
+   "text": "Sie",
+   "start": 47.414,
+   "end": 47.574,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t12",
+   "id": "w151"
+  },
+  {
+   "text": "noch",
+   "start": 47.574,
+   "end": 47.814,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t12",
+   "id": "w152"
+  },
+  {
+   "text": "noch",
+   "start": 47.6034,
+   "end": 47.8932,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t12",
+   "estimated": true,
+   "id": "w153"
+  },
+  {
+   "text": "Dank,",
+   "start": 47.652,
+   "end": 47.972,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w154"
+  },
+  {
+   "text": "da?",
+   "start": 47.814,
+   "end": 48.183,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t12",
+   "id": "w155"
+  },
+  {
+   "text": "da?",
+   "start": 47.9254,
+   "end": 48.15724,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t12",
+   "estimated": true,
+   "id": "w156"
+  },
+  {
+   "text": "der",
+   "start": 47.972,
+   "end": 48.132,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w157"
+  },
+  {
+   "text": "Zählerstand",
+   "start": 48.132,
+   "end": 48.692,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w158"
+  },
+  {
+   "text": "zwölf",
+   "start": 48.692,
+   "end": 49.092,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w159"
+  },
+  {
+   "text": "dreiundvierzig",
+   "start": 49.092,
+   "end": 49.812,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w160"
+  },
+  {
+   "text": "ist",
+   "start": 49.812,
+   "end": 49.972,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w161"
+  },
+  {
+   "text": "gespeichert.",
+   "start": 49.972,
+   "end": 50.498,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t13",
+   "id": "w162"
+  },
+  {
+   "text": "Super,",
+   "start": 51.154,
+   "end": 51.534,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t14",
+   "id": "w163"
+  },
+  {
+   "text": "Super,",
+   "start": 51.154,
+   "end": 51.6175,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t14",
+   "estimated": true,
+   "id": "w164"
+  },
+  {
+   "text": "danke.",
+   "start": 51.669,
+   "end": 52.13249999999999,
+   "channel": "caller",
+   "source": "streaming_asr",
+   "turnId": "t14",
+   "estimated": true,
+   "id": "w165"
+  },
+  {
+   "text": "danke.",
+   "start": 51.774,
+   "end": 52.184,
+   "channel": "caller",
+   "source": "aligned",
+   "turnId": "t14",
+   "id": "w166"
+  },
+  {
+   "text": "Gerne.",
+   "start": 53.15,
+   "end": 53.485,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w167"
+  },
+  {
+   "text": "Einen",
+   "start": 53.725,
+   "end": 53.918,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w168"
+  },
+  {
+   "text": "schönen",
+   "start": 53.918,
+   "end": 54.238,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w169"
+  },
+  {
+   "text": "Tag",
+   "start": 54.238,
+   "end": 54.478,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w170"
+  },
+  {
+   "text": "noch,",
+   "start": 54.478,
+   "end": 54.718,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w171"
+  },
+  {
+   "text": "Frau",
+   "start": 54.718,
+   "end": 54.798,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w172"
+  },
+  {
+   "text": "Keller.",
+   "start": 54.798,
+   "end": 55.095,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w173"
+  },
+  {
+   "text": "Auf",
+   "start": 55.395,
+   "end": 55.518,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w174"
+  },
+  {
+   "text": "Wiederhören!",
+   "start": 55.518,
+   "end": 56.065,
+   "channel": "agent",
+   "source": "tts",
+   "heard": true,
+   "turnId": "t15",
+   "id": "w175"
+  }
+ ],
+ "speech": {
+  "mixed": [
+   {
+    "start": 0.435,
+    "end": 6.895
+   },
+   {
+    "start": 7.65,
+    "end": 7.83
+   },
+   {
+    "start": 8.13,
+    "end": 9.28
+   },
+   {
+    "start": 10.28,
+    "end": 10.655
+   },
+   {
+    "start": 10.93,
+    "end": 13.84
+   },
+   {
+    "start": 14.52,
+    "end": 14.75
+   },
+   {
+    "start": 15.075,
+    "end": 16.365
+   },
+   {
+    "start": 17.14,
+    "end": 18.38
+   },
+   {
+    "start": 19.355,
+    "end": 22.115
+   },
+   {
+    "start": 22.845,
+    "end": 23.805
+   },
+   {
+    "start": 24.125,
+    "end": 25.27
+   },
+   {
+    "start": 26.46,
+    "end": 29.665
+   },
+   {
+    "start": 30,
+    "end": 32.145
+   },
+   {
+    "start": 32.985,
+    "end": 33.23
+   },
+   {
+    "start": 33.705,
+    "end": 34.05
+   },
+   {
+    "start": 34.5,
+    "end": 34.78
+   },
+   {
+    "start": 35.34,
+    "end": 35.665
+   },
+   {
+    "start": 36.085,
+    "end": 36.235
+   },
+   {
+    "start": 36.77,
+    "end": 37.125
+   },
+   {
+    "start": 38.365,
+    "end": 39.92
+   },
+   {
+    "start": 40.24,
+    "end": 42.06
+   },
+   {
+    "start": 42.825,
+    "end": 43.07
+   },
+   {
+    "start": 43.29,
+    "end": 44.22
+   },
+   {
+    "start": 46.6,
+    "end": 46.95
+   },
+   {
+    "start": 47.28,
+    "end": 50.5
+   },
+   {
+    "start": 51.16,
+    "end": 51.53
+   },
+   {
+    "start": 51.775,
+    "end": 52.17
+   },
+   {
+    "start": 53.15,
+    "end": 53.485
+   },
+   {
+    "start": 53.725,
+    "end": 55.12
+   },
+   {
+    "start": 55.395,
+    "end": 56.085
+   }
+  ]
+ },
+ "findings": [
+  {
+   "id": "heard_vs_said:t7",
+   "type": "heard_vs_said",
+   "detector": {
+    "id": "heard_vs_said",
+    "version": 1
+   },
+   "start": 24.122,
+   "end": 24.431,
+   "severity": "error",
+   "turnId": "t7",
+   "message": "The agent heard \"Vier sieben eins acht drei.\": \"null\" was said but not heard",
+   "evidence": [
+    "t7",
+    "w90"
+   ],
+   "measured": {
+    "differences": 1
+   }
+  },
+  {
+   "id": "tool_error:tool:toolu_not-found",
+   "type": "tool_error",
+   "detector": {
+    "id": "tool_error",
+    "version": 1
+   },
+   "start": 25,
+   "end": 25.18,
+   "severity": "error",
+   "turnId": "t8",
+   "message": "crm.lookup_customer failed: 404: no contract for customer_id 47183",
+   "evidence": [
+    "tool:toolu_not-found"
+   ]
+  },
+  {
+   "id": "repeat:t8",
+   "type": "repeat",
+   "detector": {
+    "id": "repeat",
+    "version": 1
+   },
+   "start": 26.461,
+   "end": 32.146,
+   "severity": "warning",
+   "turnId": "t8",
+   "message": "The agent repeated itself: \"Können Sie mir bitte Ihre Kundennummer noch einmal nennen?\" (0.91 like turn t2)",
+   "evidence": [
+    "t2",
+    "t8"
+   ],
+   "measured": {
+    "similarity": 0.909,
+    "threshold": 0.8
+   }
+  },
+  {
+   "type": "human_feedback",
+   "start": 32,
+   "end": 32,
+   "severity": "warning",
+   "detector": {
+    "id": "human_feedback",
+    "version": 1
+   },
+   "message": "Someone disliked this reply",
+   "turnId": "t8",
+   "id": "human_feedback:t8",
+   "evidence": [
+    "t8"
+   ]
+  },
+  {
+   "id": "slow_tool:tool:toolu_saved",
+   "type": "slow_tool",
+   "detector": {
+    "id": "slow_tool",
+    "version": 1
+   },
+   "start": 44,
+   "end": 45.9,
+   "severity": "warning",
+   "turnId": "t13",
+   "message": "crm.submit_meter_reading took 1.90 s",
+   "evidence": [
+    "tool:toolu_saved"
+   ],
+   "measured": {
+    "duration": 1.9,
+    "threshold": 1
+   }
+  },
+  {
+   "id": "dead_air:44.22",
+   "type": "dead_air",
+   "detector": {
+    "id": "dead_air",
+    "version": 1
+   },
+   "start": 44.22,
+   "end": 46.6,
+   "severity": "warning",
+   "turnId": "t12",
+   "message": "2.38 s of silence on the line",
+   "evidence": [
+    "t12"
+   ],
+   "measured": {
+    "silence": 2.38,
+    "threshold": 2
+   }
+  },
+  {
+   "id": "slow_turn:t13",
+   "type": "slow_turn",
+   "detector": {
+    "id": "slow_turn",
+    "version": 1
+   },
+   "start": 44.22,
+   "end": 47.408,
+   "severity": "error",
+   "turnId": "t13",
+   "message": "The caller waited 3.19 s for a reply; the longest stage was crm.submit_meter_reading (1.90 s)",
+   "evidence": [
+    "t11",
+    "t13",
+    "tool:toolu_saved"
+   ],
+   "measured": {
+    "gap": 3.188,
+    "threshold": 1.5,
+    "unexplained": 0.718
+   }
+  }
+ ]
+}

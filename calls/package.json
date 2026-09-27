@@ -1,0 +1,21 @@
+{
+  "name": "calls",
+  "private": true,
+  "description": "Makes the demo calls: scripted lines spoken, timed and placed on a call's timeline.",
+  "type": "module",
+  "scripts": {
+    "build:calls": "node build.ts",
+    "debugger": "node debugger.ts",
+    "test": "vitest run",
+    "check-types": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@danolekh/earshot": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/node": "^26.6.1",
+    "ajv": "^8.20.0",
+    "typescript": "7.0.2",
+    "vitest": "5.0.1"
+  }
+}
