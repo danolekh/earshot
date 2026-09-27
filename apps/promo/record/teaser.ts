@@ -1,8 +1,8 @@
 /* Films the teaser (apps/docs /stage/teaser) frame by frame and lays its audio under it.
  *
- *   pnpm --filter docs dev                       # the stage, on :3002 (or pass --url)
+ *   pnpm --filter docs dev                       # the stage, on :3000 (or pass --url)
  *   pnpm --filter promo prepare-teaser           # the track and the features, once
- *   pnpm --filter promo record [--fast] [--url http://localhost:3002]
+ *   pnpm --filter promo record:teaser [--fast] [--url http://localhost:3000]
  *                                                # → out/teaser.mp4 (1920×1080, 60 fps, AAC)
  *
  * The page runs on a virtual clock (clock.js, from cardstock's recorder): after `start()` time
@@ -25,7 +25,7 @@ const VIEW = { width: 800, height: 450 };
 const SCALE = (FAST ? 1920 : 3840) / VIEW.width;
 const SAMPLES = 2;
 const FPS = FAST ? 60 : 60 * SAMPLES;
-const URL_ = new URL("/stage/teaser/", flag("url") ?? "http://localhost:3002").href;
+const URL_ = new URL("/stage/teaser/", flag("url") ?? "http://localhost:3000").href;
 const OUT = new URL("../out/", import.meta.url).pathname;
 const TRACK = join(OUT, "teaser-track.f32");
 const local = (file: string) => readFileSync(new URL(file, import.meta.url), "utf8");
