@@ -1,16 +1,17 @@
 /* Films a take of the call debugger (takes.ts) and lays the call's sound under it.
  *
  *   pnpm --filter debugger build:stage                  # the build it films, once per change
- *   pnpm --filter promo record <take> [--theme dark|light] [--fast]
- *                                                       # → out/<take>[-<theme>][-fast].mp4
+ *   pnpm --filter promo record <take> [--theme dark|light] [--look colorful] [--fast]
+ *                                                       # → out/<take>[-<theme>][-<look>][-fast].mp4
  *
- * Take: `debugger` (the film, dark and light). The final
+ * Take: `debugger` (the film, dark and light; `--look colorful` is the light one for X). The final
  * is shot 3840 wide at 120 fps and blended to 1080p60; `--fast` shoots 1920 wide at 60 fps. The
  * orb teaser has its own recorder: `pnpm --filter promo record:teaser`. */
 import { mkdirSync, rmSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 
 import { Film } from "./film.ts";
+import { LOOKS } from "./looks.ts";
 import { mux } from "./mux.ts";
 import { takes } from "./takes.ts";
 
@@ -22,18 +23,24 @@ const flag = (name: string) => {
 const name = args.find((a, i) => !a.startsWith("--") && !args[i - 1]?.startsWith("--")) ?? "debugger";
 const take = takes[name];
 if (!take) throw new Error(`no take "${name}"; there are: ${Object.keys(takes).join(", ")}`);
-const theme = (flag("theme") ?? take.themes[0]) as "dark" | "light";
+const lookName = flag("look");
+const look = lookName ? LOOKS[lookName] : undefined;
+if (lookName && !look) throw new Error(`no look "${lookName}"; there are: ${Object.keys(LOOKS).join(", ")}`);
+const theme = (flag("theme") ?? look?.theme ?? take.themes[0]) as "dark" | "light";
 if (!take.themes.includes(theme)) throw new Error(`the ${name} take has no ${theme} cut`);
 const fast = args.includes("--fast");
 
 const OUT = new URL("../out/", import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
 // A draft never overwrites a final.
-const file = join(OUT, `${name}${take.themes.length > 1 ? `-${theme}` : ""}${fast ? "-fast" : ""}.mp4`);
+const file = join(
+  OUT,
+  `${name}${take.themes.length > 1 ? `-${theme}` : ""}${lookName ? `-${lookName}` : ""}${fast ? "-fast" : ""}.mp4`,
+);
 const silent = file.replace(/\.mp4$/, ".silent.mp4");
 
 const started = Date.now();
-const film = await Film.open({ theme, fast });
+const film = await Film.open({ theme, fast, look });
 try {
   await take.open(film);
   await film.begin(silent);

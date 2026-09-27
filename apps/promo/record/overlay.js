@@ -1,9 +1,28 @@
 /* The film's own layer over the page, for the recorder: a caption, a keycap when a shortcut is
  * pressed, and the closing card. Mounted on first use (after the page has hydrated, so React never
- * sees it) and animated by CSS transitions, which the recorder's clock holds to its frames. */
+ * sees it) and animated by CSS transitions, which the recorder's clock holds to its frames. Its
+ * colours are the film's look (looks.ts, as `window.__overlayLook`), dark by default. */
 (() => {
   const FONT = '"Inter Variable", "Inter", ui-sans-serif, system-ui, sans-serif';
   const MONO = '"Geist Mono Variable", ui-monospace, "SF Mono", monospace';
+  const look = {
+    caption: {
+      background: "rgb(10 11 13 / 0.88)",
+      boxShadow: "0 12px 40px rgb(0 0 0 / 0.35), inset 0 0 0 1px rgb(255 255 255 / 0.08)",
+      color: "#f4f5f7",
+    },
+    key: {
+      background: "#f4f5f7",
+      color: "#0b0c0e",
+      boxShadow: "0 5px 0 #b9bdc4, 0 14px 30px rgb(0 0 0 / 0.35)",
+    },
+    card: { background: "radial-gradient(70% 90% at 50% 40%, #11151c 0%, #0b0c0e 70%)", color: "#f4f5f7" },
+    title: {},
+    eyebrow: "#9aa3ad",
+    subtitle: "#cfd5dc",
+    line: "#c6ff3d",
+    ...window.__overlayLook,
+  };
   const css = (el, style) => Object.assign(el.style, style);
   let root, caption, key, card, keyTimer;
 
@@ -26,9 +45,7 @@
       maxWidth: "78%",
       padding: "14px 28px 16px",
       borderRadius: "18px",
-      background: "rgb(10 11 13 / 0.88)",
-      boxShadow: "0 12px 40px rgb(0 0 0 / 0.35), inset 0 0 0 1px rgb(255 255 255 / 0.08)",
-      color: "#f4f5f7",
+      ...look.caption,
       fontSize: "44px",
       fontWeight: "600",
       letterSpacing: "-0.015em",
@@ -50,9 +67,7 @@
       display: "grid",
       placeItems: "center",
       borderRadius: "14px",
-      background: "#f4f5f7",
-      color: "#0b0c0e",
-      boxShadow: "0 5px 0 #b9bdc4, 0 14px 30px rgb(0 0 0 / 0.35)",
+      ...look.key,
       font: `600 30px ${MONO}`,
       opacity: "0",
       transform: "translateY(8px) scale(0.92)",
@@ -66,8 +81,7 @@
       placeContent: "center",
       justifyItems: "center",
       gap: "18px",
-      background: "radial-gradient(70% 90% at 50% 40%, #11151c 0%, #0b0c0e 70%)",
-      color: "#f4f5f7",
+      ...look.card,
       textAlign: "center",
       opacity: "0",
       transition: "opacity 500ms ease-out",
@@ -112,16 +126,22 @@
         css(el, style);
         card.append(el);
       };
-      if (eyebrow) add(eyebrow, { fontSize: "26px", color: "#9aa3ad", fontWeight: "500" });
-      add(title, { fontSize: "104px", fontWeight: "650", letterSpacing: "-0.035em", lineHeight: "1" });
+      if (eyebrow) add(eyebrow, { fontSize: "26px", color: look.eyebrow, fontWeight: "500" });
+      add(title, {
+        fontSize: "104px",
+        fontWeight: "650",
+        letterSpacing: "-0.035em",
+        lineHeight: "1",
+        ...look.title,
+      });
       if (subtitle)
-        add(subtitle, { fontSize: "34px", color: "#cfd5dc", fontWeight: "500", maxWidth: "980px" });
+        add(subtitle, { fontSize: "34px", color: look.subtitle, fontWeight: "500", maxWidth: "980px" });
       const list = document.createElement("div");
       css(list, { display: "grid", gap: "10px", marginTop: "26px" });
       for (const line of lines) {
         const el = document.createElement("div");
         el.textContent = line;
-        css(el, { font: `500 28px ${MONO}`, color: "#c6ff3d" });
+        css(el, { font: `500 28px ${MONO}`, color: look.line });
         list.append(el);
       }
       card.append(list);

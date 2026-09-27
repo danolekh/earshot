@@ -6,13 +6,16 @@
  * when a frame is taken, each frame one interval, screenshotted into ffmpeg, so nothing drops
  * however slow the capture. The debugger's stage build (apps/debugger `build:stage`) plays calls
  * on that clock instead of an <audio> element and logs every play, seek and stop; `end()` hands
- * that log to mux.ts, which lays the call's own recording under the video. */
+ * that log to mux.ts, which lays the call's own recording under the video. A look (looks.ts)
+ * dresses it for where the film goes: CSS over the app, and a backdrop it's composited onto. */
 import { spawn, type ChildProcess } from "node:child_process";
-import { existsSync, readFileSync, statSync } from "node:fs";
+import { existsSync, readFileSync, rmSync, statSync, writeFileSync } from "node:fs";
 import { createServer, type Server } from "node:http";
 import { extname, join } from "node:path";
 
 import { type Browser, chromium, type Page } from "playwright";
+
+import type { Look } from "./looks.ts";
 
 export type Point = [number, number];
 export type Ease = (t: number) => number;
@@ -42,8 +45,9 @@ export interface FilmOptions {
   theme: "dark" | "light";
   fast: boolean;
   /** The CSS size filmed, 1920×1080 by default (a real screen, where the findings and the details
-   * both fit); the frames are 3840 wide (1920 with `fast`). */
+   * both fit); the frames are 3840 wide (1920 with `fast`). A look sets its window's size. */
   view?: { width: number; height: number };
+  look?: Look;
   /** Frames blended into each output frame in the final (2: shot at 120 fps). */
   samples?: number;
   accent?: string;
@@ -97,6 +101,8 @@ export class Film {
   private readonly origin: string;
   private readonly fast: boolean;
   private readonly samples: number;
+  private readonly scale: number;
+  private readonly look?: Look;
   private ffmpeg?: ChildProcess;
   private out = "";
   private frames = 0;
@@ -114,6 +120,8 @@ export class Film {
     origin: string;
     fast: boolean;
     samples: number;
+    scale: number;
+    look?: Look;
     view: { width: number; height: number };
   }) {
     this.page = o.page;
@@ -122,6 +130,8 @@ export class Film {
     this.origin = o.origin;
     this.fast = o.fast;
     this.samples = o.samples;
+    this.scale = o.scale;
+    this.look = o.look;
     this.fps = o.fast ? 60 : 60 * o.samples;
     this.interval = 1000 / this.fps;
     this.size = o.view;
@@ -129,9 +139,13 @@ export class Film {
   }
 
   static async open(options: FilmOptions): Promise<Film> {
-    const view = options.view ?? { width: 1920, height: 1080 };
+    const { look } = options;
+    const view = look
+      ? { width: look.window.width, height: look.window.height }
+      : (options.view ?? { width: 1920, height: 1080 });
     const samples = options.samples ?? 2;
-    const scale = (options.fast ? 1920 : 3840) / view.width;
+    // A look's window is filmed at the full frame's scale, so its text is the size it'd be full frame.
+    const scale = (options.fast ? 1920 : 3840) / (look ? 1920 : view.width);
     const { server, origin } = await serve();
     const browser = await chromium.launch({
       channel: "chromium",
@@ -149,7 +163,7 @@ export class Film {
       reducedMotion: "no-preference",
       colorScheme: options.theme,
     });
-    const film = new Film({ page, browser, server, origin, fast: options.fast, samples, view });
+    const film = new Film({ page, browser, server, origin, fast: options.fast, samples, scale, look, view });
     page.on("pageerror", (e) => film.errors.push(e.message));
     page.on("console", (m) => m.type() === "error" && film.errors.push(m.text()));
     // Once per page load: the theme, a fresh debugger (no remembered lanes or tests), the stage log.
@@ -162,9 +176,19 @@ export class Film {
       (window as unknown as { __stage: unknown }).__stage = { audio: [] };
     }, options.theme);
     await page.addInitScript({ content: local("clock.js") });
+    if (look)
+      await page.addInitScript(
+        ({ css, overlay }) => {
+          const sheet = new CSSStyleSheet();
+          sheet.replaceSync(css);
+          document.adoptedStyleSheets = [...document.adoptedStyleSheets, sheet];
+          (window as any).__overlayLook = overlay;
+        },
+        { css: look.css, overlay: look.overlay },
+      );
     await page.addInitScript(
       (accent) => ((window as any).__cursorAccent = accent),
-      options.accent ?? "#c6ff3d",
+      options.accent ?? look?.accent ?? "#c6ff3d",
     );
     await page.addInitScript({ content: local("cursor.js") });
     await page.addInitScript({ content: local("overlay.js") });
@@ -195,6 +219,31 @@ export class Film {
       "scale=1920:1080:flags=lanczos",
       "format=yuv420p",
     ];
+    // With a look, each frame goes into its window on the backdrop (a still, looped until the
+    // frames end), then on as before.
+    let input = ["-vf", filters.join(",")];
+    const backdrop = out.replace(/\.mp4$/, ".backdrop.png");
+    if (this.look) {
+      const s = this.scale;
+      const { x, y } = this.look.window;
+      writeFileSync(backdrop, await this.look.backdrop(s));
+      const graph = [
+        `[0:v]pad=${1920 * s}:${1080 * s}:${x * s}:${y * s}[framed]`,
+        `[framed][1:v]overlay=0:0:shortest=1:format=rgb,${filters.join(",")}[v]`,
+      ].join(";");
+      input = [
+        "-loop",
+        "1",
+        "-framerate",
+        String(this.fps),
+        "-i",
+        backdrop,
+        "-filter_complex",
+        graph,
+        "-map",
+        "[v]",
+      ];
+    }
     this.ffmpeg = spawn(
       "ffmpeg",
       [
@@ -210,7 +259,7 @@ export class Film {
         "-i",
         "-",
       ]
-        .concat(["-vf", filters.join(","), "-r", "60"])
+        .concat(input, ["-r", "60"])
         .concat(["-c:v", "libx264", "-preset", this.fast ? "medium" : "slow"])
         .concat(["-crf", this.fast ? "18" : "12", "-profile:v", "high"])
         .concat(["-colorspace", "bt709", "-color_primaries", "bt709", "-color_trc", "bt709"])
@@ -411,6 +460,7 @@ export class Film {
     const done = new Promise((r) => ffmpeg.on("exit", r));
     ffmpeg.stdin!.end();
     await done;
+    if (this.look) rmSync(this.out.replace(/\.mp4$/, ".backdrop.png"), { force: true });
     process.stdout.write("\n");
     await this.browser.close();
     this.server.close();
