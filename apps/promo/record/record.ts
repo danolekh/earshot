@@ -2,7 +2,7 @@
  *
  *   pnpm --filter debugger build:stage                  # the build it films, once per change
  *   pnpm --filter promo record <take> [--theme dark|light] [--fast]
- *                                                       # → out/<take>[-<theme>].mp4
+ *                                                       # → out/<take>[-<theme>][-fast].mp4
  *
  * Take: `debugger` (the film, dark and light). The final
  * is shot 3840 wide at 120 fps and blended to 1080p60; `--fast` shoots 1920 wide at 60 fps. The
@@ -28,7 +28,8 @@ const fast = args.includes("--fast");
 
 const OUT = new URL("../out/", import.meta.url).pathname;
 mkdirSync(OUT, { recursive: true });
-const file = join(OUT, `${name}${take.themes.length > 1 ? `-${theme}` : ""}.mp4`);
+// A draft never overwrites a final.
+const file = join(OUT, `${name}${take.themes.length > 1 ? `-${theme}` : ""}${fast ? "-fast" : ""}.mp4`);
 const silent = file.replace(/\.mp4$/, ".silent.mp4");
 
 const started = Date.now();

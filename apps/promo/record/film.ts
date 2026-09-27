@@ -380,23 +380,26 @@ export class Film {
   }
 
   /** Punches in on `rect` (CSS px of the page), or back out with null, over `ms`: the app scales
-   * and moves under the captions and the cursor, which stay as they are. Text stays sharp. */
+   * and moves under the captions and the cursor, which stay as they are. Text stays sharp. On a
+   * page without the call's shell (Tests), the page's root moves; the overlays sit after it. */
   async camera(rect: { x: number; y: number; w: number; h: number } | null, ms = 700): Promise<void> {
     await this.page.evaluate(
-      ({ rect, ms, view }) => {
-        const root = document.querySelector<HTMLElement>("[data-slot=sidebar-wrapper]") ?? document.body;
+      ({ box, duration, view }) => {
+        const root =
+          document.querySelector<HTMLElement>("[data-slot=sidebar-wrapper]") ??
+          (document.body.firstElementChild as HTMLElement);
         root.style.transformOrigin = "0 0";
-        root.style.transition = `transform ${ms}ms cubic-bezier(0.45, 0, 0.2, 1)`;
-        if (!rect) {
+        root.style.transition = `transform ${duration}ms cubic-bezier(0.45, 0, 0.2, 1)`;
+        if (!box) {
           root.style.transform = "translate(0px, 0px) scale(1)";
           return;
         }
-        const s = Math.min(view.width / rect.w, view.height / rect.h);
-        const x = -rect.x * s + (view.width - rect.w * s) / 2;
-        const y = -rect.y * s + (view.height - rect.h * s) / 2;
+        const s = Math.min(view.width / box.w, view.height / box.h);
+        const x = -box.x * s + (view.width - box.w * s) / 2;
+        const y = -box.y * s + (view.height - box.h * s) / 2;
         root.style.transform = `translate(${x}px, ${y}px) scale(${s})`;
       },
-      { rect, ms, view: this.size },
+      { box: rect, duration: ms, view: this.size },
     );
     await this.hold(ms);
   }

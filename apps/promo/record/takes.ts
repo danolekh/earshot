@@ -21,6 +21,14 @@ async function overLanes(film: Film, t: number): Promise<[number, number]> {
   return [await film.xAt(t), lane!.y + lane!.height / 2];
 }
 
+/** A 16:9 box around the first `selector`, with room around it: what the camera punches in on. */
+async function around(film: Film, selector: string, pad = 48) {
+  const box = (await film.page.locator(selector).first().boundingBox())!;
+  const w = Math.max(box.width + 2 * pad, ((box.height + 2 * pad) * 16) / 9);
+  const h = (w * 9) / 16;
+  return { x: box.x + box.width / 2 - w / 2, y: box.y + box.height / 2 - h / 2, w, h };
+}
+
 /** A 16:9 box around the caller's words as said and as heard, centred on the word said but not
  * heard: what the camera punches in on. */
 async function heardAndSaid(film: Film) {
@@ -137,7 +145,9 @@ const debuggerTake: Take = {
     await film.click();
     await film.until(`[data-call="${MAIN}-v43"]`);
     await film.caption("Fails on v42, passes on v43");
-    await film.hold(2400);
+    await film.camera(await around(film, "[data-test]"), 800);
+    await film.hold(2200);
+    await film.camera(null, 600);
 
     // 11. The same call from other stacks.
     await film.moveTo('a:has-text("Calls")', 700);

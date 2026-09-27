@@ -3,6 +3,7 @@ import { createFileRoute, Link } from "@tanstack/react-router";
 import { HomeLayout } from "fumadocs-ui/layouts/home";
 
 import insurance from "@/calls/alder-mutual-address.json";
+import { Film } from "@/components/film";
 import { Playground } from "@/components/playground/playground";
 import { baseOptions } from "@/lib/layout.shared";
 
@@ -38,6 +39,30 @@ function Home() {
           </div>
         </section>
 
+        <section aria-labelledby="debug" className="grid gap-8">
+          <SectionHead id="debug" eyebrow="Debug" title="Find out why a call went wrong">
+            A call debugger built from these parts, on a call's trace: what the agent heard against what was
+            said, the turn detector's decisions, where each reply's wait went, from LiveKit, Pipecat or
+            ElevenLabs.
+          </SectionHead>
+          <Film />
+          <div className="flex flex-wrap items-center gap-3">
+            <a
+              href="https://debugger.danolekh.com"
+              className="bg-fd-primary text-fd-primary-foreground rounded-full px-5 py-2 text-sm font-semibold"
+            >
+              Open the call debugger
+            </a>
+            <Link
+              to="/docs/$/"
+              params={{ _splat: "inspector" }}
+              className="border-fd-border rounded-full border px-5 py-2 text-sm font-medium"
+            >
+              The inspector parts
+            </Link>
+          </div>
+        </section>
+
         <section aria-labelledby="talk" className="grid gap-8">
           <SectionHead id="talk" eyebrow="Live" title="Talk to it">
             Your voice moves it while it listens. Then it thinks, and answers.
@@ -61,28 +86,6 @@ function Home() {
           <p className="text-fd-muted-foreground text-xs">
             An invented call, spoken by Chatterbox (MIT) and timed word by word by a forced aligner.
           </p>
-        </section>
-
-        <section aria-labelledby="debug" className="grid gap-8">
-          <SectionHead id="debug" eyebrow="Debug" title="Then find out why it went wrong">
-            The same parts, on a call's trace: what the agent heard against what was said, the turn detector's
-            decisions, where each reply's wait went, from LiveKit, Pipecat or ElevenLabs.
-          </SectionHead>
-          <div className="flex flex-wrap items-center gap-3">
-            <a
-              href="https://debugger.danolekh.com"
-              className="bg-fd-primary text-fd-primary-foreground rounded-full px-5 py-2 text-sm font-semibold"
-            >
-              Open the call debugger
-            </a>
-            <Link
-              to="/docs/$/"
-              params={{ _splat: "inspector" }}
-              className="border-fd-border rounded-full border px-5 py-2 text-sm font-medium"
-            >
-              The inspector parts
-            </Link>
-          </div>
         </section>
       </main>
     </HomeLayout>
