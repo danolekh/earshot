@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite dev --port 3011",
     "build": "vite build",
+    "build:stage": "vite build --mode stage",
     "preview": "vite preview",
     "call": "node scripts/copy-call.ts",
     "check-types": "tsc --noEmit",

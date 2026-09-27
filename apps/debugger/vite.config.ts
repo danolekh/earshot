@@ -6,7 +6,9 @@ import { defineConfig } from "vite";
 
 import calls from "./src/calls/index.json" with { type: "json" };
 
-export default defineConfig({
+// `--mode stage` builds the version apps/promo films (src/lib/stage.ts) into its own folder, so a
+// deploy (which ships .output) can never pick it up.
+export default defineConfig(({ mode }) => ({
   server: { port: 3011 },
   plugins: [
     tailwindcss(),
@@ -21,7 +23,7 @@ export default defineConfig({
       ],
     }),
     react(),
-    nitro(),
+    nitro(mode === "stage" ? { output: { dir: ".output-stage" } } : {}),
   ],
   resolve: { tsconfigPaths: true },
-});
+}));

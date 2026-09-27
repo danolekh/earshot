@@ -6,7 +6,7 @@
 import { createSelection, Player, usePlayer } from "@danolekh/earshot/player";
 import { applyKeyAction, createViewport, viewAround } from "@danolekh/earshot/timeline";
 import type { CallTrace } from "@danolekh/earshot/trace";
-import { memo, useLayoutEffect, useMemo, useRef, useState } from "react";
+import { memo, useEffect, useLayoutEffect, useMemo, useRef, useState } from "react";
 import { toast } from "sonner";
 
 import { SidebarProvider, useSidebar } from "@/components/ui/sidebar";
@@ -15,6 +15,7 @@ import { type DebuggerAction, debuggerKey } from "@/lib/keys";
 import { layout } from "@/lib/layout";
 import { type Prepared, prepare } from "@/lib/prepare";
 import type { DebugSearch } from "@/lib/search";
+import { createStageClock, filming, markStageReady } from "@/lib/stage";
 import { inspectorOpen, singleKeys } from "@/lib/stored";
 import { useUrlSync } from "@/lib/url-sync";
 import { LANE_SETS, setLanes, shownState, toggleSet, viewSettings, visibleLanes } from "@/lib/view";
@@ -36,6 +37,10 @@ export interface DebuggerProps {
   nav?: React.ReactNode;
 }
 
+// Only a stage build (`--mode stage`) is filmed. Written out here rather than imported so that in
+// every other build it folds to false and the stage code is dropped.
+const STAGE = import.meta.env.VITE_STAGE === "1";
+
 export const Debugger = memo(function Debugger({ trace, search, onSearch, nav }: DebuggerProps) {
   const prepared = useMemo(() => prepare(trace), [trace]);
   const [selection] = useState(() => createSelection());
@@ -47,10 +52,18 @@ export const Debugger = memo(function Debugger({ trace, search, onSearch, nav }:
         : trace.clock.channels.map((c) => (c === "caller" ? ("user" as const) : ("agent" as const))),
     [trace.clock.channels],
   );
+  // Filmed by apps/promo: the recorder's frames drive the clock, and no <audio> is rendered.
+  const [stage] = useState(() =>
+    STAGE && filming() ? createStageClock(trace.call.id, trace.call.duration) : undefined,
+  );
+  useEffect(() => {
+    if (STAGE && stage) markStageReady();
+  }, [stage]);
   return (
     <Player.Root
       conversation={prepared.conversation}
-      src={trace.audio?.sources ?? []}
+      {...(!STAGE && { src: trace.audio?.sources ?? [] })}
+      {...(stage && { clock: stage })}
       selection={selection}
       {...(channels && { channels })}
       className="h-svh"
