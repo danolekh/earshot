@@ -58,32 +58,24 @@ const colorful: Look = {
   color: #10a765;
 }`,
   accent: "#5b3df5",
+  // The film's own layer stays neutral, in shadcn's zinc: the colour is the app's and the backdrop's.
   overlay: {
     caption: {
-      background: "linear-gradient(120deg, #5b3df5 0%, #b43dd6 55%, #e5338a 100%)",
-      boxShadow: "0 14px 40px rgb(91 61 245 / 0.35), inset 0 0 0 1px rgb(255 255 255 / 0.18)",
-      color: "#ffffff",
+      background: "#09090b",
+      borderRadius: "12px",
+      boxShadow: "0 12px 32px rgb(9 9 11 / 0.18), 0 2px 6px rgb(9 9 11 / 0.12)",
+      color: "#fafafa",
     },
     key: {
-      background: "#1d1a3a",
-      color: "#ffffff",
-      boxShadow: "0 5px 0 #0c0a1f, 0 14px 30px rgb(29 26 58 / 0.3)",
+      background: "#18181b",
+      color: "#fafafa",
+      boxShadow: "0 5px 0 #09090b, 0 14px 30px rgb(9 9 11 / 0.25)",
     },
-    card: {
-      background:
-        "radial-gradient(55% 70% at 18% 12%, #ffe1f0 0%, transparent 70%), radial-gradient(60% 75% at 85% 92%, #e0dbff 0%, transparent 70%), #ffffff",
-      color: "#15122b",
-    },
-    title: {
-      background: "linear-gradient(120deg, #5b3df5 10%, #e5338a 90%)",
-      backgroundClip: "text",
-      webkitBackgroundClip: "text",
-      color: "transparent",
-      paddingBottom: "8px",
-    },
-    eyebrow: "#6b6689",
-    subtitle: "#4b4666",
-    line: "#5b3df5",
+    card: { background: "#ffffff", color: "#09090b" },
+    title: {},
+    eyebrow: "#71717a",
+    subtitle: "#71717a",
+    line: "#52525b",
   },
   async backdrop(scale) {
     const { x, y, width: w, height: h } = WINDOW;

@@ -51,6 +51,9 @@ const debuggerTake: Take = {
   themes: ["dark", "light"],
   async open(film) {
     await film.warm([`/call/${MAIN}/`, `/call/${MAIN}-pipecat/`, `/call/${MAIN}-elevenlabs/`, "/tests/"]);
+    // The inspector starts closed, so the tracks have the width; the take opens it when there's
+    // something to read in it.
+    await film.page.evaluate(() => localStorage.setItem("debugger:inspector", "off"));
     await film.goto("/");
   },
   async film(film) {
@@ -95,11 +98,19 @@ const debuggerTake: Take = {
     await film.hold(700);
     await film.camera(null, 700);
 
-    // 6. The lookup that failed because of it: a span of the pipeline, picked.
+    // 6. The lookup that failed because of it: the inspector opens (between captions, so none
+    // jumps as the tracks narrow), then a span of the pipeline is picked.
+    await film.caption(null);
+    await film.moveTo('button[aria-label="Inspector"]', 700);
+    await film.click();
+    await film.hold(600);
     await film.caption("Every span, with what went in and out");
     await film.moveTo("[data-slot=timeline-span][data-status=error]", 700);
     await film.click();
-    await film.hold(2400);
+    await film.hold(600);
+    // Down to what it was called with and what came back (the 404), under the findings.
+    await film.scrollTo('#inspector button:has-text("Show JSON")', 800);
+    await film.hold(2000);
 
     // 7. The whole call again, and where the slow reply's 3.1 s went.
     await focus(film);
@@ -133,6 +144,7 @@ const debuggerTake: Take = {
 
     // 10. A bad moment becomes a test: failing here, passing on the fixed agent.
     await film.caption("Turn it into a test");
+    await film.scrollTo('#inspector button:has-text("Save as test case")');
     await film.moveTo('#inspector button:has-text("Save as test case")', 700);
     await film.click();
     await film.until('[role=dialog]:has-text("Save as test case")');

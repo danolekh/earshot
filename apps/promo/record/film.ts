@@ -453,6 +453,46 @@ export class Film {
     await this.hold(ms);
   }
 
+  /** Scrolls the panel `selector` sits in until it's in view (`margin` px inside), eased over `ms`
+   * with the pointer over the panel: a person scrolling to it. Set frame by frame, so it doesn't
+   * depend on the browser's own smooth scrolling, which runs on real time. */
+  async scrollTo(selector: string, ms = 700, margin = 24): Promise<void> {
+    const plan = await this.page
+      .locator(selector)
+      .first()
+      .evaluate((el, inset) => {
+        let panel = el.parentElement;
+        const scrolls = (p: HTMLElement) =>
+          p.scrollHeight > p.clientHeight && /auto|scroll/.test(getComputedStyle(p).overflowY);
+        while (panel && !scrolls(panel)) panel = panel.parentElement;
+        if (!panel) return null;
+        const a = panel.getBoundingClientRect();
+        const b = el.getBoundingClientRect();
+        const dy =
+          b.top < a.top + inset
+            ? b.top - (a.top + inset)
+            : b.bottom > a.bottom - inset
+              ? b.bottom - (a.bottom - inset)
+              : 0;
+        const to = Math.max(0, Math.min(panel.scrollHeight - panel.clientHeight, panel.scrollTop + dy));
+        panel.setAttribute("data-film-scroll", "");
+        return { from: panel.scrollTop, to, at: [a.left + a.width / 2, a.top + a.height * 0.55] as Point };
+      }, margin);
+    if (!plan || Math.abs(plan.to - plan.from) < 1) return;
+    await this.move(plan.at, 450);
+    const n = Math.max(1, Math.round(ms / this.interval));
+    for (let i = 1; i <= n; i++) {
+      const top = plan.from + (plan.to - plan.from) * easeInOut(i / n);
+      await this.page.evaluate((y) => {
+        document.querySelector<HTMLElement>("[data-film-scroll]")!.scrollTop = y;
+      }, top);
+      await this.frame();
+    }
+    await this.page.evaluate(() =>
+      document.querySelector("[data-film-scroll]")?.removeAttribute("data-film-scroll"),
+    );
+  }
+
   /** Stops filming: closes the video and returns what the audio needs. */
   async end(): Promise<Filmed> {
     this.events.push(...(await this.page.evaluate(() => (window as any).__stage.audio as AudioEvent[])));

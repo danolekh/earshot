@@ -42,6 +42,9 @@
       position: "absolute",
       left: "50%",
       bottom: "34px",
+      // Its own width (up to maxWidth): placed from the middle, it'd otherwise get only the half
+      // of the frame to its right to lay out in, and wrap.
+      width: "max-content",
       maxWidth: "78%",
       padding: "14px 28px 16px",
       borderRadius: "18px",

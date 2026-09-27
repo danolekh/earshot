@@ -32,7 +32,7 @@ export function finding(callId: string, type: string): FindingRef {
 export async function pick(film: Film, callId: string, type: string, ms = 650): Promise<FindingRef> {
   const f = finding(callId, type);
   const item = `#inspector [data-finding="${f.id}"]`;
-  await film.page.locator(item).scrollIntoViewIfNeeded();
+  await film.scrollTo(item);
   await film.moveTo(item, ms, [0.35, 0.5]);
   await film.click();
   await film.hold(250);
